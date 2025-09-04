@@ -35,11 +35,11 @@
         "description": "Fetches a list of all WhatsEra channels associated with the authenticated company account.",
         "operationId": "listChannels",
         "responses": {
-          "200": {
-            "description": "A list of channels was successfully retrieved.",
-            "content": {
-              "application/json": {
-                "schema": {
+         "200": {
+          "description": "A list of channels was successfully retrieved.",
+          "content": {
+            "application/json": {
+              "schema": {
                   "$ref": "#/components/schemas/ChannelListSuccessResponse"
                 },
                 "example": {
@@ -80,34 +80,36 @@
                     }
                   ]
                 }
-              }
             }
-          },
-          "401": {
-            "$ref": "#/components/responses/Unauthorized"
-          },
-          "500": {
+          }
+         },
+         "401": {
+         "$ref": "#/components/responses/Unauthorized"
+
+         },
+         "500": {
             "$ref": "#/components/responses/InternalServerError"
           },
           "400": {
             "description": "Bad Request. The request could not be processed, often due to a missing or invalid resource like a WhatsEra account.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorResponse"
-                },
-                "example": {
-                  "status": 400,
-                  "success": false,
-                  "error": "WhatsEra account not found!"
-                }
-              }
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/ErrorResponse"
+            },
+            "example": {
+              "status": 400,
+              "success": false,
+              "error": "WhatsEra account not found!"
             }
           }
         }
+          }
+        }
+
       }
     },
-    "/whatsera/api/channel/view/{channelId}": {
+      "/whatsera/api/channel/view/{channelId}": {
       "get": {
         "tags": ["Channels"],
         "summary": "Retrieve a single channel by ID",
@@ -130,9 +132,6 @@
             }
           },
           "400": {
-            "$ref": "#/components/responses/BadRequest"
-          },
-          "401": {
             "description": "Bad Request. The request could not be processed, often due to a missing or invalid resource like a WhatsEra account.",
             "content": {
               "application/json": {
@@ -147,27 +146,32 @@
               }
             }
           },
-          "404": {
-            "description": "Not Found. The requested resource could not be found.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorResponse"
-                },
-                "example": {
-                  "status": 404,
-                  "success": false,
-                  "error": "Channel not found!"
-                }
-              }
-            }
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
           },
+          "404": {
+        "description": "Not Found. The requested resource could not be found.",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/ErrorResponse"
+            },
+            "example": {
+              "status": 404,
+              "success": false,
+              "error": "Channel not found!"
+            }
+          }
+        }
+      },
           "500": {
             "$ref": "#/components/responses/InternalServerError"
           }
         }
+
       }
     }
+
   },
   "webhooks": {
     "/plant/webhook": {
@@ -357,7 +361,11 @@
             "type": "object"
           }
         },
-        "required": ["status", "success", "error"]
+        "required": [
+          "status",
+          "success",
+          "error"
+        ]
       }
     },
     "responses": {
@@ -403,6 +411,7 @@
               "success": false,
               "error": "Internal Server Error!"
             }
+
           }
         }
       }
