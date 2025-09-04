@@ -1,134 +1,93 @@
 {
   "openapi": "3.1.0",
   "info": {
-    "title": "OpenAPI Plant Store",
-    "description": "A sample API that uses a plant store as an example to demonstrate features in the OpenAPI specification",
-    "license": {
-      "name": "MIT"
-    },
-    "version": "1.0.0"
+    "title": "AdsEra REST API",
+    "description": "Welcome to the AdsEra REST API. Use our API to integrate powerful, multi-channel communication (Email and WhatsApp) directly into your applications. Automate transactional messages, trigger marketing campaigns, manage your audience, and track performance programmatically.",
+    "version": "1.0.0",
+    "contact": {
+      "name": "Shubham",
+      "email": "shubham@adsera.in"
+    }
   },
   "servers": [
     {
-      "url": "http://sandbox.mintlify.com"
+      "url": "https://app.adsera.in",
+      "description": "Production Server"
     }
   ],
   "security": [
     {
-      "bearerAuth": []
+      "AppIdAuth": [],
+      "AppSecretAuth": []
+    }
+  ],
+  "tags": [
+    {
+      "name": "Channels",
+      "description": "Operations for managing WhatsEra channels (WhatsApp Account)"
     }
   ],
   "paths": {
-    "/plants": {
+    "/whatsera/api/channel/list": {
       "get": {
-        "description": "Returns all plants from the system that the user has access to",
-        "parameters": [
-          {
-            "name": "limit",
-            "in": "query",
-            "description": "The maximum number of results to return",
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          }
-        ],
+        "tags": ["Channels"],
+        "summary": "Retrieve a list of channels (WA Accounts)",
+        "description": "Fetches a list of all WhatsEra channels associated with the authenticated company account.",
+        "operationId": "listChannels",
         "responses": {
-          "200": {
-            "description": "Plant response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/Plant"
-                  }
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Unexpected error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          }
-        }
-      },
-      "post": {
-        "description": "Creates a new plant in the store",
-        "requestBody": {
-          "description": "Plant to add to the store",
+         "200": {
+          "description": "A list of channels was successfully retrieved.",
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewPlant"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "plant response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Plant"
+                  "$ref": "#/components/schemas/ChannelListSuccessResponse"
+                },
+                "example": {
+                  "status": 200,
+                  "success": true,
+                  "error": null,
+                  "channels": [
+                    {
+                      "_id": "6599202896434347169XXXXX",
+                      "userId": "6599202896434347169XXXXX",
+                      "name": "Channel 1",
+                      "isResellerChannel": false,
+                      "partnerId": "6599202896434347169XXXXX",
+                      "status": "Disconnected",
+                      "wago": true,
+                      "createdAt": "2025-09-03T06:41:27.538Z",
+                      "forIos": false,
+                      "wId": "68b93f17afc23c1f5abdXXX@s.whatsapp.net",
+                      "updatedAt": "2025-09-04T07:26:15.591Z",
+                      "__v": 0
+                    },
+                    {
+                      "_id": "6599202896434347169XXXXX",
+                      "userId": "6599202896434347169XXXXX",
+                      "name": "Channel 2",
+                      "isResellerChannel": false,
+                      "partnerId": "6599202896434347169XXXXX",
+                      "status": "Active",
+                      "wago": true,
+                      "createdAt": "2025-08-07T07:55:40.429Z",
+                      "forIos": false,
+                      "wId": "68b93f17afc23c1f5abdXXX:62@s.whatsapp.net",
+                      "updatedAt": "2025-09-04T08:08:41.674Z",
+                      "__v": 0,
+                      "mobile": 91123456789,
+                      "expireAt": "2025-08-22T18:30:00.000Z",
+                      "wUsername": "Channel 1"
+                    }
+                  ]
                 }
-              }
-            }
-          },
-          "400": {
-            "description": "unexpected error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
             }
           }
+         } 
         }
-      }
-    },
-    "/plants/{id}": {
-      "delete": {
-        "description": "Deletes a single plant based on the ID supplied",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "description": "ID of plant to delete",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int64"
-            }
-          }
-        ],
-        "responses": {
-          "204": {
-            "description": "Plant deleted",
-            "content": {}
-          },
-          "400": {
-            "description": "unexpected error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          }
-        }
+
       }
     }
+
   },
   "webhooks": {
     "/plant/webhook": {
@@ -152,65 +111,130 @@
       }
     }
   },
+
   "components": {
-    "schemas": {
-      "Plant": {
-        "required": [
-          "name"
-        ],
-        "type": "object",
-        "properties": {
-          "name": {
-            "description": "The name of the plant",
-            "type": "string"
-          },
-          "tag": {
-            "description": "Tag to specify the type",
-            "type": "string"
-          }
-        }
+    "securitySchemes": {
+      "AppIdAuth": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "x-api-key",
+        "description": "Your unique application ID, generated from the AdsEra panel."
       },
-      "NewPlant": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/Plant"
-          },
-          {
-            "required": [
-              "id"
-            ],
-            "type": "object",
-            "properties": {
-              "id": {
-                "description": "Identification number of the plant",
-                "type": "integer",
-                "format": "int64"
-              }
-            }
-          }
-        ]
-      },
-      "Error": {
-        "required": [
-          "error",
-          "message"
-        ],
-        "type": "object",
-        "properties": {
-          "error": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "message": {
-            "type": "string"
-          }
-        }
+      "AppSecretAuth": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "x-api-secret",
+        "description": "Your unique application secret, generated from the AdsEra panel."
       }
     },
-    "securitySchemes": {
-      "bearerAuth": {
-        "type": "http",
-        "scheme": "bearer"
+    "schemas": {
+      "Channel": {
+        "type": "object",
+        "properties": {
+          "_id": {
+            "type": "string",
+            "description": "The unique database identifier for the channel.",
+            "example": "6599202896434347169XXXXX"
+          },
+          "userId": {
+            "type": "string",
+            "description": "The ID of the user who owns the channel.",
+            "example": "6599202896434347169XXXXX"
+          },
+          "name": {
+            "type": "string",
+            "description": "The user-defined name of the channel.",
+            "example": "My Account"
+          },
+          "isResellerChannel": {
+            "type": "boolean",
+            "description": "Flag indicating if this is a reseller channel.",
+            "example": false
+          },
+          "partnerId": {
+            "type": "string",
+            "description": "The ID of the associated partner.",
+            "example": "6599202896434347169XXXXX"
+          },
+          "status": {
+            "type": "string",
+            "description": "The current connection status of the channel.",
+            "enum": ["Active", "Disconnected"],
+            "example": "Active"
+          },
+          "wago": {
+            "type": "boolean",
+            "description": "A flag related to the channel's service provider.",
+            "example": true
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time",
+            "description": "The timestamp when the channel was created.",
+            "example": "2025-09-03T06:41:27.538Z"
+          },
+          "forIos": {
+            "type": "boolean",
+            "description": "Flag indicating if the channel is configured for iOS.",
+            "example": false
+          },
+          "wId": {
+            "type": "string",
+            "description": "The WhatsApp specific ID for the channel.",
+            "example": "91123456789:62@s.whatsapp.net"
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time",
+            "description": "The timestamp when the channel was last updated.",
+            "example": "2025-09-04T07:26:15.591Z"
+          },
+          "__v": {
+            "type": "integer",
+            "description": "The version key of the document.",
+            "example": 0
+          },
+          "mobile": {
+            "type": "integer",
+            "description": "The mobile number associated with the channel (optional).",
+            "example": 91123456789
+          },
+          "expireAt": {
+            "type": "string",
+            "format": "date-time",
+            "description": "The timestamp when the channel subscription expires (optional).",
+            "example": "2025-08-22T18:30:00.000Z"
+          },
+          "wUsername": {
+            "type": "string",
+            "description": "The WhatsApp username associated with the channel (optional).",
+            "example": ""
+          }
+        }
+      },
+      "ChannelListSuccessResponse": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "integer",
+            "example": 200
+          },
+          "success": {
+            "type": "boolean",
+            "example": true
+          },
+          "error": {
+            "type": "object",
+            "nullable": true,
+            "example": null
+          },
+          "channels": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Channel"
+            }
+          }
+        }
       }
     }
   }
