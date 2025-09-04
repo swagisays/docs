@@ -15,7 +15,7 @@
         "tab": "API reference",
         "groups": [
           {
-            "group": "API documentation",
+            "group": "AdsEra REST API",
             "pages": [
               "api-reference/introduction"
             ]
