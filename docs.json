@@ -20,12 +20,13 @@
           {
             "group": "WhatsEra",
             "pages": ["api-reference/endpoint/whatsera/introduction",{
-            "group": "Endpoint examples",
+            "group": "Channels",
             "pages": [
-              "api-reference/endpoint/get",
-              "api-reference/endpoint/create",
-              "api-reference/endpoint/delete",
-              "api-reference/endpoint/webhook"
+              "api-reference/endpoint/whatsera/channel/list",
+              "api-reference/endpoint/whatsera/channel/view",
+              "api-reference/endpoint/whatsera/channel/info",
+              "api-reference/endpoint/whatsera/channel/profile",
+              "api-reference/endpoint/whatsera/channel/group"
             ]
           }]
           }
