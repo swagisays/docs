@@ -1,33 +1,14 @@
 ---
-title: 'Introduction'
-description: 'Example section for showcasing API endpoints'
+title: "API Authentication"
+description: "A guide on how to get started and authenticate with the AdsEra REST API."
 ---
-
-<Note>
-  If you're not looking to build API reference documentation, you can delete
-  this section by removing the api-reference folder.
-</Note>
 
 ## Welcome
 
-There are two ways to build API documentation: [OpenAPI](https://mintlify.com/docs/api-playground/openapi/setup) and [MDX components](https://mintlify.com/docs/api-playground/mdx/configuration). For the starter kit, we are using the following OpenAPI specification.
+Welcome to the [AdsEra](https://adsera.in) REST API\! This guide will walk you through the authentication process required to make requests to our API. Follow these simple steps to generate your credentials and start building.
 
-<Card
-  title="Plant Store Endpoints"
-  icon="leaf"
-  href="https://github.com/mintlify/starter/blob/main/api-reference/openapi.json"
->
-  View the OpenAPI specification file
+<Card title="Generate API Credentials" icon="rocket" href="https://app.adsera.in/dashboard/user/account?tab=API%20Key" cta="Generate Now">
+  Once logged in, navigate to the API settings section of your AdsEra panel to create your unique `App Id` and `App Secret`.
+
+  [**Go to API Settings Panel**](https://app.adsera.in/dashboard/user/account?tab=API%20Key)
 </Card>
-
-## Authentication
-
-All API endpoints are authenticated using Bearer tokens and picked up from the specification file.
-
-```json
-"security": [
-  {
-    "bearerAuth": []
-  }
-]
-```
