@@ -10,23 +10,31 @@
   "favicon": "/favicon.svg",
   "navigation": {
     "tabs": [
-      
       {
         "tab": "API reference",
         "groups": [
           {
             "group": "AdsEra REST API",
-            "pages": [
-              "api-reference/introduction"
-            ]
+            "pages": ["api-reference/introduction"]
           },
           {
             "group": "WhatsEra",
-            "pages": [
-              "api-reference/endpoint/get",
-              "api-reference/endpoint/create",
-              "api-reference/endpoint/delete",
-              "api-reference/endpoint/webhook"
+            "pages": ["api-reference/introduction"]
+          },
+          {
+            "group": "WhatsEra",
+            "menu": [
+              {
+                "item": "Getting Started",
+                "pages": ["api-reference/endpoint/whatsera/introduction"]
+              },
+              {
+                "item": "Advanced Features",
+                "pages": [
+                  "api-reference/endpoint/get",
+                  "api-reference/endpoint/create"
+                ]
+              }
             ]
           },
           {
@@ -80,15 +88,15 @@
   },
   "contextual": {
     "options": [
-     "copy",
-     "view",
-     "chatgpt",
-     "claude",
-     "perplexity",
-     "mcp",
-     "cursor",
-     "vscode"
-   ]
+      "copy",
+      "view",
+      "chatgpt",
+      "claude",
+      "perplexity",
+      "mcp",
+      "cursor",
+      "vscode"
+    ]
   },
   "footer": {
     "socials": {
