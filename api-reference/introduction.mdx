@@ -9,6 +9,21 @@ Welcome to the [AdsEra](https://adsera.in) REST API\! This guide will walk you t
 
 <Card title="Generate API Credentials" icon="rocket" href="https://app.adsera.in/dashboard/user/account?tab=API%20Key" cta="Generate Now">
   Once logged in, navigate to the API settings section of your AdsEra panel to create your unique `App Id` and `App Secret`.
-
-  [**Go to API Settings Panel**](https://app.adsera.in/dashboard/user/account?tab=API%20Key)
 </Card>
+
+## Authentication
+
+All API endpoints are authenticated using a unique `App Id` and `App Secret` pair. These credentials must be included as custom headers in **every** API request you send.
+
+<Note>
+  Your `App Id` and `App Secret` can be generated from the [**API Settings**](https://app.adsera.in/dashboard/user/account?tab=API%20Key) section of your AdsEra panel. Keep them secure and do not share them publicly.
+</Note>
+
+Here is the required format for the request headers:
+
+```http
+# Required Headers for Every API Call
+
+x-api-key: YOUR_APP_ID
+x-api-secret: YOUR_APP_SECRET
+```
