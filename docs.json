@@ -3,9 +3,9 @@
   "theme": "mint",
   "name": "AdsEra Knowledge base",
   "colors": {
-    "primary": "#16A34A",
-    "light": "#07C983",
-    "dark": "#15803D"
+    "primary": "#0A8DEE",
+    "light": "#0A8DEE",
+    "dark": "#0A8DEE"
   },
   "favicon": "/favicon.svg",
   "navigation": {

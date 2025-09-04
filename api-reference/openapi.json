@@ -82,7 +82,29 @@
                 }
             }
           }
-         } 
+         },
+         "401": {
+         "$ref": "#/components/responses/Unauthorized"
+
+         },
+         "500": {
+            "$ref": "#/components/responses/InternalServerError"
+          },
+          "400": {
+            "description": "Bad Request. The request could not be processed, often due to a missing or invalid resource like a WhatsEra account.",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/ErrorResponse"
+            },
+            "example": {
+              "status": 400,
+              "success": false,
+              "error": "WhatsEra account not found!"
+            }
+          }
+        }
+          }
         }
 
       }
@@ -233,6 +255,80 @@
             "items": {
               "$ref": "#/components/schemas/Channel"
             }
+          }
+        }
+      },
+      "ErrorResponse": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "integer"
+          },
+          "success": {
+            "type": "boolean",
+            "example": false
+          },
+          "error": {
+            "type": "string"
+          },
+          "msg": {
+            "type": "String"
+          },
+          "errors": {
+            "type": "object"
+          }
+        },
+        "required": [
+          "status",
+          "success",
+          "error"
+        ]
+      }
+    },
+    "responses": {
+      "BadRequest": {
+        "description": "Bad Request. The request could not be processed, often due to a missing or invalid resource like a WhatsEra account.",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/ErrorResponse"
+            },
+            "example": {
+              "status": 400,
+              "success": false,
+              "error": "WhatsEra account not found!"
+            }
+          }
+        }
+      },
+      "Unauthorized": {
+        "description": "Authentication failed. The `x-api-key` or `x-api-secret` headers are missing or invalid.",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/ErrorResponse"
+            },
+            "example": {
+              "status": 401,
+              "success": false,
+              "error": "Unauthorized: Please provide valid API credentials."
+            }
+          }
+        }
+      },
+      "InternalServerError": {
+        "description": "Internal Server Error. An unexpected condition was encountered on the server.",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/ErrorResponse"
+            },
+            "example": {
+              "status": 500,
+              "success": false,
+              "error": "Internal Server Error!"
+            }
+
           }
         }
       }
