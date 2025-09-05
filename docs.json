@@ -11,11 +11,11 @@
   "navigation": {
     "tabs": [
        {
-        "tab": "API reference",
+        "tab": "Documentation",
         "groups": [
           {
-            "group": "AdsEra REST API",
-            "pages": ["api-reference/introduction"]
+            "group": "Doumentation",
+            "pages": ["documentation/introduction"]
           }
         ]
       },
