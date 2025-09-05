@@ -23,7 +23,7 @@
         "tab": "API reference",
         "groups": [
           {
-            "group": "AdsEra REST API",
+            "group": "API Documentation",
             "pages": ["api-reference/introduction"]
           },
           {
