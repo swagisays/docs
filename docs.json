@@ -15,7 +15,7 @@
         "groups": [
           {
             "group": "Help Center",
-            "pages": ["helpcenter/introduction"]
+            "pages": ["help/introduction"]
           }
         ]
       },
