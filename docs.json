@@ -14,7 +14,7 @@
         "tab": "Help Center",
         "groups": [
           {
-            "group": "Help Center",
+            "group": "Getting Started",
             "pages": ["help/introduction"]
           }
         ]
