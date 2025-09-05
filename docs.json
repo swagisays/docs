@@ -10,6 +10,15 @@
   "favicon": "/favicon.svg",
   "navigation": {
     "tabs": [
+       {
+        "tab": "API reference",
+        "groups": [
+          {
+            "group": "AdsEra REST API",
+            "pages": ["api-reference/introduction"]
+          }
+        ]
+      },
       {
         "tab": "API reference",
         "groups": [
