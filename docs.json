@@ -38,6 +38,21 @@
               "help/inbox/chat"
 
             ]
+          },
+          {
+            "group": "Audience",
+            "pages": [
+              "help/audiance/audiance",
+              "help/audiance/verified",
+              "help/audiance/list",
+              "help/audiance/segment",
+              "help/audiance/attribute",
+              "help/audiance/label"
+
+
+
+
+            ]
           }
         ]
       },

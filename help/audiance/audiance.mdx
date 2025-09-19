@@ -1,0 +1,100 @@
+---
+title: 'All Audience'
+description: 'A central hub to view, manage, filter, and take bulk actions on all your contacts.'
+icon: 'users'
+---
+
+The **All Audience** table is your command center for contact management. It's a powerful, interactive database designed to give you a complete and actionable view of every person you connect with, whether they came from a CSV import, a form, or were added manually.
+
+**Want to manage you Audience? [Go to the All Audience Page &rarr;](https://app.adsera.in/dashboard/contact/list)**
+
+![The All Audience table interface.](https://sgp1.digitaloceanspaces.com/whatsera/f6c48f2f-e23e-4fcd-a58f-d3f290f1130c_contact_list.png)
+
+From this single screen, you can get a quick overview, search for specific people, sort data, and use powerful filters to find hyper-specific groups for your campaigns.
+
+<CardGroup>
+  <Card title="Add & Import Contacts" icon="user-plus">
+    Grow your audience by adding contacts one by one or by importing them in bulk from a file.
+  </Card>
+  <Card title="Filter & Segment" icon="filter">
+    Use the advanced filter builder to find any group of contacts based on their data and behavior.
+  </Card>
+  <Card title="Customize Your View" icon="table-columns">
+    Show, hide, and reorder columns to create a personalized table view that matches your workflow.
+  </Card>
+  <Card title="Perform Bulk Actions" icon="list">
+    Save time by applying tags, adding contacts to lists, exporting, or deleting thousands of contacts at once.
+  </Card>
+</CardGroup>
+
+---
+
+## Adding Contacts
+
+Your audience table grows with your business. Here’s how to add new contacts and when to use each method:
+
+<AccordionGroup>
+  <Accordion title="Create Contact (Manual Add)">
+    This is perfect for adding a single contact on the fly, like a new prospect you just met. Click the **"Create Contact"** button, fill out the form with their details, and they'll instantly appear in your table.
+  </Accordion>
+  <Accordion title="Import Contacts (Bulk Upload)">
+    This is your go-to for adding contacts in bulk. It's essential when migrating from another platform or uploading a list of event attendees. You'll upload a CSV file and **map** the columns in your file to the corresponding attributes in AdsEra.
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## The Core Workflow: Filter, Save, Repeat
+
+The true power of the All Audience page lies in its filtering capabilities. This workflow allows you to find hyper-specific groups and save them for reuse.
+
+<Steps>
+<Step title="Step 1: Apply Advanced Filters">
+Click the **"Add filters"** button to open the filter builder. Here, you can create rules to segment your audience with precision.
+
+![The Advanced Filter builder modal.](https://sgp1.digitaloceanspaces.com/whatsera/7b3c67a5-7a34-4429-8d64-0a6da3013229_contact_filter.png)
+
+A filter consists of three parts:
+- **Attribute:** The data point you want to examine (e.g., `City`, `Last Seen Date`, `Total Spent`).
+- **Condition:** The logic you want to apply (e.g., `is`, `is not`, `greater than`, `contains`).
+- **Value:** The specific data you're looking for (e.g., `New York`, `30 days ago`, `500`).
+
+You can chain rules together with **AND** (for more specific results) or **OR** (for broader results).
+</Step>
+
+<Step title="Step 2: Save a Filter as a Segment">
+Once you've built a filter that isolates a valuable group of contacts, don't let it go to waste! Click the **"Save as Segment"** button that appears.
+
+Give your segment a descriptive name (e.g., "Active High-Value Customers"). This new segment is **dynamic**—it will automatically update, adding or removing contacts as they meet (or no longer meet) the filter rules you set.
+</Step>
+
+<Step title="Step 3: Load Lists or Segments">
+Anytime you want to view a specific group, use the **"Load a list or a segment"** dropdown at the top of the page. This gives you one-click access to your manually created **Lists** (static groups) and your rule-based **Segments** (dynamic groups).
+</Step>
+</Steps>
+
+---
+
+## Customizing and Managing the Table
+
+Tailor the table to your needs and manage your contacts at scale.
+
+<AccordionGroup>
+  <Accordion title="Customize Your Column View">
+    Click the **"Customize column"** button to open a side panel. From here, you can:
+    - **Show/Hide Columns:** Uncheck any attribute you don't need to see to reduce clutter.
+    - **Reorder Columns:** Simply drag and drop the column names in the panel to reorder them in the table. Your custom view is saved automatically for your next visit.
+
+    ![The Customize Columns side panel.](https://sgp1.digitaloceanspaces.com/whatsera/4ce401b7-5d3a-4809-b7b6-89d53d6fc7d8_customize_column.png)
+  </Accordion>
+  <Accordion title="Perform Bulk Actions">
+    Manage thousands of contacts at once.
+    1.  **Select contacts** using the checkboxes on the left. Use the master checkbox in the header to select all visible contacts.
+    2.  The **Bulk Actions** menu will appear at the top.
+    3.  Choose an action: **Assign Tag**, **Add to List**, **Export** to CSV, **Edit** an attribute for all, or **Delete**.
+
+    <Warning>
+      The **Delete** action is permanent and cannot be undone. Use it with caution.
+    </Warning>
+  </Accordion>
+</AccordionGroup>
