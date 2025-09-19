@@ -10,10 +10,9 @@
   "favicon": "/favicon.svg",
   "navigation": {
     "tabs": [
-       {
+      {
         "tab": "Help Center",
         "groups": [
-          
           {
             "group": "Account Center",
             "pages": [
@@ -22,22 +21,15 @@
               "help/account/forgot",
               "help/account/account",
               "help/account/company"
-
             ]
           },
           {
             "group": "Dashboard",
-            "pages": [
-              "help/dashboard"
-
-            ]
+            "pages": ["help/dashboard"]
           },
-           {
+          {
             "group": "Inbox",
-            "pages": [
-              "help/inbox/chat"
-
-            ]
+            "pages": ["help/inbox/chat"]
           },
           {
             "group": "Audience",
@@ -50,17 +42,25 @@
               "help/audiance/label",
               "help/audiance/copy",
               "help/audiance/file"
+            ]
+          },
+          {
+            "group": "Channel",
+            "pages": [
+              {
+                "group": "WhatsApp",
+                "pages": [
+                  "help/channel/whatsapp/whatsapp",
+                  "help/channel/whatsapp/connect",
+                  "help/channel/whatsapp/opt"
 
-
-
-
-
-
+                ]
+              }
             ]
           }
         ]
       },
-      
+
       {
         "tab": "API reference",
         "groups": [
