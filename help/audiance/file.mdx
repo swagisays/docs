@@ -1,0 +1,108 @@
+---
+title: 'Import Contacts via File Upload'
+description: 'A step-by-step guide to adding contacts in bulk to AdsEra by uploading a CSV or XLSX file.'
+icon: 'file-arrow-up'
+---
+
+This guide will walk you through importing your contacts by uploading a file. This method is perfect for larger lists and ensures all your contact data is seamlessly integrated into AdsEra.
+
+**Want to Import Contacts via File Upload? [Go to the AdsEra Contact Import Page &rarr;](https://app.adsera.in/dashboard/contact/import/option)**
+
+### Prerequisites
+
+Before you start, make sure you have the following:
+
+<CardGroup>
+  <Card title="Contact Data Ready" icon="file-excel">
+    Have your contact information ready in a spreadsheet (like Google Sheets or Excel) or a text editor.
+  </Card>
+  <Card title="Required Identifier" icon="key">
+    Your data **must** include either an `EMAIL` or a `PHONE` column. At least one of these is required to identify and manage contacts.
+  </Card>
+  <Card title="Contact Consent" icon="user-check">
+    Remember, you must have your contacts' consent to send them marketing campaigns.
+  </Card>
+</CardGroup>
+
+
+---
+
+## Step-by-Step Import Process
+
+Follow these simple steps to import your contacts using a file upload.
+
+<Steps>
+<Step title="1. Navigate to the Import Screen">
+From your AdsEra Dashboard, navigate to **Audience > All**. In the top-right corner, click the **Import contact** button. On the next screen, select the **Import contacts from a file** option.
+
+![Selecting the Contact import option.](https://sgp1.digitaloceanspaces.com/whatsera/68f34ab8-647d-4f67-9d37-f1b7d7012b5d_import_contact.png)
+![Selecting the File Upload import option.](https://sgp1.digitaloceanspaces.com/whatsera/c19bd733-ec53-4443-8f9e-b6059ffa43cb_import_contact_file.png)
+
+</Step>
+
+<Step title="2. Upload Your File">
+On the "Upload File" screen, either drag and drop your CSV or XLSX file into the designated area, or click "browse through your machine" to select it manually.
+
+![The file upload area.](https://sgp1.digitaloceanspaces.com/whatsera/5778278a-30cf-4bb6-a360-23938103dde4_file_upload_contact.png)
+
+<Info>
+  **Tip:** If you need a template to structure your data correctly, click the **"Download sample file"** link.
+</Info>
+</Step>
+
+<Step title="3. Confirm and Preview Your Data">
+After a successful upload, AdsEra will display a preview of the first few rows of your data. Review the table to ensure your columns and data appear correctly, then click **Next**.
+</Step>
+
+<Step title="4. Map Fields to Platform Fields">
+This crucial step matches your file's columns to the corresponding fields in AdsEra.
+- **Verify Mapping:** The system will attempt to auto-map your columns. Double-check that each "Column name from imported file" is correctly matched to a "Column name on AdsEra".
+- **Set Duplicate Handling:** For each column, choose an action for updating existing contacts:
+    - **Overwrite:** Replaces existing data with the new data.
+    - **Fill only if empty:** Only adds data if the field is currently blank.
+    - **Skip:** Ignores the new data for that field if the contact already exists.
+
+![The field mapping and duplicate handling screen.](https://sgp1.digitaloceanspaces.com/whatsera/8a7b4408-16d6-47de-9a94-edffa5927047_field_matching.png)
+</Step>
+
+<Step title="5. Assign to a Contact List">
+Every contact you import must be assigned to at least one list.
+- **Select an existing list:** Choose from your current contact lists.
+- **Create a new list:** Click the **"Create A List"** button and give your new list a name.
+
+![The list selection screen during import.](https://sgp1.digitaloceanspaces.com/whatsera/1c675899-ba0f-4b31-9642-94320e89242b_list_selection_upload.png)
+
+Once you've selected a list, click **Upload**.
+</Step>
+</Steps>
+
+---
+
+## After the Upload
+
+After clicking **Upload**, AdsEra will process your file. You will receive a **confirmation report** detailing the number of **successful** and **failed** imports, along with specific reasons for any failures.
+
+### Troubleshooting Common Errors
+
+| Common Error | Description & Solution |
+| :--- | :--- |
+| **Missing Identifier** | A row in your file is missing both an email and a phone number. **Solution:** Ensure every contact has a valid value in either the `EMAIL` or `PHONE` column. |
+| **Incorrect File Type** | You've uploaded a file that isn't a CSV or XLSX. **Solution:** Ensure your file is saved in either `.csv` or `.xlsx` format. |
+| **File Corrupted** | AdsEra could not read the file. **Solution:** Open your file in a spreadsheet program and save it again as a new, clean CSV or XLSX. |
+| **Missing Headers** | Your file is missing the first row of column headers. **Solution:** Ensure your very first row contains clear column headers. |
+
+---
+
+## Pro Tips for a Smooth Import
+
+<AccordionGroup>
+  <Accordion title="Clean Your Data Before Importing">
+    Take a moment to clean your data first. Remove any unnecessary characters, extra spaces, or inconsistent formatting to ensure a smooth import.
+  </Accordion>
+  <Accordion title="Test with a Small Batch">
+    If you're importing a very large list for the first time, try importing a small sample (5-10 contacts) to ensure everything maps and imports as expected.
+  </Accordion>
+  <Accordion title="Review Mapping Carefully">
+    The mapping step is critical! Double-check that your columns are correctly aligned with AdsEra's fields to avoid data discrepancies.
+  </Accordion>
+</AccordionGroup>

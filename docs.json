@@ -47,7 +47,11 @@
               "help/audiance/list",
               "help/audiance/segment",
               "help/audiance/attribute",
-              "help/audiance/label"
+              "help/audiance/label",
+              "help/audiance/copy",
+              "help/audiance/file"
+
+
 
 
 
