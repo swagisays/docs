@@ -1,0 +1,103 @@
+---
+title: 'Account Settings'
+description: 'Manage your personal information, change your password, and generate API keys for integrations.'
+icon: 'circle-user'
+---
+
+Your Account Settings page is where you can manage all your personal details, update your security credentials, and create API keys for connecting AdsEra to other applications.
+
+**Want to manage profile? [Go to the AdsEra Profile Page &rarr;](https://app.adsera.in/dashboard/company)**
+
+## How to Access Account Settings
+
+You can easily navigate to your account settings from the main dashboard.
+
+![Navigating to the AdsEra Account Settings page.](https://sgp1.digitaloceanspaces.com/whatsera/6e5a1a6a-8b1e-4484-a530-fb4040295998_account_section_navigation.png)
+
+1.  Log in to your AdsEra dashboard.
+2.  In the top-left corner of the navigation sidebar, **click on your name and avatar**.
+3.  You will be taken directly to the Account Settings page.
+
+---
+## Account Tabs
+
+<Tabs>
+<Tab title="Information">
+
+The **Information** tab allows you to update your personal details and profile picture.
+
+![The Information tab in Account Settings.](https://sgp1.digitaloceanspaces.com/whatsera/7d36782c-c547-422d-a4c4-29b9f0cc4205_account_info.png)
+
+### Profile Photo
+
+You can upload a custom photo to personalize your account.
+- **To upload:** Click on the camera icon overlaying your current avatar.
+- **File types:** `*.jpeg`, `*.jpg`, `*.png`, `*.gif`
+- **Max size:** 3.1 MB
+
+### Personal Details
+
+Update your user information using the fields provided:
+- **First Name:** Your first name.
+- **Last Name:** Your last name.
+- **Email Address:** This field is linked to your account and **cannot be changed**.
+- **Country:** Your country of residence.
+- **Phone Number:** Your contact phone number.
+
+After making your desired changes, click the **Save Changes** button to apply them.
+
+</Tab>
+
+<Tab title="Password">
+
+### Change Password
+The **Password** tab allows you to securely change the password for your AdsEra account. For your security, this process requires email verification.
+
+![The Password tab in Account Settings.](https://sgp1.digitaloceanspaces.com/whatsera/a65c52de-77f6-42ca-a38a-a760b865aba2_account_pass.png)
+
+<Steps>
+    <Step title="Start the Verification Process">
+        Click the **Verify** button. This will send a one-time password (OTP) to your registered email address (`shubham@adsera.in`).
+    </Step>
+    <Step title="Enter the OTP">
+        Check your email for the OTP, and enter it on the verification screen that appears.
+    </Step>
+    <Step title="Set Your New Password">
+        Once verified, you will be prompted to enter and confirm your new password.
+    </Step>
+</Steps>
+
+</Tab>
+
+<Tab title="API Key">
+
+This tab allows you to generate and manage API keys. API keys are used to integrate your AdsEra account with third-party applications and services securely.
+![The API Key tab in Account Settings.](https://sgp1.digitaloceanspaces.com/whatsera/45a1c93d-c9fa-4dbb-8d50-788baed05d5d_api_list.png)
+
+### Creating an API Key
+
+<Steps>
+    <Step title="Create a New App">
+        Click the **+ Create app** button to open the API key creation dialog.
+    </Step>
+    <Step title="Configure Your Key">
+        In the pop-up window, provide the following details:
+        - **App Name:** A descriptive name for your key (e.g., "My Custom CRM").
+        - **Never Expire:** Check this box if you want the key to be valid indefinitely.
+        - **End date:** If "Never Expire" is unchecked, select a date when the key should automatically expire.
+
+        ![The Create API Key modal window.](https://sgp1.digitaloceanspaces.com/whatsera/cdb830bb-de1f-4f1a-980b-10e74f6e3f73_account_api_create.png)
+    </Step>
+    <Step title="Generate and Save Your Key">
+        Click **Submit**. Your new API Key and Secret will be generated and displayed.
+    </Step>
+</Steps>
+
+<Warning>
+  **Important:** Your **API Secret** will only be displayed **once**, immediately after creation. Make sure to copy it and store it in a secure location like a password manager. **You will not be able to retrieve it again.**
+</Warning>
+
+Once created, your API key will appear in a list on this tab, allowing you to manage or delete it in the future.
+
+</Tab>
+</Tabs>

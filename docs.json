@@ -11,14 +11,37 @@
   "navigation": {
     "tabs": [
        {
-        "tab": "Documentation",
+        "tab": "Help Center",
         "groups": [
+          
           {
-            "group": "Getting Started",
-            "pages": ["Introduction"]
+            "group": "Account Center",
+            "pages": [
+              "help/account/login",
+              "help/account/register",
+              "help/account/forgot",
+              "help/account/account",
+              "help/account/company"
+
+            ]
+          },
+          {
+            "group": "Dashboard",
+            "pages": [
+              "help/dashboard"
+
+            ]
+          },
+           {
+            "group": "Inbox",
+            "pages": [
+              "help/inbox/chat"
+
+            ]
           }
         ]
       },
+      
       {
         "tab": "API reference",
         "groups": [
@@ -28,16 +51,19 @@
           },
           {
             "group": "WhatsEra",
-            "pages": ["api-reference/endpoint/whatsera/introduction",{
-            "group": "Channels",
             "pages": [
-              "api-reference/endpoint/whatsera/channel/list",
-              "api-reference/endpoint/whatsera/channel/view",
-              "api-reference/endpoint/whatsera/channel/info",
-              "api-reference/endpoint/whatsera/channel/profile",
-              "api-reference/endpoint/whatsera/channel/group"
+              "api-reference/endpoint/whatsera/introduction",
+              {
+                "group": "Channels",
+                "pages": [
+                  "api-reference/endpoint/whatsera/channel/list",
+                  "api-reference/endpoint/whatsera/channel/view",
+                  "api-reference/endpoint/whatsera/channel/info",
+                  "api-reference/endpoint/whatsera/channel/profile",
+                  "api-reference/endpoint/whatsera/channel/group"
+                ]
+              }
             ]
-          }]
           }
         ]
       }
@@ -48,7 +74,7 @@
           "anchor": "Documentation",
           "href": "https://adsera.featurebase.app/help",
           "icon": "book-open-cover"
-        },       
+        },
         {
           "anchor": "Blog",
           "href": "https://adsera.in/blog",
