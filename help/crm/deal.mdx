@@ -1,0 +1,70 @@
+---
+title: 'Managing Deals'
+description: 'Track and manage your sales opportunities visually using a Kanban board or a detailed list view.'
+icon: 'handshake'
+---
+
+The **Deals** page is the heart of your CRM, providing a visual representation of your sales process. Here, you can track the progress of each sales opportunity (a "deal") as it moves through the stages of your [Pipelines](/crm/pipelines), from initial contact to a final win or loss.
+
+### List View vs. Kanban View
+
+You can visualize your deals in two different ways using the toggle buttons at the top of the page:
+
+- **List View (📝):** A traditional table layout that provides a detailed, sortable list of all your deals. This view is great for seeing specific data points like `Subtotal`, `Discount`, and `GST` in a structured format.
+- **Kanban View (📋):** A visual board that organizes your deals into columns representing each stage of your selected pipeline. This is the default and most popular view for tracking sales flow.
+
+![The Deals page in Kanban view.](https://sgp1.digitaloceanspaces.com/whatsera/7a3c2d29-719c-4191-af3f-47d9c285f53d_deal.png)
+
+---
+
+## The Kanban View
+
+The Kanban view is designed for an active, visual approach to sales management.
+
+#### Filtering Your View
+At the top of the board, you can filter the deals that are displayed:
+- **Select a Pipeline:** Choose which sales pipeline you want to view from the dropdown. The columns on the board will update to show the stages of the selected pipeline.
+- **Date Range Filters:** Filter deals by their **Create Date** or **Close Date**.
+- **Search:** Find a specific deal by its name or description.
+
+#### Anatomy of a Kanban Column
+Each column on the board represents a **stage** from your selected pipeline (e.g., `Created`, `Demo`, `Negotiation`).
+- **Stage Title & Deal Count:** The header of each column shows the stage name and the number of deals currently in it.
+- **Total & Weighted Value:** At the bottom of each column, you'll find:
+    - **Total:** The sum of the total value of all deals in that stage.
+    - **Weighted:** The total value multiplied by the stage's win probability (set in the [Pipeline settings](/crm/pipelines)). This provides a forecast of expected revenue.
+
+#### Managing Deals with Drag-and-Drop
+The power of the Kanban view is its simplicity. To move a deal from one stage to the next, simply **click and drag the deal card** and drop it into a new column. The Total and Weighted values for the columns will update automatically.
+
+---
+
+## Creating and Editing a Deal
+
+Clicking the **"+ New Deal"** button or editing an existing deal opens a side panel where you can manage all its information.
+
+![The Create/Edit Deal side panel.](/path/to/your/create-deal-panel.png)
+
+<AccordionGroup>
+  <Accordion title="Core Deal Information">
+    - **Title & Description:** Give your deal a clear name and add any relevant notes.
+    - **Contact:** Associate the deal with a specific contact from your audience list.
+    - **Select a stage:** Assign the deal to its current stage within the pipeline.
+    - **Closing Date:** Set an expected closing date for sales forecasting.
+  </Accordion>
+  <Accordion title="Products & Value">
+    This is where you add the products or services the deal is for.
+    1.  Select a **Currency**.
+    2.  Click **"+ Add Product"** to add a line item.
+    3.  Choose a product from your [Product Catalog](/crm/products).
+    4.  Enter the **Quantity** and adjust the **Unit Cost** if needed. The Product Total will calculate automatically.
+    5.  Repeat for all products in the deal.
+  </Accordion>
+  <Accordion title="Financials (Subtotal, Discount & GST)">
+    - **Subtotal:** Automatically calculated from the sum of all product totals.
+    - **Discount:** Apply a discount amount to the subtotal.
+    - **GST:** Toggle the GST switch on to add tax. You can then select the GST type (`IGST` or `SGST`) and enter the percentage. The final tax amount and **Total** are calculated for you.
+  </Accordion>
+</AccordionGroup>
+
+Once all details are filled in, click **"Create"** or **"Save Changes"** to add the deal to your pipeline.

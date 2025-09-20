@@ -65,7 +65,41 @@
                 ]
               }
             ]
+          },
+           {
+            "group": "Campaign",
+            "pages": [
+              {
+                "group": "Email",
+                "pages": [
+                  "help/campaign/email/list",
+                  "help/campaign/email/create",
+                  "help/campaign/email/report"
+
+                ]
+              },
+               {
+                "group": "WhatsApp",
+                "pages": [
+                  "help/campaign/wa/list",
+                  "help/campaign/wa/create",
+                  "help/campaign/wa/report"
+
+                ]
+              }
+            ]
+          },
+           {
+            "group": "CRM",
+            "pages": [
+              "help/crm/product",
+              "help/crm/pipeline",
+              "help/crm/deal"
+
+
+            ]
           }
+          
         ]
       },
 

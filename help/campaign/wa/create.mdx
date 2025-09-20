@@ -1,0 +1,78 @@
+---
+title: 'Creating a WhatsApp Campaign'
+description: 'A step-by-step guide to building, designing, targeting, and scheduling your WhatsApp campaigns.'
+icon: 'wand-magic-sparkles'
+---
+
+Creating a WhatsApp campaign in AdsEra is a structured process designed to give you precise control over your campaign's name, audience, content, and delivery schedule. This guide will walk you through each step of the creation wizard.
+
+### Before You Begin: A Quick Checklist
+
+<CardGroup>
+  <Card title="Define Your Goal" icon="bullseye">
+    Know what you want to achieve with this campaign (e.g., send transaction alerts, promote an offer, re-engage users).
+  </Card>
+  <Card title="Prepare Your Audience" icon="users">
+    Know which contacts you want to reach. Have a [Contact List](/audience/lists) or [Segment](/audience/segments) ready for targeting.
+  </Card>
+  <Card title="Select a Template" icon="file-lines">
+    All WhatsApp campaigns must use a pre-approved Message Template. Ensure the template you want to use has been approved by Meta.
+  </Card>
+</CardGroup>
+
+---
+
+## Building Your WhatsApp Campaign
+
+After navigating to the **Campaigns > WhatsApp** page and clicking **"+ New campaign"**, you will be guided through the following setup wizard.
+
+![The WhatsApp campaign creation wizard.](https://sgp1.digitaloceanspaces.com/whatsera/27585794-0e60-45f3-a722-c9edd9d9efa8_camp_wa_create.png)
+
+<Steps>
+<Step title="1. Name Your Campaign">
+  This is an internal name for easy identification within AdsEra (e.g., "Post-Purchase Follow-Up," "Diwali Sale Offer"). It is not visible to recipients. The name can be up to 150 characters.
+</Step>
+
+<Step title="2. Define Your Recipients">
+  This is where you select who will receive your campaign. AdsEra offers powerful segmentation options:
+  - **Select Lists:** Choose one or more of your static contact lists.
+  - **Select Segments:** Target dynamic, rule-based segments of your contacts.
+  - **Filter Recipients (Advanced):** Build a custom, one-time filter for this specific campaign using various contact attributes and `AND`/`OR` logic.
+
+  For more details, see our guide on [All Audience & Segments](/audience/all).
+</Step>
+
+<Step title="3. Select Your Channel (WABA)">
+  Choose the specific WhatsApp Business Account (WABA) number you want to send this campaign from. This is especially important if you manage multiple numbers for different brands or departments.
+</Step>
+
+<Step title="4. Choose Your Message Template">
+  All WhatsApp campaigns must use a Message Template that has been pre-approved by Meta.
+  - Click **"Manage template"** to open a gallery of your approved templates.
+  - Browse or search for the template you wish to use.
+  - If the template includes variables (e.g., `{{name}}`), you will be prompted to provide values for them in a subsequent step to personalize the message for each recipient.
+</Step>
+
+<Step title="5. Schedule Your Campaign">
+  Decide when your campaign will be sent.
+  - **Send Immediately:** To send the campaign as soon as you finish the setup.
+  - **Schedule for Later:** Pick a specific future date and time for delivery.
+</Step>
+
+<Step title="6. Create Your Campaign">
+  Once all the steps are configured and show a green checkmark, the **"Create"** button at the top of the page will become active. Click it to finalize and either send or schedule your campaign.
+</Step>
+</Steps>
+
+---
+
+## Important Considerations
+
+<AccordionGroup>
+  <Accordion title="Understanding Message Templates">
+    WhatsApp requires that all business-initiated conversations use pre-approved Message Templates to prevent spam and ensure a high-quality user experience. These templates can include text, rich media (images/videos), and interactive buttons.
+  </Accordion>
+  <Accordion title="Personalization with Variables">
+    Using variables like `{{FIRSTNAME}}` or `{{order_id}}` in your templates is key to creating personalized and engaging messages. When you select a template with variables, AdsEra will guide you through mapping these to the corresponding contact attributes.
+  </Accordion>
+</AccordionGroup>
