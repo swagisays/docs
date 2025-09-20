@@ -13,6 +13,12 @@
       {
         "tab": "Help Center",
         "groups": [
+           {
+            "group": "Introduction",
+            "pages": [
+              "help/introduction/adsera"
+            ]
+          },
           {
             "group": "Account Center",
             "pages": [
