@@ -1,0 +1,93 @@
+---
+title: 'Managing Email Sequences'
+description: 'A complete guide to creating, managing, and populating your automated email sequences for lead nurturing and customer engagement.'
+icon: 'sitemap'
+---
+
+The **Sequences** feature is your dedicated hub for managing automated email journeys, drip campaigns, and lead nurturing flows. Sequences allow you to send a series of pre-defined emails to your contacts over time, triggered by specific actions or additions to a list.
+
+This guide will cover everything you need to know, from managing your list of sequences to building a new one and enrolling contacts.
+
+![The Sequence List page.](https://sgp1.digitaloceanspaces.com/whatsera/3008d5b0-415e-4f9b-8115-383a107ff622_sequence.png)
+
+## The Sequence Dashboard
+
+This is your main view for all your automated email sequences. From here, you can get a high-level overview of your automations, see their status, and jump into editing or creating new ones.
+
+#### Understanding the Sequence List
+| Column | Description |
+| :--- | :--- |
+| **Name** | The unique internal name you've given to your sequence (e.g., "New Customer Onboarding"). |
+| **Create** | The date and time when the sequence was originally created. |
+| **Sender** | The default sender email address configured for this sequence. |
+| **Active** | A toggle switch indicating if the sequence is currently `ON` and enrolling new contacts. |
+| **Nodes** | The total number of steps or emails configured within the sequence. |
+
+#### Filtering Your Sequences
+At the top of the page, you can filter your list to find specific sequences:
+- **Active / All Toggle:** Switch between viewing only `Active` sequences or `All` of them.
+- **Date Range Filters:** Use the **Start date** and **End date** pickers to find sequences created within a specific period.
+
+---
+
+## How to Create a New Sequence
+
+Click the **"+ New sequence"** button to launch the creation wizard, which will guide you through building your automated journey.
+
+<Steps>
+
+<Step title="1. Initial Setup">
+  A pop-up will appear, prompting you for the core properties of your sequence:
+
+  - **Name:** An internal name for your sequence (e.g., "Post-Purchase Follow-up").
+  - **Choose a Sender:** Select the default "From" email address for this sequence.
+  - **Choose a List (Optional):** This is a powerful auto-enrollment trigger. If you select a list here, any contact who is added to this list will automatically be enrolled in this sequence.
+
+  Click **Next** to proceed to the sequence builder canvas.
+</Step>
+
+<Step title="2. Designing the Flow (Adding Nodes)">
+  You will now see a visual canvas where you can build out the steps (or "nodes") of your sequence. A node is a combination of an email template and a time delay.
+
+  ![The Sequence Builder canvas.](https://sgp1.digitaloceanspaces.com/whatsera/071b9847-5dc7-4cef-aa34-f8c0266a51c9_sequence_create.png)
+
+  - **Add a Node:** Click the **"Add Next Sequence"** button.
+  - **Select Template:** In the pop-up, choose the email template for this step from the dropdown. You should create your templates beforehand in the [Templates](/templates/email-list) section.
+  - **Set Delay:** Enter the number of days to wait before sending this email.
+    - For the *first* step, a delay of `0` sends the email immediately after a contact is enrolled.
+    - For all subsequent steps, the delay is calculated from when the *previous* email was sent.
+
+  Continue adding nodes until your entire email journey is mapped out on the canvas.
+</Step>
+
+<Step title="3. Complete and Activate">
+  - **Complete:** Once your flow is designed, click the **"Complete"** button at the top right. This saves the sequence and returns you to the list.
+  - **Activate:** Your new sequence is **INACTIVE** by default. To start it, find it in the list and either click the **toggle switch** under the "Active" column or use the **three-dots (...) menu** and select **Activate**.
+  
+  <Warning>
+    An inactive sequence will not enroll contacts or send any emails. You must activate it manually for it to start working.
+  </Warning>
+</Step>
+</Steps>
+
+---
+
+## Enrolling Contacts into a Sequence
+
+There are two primary ways to add contacts to an active sequence:
+
+<AccordionGroup>
+  <Accordion title="Automatic Enrollment (Recommended)">
+    This is the easiest method for ongoing enrollment. If you selected a contact list in the "Choose a List..." field during the initial setup (Step 1), any new contact added to that list will be automatically enrolled into this sequence. This is perfect for welcome series or onboarding flows.
+  </Accordion>
+
+  <Accordion title="Manual Enrollment">
+    This method is for adding existing contacts to a sequence.
+    <Steps>
+      <Step title="1. Go to Your Audience">Navigate to **Audience > All**.</Step>
+      <Step title="2. Select Contacts">Use the checkboxes to select one or more contacts.</Step>
+      <Step title="3. Choose Action">Click the **"More action"** button and select **"Add to a sequence"** from the menu.</Step>
+      <Step title="4. Select Sequence">In the pop-up, choose the target sequence and click **"Add"**.</Step>
+    </Steps>
+  </Accordion>
+</AccordionGroup>

@@ -53,20 +53,15 @@
                   "help/channel/whatsapp/whatsapp",
                   "help/channel/whatsapp/connect",
                   "help/channel/whatsapp/opt"
-
                 ]
               },
               {
                 "group": "Email",
-                "pages": [
-                  "help/channel/email/email",
-                  "help/channel/email/smtp"
-
-                ]
+                "pages": ["help/channel/email/email", "help/channel/email/smtp"]
               }
             ]
           },
-           {
+          {
             "group": "Campaign",
             "pages": [
               {
@@ -75,31 +70,46 @@
                   "help/campaign/email/list",
                   "help/campaign/email/create",
                   "help/campaign/email/report"
-
                 ]
               },
-               {
+              {
                 "group": "WhatsApp",
                 "pages": [
                   "help/campaign/wa/list",
                   "help/campaign/wa/create",
                   "help/campaign/wa/report"
-
                 ]
               }
             ]
           },
-           {
+          {
             "group": "CRM",
+            "pages": ["help/crm/product", "help/crm/pipeline", "help/crm/deal"]
+          },
+          {
+            "group": "Template",
             "pages": [
-              "help/crm/product",
-              "help/crm/pipeline",
-              "help/crm/deal"
-
-
+              "help/template/wa",
+              "help/template/email-list",
+              "help/template/email-create"
             ]
+          },
+          {
+            "group": "Snippet",
+            "pages": ["help/snippet/list", "help/snippet/create"]
+          },
+          {
+            "group": "File Manager",
+            "pages": ["help/file/manager"]
+          },
+           {
+            "group": "Autoreply",
+            "pages": ["help/autoreply/wa"]
+          },
+           {
+            "group": "Sequence",
+            "pages": ["help/sequence/sequence"]
           }
-          
         ]
       },
 
