@@ -45,42 +45,33 @@
             ]
           },
           {
-            "group": "Channel",
+            "group": "WhatsApp Channel",
             "pages": [
-              {
-                "group": "WhatsApp",
-                "pages": [
                   "help/channel/whatsapp/whatsapp",
                   "help/channel/whatsapp/connect",
                   "help/channel/whatsapp/opt"
                 ]
-              },
-              {
-                "group": "Email",
-                "pages": ["help/channel/email/email", "help/channel/email/smtp"]
-              }
-            ]
           },
-          {
-            "group": "Campaign",
+            {
+            "group": "Email Channel",
+           "pages": ["help/channel/email/email", "help/channel/email/smtp"]
+           
+          },
+           {
+            "group": "Email Campaign",
             "pages": [
-              {
-                "group": "Email",
-                "pages": [
                   "help/campaign/email/list",
                   "help/campaign/email/create",
                   "help/campaign/email/report"
                 ]
-              },
-              {
-                "group": "WhatsApp",
-                "pages": [
+          },
+          {
+            "group": "WhastApp Campaign",
+            "pages": [
                   "help/campaign/wa/list",
                   "help/campaign/wa/create",
                   "help/campaign/wa/report"
                 ]
-              }
-            ]
           },
           {
             "group": "CRM",
@@ -111,39 +102,13 @@
             "pages": ["help/sequence/sequence"]
           }
         ]
-      },
-
-      {
-        "tab": "API reference",
-        "groups": [
-          {
-            "group": "API Documentation",
-            "pages": ["api-reference/introduction"]
-          },
-          {
-            "group": "WhatsEra",
-            "pages": [
-              "api-reference/endpoint/whatsera/introduction",
-              {
-                "group": "Channels",
-                "pages": [
-                  "api-reference/endpoint/whatsera/channel/list",
-                  "api-reference/endpoint/whatsera/channel/view",
-                  "api-reference/endpoint/whatsera/channel/info",
-                  "api-reference/endpoint/whatsera/channel/profile",
-                  "api-reference/endpoint/whatsera/channel/group"
-                ]
-              }
-            ]
-          }
-        ]
       }
     ],
     "global": {
       "anchors": [
         {
-          "anchor": "Documentation",
-          "href": "https://adsera.featurebase.app/help",
+          "anchor": "Feedback",
+          "href": "https://adsera.featurebase.app",
           "icon": "book-open-cover"
         },
         {
@@ -162,7 +127,7 @@
     "links": [
       {
         "label": "Support",
-        "href": "mailto:info@adsera.in"
+        "href": "mailto:shubham@adsera.in"
       }
     ],
     "primary": {
@@ -170,19 +135,7 @@
       "label": "Dashboard",
       "href": "https://app.adsera.in"
     }
-  },
-  "contextual": {
-    "options": [
-      "copy",
-      "view",
-      "chatgpt",
-      "claude",
-      "perplexity",
-      "mcp",
-      "cursor",
-      "vscode"
-    ]
-  },
+  },  
   "footer": {
     "socials": {
       "x": "https://x.com/adsera_in",
