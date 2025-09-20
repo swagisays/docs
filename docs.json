@@ -55,6 +55,14 @@
                   "help/channel/whatsapp/opt"
 
                 ]
+              },
+              {
+                "group": "Email",
+                "pages": [
+                  "help/channel/email/email",
+                  "help/channel/email/smtp"
+
+                ]
               }
             ]
           }

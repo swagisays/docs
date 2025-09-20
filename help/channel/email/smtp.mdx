@@ -1,0 +1,68 @@
+---
+title: 'Sender SMTP & IMAP Credentials'
+description: 'Access and manage the SMTP/IMAP credentials for your sender email addresses to use in external email clients.'
+icon: 'key'
+---
+
+For each sender you create in AdsEra, you can generate a unique set of SMTP and IMAP credentials. This allows you to configure your sender email address in external applications (like Gmail, Outlook, or Thunderbird) to send and receive emails through AdsEra's servers.
+
+![The SMTP and IMAP credentials page.](https://sgp1.digitaloceanspaces.com/whatsera/b3e724b0-9e85-4c85-830f-d412db3bee00_smtp_page.png)
+
+### Accessing Your Credentials
+
+To access this page, navigate to **Channel > Email**, click the **Senders** tab, and click the **email icon (✉️)** next to the desired sender.
+
+
+<Card title="Use Your Senders Anywhere" icon="envelope">
+  The SMTP/IMAP credentials allow you to use your sender address in third-party email clients like **Thunderbird** or **Outlook**. You can also use them to manage replies in our own [AdsEra Mail Inbox](https://mail.adsera.in).
+</Card>
+
+### SMTP (Outgoing Mail)
+
+Use these settings to configure an external client to **send** emails through your AdsEra sender address.
+
+<ResponseField name="Hostname" type="string">
+  `esp.adsera.in`
+</ResponseField>
+<ResponseField name="Port" type="string">
+  `587`
+</ResponseField>
+<ResponseField name="Connection Security" type="string">
+  `STARTTLS`
+</ResponseField>
+<ResponseField name="Authentication method" type="string">
+  `normal password`
+</ResponseField>
+<ResponseField name="Username" type="string">
+  Your full sender email address (e.g., `noreply@adsera.in`).
+</ResponseField>
+<ResponseField name="Password" type="string">
+  The unique password generated for this sender. You can click the **wand icon (🪄)** to generate a new, secure password at any time.
+</ResponseField>
+
+### IMAP (Incoming Mail)
+
+Use these settings to configure an external client to **receive** and sync emails sent to your AdsEra sender address.
+
+<ResponseField name="Hostname" type="string">
+  `esp.adsera.in`
+</ResponseField>
+<ResponseField name="Port" type="string">
+  `143`
+</ResponseField>
+<ResponseField name="Connection Security" type="string">
+  `STARTTLS`
+</ResponseField>
+<ResponseField name="Authentication method" type="string">
+  `normal password`
+</ResponseField>
+<ResponseField name="Username" type="string">
+  Your full sender email address.
+</ResponseField>
+<ResponseField name="Password" type="string">
+  This uses the same password as your SMTP settings.
+</ResponseField>
+
+<Warning>
+  **Security Best Practice:** Treat your SMTP/IMAP passwords like any other critical password. Store them securely and use the "generate new password" feature if you ever suspect an account has been compromised.
+</Warning>
