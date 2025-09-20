@@ -16,7 +16,9 @@
            {
             "group": "Introduction",
             "pages": [
-              "help/introduction/adsera"
+              "help/introduction/adsera",
+              "help/introduction/price"
+
             ]
           },
           {
@@ -47,7 +49,8 @@
               "help/audiance/attribute",
               "help/audiance/label",
               "help/audiance/copy",
-              "help/audiance/file"
+              "help/audiance/file",
+              "help/audiance/view"
             ]
           },
           {
