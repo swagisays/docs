@@ -2,7 +2,6 @@
   "$schema": "https://mintlify.com/docs.json",
   "theme": "mint",
   "name": "AdsEra Knowledge Base",
-  "openapi": "/openapi.json",
   "colors": {
     "primary": "#0A8DEE",
     "light": "#0A8DEE",
