@@ -1,0 +1,990 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "AdsEra REST API",
+    "description": "Welcome to the AdsEra REST API. Use our API to integrate powerful, multi-channel communication (Email and WhatsApp) directly into your applications. Automate transactional messages, trigger marketing campaigns, manage your audience, and track performance programmatically.",
+    "contact": {
+      "name": "Shubham",
+      "email": "shubham@adsera.in"
+    },
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://app.adsera.in",
+      "description": "Production Server"
+    }
+  ],
+  "security": [
+    {
+      "AppIdAuth": [],
+      "AppSecretAuth": []
+    }
+  ],
+  "paths": {
+    "/api/pub/wa/waba/list": {
+      "get": {
+        "tags": ["WABA"],
+        "summary": "List WABA Accounts",
+        "description": "Retrieves a list of all WhatsApp Business Accounts (WABA) associated with your company.",
+        "security": [
+          {
+            "AppIdAuth": [],
+            "AppSecretAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response carrying the list of WABA accounts.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WabaListResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized. The API keys are missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                },
+                "example": {
+                  "status": 401,
+                  "success": false,
+                  "error": "Unauthorized: Please provide valid API credentials."
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/pub/wa/template/list/{whatsapp}": {
+      "get": {
+        "tags": [
+          "Templates"
+        ],
+        "summary": "List WABA Templates",
+        "description": "Retrieves a paginated list of WhatsApp templates for a specific WABA account.",
+        "security": [
+          {
+            "AppIdAuth": [],
+            "AppSecretAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "whatsapp",
+            "in": "path",
+            "required": true,
+            "description": "The _id of the WABA account to fetch templates for.",
+            "schema": {
+              "type": "string",
+              "example": "60c72b2f9b1d8e001f8a1b2c"
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "description": "The page number for pagination.",
+            "schema": {
+              "type": "integer",
+              "default": 1
+            }
+          },
+          {
+            "name": "perPage",
+            "in": "query",
+            "required": false,
+            "description": "The number of items to return per page.",
+            "schema": {
+              "type": "integer",
+              "default": 10
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A paginated list of templates.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WabaTemplateListResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalServerError"
+          }
+        }
+      }
+    },
+    "/api/pub/wa/send/template": {
+      "post": {
+        "tags": [
+          "Messages"
+        ],
+        "summary": "Send a Template Message",
+        "description": "Queues a pre-approved WhatsApp template message for sending to a contact.",
+        "security": [
+          {
+            "AppIdAuth": [],
+            "AppSecretAuth": []
+          }
+        ],
+        "requestBody": {
+          "description": "Message payload",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SendTemplateRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Message successfully queued. The message object is returned.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SendTemplateResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalServerError"
+          }
+        }
+      }
+    }
+  },
+ "components": {
+    "securitySchemes": {
+      "AppIdAuth": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "x-app-id",
+        "description": "Your application's unique ID."
+      },
+      "AppSecretAuth": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "x-app-secret",
+        "description": "Your application's secret key."
+      }
+    },
+    "responses": {
+      "Unauthorized": {
+        "description": "Unauthorized. The API keys are missing or invalid.",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/ErrorResponse"
+            },
+            "example": {
+              "status": 401,
+              "success": false,
+              "error": "Unauthorized: Please provide valid API credentials."
+            }
+          }
+        }
+      },
+      "BadRequest": {
+        "description": "Bad Request. A required field is missing or an item is in an invalid state.",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/ErrorResponse"
+            },
+            "examples": {
+              "MissingTemplate": {
+                "value": {
+                  "status": 400,
+                  "success": false,
+                  "error": "Template id not provided!"
+                }
+              },
+              "TemplateNotApproved": {
+                "value": {
+                  "status": 400,
+                  "success": false,
+                  "error": "Template is not approved!"
+                }
+              },
+              "WabaNotConnected": {
+                "value": {
+                  "status": 400,
+                  "success": false,
+                  "error": "WhatsApp Account Not Connected or Exist!"
+                }
+              }
+            }
+          }
+        }
+      },
+      "NotFound": {
+        "description": "Not Found. The requested resource (template, contact) could not be found.",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/ErrorResponse"
+            },
+            "example": {
+              "status": 404,
+              "success": false,
+              "error": "Template not found!"
+            }
+          }
+        }
+      },
+      "InternalServerError": {
+        "description": "Internal Server Error.",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/ErrorResponse"
+            }
+          }
+        }
+      }
+    },
+    "schemas": {
+      "SendTemplateRequest": {
+        "type": "object",
+        "properties": {
+          "template": {
+            "type": "string",
+            "description": "The _id of the WhatsAppTemplate to send.",
+            "example": "60c72b2f9b1d8e001f8a1b2d"
+          },
+          "whatsapp": {
+            "type": "string",
+            "description": "The _id of the WhatsApp account to send from.",
+            "example": "60c72b2f9b1d8e001f8a1b2c"
+          },
+          "phone": {
+            "type": "string",
+            "description": "The recipient's phone number in E.164 format.",
+            "example": "+911234567890"
+          },
+          "dynamicData": {
+            "type": "object",
+            "description": "Key-value pairs for dynamic template variables.",
+            "additionalProperties": true,
+            "example": {
+              "FIRSTNAME": "Guest",
+              "order_id": "12345"
+            }
+          }
+        },
+        "required": [
+          "template",
+          "whatsapp",
+          "phone"
+        ]
+      },
+      "SendTemplateResponse": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "integer",
+            "example": 200
+          },
+          "success": {
+            "type": "boolean",
+            "example": true
+          },
+          "error": {
+            "type": "null",
+            "example": null
+          },
+          "msg": {
+            "$ref": "#/components/schemas/WhatsAppMsg"
+          }
+        }
+      },
+      "WhatsAppMsg": {
+        "type": "object",
+        "description": "Represents a single WhatsApp message (inbound or outbound).",
+        "properties": {
+          "_id": {
+            "type": "string"
+          },
+          "campaign": {
+            "type": "string",
+            "description": "ID of the Campaign, if any."
+          },
+          "sequence": {
+            "type": "string",
+            "description": "ID of the Sequence, if any."
+          },
+          "sequenceActivity": {
+            "type": "string",
+            "description": "ID of the SequenceActivity, if any."
+          },
+          "contact": {
+            "type": "string",
+            "description": "ID of the Contact."
+          },
+          "messageId": {
+            "type": "string",
+            "description": "The unique message ID from WhatsApp."
+          },
+          "conversationId": {
+            "type": "string",
+            "description": "The conversation ID from WhatsApp."
+          },
+          "direction": {
+            "type": "string",
+            "enum": [
+              "inbound",
+              "outbound"
+            ]
+          },
+          "from": {
+            "type": "string",
+            "description": "ID of the WhatsApp account (WABA)."
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "template",
+              "text",
+              "image",
+              "audio",
+              "video",
+              "document",
+              "sticker",
+              "location",
+              "contacts",
+              "button",
+              "interactive",
+              "order",
+              "system",
+              "unknown",
+              "unsupported",
+              "call"
+            ]
+          },
+          "context": {
+            "$ref": "#/components/schemas/ReplyContext"
+          },
+          "referral": {
+            "$ref": "#/components/schemas/ReplyReferral"
+          },
+          "messageErrors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ReplyMessageError"
+            }
+          },
+          "template": {
+            "type": "string",
+            "description": "ID of the WhatsAppTemplate, if this is a template message."
+          },
+          "templatePostData": {
+            "type": "object",
+            "properties": {
+              "components": {
+                "type": "object",
+                "description": "The components payload sent to the API."
+              }
+            }
+          },
+          "call": {
+            "type": "string",
+            "description": "ID of the WaCall, if any."
+          },
+          "text": {
+            "$ref": "#/components/schemas/ReplyText"
+          },
+          "image": {
+            "$ref": "#/components/schemas/ReplyMedia"
+          },
+          "video": {
+            "$ref": "#/components/schemas/ReplyMedia"
+          },
+          "audio": {
+            "$ref": "#/components/schemas/ReplyMedia"
+          },
+          "document": {
+            "$ref": "#/components/schemas/ReplyMedia"
+          },
+          "sticker": {
+            "$ref": "#/components/schemas/ReplySticker"
+          },
+          "location": {
+            "$ref": "#/components/schemas/ReplyLocation"
+          },
+          "contacts": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ReplyContact"
+            }
+          },
+          "button": {
+            "$ref": "#/components/schemas/ReplyButton"
+          },
+          "interactive": {
+            "$ref": "#/components/schemas/ReplyInteractive"
+          },
+          "order": {
+            "$ref": "#/components/schemas/ReplyOrder"
+          },
+          "system": {
+            "$ref": "#/components/schemas/ReplySystem"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "pending",
+              "sent",
+              "failed",
+              "delivered",
+              "read",
+              "reply",
+              "unsubscribe",
+              "subscribe"
+            ],
+            "default": "pending"
+          },
+          "replyMsg": {
+            "type": "string",
+            "description": "ID of the WhatsAppMsg this is a reply to."
+          },
+          "failReason": {
+            "type": "object",
+            "description": "Reason for message failure."
+          },
+          "timestamp": {
+            "type": "number",
+            "description": "The epoch timestamp of the message."
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "ReplyContext": {
+        "type": "object",
+        "description": "Context object for replies.",
+        "properties": {}
+      },
+      "ReplyReferral": {
+        "type": "object",
+        "description": "Referral object for Click-to-WhatsApp ads.",
+        "properties": {}
+      },
+      "ReplyMessageError": {
+        "type": "object",
+        "description": "Error object for incoming messages.",
+        "properties": {}
+      },
+      "ReplyText": {
+        "type": "object",
+        "description": "Text message object.",
+        "properties": {}
+      },
+      "ReplyMedia": {
+        "type": "object",
+        "description": "Media (image, video, audio, document) object.",
+        "properties": {}
+      },
+      "ReplySticker": {
+        "type": "object",
+        "description": "Sticker message object.",
+        "properties": {}
+      },
+      "ReplyLocation": {
+        "type": "object",
+        "description": "Location message object.",
+        "properties": {}
+      },
+      "ReplyContact": {
+        "type": "object",
+        "description": "Contact card object.",
+        "properties": {}
+      },
+      "ReplyButton": {
+        "type": "object",
+        "description": "Button reply object.",
+        "properties": {}
+      },
+      "ReplyInteractive": {
+        "type": "object",
+        "description": "Interactive message reply object.",
+        "properties": {}
+      },
+      "ReplyOrder": {
+        "type": "object",
+        "description": "Order message object.",
+        "properties": {}
+      },
+      "ReplySystem": {
+        "type": "object",
+        "description": "System message object.",
+        "properties": {}
+      },
+      
+      "WabaAccount": {
+        "type": "object",
+        "properties": {
+          "_id": {
+            "type": "string",
+            "description": "The unique identifier for the WABA account.",
+            "example": "60c72b2f9b1d8e001f8a1b2c"
+          },
+          "company": {
+            "type": "string",
+            "description": "The ID of the parent company.",
+            "example": "60c72b2f9b1d8e001f8a1b2a"
+          },
+          "wabaId": {
+            "type": "string"
+          },
+          "phoneId": {
+            "type": "string"
+          },
+          "phoneNumber": {
+            "type": "string"
+          },
+          "userID": {
+            "type": "string"
+          },
+          "expiresIn": {
+            "type": "string"
+          },
+          "phone": {
+            "type": "string"
+            
+          },
+          "name": {
+            "type": "string"
+          },
+          "quality_rating": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "WabaListResponse": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "integer",
+            "example": 200
+          },
+          "success": {
+            "type": "boolean",
+            "example": true
+          },
+          "error": {
+            "type": "null",
+            "example": null
+          },
+          "accounts": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/WabaAccount"
+            }
+          }
+        }
+      },
+      "ErrorResponse": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "integer",
+            "example": 500
+          },
+          "success": {
+            "type": "boolean",
+            "example": false
+          },
+          "error": {
+            "type": "string",
+            "example": "Internal Server Error!"
+          }
+        }
+      },
+      "WabaTemplateSupportedApp": {
+        "type": "object",
+        "properties": {
+          "package_name": {
+            "type": "string"
+          },
+          "signature_hash": {
+            "type": "string"
+          }
+        }
+      },
+      "WabaTemplateButton": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "enum": [
+              "QUICK_REPLY",
+              "URL",
+              "PHONE_NUMBER",
+              "COPY_CODE",
+              "FLOW",
+              "VOICE_CALL",
+              "CATALOG",
+              "ORDER_DETAILS",
+              "MPM",
+              "SPM",
+              "OTP"
+            ]
+          },
+          "text": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string",
+            "nullable": true
+          },
+          "example": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ],
+            "nullable": true
+          },
+          "phoneNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "flow_id": {
+            "type": "string",
+            "nullable": true
+          },
+          "flow_action": {
+            "type": "string",
+            "enum": [
+              "NAVIGATE",
+              "DATA_EXCHANGE"
+            ],
+            "nullable": true
+          },
+          "flow_name": {
+            "type": "string",
+            "nullable": true
+          },
+          "flow_json": {
+            "type": "object",
+            "nullable": true,
+            "description": "A mixed-type field for arbitrary JSON."
+          },
+          "navigate_screen": {
+            "type": "string",
+            "nullable": true
+          },
+          "icon": {
+            "type": "string",
+            "enum": [
+              "DOCUMENT",
+              "PROMOTION",
+              "REVIEW"
+            ],
+            "nullable": true
+          },
+          "otp_type": {
+            "type": "string",
+            "enum": [
+              "COPY_CODE",
+              "ONE_TAP"
+            ],
+            "nullable": true
+          },
+          "supported_apps": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/WabaTemplateSupportedApp"
+            },
+            "nullable": true
+          }
+        }
+      },
+      "WabaTemplateCarouselCard": {
+        "type": "object",
+        "description": "A single card within a carousel component.",
+        "properties": {
+          "components": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/WabaTemplateComponent"
+            }
+          }
+        }
+      },
+      "WabaTemplateComponent": {
+        "type": "object",
+        "description": "A component of a WhatsApp template (e.g., header, body, carousel).",
+        "properties": {
+          "type": {
+            "type": "string",
+            "enum": [
+              "HEADER",
+              "BODY",
+              "FOOTER",
+              "BUTTONS",
+              "CALL_PERMISSION_REQUEST",
+              "CAROUSEL",
+              "LIMITED_TIME_OFFER"
+            ]
+          },
+          "format": {
+            "type": "string",
+            "nullable": true,
+            "enum": [
+              "TEXT",
+              "IMAGE",
+              "VIDEO",
+              "DOCUMENT",
+              "LOCATION",
+              "PRODUCT"
+            ]
+          },
+          "limited_time_offer": {
+            "type": "object",
+            "nullable": true,
+            "properties": {
+              "text": {
+                "type": "string"
+              },
+              "has_expiration": {
+                "type": "boolean"
+              }
+            }
+          },
+          "text": {
+            "type": "string",
+            "nullable": true
+          },
+          "add_security_recommendation": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "code_expiration_minutes": {
+            "type": "number",
+            "nullable": true
+          },
+          "example": {
+            "type": "object",
+            "nullable": true,
+            "properties": {
+              "header_handle": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "header_text": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "header_text_named_params": {
+                "type": "object"
+              },
+              "body_text": {
+                "type": "array",
+                "items": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "body_text_named_params": {
+                "type": "object"
+              }
+            }
+          },
+          "buttons": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/WabaTemplateButton"
+            },
+            "nullable": true
+          },
+          "cards": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/WabaTemplateCarouselCard"
+            },
+            "nullable": true
+          }
+        }
+      },
+      "WabaTemplate": {
+        "type": "object",
+        "description": "A WhatsApp message template.",
+        "properties": {
+          "_id": {
+            "type": "string",
+            "example": "60c72b2f9b1d8e001f8a1b2d"
+          },
+          "company": {
+            "type": "string",
+            "example": "60c72b2f9b1d8e001f8a1b2a"
+          },
+          "whatsapp": {
+            "type": "string",
+            "example": "60c72b2f9b1d8e001f8a1b2c"
+          },
+          "templateId": {
+            "type": "string",
+            "example": "8794876541213"
+          },
+          "wabaId": {
+            "type": "string",
+            "example": "123456789012345"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "APPROVED",
+              "PENDING",
+              "REJECTED",
+              "PAUSED",
+              "DISABLED",
+              "IN_APPEAL",
+              "REINSTATED",
+              "LIMIT_EXCEEDED"
+            ]
+          },
+          "format": {
+            "type": "string",
+            "enum": [
+              "NAMED",
+              "POSITIONAL"
+            ]
+          },
+          "category": {
+            "type": "string",
+            "enum": [
+              "AUTHENTICATION",
+              "MARKETING",
+              "UTILITY"
+            ]
+          },
+          "name": {
+            "type": "string",
+            "example": "order_confirmation"
+          },
+          "language": {
+            "type": "string",
+            "example": "en_US"
+          },
+          "libraryTempName": {
+            "type": "string",
+            "nullable": true
+          },
+          "components": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/WabaTemplateComponent"
+            }
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "WabaTemplateListResponse": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "integer",
+            "example": 200
+          },
+          "success": {
+            "type": "boolean",
+            "example": true
+          },
+          "error": {
+            "type": "null"
+          },
+          "templates": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/WabaTemplate"
+            }
+          },
+          "totalCount": {
+            "type": "integer",
+            "example": 25
+          },
+          "currentPage": {
+            "type": "integer",
+            "example": 1
+          },
+          "perPage": {
+            "type": "integer",
+            "example": 10
+          }
+        }
+      }
+    }
+  }
+}

@@ -2,6 +2,7 @@
   "$schema": "https://mintlify.com/docs.json",
   "theme": "mint",
   "name": "AdsEra Knowledge Base",
+  "openapi": "/openapi.json",
   "colors": {
     "primary": "#0A8DEE",
     "light": "#0A8DEE",
@@ -13,13 +14,9 @@
       {
         "tab": "Help Center",
         "groups": [
-           {
+          {
             "group": "Get Started",
-            "pages": [
-              "help/introduction/adsera",
-              "help/introduction/price"
-
-            ]
+            "pages": ["help/introduction/adsera", "help/introduction/price"]
           },
           {
             "group": "Account Center",
@@ -56,31 +53,30 @@
           {
             "group": "WhatsApp Channel",
             "pages": [
-                  "help/channel/whatsapp/whatsapp",
-                  "help/channel/whatsapp/connect",
-                  "help/channel/whatsapp/opt"
-                ]
+              "help/channel/whatsapp/whatsapp",
+              "help/channel/whatsapp/connect",
+              "help/channel/whatsapp/opt"
+            ]
           },
-            {
+          {
             "group": "Email Channel",
-           "pages": ["help/channel/email/email", "help/channel/email/smtp"]
-           
+            "pages": ["help/channel/email/email", "help/channel/email/smtp"]
           },
-           {
+          {
             "group": "Email Campaign",
             "pages": [
-                  "help/campaign/email/list",
-                  "help/campaign/email/create",
-                  "help/campaign/email/report"
-                ]
+              "help/campaign/email/list",
+              "help/campaign/email/create",
+              "help/campaign/email/report"
+            ]
           },
           {
             "group": "WhastApp Campaign",
             "pages": [
-                  "help/campaign/wa/list",
-                  "help/campaign/wa/create",
-                  "help/campaign/wa/report"
-                ]
+              "help/campaign/wa/list",
+              "help/campaign/wa/create",
+              "help/campaign/wa/report"
+            ]
           },
           {
             "group": "CRM",
@@ -102,13 +98,34 @@
             "group": "File Manager",
             "pages": ["help/file/manager"]
           },
-           {
+          {
             "group": "Autoreply",
             "pages": ["help/autoreply/wa"]
           },
-           {
+          {
             "group": "Sequence",
             "pages": ["help/sequence/sequence"]
+          }
+        ]
+      },
+      {
+        "tab": "API reference",
+        "groups": [
+          {
+            "group": "API documentation",
+            "pages": ["api-reference/introduction"]
+          },
+          {
+            "group": "WhastApp",
+            "pages": ["api-reference/whatsapp/list"]
+          },
+          {
+            "group": "Template",
+            "pages": ["api-reference/template/list"]
+          },
+          {
+            "group": "Message",
+            "pages": ["api-reference/msg/send"]
           }
         ]
       }
@@ -144,7 +161,7 @@
       "label": "Dashboard",
       "href": "https://app.adsera.in"
     }
-  },  
+  },
   "footer": {
     "socials": {
       "x": "https://x.com/adsera_in",
