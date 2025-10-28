@@ -193,13 +193,13 @@
       "AppIdAuth": {
         "type": "apiKey",
         "in": "header",
-        "name": "x-app-id",
+        "name": "x-api-key",
         "description": "Your application's unique ID."
       },
       "AppSecretAuth": {
         "type": "apiKey",
         "in": "header",
-        "name": "x-app-secret",
+        "name": "x-api-secret",
         "description": "Your application's secret key."
       }
     },
