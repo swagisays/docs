@@ -123,6 +123,10 @@
             "pages": ["api-reference/template/list"]
           },
           {
+            "group": "Snippet",
+            "pages": ["api-reference/snippet/list"]
+          },
+          {
             "group": "Message",
             "pages": [
               "api-reference/msg/send",
