@@ -124,7 +124,11 @@
           },
           {
             "group": "Message",
-            "pages": ["api-reference/msg/send"]
+            "pages": [
+              "api-reference/msg/send",
+              "api-reference/msg/snippet",
+              "api-reference/msg/msg"
+            ]
           }
         ]
       }
