@@ -123,7 +123,7 @@
             "pages": ["api-reference/template/list"]
           },
           {
-            "group": "Snippet",
+            "group": "Snippets",
             "pages": ["api-reference/snippet/list"]
           },
           {
