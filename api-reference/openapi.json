@@ -74,9 +74,7 @@
     },
     "/api/pub/wa/template/list/{whatsapp}": {
       "get": {
-        "tags": [
-          "Templates"
-        ],
+        "tags": ["Templates"],
         "summary": "List WABA Templates",
         "description": "Retrieves a paginated list of WhatsApp templates for a specific WABA account.",
         "security": [
@@ -139,9 +137,7 @@
     },
     "/api/pub/wa/send/template": {
       "post": {
-        "tags": [
-          "Messages"
-        ],
+        "tags": ["Messages"],
         "summary": "Send a Template Message",
         "description": "Queues a pre-approved WhatsApp template message for sending to a contact.",
         "security": [
@@ -186,9 +182,105 @@
           }
         }
       }
+    },
+    "/api/pub/wa/send/snippet": {
+      "post": {
+        "tags": ["Messages"],
+        "summary": "Send a Snippet Message",
+        "description": "Sends a pre-defined snippet message to a contact.",
+        "security": [
+          {
+            "AppIdAuth": [],
+            "AppSecretAuth": []
+          }
+        ],
+        "requestBody": {
+          "description": "Snippet message payload",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SendSnippetRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Message successfully queued.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SendTemplateResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalServerError"
+          }
+        }
+      }
+    },
+    "/api/pub/wa/send/msg": {
+      "post": {
+        "tags": ["Messages"],
+        "summary": "Send a Generic Message",
+        "description": "Sends a generic message (text, media, etc.) to a contact.",
+        "security": [
+          {
+            "AppIdAuth": [],
+            "AppSecretAuth": []
+          }
+        ],
+        "requestBody": {
+          "description": "Generic message payload",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SendMsgRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Message successfully queued.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SendTemplateResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalServerError"
+          }
+        }
+      }
     }
   },
- "components": {
+  "components": {
     "securitySchemes": {
       "AppIdAuth": {
         "type": "apiKey",
@@ -302,16 +394,118 @@
             "description": "Key-value pairs for dynamic template variables.",
             "additionalProperties": true,
             "example": {
+              "otpCode": "required in AUTHENTICATION Template",
               "FIRSTNAME": "Guest",
-              "order_id": "12345"
+              "order_id": "12345",
+              "header_handle": "MEDIA public url according to header type",
+              "location": {
+                "latitude": 40.741895,
+                "longitude": -73.989308,
+                "name": "location name",
+                "address": "location address"
+              },
+              "coupon_code": "required in COPY_CODE Buttons"
             }
           }
         },
-        "required": [
-          "template",
-          "whatsapp",
-          "phone"
-        ]
+        "required": ["template", "whatsapp", "phone"]
+      },
+      "SendSnippetRequest": {
+        "type": "object",
+        "properties": {
+          "snippet": {
+            "type": "string",
+            "description": "The _id of the Snippet to send.",
+            "example": "60c72b2f9b1d8e001f8a1b2e"
+          },
+          "whatsapp": {
+            "type": "string",
+            "description": "The _id of the WhatsApp account to send from.",
+            "example": "60c72b2f9b1d8e001f8a1b2c"
+          },
+          "phone": {
+            "type": "string",
+            "description": "The recipient's phone number in E.164 format.",
+            "example": "+911234567890"
+          },
+          "vars": {
+            "type": "object",
+            "description": "Variables for the snippet.",
+            "additionalProperties": true,
+            "example": {
+              "name": "John Doe"
+            }
+          }
+        },
+        "required": ["snippet", "whatsapp", "phone"]
+      },
+      "SendMsgRequest": {
+        "type": "object",
+        "properties": {
+          "whatsapp": {
+            "type": "string",
+            "description": "The _id of the WhatsApp account to send from.",
+            "example": "60c72b2f9b1d8e001f8a1b2c"
+          },
+          "phone": {
+            "type": "string",
+            "description": "The recipient's phone number in E.164 format.",
+            "example": "+911234567890"
+          },
+          "msg": {
+            "type": "object",
+            "description": "The message content.",
+            "properties": {
+              "messageType": {
+                "type": "string",
+                "enum": ["text", "image", "video", "audio", "document"],
+                "description": "The type of message to send."
+              },
+              "text": {
+                "type": "object",
+                "properties": {
+                  "body": { "type": "string" },
+                  "preview_url": { "type": "boolean" }
+                }
+              },
+              "image": {
+                "type": "object",
+                "properties": {
+                  "link": { "type": "string" },
+                  "caption": { "type": "string" }
+                }
+              },
+              "video": {
+                "type": "object",
+                "properties": {
+                  "link": { "type": "string" },
+                  "caption": { "type": "string" }
+                }
+              },
+              "audio": {
+                "type": "object",
+                "properties": {
+                  "link": { "type": "string" }
+                }
+              },
+              "document": {
+                "type": "object",
+                "properties": {
+                  "link": { "type": "string" },
+                  "caption": { "type": "string" },
+                  "filename": { "type": "string" }
+                }
+              }
+            },
+            "required": ["messageType"]
+          },
+          "vars": {
+            "type": "object",
+            "description": "Variables for the message.",
+            "additionalProperties": true
+          }
+        },
+        "required": ["msg", "whatsapp", "phone"]
       },
       "SendTemplateResponse": {
         "type": "object",
@@ -366,10 +560,7 @@
           },
           "direction": {
             "type": "string",
-            "enum": [
-              "inbound",
-              "outbound"
-            ]
+            "enum": ["inbound", "outbound"]
           },
           "from": {
             "type": "string",
@@ -560,7 +751,7 @@
         "description": "System message object.",
         "properties": {}
       },
-      
+
       "WabaAccount": {
         "type": "object",
         "properties": {
@@ -591,7 +782,6 @@
           },
           "phone": {
             "type": "string"
-            
           },
           "name": {
             "type": "string"
@@ -713,10 +903,7 @@
           },
           "flow_action": {
             "type": "string",
-            "enum": [
-              "NAVIGATE",
-              "DATA_EXCHANGE"
-            ],
+            "enum": ["NAVIGATE", "DATA_EXCHANGE"],
             "nullable": true
           },
           "flow_name": {
@@ -734,19 +921,12 @@
           },
           "icon": {
             "type": "string",
-            "enum": [
-              "DOCUMENT",
-              "PROMOTION",
-              "REVIEW"
-            ],
+            "enum": ["DOCUMENT", "PROMOTION", "REVIEW"],
             "nullable": true
           },
           "otp_type": {
             "type": "string",
-            "enum": [
-              "COPY_CODE",
-              "ONE_TAP"
-            ],
+            "enum": ["COPY_CODE", "ONE_TAP"],
             "nullable": true
           },
           "supported_apps": {
@@ -910,18 +1090,11 @@
           },
           "format": {
             "type": "string",
-            "enum": [
-              "NAMED",
-              "POSITIONAL"
-            ]
+            "enum": ["NAMED", "POSITIONAL"]
           },
           "category": {
             "type": "string",
-            "enum": [
-              "AUTHENTICATION",
-              "MARKETING",
-              "UTILITY"
-            ]
+            "enum": ["AUTHENTICATION", "MARKETING", "UTILITY"]
           },
           "name": {
             "type": "string",
