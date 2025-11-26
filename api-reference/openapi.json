@@ -72,6 +72,37 @@
         }
       }
     },
+    "/api/pub/wa/waba/link": {
+      "get": {
+        "tags": ["WABA"],
+        "summary": "Generate Onboarding Link",
+        "description": "Generates a WhatsApp onboarding link that expires in 6 hours and can be used only once.",
+        "security": [
+          {
+            "AppIdAuth": [],
+            "AppSecretAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response carrying the onboarding link.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OnboardingLinkResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalServerError"
+          }
+        }
+      }
+    },
     "/api/pub/wa/template/list/{whatsapp}": {
       "get": {
         "tags": ["Templates"],
@@ -607,6 +638,16 @@
           "totalCount": { "type": "integer", "example": 100 },
           "currentPage": { "type": "integer", "example": 1 },
           "perPage": { "type": "integer", "example": 10 }
+        }
+      },
+      "OnboardingLinkResponse": {
+        "type": "object",
+        "properties": {
+          "onboardingLink": {
+            "type": "string",
+            "description": "The generated onboarding link.",
+            "example": "https://app.adsera.in/onboarding/unique_token_123"
+          }
         }
       },
       "Snippet": {

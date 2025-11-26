@@ -116,7 +116,10 @@
           },
           {
             "group": "WhastApp",
-            "pages": ["api-reference/whatsapp/list"]
+            "pages": [
+              "api-reference/whatsapp/list",
+              "api-reference/whatsapp/link"
+            ]
           },
           {
             "group": "Template",
