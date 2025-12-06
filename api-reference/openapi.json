@@ -276,7 +276,7 @@
       "post": {
         "tags": ["Messages"],
         "summary": "Send a Generic Message",
-        "description": "Sends a generic message (text, media, etc.) to a contact.",
+        "description": "Sends a generic message (text, media, etc.) to a contact. Note: This kind of message can only be sent within the 24-hour open window.",
         "security": [
           {
             "AppIdAuth": [],
@@ -657,7 +657,7 @@
                 "items": {
                   "type": "object",
                   "properties": {
-                    "type": { "type": "string", "default": "reply" },
+                    "type": "reply",
                     "reply": {
                       "type": "object",
                       "properties": {
