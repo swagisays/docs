@@ -494,6 +494,230 @@
       }
     },
     "schemas": {
+      "Location": {
+        "type": "object",
+        "description": "Location message payload.",
+        "properties": {
+          "longitude": {
+            "type": "number",
+            "description": "Longitude in degrees."
+          },
+          "latitude": {
+            "type": "number",
+            "description": "Latitude in degrees."
+          },
+          "name": { "type": "string", "description": "Name of the location." },
+          "address": {
+            "type": "string",
+            "description": "Address of the location."
+          }
+        },
+        "required": ["longitude", "latitude"]
+      },
+      "Contact": {
+        "type": "object",
+        "description": "Contact card payload.",
+        "properties": {
+          "addresses": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "street": { "type": "string" },
+                "city": { "type": "string" },
+                "state": { "type": "string" },
+                "zip": { "type": "string" },
+                "country": { "type": "string" },
+                "country_code": { "type": "string" },
+                "type": { "type": "string" }
+              }
+            }
+          },
+          "birthday": { "type": "string", "description": "YYYY-MM-DD" },
+          "name": {
+            "type": "object",
+            "properties": {
+              "formatted_name": { "type": "string" },
+              "first_name": { "type": "string" },
+              "last_name": { "type": "string" },
+              "middle_name": { "type": "string" },
+              "suffix": { "type": "string" },
+              "prefix": { "type": "string" }
+            },
+            "required": ["formatted_name"]
+          },
+          "phones": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "phone": { "type": "string" },
+                "type": { "type": "string" },
+                "wa_id": { "type": "string" }
+              }
+            }
+          },
+          "emails": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "email": { "type": "string" },
+                "type": { "type": "string" }
+              }
+            }
+          },
+          "org": {
+            "type": "object",
+            "properties": {
+              "company": { "type": "string" },
+              "department": { "type": "string" },
+              "title": { "type": "string" }
+            }
+          },
+          "urls": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "url": { "type": "string" },
+                "type": { "type": "string" }
+              }
+            }
+          }
+        },
+        "required": ["name"]
+      },
+      "Interactive": {
+        "type": "object",
+        "description": "Interactive message payload.",
+        "properties": {
+          "type": {
+            "type": "string",
+            "enum": [
+              "button",
+              "list",
+              "product",
+              "product_list",
+              "catalog_message",
+              "flow",
+              "voice_call"
+            ]
+          },
+          "header": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "enum": ["text", "video", "image", "document"]
+              },
+              "text": { "type": "string", "maxLength": 60 },
+              "video": {
+                "type": "object",
+                "properties": {
+                  "link": { "type": "string" },
+                  "caption": { "type": "string" }
+                }
+              },
+              "image": {
+                "type": "object",
+                "properties": {
+                  "link": { "type": "string" },
+                  "caption": { "type": "string" }
+                }
+              },
+              "document": {
+                "type": "object",
+                "properties": {
+                  "link": { "type": "string" },
+                  "caption": { "type": "string" },
+                  "filename": { "type": "string" }
+                }
+              }
+            }
+          },
+          "body": {
+            "type": "object",
+            "properties": {
+              "text": { "type": "string", "maxLength": 1024 }
+            }
+          },
+          "footer": {
+            "type": "object",
+            "properties": {
+              "text": { "type": "string", "maxLength": 60 }
+            }
+          },
+          "action": {
+            "type": "object",
+            "properties": {
+              "buttons": {
+                "type": "array",
+                "maxItems": 3,
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "type": { "type": "string", "default": "reply" },
+                    "reply": {
+                      "type": "object",
+                      "properties": {
+                        "title": { "type": "string", "maxLength": 20 },
+                        "id": { "type": "string", "maxLength": 256 }
+                      },
+                      "required": ["title", "id"]
+                    }
+                  },
+                  "required": ["type", "reply"]
+                }
+              },
+              "button": { "type": "string", "maxLength": 20 },
+              "sections": {
+                "type": "array",
+                "minItems": 1,
+                "maxItems": 10,
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "title": { "type": "string", "maxLength": 24 },
+                    "rows": {
+                      "type": "array",
+                      "maxItems": 10,
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": { "type": "string", "maxLength": 200 },
+                          "title": { "type": "string", "maxLength": 24 },
+                          "description": {
+                            "type": "string",
+                            "maxLength": 72
+                          }
+                        },
+                        "required": ["id", "title"]
+                      }
+                    },
+                    "product_items": {
+                      "type": "array",
+                      "maxItems": 30,
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "product_retailer_id": { "type": "string" }
+                        },
+                        "required": ["product_retailer_id"]
+                      }
+                    }
+                  }
+                }
+              },
+              "catalog_id": { "type": "string" },
+              "product_retailer_id": { "type": "string" },
+              "name": { "type": "string" },
+              "parameters": { "type": "object" }
+            }
+          }
+        },
+        "required": ["type", "action"]
+      },
       "SendTemplateRequest": {
         "type": "object",
         "properties": {
@@ -581,7 +805,16 @@
             "properties": {
               "messageType": {
                 "type": "string",
-                "enum": ["text", "image", "video", "audio", "document"],
+                "enum": [
+                  "text",
+                  "image",
+                  "video",
+                  "audio",
+                  "document",
+                  "interactive",
+                  "contacts",
+                  "location"
+                ],
                 "description": "The type of message to send."
               },
               "text": {
@@ -618,7 +851,13 @@
                   "caption": { "type": "string" },
                   "filename": { "type": "string" }
                 }
-              }
+              },
+              "location": { "$ref": "#/components/schemas/Location" },
+              "contacts": {
+                "type": "array",
+                "items": { "$ref": "#/components/schemas/Contact" }
+              },
+              "interactive": { "$ref": "#/components/schemas/Interactive" }
             },
             "example": 200
           }
@@ -710,168 +949,12 @@
               "link": { "type": "string" }
             }
           },
-          "location": {
-            "type": "object",
-            "properties": {
-              "longitude": { "type": "number" },
-              "latitude": { "type": "number" },
-              "name": { "type": "string" },
-              "address": { "type": "string" }
-            }
-          },
+          "location": { "$ref": "#/components/schemas/Location" },
           "contacts": {
             "type": "array",
-            "items": {
-              "type": "object",
-              "properties": {
-                "name": {
-                  "type": "object",
-                  "properties": {
-                    "formatted_name": { "type": "string" },
-                    "first_name": { "type": "string" }
-                  }
-                },
-                "phones": {
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "phone": { "type": "string" }
-                    }
-                  }
-                }
-              }
-            }
+            "items": { "$ref": "#/components/schemas/Contact" }
           },
-          "interactive": {
-            "type": "object",
-            "properties": {
-              "type": {
-                "type": "string",
-                "enum": [
-                  "button",
-                  "list",
-                  "product",
-                  "product_list",
-                  "catalog_message",
-                  "flow",
-                  "voice_call"
-                ]
-              },
-              "header": {
-                "type": "object",
-                "properties": {
-                  "type": {
-                    "type": "string",
-                    "enum": ["text", "video", "image", "document"]
-                  },
-                  "text": { "type": "string", "maxLength": 60 },
-                  "video": {
-                    "type": "object",
-                    "properties": {
-                      "link": { "type": "string" },
-                      "caption": { "type": "string" }
-                    }
-                  },
-                  "image": {
-                    "type": "object",
-                    "properties": {
-                      "link": { "type": "string" },
-                      "caption": { "type": "string" }
-                    }
-                  },
-                  "document": {
-                    "type": "object",
-                    "properties": {
-                      "link": { "type": "string" },
-                      "caption": { "type": "string" },
-                      "filename": { "type": "string" }
-                    }
-                  }
-                }
-              },
-              "body": {
-                "type": "object",
-                "properties": {
-                  "text": { "type": "string", "maxLength": 1024 }
-                }
-              },
-              "footer": {
-                "type": "object",
-                "properties": {
-                  "text": { "type": "string", "maxLength": 60 }
-                }
-              },
-              "action": {
-                "type": "object",
-                "properties": {
-                  "buttons": {
-                    "type": "array",
-                    "maxItems": 3,
-                    "items": {
-                      "type": "object",
-                      "properties": {
-                        "type": { "type": "string", "default": "reply" },
-                        "reply": {
-                          "type": "object",
-                          "properties": {
-                            "title": { "type": "string", "maxLength": 20 },
-                            "id": { "type": "string", "maxLength": 256 }
-                          },
-                          "required": ["title", "id"]
-                        }
-                      },
-                      "required": ["type", "reply"]
-                    }
-                  },
-                  "button": { "type": "string", "maxLength": 20 },
-                  "sections": {
-                    "type": "array",
-                    "minItems": 1,
-                    "maxItems": 10,
-                    "items": {
-                      "type": "object",
-                      "properties": {
-                        "title": { "type": "string", "maxLength": 24 },
-                        "rows": {
-                          "type": "array",
-                          "maxItems": 10,
-                          "items": {
-                            "type": "object",
-                            "properties": {
-                              "id": { "type": "string", "maxLength": 200 },
-                              "title": { "type": "string", "maxLength": 24 },
-                              "description": {
-                                "type": "string",
-                                "maxLength": 72
-                              }
-                            },
-                            "required": ["id", "title"]
-                          }
-                        },
-                        "product_items": {
-                          "type": "array",
-                          "maxItems": 30,
-                          "items": {
-                            "type": "object",
-                            "properties": {
-                              "product_retailer_id": { "type": "string" }
-                            },
-                            "required": ["product_retailer_id"]
-                          }
-                        }
-                      }
-                    }
-                  },
-                  "catalog_id": { "type": "string" },
-                  "product_retailer_id": { "type": "string" },
-                  "name": { "type": "string" },
-                  "parameters": { "type": "object" }
-                }
-              }
-            },
-            "required": ["type", "action"]
-          },
+          "interactive": { "$ref": "#/components/schemas/Interactive" },
           "createdAt": { "type": "string", "format": "date-time" },
           "updatedAt": { "type": "string", "format": "date-time" }
         }
