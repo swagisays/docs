@@ -136,6 +136,10 @@
               "api-reference/msg/snippet",
               "api-reference/msg/msg"
             ]
+          },
+          {
+            "group": "Media",
+            "pages": ["api-reference/media/get"]
           }
         ]
       }

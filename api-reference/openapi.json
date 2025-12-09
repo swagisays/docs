@@ -401,6 +401,43 @@
           }
         }
       }
+    },
+    "/api/pub/wa/media/url/{mediaId}": {
+      "get": {
+        "tags": ["Media"],
+        "summary": "Get Media by ID",
+        "description": "Retrieves the media file content associated with a specific media ID.",
+        "parameters": [
+          {
+            "name": "mediaId",
+            "in": "path",
+            "required": true,
+            "description": "The ID of the media to retrieve.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The media file content.",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalServerError"
+          }
+        }
+      }
     }
   },
   "components": {
