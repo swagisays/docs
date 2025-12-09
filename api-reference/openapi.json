@@ -407,7 +407,7 @@
         "tags": ["Media"],
         "summary": "Get Media by ID",
         "description": "Retrieves the media file content associated with a specific media ID.",
-        "security": [],
+        "security": [{}],
         "parameters": [
           {
             "name": "mediaId",
