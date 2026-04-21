@@ -439,6 +439,306 @@
           }
         }
       }
+    },
+    "/api/pub/wa/call/connect/{whatsapp}": {
+      "post": {
+        "tags": ["Call"],
+        "summary": "Initiate Outbound Call",
+        "description": "Initiates a new outbound WhatsApp voice call to a contact. Creates a `WaCall` record and a linked `WhatsAppMsg` of type `call` in the conversation thread. The `callId` returned should be used for all subsequent call operations.",
+        "security": [
+          {
+            "AppIdAuth": [],
+            "AppSecretAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "whatsapp",
+            "in": "path",
+            "required": true,
+            "description": "The `_id` of the WhatsApp Business Account (WABA) to call from.",
+            "schema": {
+              "type": "string",
+              "example": "60c72b2f9b1d8e001f8a1b2c"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Outbound call payload",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ConnectCallRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Call initiated successfully. Use the returned `callId` for accept/end operations.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ConnectCallResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request. A required field is missing or the phone number is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                },
+                "examples": {
+                  "MissingSdp": {
+                    "value": {
+                      "status": 400,
+                      "success": false,
+                      "error": "sdp not provided."
+                    }
+                  },
+                  "MissingPhone": {
+                    "value": {
+                      "status": 400,
+                      "success": false,
+                      "error": "phone not provided."
+                    }
+                  },
+                  "InvalidPhone": {
+                    "value": {
+                      "status": 400,
+                      "success": false,
+                      "error": "Invalid phone number."
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "404": {
+            "description": "Not Found. The contact or WhatsApp account does not exist.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                },
+                "examples": {
+                  "ContactNotFound": {
+                    "value": {
+                      "status": 404,
+                      "success": false,
+                      "error": "Contact not found."
+                    }
+                  },
+                  "WhatsAppNotFound": {
+                    "value": {
+                      "status": 404,
+                      "success": false,
+                      "error": "WhatsApp account not found."
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error or Meta API failure.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                },
+                "example": {
+                  "status": 500,
+                  "success": false,
+                  "error": {},
+                  "msg": "Unable to establish connection with Meta."
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/pub/wa/call/pre/accept": {
+      "post": {
+        "tags": ["Call"],
+        "summary": "Pre-Accept Incoming Call",
+        "description": "Sends a WebRTC SDP answer to Meta before formally accepting an inbound call. Transitions the call status to `CONNECTING`. This must be called before `/accept` during inbound call negotiation.",
+        "security": [
+          {
+            "AppIdAuth": [],
+            "AppSecretAuth": []
+          }
+        ],
+        "requestBody": {
+          "description": "Pre-accept payload",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CallActionRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "SDP answer sent. Call status is now `CONNECTING`.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CallActionResponse"
+                },
+                "example": {
+                  "status": 200,
+                  "success": true,
+                  "error": null,
+                  "msg": "Call connection established."
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalServerError"
+          }
+        }
+      }
+    },
+    "/api/pub/wa/call/accept": {
+      "post": {
+        "tags": ["Call"],
+        "summary": "Accept Call",
+        "description": "Formally accepts an inbound WhatsApp call. Transitions the call status to `CONNECTED` and records the `startTimestamp`.",
+        "security": [
+          {
+            "AppIdAuth": [],
+            "AppSecretAuth": []
+          }
+        ],
+        "requestBody": {
+          "description": "Accept call payload",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CallActionRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Call accepted. Status is now `CONNECTED`.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CallActionResponse"
+                },
+                "example": {
+                  "status": 200,
+                  "success": true,
+                  "error": null,
+                  "msg": "Call accepted."
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalServerError"
+          }
+        }
+      }
+    },
+    "/api/pub/wa/call/end": {
+      "post": {
+        "tags": ["Call"],
+        "summary": "End Call",
+        "description": "Terminates an active WhatsApp call. Transitions the call status to `END` and records the `endTimestamp`. This endpoint does not require plan validation and can always be called to terminate a call.",
+        "security": [
+          {
+            "AppIdAuth": [],
+            "AppSecretAuth": []
+          }
+        ],
+        "requestBody": {
+          "description": "End call payload",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EndCallRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Call terminated. Status is now `END`.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CallActionResponse"
+                },
+                "example": {
+                  "status": 200,
+                  "success": true,
+                  "error": null,
+                  "msg": "Call ended."
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "500": {
+            "description": "Internal Server Error or Meta API failure.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                },
+                "example": {
+                  "status": 500,
+                  "success": false,
+                  "error": "Unable to terminate call with Meta."
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "components": {
@@ -1625,6 +1925,159 @@
           "perPage": {
             "type": "integer",
             "example": 10
+          }
+        }
+      },
+      "WaCall": {
+        "type": "object",
+        "description": "Represents a WhatsApp voice call record.",
+        "properties": {
+          "_id": {
+            "type": "string",
+            "description": "Internal MongoDB ID. Used as `id` in all call action requests.",
+            "example": "64f1a2b3c4d5e6f7a8b9c0d1"
+          },
+          "callId": {
+            "type": "string",
+            "description": "Meta-assigned call ID."
+          },
+          "waba": {
+            "type": "string",
+            "description": "ID of the WhatsApp Business Account used for the call."
+          },
+          "contact": {
+            "type": "string",
+            "description": "ID of the Contact."
+          },
+          "company": {
+            "type": "string",
+            "description": "ID of the Company."
+          },
+          "direction": {
+            "type": "string",
+            "enum": ["BUSINESS_INITIATED", "CUSTOMER_INITIATED"],
+            "description": "Who initiated the call."
+          },
+          "timestamp": {
+            "type": "string",
+            "description": "Call creation timestamp."
+          },
+          "startTimestamp": {
+            "type": "number",
+            "description": "Unix timestamp when the call was accepted/connected."
+          },
+          "endTimestamp": {
+            "type": "number",
+            "description": "Unix timestamp when the call ended."
+          },
+          "status": {
+            "type": "string",
+            "enum": ["CONNECTING", "CONNECTED", "END"],
+            "description": "Current status of the call."
+          },
+          "openAiThreadId": {
+            "type": "string",
+            "nullable": true,
+            "description": "Optional OpenAI thread ID associated with this call."
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "ConnectCallRequest": {
+        "type": "object",
+        "description": "Payload for initiating an outbound WhatsApp call.",
+        "properties": {
+          "phone": {
+            "type": "string",
+            "description": "The recipient's phone number in E.164 format.",
+            "example": "911234567890"
+          },
+          "sdp": {
+            "type": "string",
+            "description": "WebRTC SDP offer string from the calling client.",
+            "example": "v=0\r\no=- 46117317 2 IN IP4 127.0.0.1\r\n..."
+          }
+        },
+        "required": ["phone", "sdp"]
+      },
+      "ConnectCallResponse": {
+        "type": "object",
+        "description": "Response returned after successfully initiating an outbound call.",
+        "properties": {
+          "status": {
+            "type": "integer",
+            "example": 200
+          },
+          "success": {
+            "type": "boolean",
+            "example": true
+          },
+          "error": {
+            "type": "null",
+            "example": null
+          },
+          "callId": {
+            "type": "string",
+            "description": "The MongoDB `_id` of the created WaCall record. Use this as `id` in subsequent requests.",
+            "example": "64f1a2b3c4d5e6f7a8b9c0d1"
+          }
+        }
+      },
+      "CallActionRequest": {
+        "type": "object",
+        "description": "Payload for pre-accepting or accepting a call (requires SDP).",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "The `_id` of the WaCall record (returned by the connect endpoint).",
+            "example": "64f1a2b3c4d5e6f7a8b9c0d1"
+          },
+          "sdp": {
+            "type": "string",
+            "description": "WebRTC SDP answer string from the receiving client.",
+            "example": "v=0\r\no=- 46117317 2 IN IP4 127.0.0.1\r\n..."
+          }
+        },
+        "required": ["id", "sdp"]
+      },
+      "EndCallRequest": {
+        "type": "object",
+        "description": "Payload for ending an active call.",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "The `_id` of the WaCall record to terminate.",
+            "example": "64f1a2b3c4d5e6f7a8b9c0d1"
+          }
+        },
+        "required": ["id"]
+      },
+      "CallActionResponse": {
+        "type": "object",
+        "description": "Generic success response for call action endpoints.",
+        "properties": {
+          "status": {
+            "type": "integer",
+            "example": 200
+          },
+          "success": {
+            "type": "boolean",
+            "example": true
+          },
+          "error": {
+            "type": "null",
+            "example": null
+          },
+          "msg": {
+            "type": "string",
+            "example": "Call accepted."
           }
         }
       }

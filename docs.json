@@ -140,6 +140,15 @@
           {
             "group": "Media",
             "pages": ["api-reference/media/get"]
+          },
+          {
+            "group": "Call",
+            "pages": [
+              "api-reference/call/connect",
+              "api-reference/call/pre-accept",
+              "api-reference/call/accept",
+              "api-reference/call/end"
+            ]
           }
         ]
       }
