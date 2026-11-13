@@ -207,6 +207,7 @@
             "group": "Message",
             "pages": [
               "api-reference/msg/send",
+              "api-reference/msg/send-v2",
               "api-reference/msg/snippet",
               "api-reference/msg/msg"
             ]

@@ -1227,6 +1227,56 @@
           }
         }
       }
+    },
+    "/api/pub/v2/wa/send/template": {
+      "post": {
+        "tags": [
+          "Messages"
+        ],
+        "summary": "Send a Template Message (v2)",
+        "description": "Same as **Send a Template Message**, but the template values go straight into the body instead of inside `dynamicData`.\n\n```json\n{ \"template\": \"60c7…\", \"phone\": \"+919876543210\", \"firstname\": \"Riya\", \"order_id\": \"1042\" }\n```\n\n`template`, `phone` and `whatsapp` are reserved. Every other key is a template value:\n- variables by name (case-insensitive), e.g. `{{1}}` → `\"1\"`, `{{firstname}}` → `\"firstname\"`;\n- `header_handle`, `location`, `otpCode`, `coupon_code`, `expiration_time_ms`, `flow_action`, carousel `card_0_…` keys and the rest, exactly as in v1 `dynamicData`.\n\nVariables you leave out are filled from the contact's attributes when they match. v1 keeps working unchanged.",
+        "security": [
+          {
+            "AppIdAuth": [],
+            "AppSecretAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SendTemplateV2Request"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Message successfully queued. The message object is returned.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SendTemplateResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalServerError"
+          }
+        },
+        "operationId": "sendTemplateV2"
+      }
     }
   },
   "components": {
@@ -2964,6 +3014,39 @@
             "type": "string",
             "description": "Customer phone number with country code. The contact must exist in AdsEra."
           }
+        }
+      },
+      "SendTemplateV2Request": {
+        "type": "object",
+        "required": [
+          "template",
+          "phone"
+        ],
+        "properties": {
+          "template": {
+            "type": "string",
+            "description": "The _id of the WhatsApp template to send.",
+            "example": "60c72b2f9b1d8e001f8a1b2d"
+          },
+          "phone": {
+            "type": "string",
+            "description": "The recipient's phone number with country code.",
+            "example": "+919876543210"
+          },
+          "whatsapp": {
+            "type": "string",
+            "description": "The _id of the WhatsApp account to send from. Optional: defaults to the number the template belongs to."
+          }
+        },
+        "additionalProperties": {
+          "description": "Any other key is a template value, written at the top level of the body. Use the same keys as v1 `dynamicData`."
+        },
+        "example": {
+          "template": "60c72b2f9b1d8e001f8a1b2d",
+          "phone": "+919876543210",
+          "firstname": "Riya",
+          "order_id": "1042",
+          "header_handle": "https://example.com/offer.jpg"
         }
       }
     }
