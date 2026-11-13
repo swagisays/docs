@@ -234,6 +234,49 @@
               "api-reference/business-agent/take",
               "api-reference/business-agent/release"
             ]
+          },
+          {
+            "group": "CRM: Contacts",
+            "pages": [
+              "api-reference/crm/overview",
+              "api-reference/crm/contacts/upsert",
+              "api-reference/crm/contacts/list",
+              "api-reference/crm/contacts/lookup",
+              "api-reference/crm/contacts/get",
+              "api-reference/crm/contacts/update",
+              "api-reference/crm/contacts/add-label",
+              "api-reference/crm/contacts/remove-label",
+              "api-reference/crm/contacts/add-list",
+              "api-reference/crm/contacts/remove-list"
+            ]
+          },
+          {
+            "group": "CRM: Deals",
+            "pages": [
+              "api-reference/crm/pipelines/list",
+              "api-reference/crm/deals/create",
+              "api-reference/crm/deals/list",
+              "api-reference/crm/deals/get",
+              "api-reference/crm/deals/update"
+            ]
+          },
+          {
+            "group": "CRM: Tasks & Notes",
+            "pages": [
+              "api-reference/crm/tasks/create",
+              "api-reference/crm/tasks/list",
+              "api-reference/crm/tasks/get",
+              "api-reference/crm/tasks/update",
+              "api-reference/crm/notes/create"
+            ]
+          },
+          {
+            "group": "CRM: Lookups",
+            "pages": [
+              "api-reference/crm/lookups/attributes",
+              "api-reference/crm/lookups/labels",
+              "api-reference/crm/lookups/lists"
+            ]
           }
         ]
       }

@@ -1,0 +1,53 @@
+---
+title: "CRM API overview"
+description: "Create and update contacts, deals, tasks and notes from your own systems."
+---
+
+The CRM API lets your website, backend or another tool write to AdsEra's CRM. Changes made through the API behave exactly like changes made in the app: workflows run, Closer and your Meta CAPI rules see them, and alerts go out.
+
+## Authentication
+
+Send the same App Id and App Secret as the rest of the API, in the `x-api-key` and `x-api-secret` headers. Every request works on the workspace that owns the app. Records created through the API are recorded as created by the app's user.
+
+## Base URL
+
+```
+https://app.adsera.in/api/pub/crm
+```
+
+## Responses
+
+A successful call answers `{ "success": true, "data": ... }`. A failed call answers `{ "success": false, "error": "..." }` with a 4xx status:
+
+| Status | Meaning |
+| --- | --- |
+| 400 | The body or query is invalid, for example an unknown attribute or a stage that is not in the pipeline. |
+| 401 | Missing or wrong App Id / App Secret. |
+| 403 | Your plan has expired or does not include this feature. |
+| 404 | The record does not exist in your workspace. |
+| 409 | Another contact already has this phone number or email. |
+
+Lists take `page` and `perPage` (at most 100) and answer `{ items, total, page, perPage }`.
+
+## Referring to records
+
+- **Contacts:** by id, or by phone number with the country code (`919876543210`; spaces, `+` and dashes are ignored).
+- **Contact fields:** by attribute title, such as `FIRSTNAME` or `CITY`. Get the titles from [List Attributes](/api-reference/crm/lookups/attributes).
+- **Labels, lists and pipelines:** by name or id.
+- **Stages:** by title, such as `Qualified`, or id.
+- **Users** (assignee, owner): by their email address.
+
+## Keeping contacts in sync
+
+[Create or Update a Contact](/api-reference/crm/contacts/upsert) finds the contact by phone, then by email, and creates it when there is none. Sending the same body twice is safe. Use it whenever someone signs up or fills a form on your side.
+
+```bash
+curl -X POST https://app.adsera.in/api/pub/crm/contacts \
+  -H "x-api-key: YOUR_APP_ID" -H "x-api-secret: YOUR_APP_SECRET" \
+  -H "Content-Type: application/json" \
+  -d '{"phone": "+91 98765 43210", "email": "priya@example.com", "attributes": {"FIRSTNAME": "Priya"}, "labels": ["Website lead"]}'
+```
+
+<Note>
+Workflows tell a new contact from an updated one by its timestamps. If you update a contact within a fraction of a second after creating it, that update can start your "contact created" workflows a second time. Send everything in one create call when you can.
+</Note>

@@ -1277,6 +1277,1682 @@
         },
         "operationId": "sendTemplateV2"
       }
+    },
+    "/api/pub/crm/contacts": {
+      "post": {
+        "tags": [
+          "CRM: Contacts"
+        ],
+        "summary": "Create or Update a Contact",
+        "operationId": "crmUpsertContact",
+        "description": "Finds the contact by phone, else by email, and creates it when there is none. Sending the same body again changes nothing. Attributes are merged; labels and lists are added, never removed. Fires the same workflows as the app (contact created / updated).",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CrmContactUpsert"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "example": true
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "contact": {
+                          "$ref": "#/components/schemas/CrmContact"
+                        },
+                        "created": {
+                          "type": "boolean"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CrmError"
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CrmError"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CrmError"
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "CRM: Contacts"
+        ],
+        "summary": "List Contacts",
+        "operationId": "crmListContacts",
+        "description": "Newest changes first.",
+        "parameters": [
+          {
+            "name": "search",
+            "in": "query",
+            "required": false,
+            "description": "Matches email, phone digits or any attribute value.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "label",
+            "in": "query",
+            "required": false,
+            "description": "Label name or id.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "list",
+            "in": "query",
+            "required": false,
+            "description": "List name or id.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "updatedSince",
+            "in": "query",
+            "required": false,
+            "description": "ISO date: only contacts changed since then.",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "description": "Page number, from 1.",
+            "schema": {
+              "type": "integer",
+              "default": 1
+            }
+          },
+          {
+            "name": "perPage",
+            "in": "query",
+            "required": false,
+            "description": "Items per page, at most 100.",
+            "schema": {
+              "type": "integer",
+              "default": 25,
+              "maximum": 100
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "example": true
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "items": {
+                          "type": "array",
+                          "items": {
+                            "$ref": "#/components/schemas/CrmContact"
+                          }
+                        },
+                        "total": {
+                          "type": "integer"
+                        },
+                        "page": {
+                          "type": "integer"
+                        },
+                        "perPage": {
+                          "type": "integer"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CrmError"
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "404": {
+            "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CrmError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/pub/crm/contacts/lookup": {
+      "get": {
+        "tags": [
+          "CRM: Contacts"
+        ],
+        "summary": "Find a Contact by Phone or Email",
+        "operationId": "crmLookupContact",
+        "description": "Send `phone` (with country code) or `email`.",
+        "parameters": [
+          {
+            "name": "phone",
+            "in": "query",
+            "required": false,
+            "description": "Phone with country code.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "email",
+            "in": "query",
+            "required": false,
+            "description": "Email address.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "example": true
+                    },
+                    "data": {
+                      "$ref": "#/components/schemas/CrmContact"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CrmError"
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "404": {
+            "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CrmError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/pub/crm/contacts/{id}": {
+      "get": {
+        "tags": [
+          "CRM: Contacts"
+        ],
+        "summary": "Get a Contact",
+        "operationId": "crmGetContact",
+        "description": "One contact by id.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Contact id.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "example": true
+                    },
+                    "data": {
+                      "$ref": "#/components/schemas/CrmContact"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "404": {
+            "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CrmError"
+                }
+              }
+            }
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "CRM: Contacts"
+        ],
+        "summary": "Update a Contact",
+        "operationId": "crmUpdateContact",
+        "description": "Changes only the fields you send. Attributes are merged. Fires the contact updated workflows.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Contact id.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CrmContactPatch"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "example": true
+                    },
+                    "data": {
+                      "$ref": "#/components/schemas/CrmContact"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CrmError"
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "404": {
+            "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CrmError"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CrmError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/pub/crm/contacts/{id}/labels": {
+      "post": {
+        "tags": [
+          "CRM: Contacts"
+        ],
+        "summary": "Add a Label",
+        "operationId": "crmAddLabel",
+        "description": "Label name or id. A new name creates the label.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Contact id.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "label"
+                ],
+                "properties": {
+                  "label": {
+                    "type": "string",
+                    "example": "VIP"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "example": true
+                    },
+                    "data": {
+                      "$ref": "#/components/schemas/CrmContact"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CrmError"
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "404": {
+            "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CrmError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/pub/crm/contacts/{id}/labels/{label}": {
+      "delete": {
+        "tags": [
+          "CRM: Contacts"
+        ],
+        "summary": "Remove a Label",
+        "operationId": "crmRemoveLabel",
+        "description": "Label name or id.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Contact id.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "label",
+            "in": "path",
+            "required": true,
+            "description": "Label name or id.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "example": true
+                    },
+                    "data": {
+                      "$ref": "#/components/schemas/CrmContact"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "404": {
+            "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CrmError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/pub/crm/contacts/{id}/lists": {
+      "post": {
+        "tags": [
+          "CRM: Contacts"
+        ],
+        "summary": "Add to a List",
+        "operationId": "crmAddList",
+        "description": "List name or id. The list must exist. Lists with a sequence start it, as in the app.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Contact id.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "list"
+                ],
+                "properties": {
+                  "list": {
+                    "type": "string",
+                    "example": "Webinar leads"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "example": true
+                    },
+                    "data": {
+                      "$ref": "#/components/schemas/CrmContact"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CrmError"
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "404": {
+            "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CrmError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/pub/crm/contacts/{id}/lists/{list}": {
+      "delete": {
+        "tags": [
+          "CRM: Contacts"
+        ],
+        "summary": "Remove from a List",
+        "operationId": "crmRemoveList",
+        "description": "List name or id.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Contact id.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "list",
+            "in": "path",
+            "required": true,
+            "description": "List name or id.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "example": true
+                    },
+                    "data": {
+                      "$ref": "#/components/schemas/CrmContact"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "404": {
+            "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CrmError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/pub/crm/pipelines": {
+      "get": {
+        "tags": [
+          "CRM: Deals"
+        ],
+        "summary": "List Pipelines",
+        "operationId": "crmListPipelines",
+        "description": "Pipelines with their stages, in order.",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "example": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/CrmPipeline"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/pub/crm/deals": {
+      "post": {
+        "tags": [
+          "CRM: Deals"
+        ],
+        "summary": "Create a Deal",
+        "operationId": "crmCreateDeal",
+        "description": "Creates a deal for a contact. Fires the deal created workflows and your CAPI deal rules.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CrmDealCreate"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "example": true
+                    },
+                    "data": {
+                      "$ref": "#/components/schemas/CrmDeal"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CrmError"
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CrmError"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CrmError"
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "CRM: Deals"
+        ],
+        "summary": "List Deals",
+        "operationId": "crmListDeals",
+        "description": "Newest changes first.",
+        "parameters": [
+          {
+            "name": "pipeline",
+            "in": "query",
+            "required": false,
+            "description": "Pipeline name or id.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "stage",
+            "in": "query",
+            "required": false,
+            "description": "Stage title.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "contact",
+            "in": "query",
+            "required": false,
+            "description": "Contact id or phone.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "required": false,
+            "description": "open, won or lost.",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "open",
+                "won",
+                "lost"
+              ]
+            }
+          },
+          {
+            "name": "updatedSince",
+            "in": "query",
+            "required": false,
+            "description": "ISO date.",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "description": "Page number, from 1.",
+            "schema": {
+              "type": "integer",
+              "default": 1
+            }
+          },
+          {
+            "name": "perPage",
+            "in": "query",
+            "required": false,
+            "description": "Items per page, at most 100.",
+            "schema": {
+              "type": "integer",
+              "default": 25,
+              "maximum": 100
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "example": true
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "items": {
+                          "type": "array",
+                          "items": {
+                            "$ref": "#/components/schemas/CrmDeal"
+                          }
+                        },
+                        "total": {
+                          "type": "integer"
+                        },
+                        "page": {
+                          "type": "integer"
+                        },
+                        "perPage": {
+                          "type": "integer"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CrmError"
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "404": {
+            "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CrmError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/pub/crm/deals/{id}": {
+      "get": {
+        "tags": [
+          "CRM: Deals"
+        ],
+        "summary": "Get a Deal",
+        "operationId": "crmGetDeal",
+        "description": "One deal by id.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Deal id.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "example": true
+                    },
+                    "data": {
+                      "$ref": "#/components/schemas/CrmDeal"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "404": {
+            "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CrmError"
+                }
+              }
+            }
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "CRM: Deals"
+        ],
+        "summary": "Update a Deal",
+        "operationId": "crmUpdateDeal",
+        "description": "Move the stage, change the value, owner or close date. A stage move fires the deal stage workflows; won / lost follow the stage. A deal with catalog line items takes its value from them, so `value` is refused.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Deal id.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CrmDealPatch"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "example": true
+                    },
+                    "data": {
+                      "$ref": "#/components/schemas/CrmDeal"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CrmError"
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "404": {
+            "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CrmError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/pub/crm/tasks": {
+      "post": {
+        "tags": [
+          "CRM: Tasks & Notes"
+        ],
+        "summary": "Create a Task",
+        "operationId": "crmCreateTask",
+        "description": "The assignee gets the same notification as in the app.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CrmTaskCreate"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "example": true
+                    },
+                    "data": {
+                      "$ref": "#/components/schemas/CrmTask"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CrmError"
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CrmError"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CrmError"
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "CRM: Tasks & Notes"
+        ],
+        "summary": "List Tasks",
+        "operationId": "crmListTasks",
+        "description": "Earliest due first.",
+        "parameters": [
+          {
+            "name": "contact",
+            "in": "query",
+            "required": false,
+            "description": "Contact id or phone.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "deal",
+            "in": "query",
+            "required": false,
+            "description": "Deal id.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "required": false,
+            "description": "pending or completed.",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "pending",
+                "completed"
+              ]
+            }
+          },
+          {
+            "name": "dueBefore",
+            "in": "query",
+            "required": false,
+            "description": "ISO date.",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "description": "Page number, from 1.",
+            "schema": {
+              "type": "integer",
+              "default": 1
+            }
+          },
+          {
+            "name": "perPage",
+            "in": "query",
+            "required": false,
+            "description": "Items per page, at most 100.",
+            "schema": {
+              "type": "integer",
+              "default": 25,
+              "maximum": 100
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "example": true
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "items": {
+                          "type": "array",
+                          "items": {
+                            "$ref": "#/components/schemas/CrmTask"
+                          }
+                        },
+                        "total": {
+                          "type": "integer"
+                        },
+                        "page": {
+                          "type": "integer"
+                        },
+                        "perPage": {
+                          "type": "integer"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CrmError"
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "404": {
+            "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CrmError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/pub/crm/tasks/{id}": {
+      "get": {
+        "tags": [
+          "CRM: Tasks & Notes"
+        ],
+        "summary": "Get a Task",
+        "operationId": "crmGetTask",
+        "description": "One task by id.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Task id.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "example": true
+                    },
+                    "data": {
+                      "$ref": "#/components/schemas/CrmTask"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "404": {
+            "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CrmError"
+                }
+              }
+            }
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "CRM: Tasks & Notes"
+        ],
+        "summary": "Update a Task",
+        "operationId": "crmUpdateTask",
+        "description": "Complete it, reschedule it or reassign it.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Task id.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CrmTaskPatch"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "example": true
+                    },
+                    "data": {
+                      "$ref": "#/components/schemas/CrmTask"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CrmError"
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "404": {
+            "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CrmError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/pub/crm/notes": {
+      "post": {
+        "tags": [
+          "CRM: Tasks & Notes"
+        ],
+        "summary": "Add a Note",
+        "operationId": "crmCreateNote",
+        "description": "Adds a note to a contact or deal timeline.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CrmNoteCreate"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "example": true
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "_id": {
+                          "type": "string",
+                          "example": "6650f1c2a1b2c3d4e5f60718"
+                        },
+                        "contact": {
+                          "type": "string",
+                          "example": "6650f1c2a1b2c3d4e5f60718"
+                        },
+                        "deal": {
+                          "type": "string",
+                          "example": "6650f1c2a1b2c3d4e5f60718"
+                        },
+                        "title": {
+                          "type": "string"
+                        },
+                        "text": {
+                          "type": "string"
+                        },
+                        "createdAt": {
+                          "type": "string",
+                          "format": "date-time"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CrmError"
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CrmError"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CrmError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/pub/crm/attributes": {
+      "get": {
+        "tags": [
+          "CRM: Lookups"
+        ],
+        "summary": "List Attributes",
+        "operationId": "crmListAttributes",
+        "description": "Your contact fields. Send `title` as the key in contact `attributes`.",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "example": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "_id": {
+                            "type": "string",
+                            "example": "6650f1c2a1b2c3d4e5f60718"
+                          },
+                          "title": {
+                            "type": "string",
+                            "example": "FIRSTNAME"
+                          },
+                          "type": {
+                            "type": "string",
+                            "example": "text"
+                          },
+                          "options": {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/pub/crm/labels": {
+      "get": {
+        "tags": [
+          "CRM: Lookups"
+        ],
+        "summary": "List Labels",
+        "operationId": "crmListLabels",
+        "description": "Your contact labels.",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "example": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "_id": {
+                            "type": "string",
+                            "example": "6650f1c2a1b2c3d4e5f60718"
+                          },
+                          "title": {
+                            "type": "string",
+                            "example": "VIP"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/pub/crm/lists": {
+      "get": {
+        "tags": [
+          "CRM: Lookups"
+        ],
+        "summary": "List Lists",
+        "operationId": "crmListLists",
+        "description": "Your contact lists.",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "example": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "_id": {
+                            "type": "string",
+                            "example": "6650f1c2a1b2c3d4e5f60718"
+                          },
+                          "name": {
+                            "type": "string"
+                          },
+                          "folder": {
+                            "type": "string",
+                            "example": "6650f1c2a1b2c3d4e5f60718"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "components": {
@@ -3047,6 +4723,605 @@
           "firstname": "Riya",
           "order_id": "1042",
           "header_handle": "https://example.com/offer.jpg"
+        }
+      },
+      "CrmError": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean",
+            "example": false
+          },
+          "error": {
+            "type": "string",
+            "example": "Contact not found"
+          }
+        }
+      },
+      "CrmContact": {
+        "type": "object",
+        "properties": {
+          "_id": {
+            "type": "string",
+            "example": "6650f1c2a1b2c3d4e5f60718"
+          },
+          "phone": {
+            "type": "string",
+            "example": "919876543210"
+          },
+          "email": {
+            "type": "string",
+            "example": "priya@example.com"
+          },
+          "attributes": {
+            "type": "object",
+            "additionalProperties": true,
+            "example": {
+              "FIRSTNAME": "Priya",
+              "CITY": "Jaipur"
+            },
+            "description": "Custom fields by title."
+          },
+          "labels": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "_id": {
+                  "type": "string",
+                  "example": "6650f1c2a1b2c3d4e5f60718"
+                },
+                "title": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "lists": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "_id": {
+                  "type": "string",
+                  "example": "6650f1c2a1b2c3d4e5f60718"
+                },
+                "name": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "subscription": {
+            "type": "object",
+            "properties": {
+              "whatsapp": {
+                "type": "boolean"
+              },
+              "email": {
+                "type": "boolean"
+              },
+              "sms": {
+                "type": "boolean"
+              }
+            }
+          },
+          "assignTo": {
+            "type": "object",
+            "nullable": true,
+            "properties": {
+              "_id": {
+                "type": "string",
+                "example": "6650f1c2a1b2c3d4e5f60718"
+              },
+              "firstName": {
+                "type": "string"
+              },
+              "lastName": {
+                "type": "string"
+              },
+              "email": {
+                "type": "string"
+              }
+            }
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "CrmContactUpsert": {
+        "type": "object",
+        "description": "Send `phone` or `email` (or both).",
+        "properties": {
+          "phone": {
+            "type": "string",
+            "example": "+91 98765 43210",
+            "description": "With country code. Everything but digits is dropped."
+          },
+          "email": {
+            "type": "string",
+            "format": "email"
+          },
+          "attributes": {
+            "type": "object",
+            "additionalProperties": true,
+            "example": {
+              "FIRSTNAME": "Priya"
+            },
+            "description": "Attribute title → value. Titles come from List Attributes; an unknown title is a 400. `null` or `\"\"` clears a value."
+          },
+          "labels": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "example": [
+              "VIP"
+            ],
+            "description": "Label names or ids. Missing names are created."
+          },
+          "lists": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "List names or ids. Lists must already exist."
+          },
+          "subscription": {
+            "type": "object",
+            "properties": {
+              "whatsapp": {
+                "type": "boolean"
+              },
+              "email": {
+                "type": "boolean"
+              },
+              "sms": {
+                "type": "boolean"
+              }
+            }
+          }
+        }
+      },
+      "CrmContactPatch": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string",
+            "format": "email"
+          },
+          "attributes": {
+            "type": "object",
+            "additionalProperties": true,
+            "example": {
+              "CITY": "Pune"
+            }
+          },
+          "subscription": {
+            "type": "object",
+            "properties": {
+              "whatsapp": {
+                "type": "boolean"
+              },
+              "email": {
+                "type": "boolean"
+              },
+              "sms": {
+                "type": "boolean"
+              }
+            }
+          },
+          "assignTo": {
+            "type": "string",
+            "format": "email",
+            "nullable": true,
+            "description": "Email of a user in your workspace; `null` unassigns."
+          }
+        }
+      },
+      "CrmPipeline": {
+        "type": "object",
+        "properties": {
+          "_id": {
+            "type": "string",
+            "example": "6650f1c2a1b2c3d4e5f60718"
+          },
+          "name": {
+            "type": "string",
+            "example": "Sales"
+          },
+          "stages": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "_id": {
+                  "type": "string",
+                  "example": "6650f1c2a1b2c3d4e5f60718"
+                },
+                "title": {
+                  "type": "string",
+                  "example": "Qualified"
+                },
+                "isWon": {
+                  "type": "boolean"
+                },
+                "isLost": {
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        }
+      },
+      "CrmDeal": {
+        "type": "object",
+        "properties": {
+          "_id": {
+            "type": "string",
+            "example": "6650f1c2a1b2c3d4e5f60718"
+          },
+          "title": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "pipeline": {
+            "type": "object",
+            "properties": {
+              "_id": {
+                "type": "string",
+                "example": "6650f1c2a1b2c3d4e5f60718"
+              },
+              "name": {
+                "type": "string"
+              }
+            }
+          },
+          "stage": {
+            "type": "string",
+            "example": "Qualified"
+          },
+          "contact": {
+            "type": "object",
+            "properties": {
+              "_id": {
+                "type": "string",
+                "example": "6650f1c2a1b2c3d4e5f60718"
+              },
+              "phone": {
+                "type": "string"
+              },
+              "email": {
+                "type": "string"
+              }
+            }
+          },
+          "total": {
+            "type": "number",
+            "example": 25000
+          },
+          "currency": {
+            "type": "string",
+            "example": "INR"
+          },
+          "closeDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "isWon": {
+            "type": "boolean"
+          },
+          "isLost": {
+            "type": "boolean"
+          },
+          "owner": {
+            "type": "object",
+            "properties": {
+              "_id": {
+                "type": "string",
+                "example": "6650f1c2a1b2c3d4e5f60718"
+              },
+              "firstName": {
+                "type": "string"
+              },
+              "lastName": {
+                "type": "string"
+              },
+              "email": {
+                "type": "string"
+              }
+            }
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "CrmDealCreate": {
+        "type": "object",
+        "required": [
+          "title",
+          "pipeline",
+          "contact",
+          "value",
+          "currency"
+        ],
+        "properties": {
+          "title": {
+            "type": "string",
+            "example": "50 units for Priya"
+          },
+          "pipeline": {
+            "type": "string",
+            "example": "Sales",
+            "description": "Pipeline name or id."
+          },
+          "stage": {
+            "type": "string",
+            "example": "New",
+            "description": "Stage title or id. Defaults to the first stage."
+          },
+          "contact": {
+            "type": "string",
+            "example": "919876543210",
+            "description": "Contact id or phone."
+          },
+          "value": {
+            "type": "number",
+            "example": 25000,
+            "description": "Deal value. `total` is accepted too."
+          },
+          "currency": {
+            "type": "string",
+            "example": "INR"
+          },
+          "closeDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "owner": {
+            "type": "string",
+            "format": "email",
+            "description": "Email of the deal owner. Defaults to the API app's user."
+          },
+          "description": {
+            "type": "string"
+          }
+        }
+      },
+      "CrmDealPatch": {
+        "type": "object",
+        "properties": {
+          "stage": {
+            "type": "string",
+            "example": "Won",
+            "description": "Stage title or id. Won / lost follow the stage."
+          },
+          "pipeline": {
+            "type": "string",
+            "description": "Move to another pipeline (send `stage` too)."
+          },
+          "title": {
+            "type": "string"
+          },
+          "value": {
+            "type": "number"
+          },
+          "currency": {
+            "type": "string"
+          },
+          "closeDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "owner": {
+            "type": "string",
+            "format": "email"
+          },
+          "description": {
+            "type": "string"
+          },
+          "isWon": {
+            "type": "boolean"
+          },
+          "isLost": {
+            "type": "boolean"
+          }
+        }
+      },
+      "CrmTask": {
+        "type": "object",
+        "properties": {
+          "_id": {
+            "type": "string",
+            "example": "6650f1c2a1b2c3d4e5f60718"
+          },
+          "title": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "contact": {
+            "type": "string",
+            "example": "6650f1c2a1b2c3d4e5f60718"
+          },
+          "deal": {
+            "type": "string",
+            "example": "6650f1c2a1b2c3d4e5f60718"
+          },
+          "dueAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "priority": {
+            "type": "string",
+            "enum": [
+              "low",
+              "medium",
+              "high"
+            ]
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "pending",
+              "completed"
+            ]
+          },
+          "completedAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "agent": {
+            "type": "object",
+            "description": "The assignee.",
+            "properties": {
+              "_id": {
+                "type": "string",
+                "example": "6650f1c2a1b2c3d4e5f60718"
+              },
+              "firstName": {
+                "type": "string"
+              },
+              "lastName": {
+                "type": "string"
+              },
+              "email": {
+                "type": "string"
+              }
+            }
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "CrmTaskCreate": {
+        "type": "object",
+        "required": [
+          "title"
+        ],
+        "properties": {
+          "title": {
+            "type": "string",
+            "example": "Call back about pricing"
+          },
+          "description": {
+            "type": "string"
+          },
+          "contact": {
+            "type": "string",
+            "description": "Contact id or phone."
+          },
+          "deal": {
+            "type": "string",
+            "description": "Deal id. The task also links to the deal's contact."
+          },
+          "dueAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "priority": {
+            "type": "string",
+            "enum": [
+              "low",
+              "medium",
+              "high"
+            ],
+            "default": "medium"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "pending",
+              "completed"
+            ],
+            "default": "pending"
+          },
+          "assignee": {
+            "type": "string",
+            "format": "email",
+            "description": "Defaults to the API app's user."
+          }
+        }
+      },
+      "CrmTaskPatch": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "enum": [
+              "pending",
+              "completed"
+            ],
+            "description": "`completed` sets `completedAt`."
+          },
+          "title": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "dueAt": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "priority": {
+            "type": "string",
+            "enum": [
+              "low",
+              "medium",
+              "high"
+            ]
+          },
+          "assignee": {
+            "type": "string",
+            "format": "email"
+          }
+        }
+      },
+      "CrmNoteCreate": {
+        "type": "object",
+        "required": [
+          "text"
+        ],
+        "properties": {
+          "contact": {
+            "type": "string",
+            "description": "Contact id or phone."
+          },
+          "deal": {
+            "type": "string",
+            "description": "Deal id."
+          },
+          "text": {
+            "type": "string",
+            "example": "Asked for a demo next week."
+          },
+          "title": {
+            "type": "string"
+          }
         }
       }
     }
