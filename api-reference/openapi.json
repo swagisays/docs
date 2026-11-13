@@ -24,7 +24,9 @@
   "paths": {
     "/api/pub/wa/waba/list": {
       "get": {
-        "tags": ["WABA"],
+        "tags": [
+          "WABA"
+        ],
         "summary": "List WABA Accounts",
         "description": "Retrieves a list of all WhatsApp Business Accounts (WABA) associated with your company.",
         "security": [
@@ -74,7 +76,9 @@
     },
     "/api/pub/wa/waba/link": {
       "get": {
-        "tags": ["WABA"],
+        "tags": [
+          "WABA"
+        ],
         "summary": "Generate Onboarding Link",
         "description": "Generates a WhatsApp onboarding link that expires in 6 hours and can be used only once.",
         "security": [
@@ -105,7 +109,9 @@
     },
     "/api/pub/wa/template/list/{whatsapp}": {
       "get": {
-        "tags": ["Templates"],
+        "tags": [
+          "Templates"
+        ],
         "summary": "List WABA Templates",
         "description": "Retrieves a paginated list of WhatsApp templates for a specific WABA account.",
         "security": [
@@ -178,7 +184,9 @@
     },
     "/api/pub/wa/send/template": {
       "post": {
-        "tags": ["Messages"],
+        "tags": [
+          "Messages"
+        ],
         "summary": "Send a Template Message",
         "description": "Queues a pre-approved WhatsApp template message for sending to a contact.",
         "security": [
@@ -226,7 +234,9 @@
     },
     "/api/pub/wa/send/snippet": {
       "post": {
-        "tags": ["Messages"],
+        "tags": [
+          "Messages"
+        ],
         "summary": "Send a Snippet Message",
         "description": "Sends a pre-defined snippet message to a contact.",
         "security": [
@@ -274,7 +284,9 @@
     },
     "/api/pub/wa/send/msg": {
       "post": {
-        "tags": ["Messages"],
+        "tags": [
+          "Messages"
+        ],
         "summary": "Send a Generic Message",
         "description": "Sends a generic message (text, media, etc.) to a contact. Note: This kind of message can only be sent within the 24-hour open window.",
         "security": [
@@ -322,7 +334,9 @@
     },
     "/api/pub/wa/snippet/list": {
       "get": {
-        "tags": ["Snippets"],
+        "tags": [
+          "Snippets"
+        ],
         "summary": "List Snippets",
         "description": "Retrieves a paginated list of snippets.",
         "security": [
@@ -404,10 +418,14 @@
     },
     "/api/pub/wa/media/url/{mediaId}": {
       "get": {
-        "tags": ["Media"],
+        "tags": [
+          "Media"
+        ],
         "summary": "Get Media by ID",
         "description": "Retrieves the media file content associated with a specific media ID.",
-        "security": [{}],
+        "security": [
+          {}
+        ],
         "parameters": [
           {
             "name": "mediaId",
@@ -442,9 +460,11 @@
     },
     "/api/pub/wa/call/connect/{whatsapp}": {
       "post": {
-        "tags": ["Call"],
+        "tags": [
+          "Call"
+        ],
         "summary": "Initiate Outbound Call",
-        "description": "Initiates a new outbound WhatsApp voice call to a contact. Creates a `WaCall` record and a linked `WhatsAppMsg` of type `call` in the conversation thread. The `callId` returned should be used for all subsequent call operations.",
+        "description": "Initiates a new outbound WhatsApp voice call to a contact. Creates a `WaCall` record and a linked `WhatsAppMsg` of type `call` in the conversation thread. The `callId` returned should be used for all subsequent call operations.\n\n**Requirements:**\n- The contact must already exist in AdsEra, and must have accepted a call permission request (send a call permission template first).\n- Calling is not available on Coexistence numbers.\n- To receive **inbound** calls through the API, set the number's **Call handling** to **API** in AdsEra (Numbers → the number → Call handling).",
         "security": [
           {
             "AppIdAuth": [],
@@ -568,7 +588,9 @@
     },
     "/api/pub/wa/call/pre/accept": {
       "post": {
-        "tags": ["Call"],
+        "tags": [
+          "Call"
+        ],
         "summary": "Pre-Accept Incoming Call",
         "description": "Sends a WebRTC SDP answer to Meta before formally accepting an inbound call. Transitions the call status to `CONNECTING`. This must be called before `/accept` during inbound call negotiation.",
         "security": [
@@ -622,7 +644,9 @@
     },
     "/api/pub/wa/call/accept": {
       "post": {
-        "tags": ["Call"],
+        "tags": [
+          "Call"
+        ],
         "summary": "Accept Call",
         "description": "Formally accepts an inbound WhatsApp call. Transitions the call status to `CONNECTED` and records the `startTimestamp`.",
         "security": [
@@ -676,7 +700,9 @@
     },
     "/api/pub/wa/call/end": {
       "post": {
-        "tags": ["Call"],
+        "tags": [
+          "Call"
+        ],
         "summary": "End Call",
         "description": "Terminates an active WhatsApp call. Transitions the call status to `END` and records the `endTimestamp`. This endpoint does not require plan validation and can always be called to terminate a call.",
         "security": [
@@ -733,6 +759,468 @@
                   "status": 500,
                   "success": false,
                   "error": "Unable to terminate call with Meta."
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/pub/wa/template/all/list": {
+      "get": {
+        "tags": [
+          "Templates"
+        ],
+        "summary": "List All Templates",
+        "description": "Lists the WhatsApp templates of every WhatsApp account in your company, newest first. Each template includes its `whatsapp` account (`name`, `phone`). Use the template `_id` with **Send a Template Message**.",
+        "security": [
+          {
+            "AppIdAuth": [],
+            "AppSecretAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "search",
+            "in": "query",
+            "required": false,
+            "description": "Search query for template name.",
+            "schema": {
+              "type": "string",
+              "default": ""
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "description": "The page number for pagination.",
+            "schema": {
+              "type": "integer",
+              "default": 1
+            }
+          },
+          {
+            "name": "perPage",
+            "in": "query",
+            "required": false,
+            "description": "The number of items to return per page.",
+            "schema": {
+              "type": "integer",
+              "default": 10
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A paginated list of templates.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WabaTemplateListResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalServerError"
+          }
+        },
+        "operationId": "listAllTemplates"
+      }
+    },
+    "/api/pub/wa/business-agent/events": {
+      "post": {
+        "tags": [
+          "Meta AI Agent"
+        ],
+        "summary": "Send an Agent Event",
+        "operationId": "sendAgentEvent",
+        "description": "Tells the Meta AI Agent on your number about something that happened in your systems (an order shipped, a payment received…), so it can tell the customer in the chat. Requires the Meta AI Agent to be enabled for your account and set up on the number.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BusinessAgentEventRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The event was accepted. Use its `_id` to check its status.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "example": true
+                    },
+                    "data": {
+                      "$ref": "#/components/schemas/BusinessAgentEvent"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BusinessAgentError"
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BusinessAgentError"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BusinessAgentError"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BusinessAgentError"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BusinessAgentError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/pub/wa/business-agent/events/{id}": {
+      "get": {
+        "tags": [
+          "Meta AI Agent"
+        ],
+        "summary": "Get Agent Event Status",
+        "operationId": "getAgentEvent",
+        "description": "Fetches the latest status of an agent event from Meta. Requires the Meta AI Agent to be enabled for your account and set up on the number.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "The event `_id` from **Send an Agent Event**."
+          },
+          {
+            "name": "phoneId",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "The Meta phone number ID of your WhatsApp number."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "example": true
+                    },
+                    "data": {
+                      "$ref": "#/components/schemas/BusinessAgentEvent"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BusinessAgentError"
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BusinessAgentError"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BusinessAgentError"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BusinessAgentError"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BusinessAgentError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/pub/wa/business-agent/threads/take": {
+      "post": {
+        "tags": [
+          "Meta AI Agent"
+        ],
+        "summary": "Take Over a Chat",
+        "operationId": "takeThread",
+        "description": "Takes the chat with this customer away from the Meta AI Agent, so your team or your system answers it. Requires the Meta AI Agent to be enabled for your account and set up on the number.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ThreadRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "example": true
+                    },
+                    "data": {
+                      "type": "object",
+                      "description": "Who answers the chat now."
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BusinessAgentError"
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BusinessAgentError"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BusinessAgentError"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BusinessAgentError"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BusinessAgentError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/pub/wa/business-agent/threads/release": {
+      "post": {
+        "tags": [
+          "Meta AI Agent"
+        ],
+        "summary": "Hand a Chat Back to the AI Agent",
+        "operationId": "releaseThread",
+        "description": "Hands the chat with this customer back to the Meta AI Agent. Requires the Meta AI Agent to be enabled for your account and set up on the number.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ThreadRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "example": true
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "released": {
+                          "type": "boolean"
+                        },
+                        "skipped": {
+                          "type": "boolean",
+                          "description": "True when the agent already held the chat."
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BusinessAgentError"
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BusinessAgentError"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BusinessAgentError"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BusinessAgentError"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BusinessAgentError"
                 }
               }
             }
@@ -844,13 +1332,19 @@
             "type": "number",
             "description": "Latitude in degrees."
           },
-          "name": { "type": "string", "description": "Name of the location." },
+          "name": {
+            "type": "string",
+            "description": "Name of the location."
+          },
           "address": {
             "type": "string",
             "description": "Address of the location."
           }
         },
-        "required": ["longitude", "latitude"]
+        "required": [
+          "longitude",
+          "latitude"
+        ]
       },
       "Contact": {
         "type": "object",
@@ -861,37 +1355,74 @@
             "items": {
               "type": "object",
               "properties": {
-                "street": { "type": "string" },
-                "city": { "type": "string" },
-                "state": { "type": "string" },
-                "zip": { "type": "string" },
-                "country": { "type": "string" },
-                "country_code": { "type": "string" },
-                "type": { "type": "string" }
+                "street": {
+                  "type": "string"
+                },
+                "city": {
+                  "type": "string"
+                },
+                "state": {
+                  "type": "string"
+                },
+                "zip": {
+                  "type": "string"
+                },
+                "country": {
+                  "type": "string"
+                },
+                "country_code": {
+                  "type": "string"
+                },
+                "type": {
+                  "type": "string"
+                }
               }
             }
           },
-          "birthday": { "type": "string", "description": "YYYY-MM-DD" },
+          "birthday": {
+            "type": "string",
+            "description": "YYYY-MM-DD"
+          },
           "name": {
             "type": "object",
             "properties": {
-              "formatted_name": { "type": "string" },
-              "first_name": { "type": "string" },
-              "last_name": { "type": "string" },
-              "middle_name": { "type": "string" },
-              "suffix": { "type": "string" },
-              "prefix": { "type": "string" }
+              "formatted_name": {
+                "type": "string"
+              },
+              "first_name": {
+                "type": "string"
+              },
+              "last_name": {
+                "type": "string"
+              },
+              "middle_name": {
+                "type": "string"
+              },
+              "suffix": {
+                "type": "string"
+              },
+              "prefix": {
+                "type": "string"
+              }
             },
-            "required": ["formatted_name"]
+            "required": [
+              "formatted_name"
+            ]
           },
           "phones": {
             "type": "array",
             "items": {
               "type": "object",
               "properties": {
-                "phone": { "type": "string" },
-                "type": { "type": "string" },
-                "wa_id": { "type": "string" }
+                "phone": {
+                  "type": "string"
+                },
+                "type": {
+                  "type": "string"
+                },
+                "wa_id": {
+                  "type": "string"
+                }
               }
             }
           },
@@ -900,17 +1431,27 @@
             "items": {
               "type": "object",
               "properties": {
-                "email": { "type": "string" },
-                "type": { "type": "string" }
+                "email": {
+                  "type": "string"
+                },
+                "type": {
+                  "type": "string"
+                }
               }
             }
           },
           "org": {
             "type": "object",
             "properties": {
-              "company": { "type": "string" },
-              "department": { "type": "string" },
-              "title": { "type": "string" }
+              "company": {
+                "type": "string"
+              },
+              "department": {
+                "type": "string"
+              },
+              "title": {
+                "type": "string"
+              }
             }
           },
           "urls": {
@@ -918,13 +1459,19 @@
             "items": {
               "type": "object",
               "properties": {
-                "url": { "type": "string" },
-                "type": { "type": "string" }
+                "url": {
+                  "type": "string"
+                },
+                "type": {
+                  "type": "string"
+                }
               }
             }
           }
         },
-        "required": ["name"]
+        "required": [
+          "name"
+        ]
       },
       "Interactive": {
         "type": "object",
@@ -947,29 +1494,51 @@
             "properties": {
               "type": {
                 "type": "string",
-                "enum": ["text", "video", "image", "document"]
+                "enum": [
+                  "text",
+                  "video",
+                  "image",
+                  "document"
+                ]
               },
-              "text": { "type": "string", "maxLength": 60 },
+              "text": {
+                "type": "string",
+                "maxLength": 60
+              },
               "video": {
                 "type": "object",
                 "properties": {
-                  "link": { "type": "string" },
-                  "caption": { "type": "string" }
+                  "link": {
+                    "type": "string"
+                  },
+                  "caption": {
+                    "type": "string"
+                  }
                 }
               },
               "image": {
                 "type": "object",
                 "properties": {
-                  "link": { "type": "string" },
-                  "caption": { "type": "string" }
+                  "link": {
+                    "type": "string"
+                  },
+                  "caption": {
+                    "type": "string"
+                  }
                 }
               },
               "document": {
                 "type": "object",
                 "properties": {
-                  "link": { "type": "string" },
-                  "caption": { "type": "string" },
-                  "filename": { "type": "string" }
+                  "link": {
+                    "type": "string"
+                  },
+                  "caption": {
+                    "type": "string"
+                  },
+                  "filename": {
+                    "type": "string"
+                  }
                 }
               }
             }
@@ -977,13 +1546,19 @@
           "body": {
             "type": "object",
             "properties": {
-              "text": { "type": "string", "maxLength": 1024 }
+              "text": {
+                "type": "string",
+                "maxLength": 1024
+              }
             }
           },
           "footer": {
             "type": "object",
             "properties": {
-              "text": { "type": "string", "maxLength": 60 }
+              "text": {
+                "type": "string",
+                "maxLength": 60
+              }
             }
           },
           "action": {
@@ -999,16 +1574,31 @@
                     "reply": {
                       "type": "object",
                       "properties": {
-                        "title": { "type": "string", "maxLength": 20 },
-                        "id": { "type": "string", "maxLength": 256 }
+                        "title": {
+                          "type": "string",
+                          "maxLength": 20
+                        },
+                        "id": {
+                          "type": "string",
+                          "maxLength": 256
+                        }
                       },
-                      "required": ["title", "id"]
+                      "required": [
+                        "title",
+                        "id"
+                      ]
                     }
                   },
-                  "required": ["type", "reply"]
+                  "required": [
+                    "type",
+                    "reply"
+                  ]
                 }
               },
-              "button": { "type": "string", "maxLength": 20 },
+              "button": {
+                "type": "string",
+                "maxLength": 20
+              },
               "sections": {
                 "type": "array",
                 "minItems": 1,
@@ -1016,21 +1606,33 @@
                 "items": {
                   "type": "object",
                   "properties": {
-                    "title": { "type": "string", "maxLength": 24 },
+                    "title": {
+                      "type": "string",
+                      "maxLength": 24
+                    },
                     "rows": {
                       "type": "array",
                       "maxItems": 10,
                       "items": {
                         "type": "object",
                         "properties": {
-                          "id": { "type": "string", "maxLength": 200 },
-                          "title": { "type": "string", "maxLength": 24 },
+                          "id": {
+                            "type": "string",
+                            "maxLength": 200
+                          },
+                          "title": {
+                            "type": "string",
+                            "maxLength": 24
+                          },
                           "description": {
                             "type": "string",
                             "maxLength": 72
                           }
                         },
-                        "required": ["id", "title"]
+                        "required": [
+                          "id",
+                          "title"
+                        ]
                       }
                     },
                     "product_items": {
@@ -1039,22 +1641,37 @@
                       "items": {
                         "type": "object",
                         "properties": {
-                          "product_retailer_id": { "type": "string" }
+                          "product_retailer_id": {
+                            "type": "string"
+                          }
                         },
-                        "required": ["product_retailer_id"]
+                        "required": [
+                          "product_retailer_id"
+                        ]
                       }
                     }
                   }
                 }
               },
-              "catalog_id": { "type": "string" },
-              "product_retailer_id": { "type": "string" },
-              "name": { "type": "string" },
-              "parameters": { "type": "object" }
+              "catalog_id": {
+                "type": "string"
+              },
+              "product_retailer_id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "parameters": {
+                "type": "object"
+              }
             }
           }
         },
-        "required": ["type", "action"]
+        "required": [
+          "type",
+          "action"
+        ]
       },
       "SendTemplateRequest": {
         "type": "object",
@@ -1066,7 +1683,7 @@
           },
           "whatsapp": {
             "type": "string",
-            "description": "The _id of the WhatsApp account to send from.",
+            "description": "The _id of the WhatsApp account to send from. Optional: defaults to the number the template belongs to.",
             "example": "60c72b2f9b1d8e001f8a1b2c"
           },
           "phone": {
@@ -1076,7 +1693,7 @@
           },
           "dynamicData": {
             "type": "object",
-            "description": "Key-value pairs for dynamic template variables.",
+            "description": "Values for the template. Variables are matched by name (case-insensitive), e.g. `{{1}}` → `\"1\"`, `{{name}}` → `\"name\"`. Variables you leave out are filled from the contact's attributes when they match.\n\n- `header_handle`: public URL of the header image, video or document; `filename` for a document header.\n- `header`: header text parameters, for a text header with a variable.\n- `location`: `{ latitude, longitude, name, address }` for a location header.\n- `otpCode`: the code, required for AUTHENTICATION templates.\n- `coupon_code`: for a Copy Offer Code button.\n- `expiration_time_ms` (or `lto.expiration_time_ms`): offer expiry for Limited-time offer templates.\n- `product_retailer_id` + `catalog_id`: the product for a product (SPM) header.\n- `catalog.thumbnail_product_retailer_id`: thumbnail for a Catalog button.\n- `mpm_action`: the sections/products action object for a multi-product (MPM) button.\n- `flow_action`: `{ flow_token, flow_action_data }` for a WhatsApp Flow button.\n- `order_detail_action`: the order details for a Pay Now (Review and Pay) button.\n- Carousel cards: `card_{index}_header_handle`, `card_{index}_{variable}` (e.g. `card_0_1`), `card_{index}_product_retailer_id`, `card_{index}_catalog_id`. Index starts at 0.",
             "additionalProperties": true,
             "example": {
               "otpCode": "required in AUTHENTICATION Template",
@@ -1093,7 +1710,10 @@
             }
           }
         },
-        "required": ["template", "whatsapp", "phone"]
+        "required": [
+          "template",
+          "phone"
+        ]
       },
       "SendSnippetRequest": {
         "type": "object",
@@ -1122,7 +1742,11 @@
             }
           }
         },
-        "required": ["snippet", "whatsapp", "phone"]
+        "required": [
+          "snippet",
+          "whatsapp",
+          "phone"
+        ]
       },
       "SendMsgRequest": {
         "type": "object",
@@ -1158,63 +1782,113 @@
               "text": {
                 "type": "object",
                 "properties": {
-                  "body": { "type": "string" },
-                  "preview_url": { "type": "boolean" }
+                  "body": {
+                    "type": "string"
+                  },
+                  "preview_url": {
+                    "type": "boolean"
+                  }
                 }
               },
               "image": {
                 "type": "object",
                 "properties": {
-                  "link": { "type": "string" },
-                  "caption": { "type": "string" }
+                  "link": {
+                    "type": "string"
+                  },
+                  "caption": {
+                    "type": "string"
+                  }
                 }
               },
               "video": {
                 "type": "object",
                 "properties": {
-                  "link": { "type": "string" },
-                  "caption": { "type": "string" }
+                  "link": {
+                    "type": "string"
+                  },
+                  "caption": {
+                    "type": "string"
+                  }
                 }
               },
               "audio": {
                 "type": "object",
                 "properties": {
-                  "link": { "type": "string" }
+                  "link": {
+                    "type": "string"
+                  }
                 }
               },
               "document": {
                 "type": "object",
                 "properties": {
-                  "link": { "type": "string" },
-                  "caption": { "type": "string" },
-                  "filename": { "type": "string" }
+                  "link": {
+                    "type": "string"
+                  },
+                  "caption": {
+                    "type": "string"
+                  },
+                  "filename": {
+                    "type": "string"
+                  }
                 }
               },
-              "location": { "$ref": "#/components/schemas/Location" },
+              "location": {
+                "$ref": "#/components/schemas/Location"
+              },
               "contacts": {
                 "type": "array",
-                "items": { "$ref": "#/components/schemas/Contact" }
+                "items": {
+                  "$ref": "#/components/schemas/Contact"
+                }
               },
-              "interactive": { "$ref": "#/components/schemas/Interactive" }
+              "interactive": {
+                "$ref": "#/components/schemas/Interactive"
+              }
             },
             "example": 200
           }
         },
-        "required": ["whatsapp", "phone", "msg"]
+        "required": [
+          "whatsapp",
+          "phone",
+          "msg"
+        ]
       },
       "SnippetListResponse": {
         "type": "object",
         "properties": {
-          "status": { "type": "integer", "example": 200 },
-          "success": { "type": "boolean", "example": true },
-          "error": { "type": "null", "example": null },
+          "status": {
+            "type": "integer",
+            "example": 200
+          },
+          "success": {
+            "type": "boolean",
+            "example": true
+          },
+          "error": {
+            "type": "null",
+            "example": null
+          },
           "snippets": {
             "type": "array",
-            "items": { "$ref": "#/components/schemas/Snippet" }
+            "items": {
+              "$ref": "#/components/schemas/Snippet"
+            }
           },
-          "totalCount": { "type": "integer", "example": 100 },
-          "currentPage": { "type": "integer", "example": 1 },
-          "perPage": { "type": "integer", "example": 10 }
+          "totalCount": {
+            "type": "integer",
+            "example": 100
+          },
+          "currentPage": {
+            "type": "integer",
+            "example": 1
+          },
+          "perPage": {
+            "type": "integer",
+            "example": 10
+          }
         }
       },
       "OnboardingLinkResponse": {
@@ -1230,8 +1904,12 @@
       "Snippet": {
         "type": "object",
         "properties": {
-          "_id": { "type": "string" },
-          "name": { "type": "string" },
+          "_id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
           "messageType": {
             "type": "string",
             "enum": [
@@ -1249,52 +1927,86 @@
           "text": {
             "type": "object",
             "properties": {
-              "body": { "type": "string" },
-              "preview_url": { "type": "boolean" }
+              "body": {
+                "type": "string"
+              },
+              "preview_url": {
+                "type": "boolean"
+              }
             }
           },
           "image": {
             "type": "object",
             "properties": {
-              "link": { "type": "string" },
-              "caption": { "type": "string" }
+              "link": {
+                "type": "string"
+              },
+              "caption": {
+                "type": "string"
+              }
             }
           },
           "video": {
             "type": "object",
             "properties": {
-              "link": { "type": "string" },
-              "caption": { "type": "string" }
+              "link": {
+                "type": "string"
+              },
+              "caption": {
+                "type": "string"
+              }
             }
           },
           "audio": {
             "type": "object",
             "properties": {
-              "link": { "type": "string" }
+              "link": {
+                "type": "string"
+              }
             }
           },
           "document": {
             "type": "object",
             "properties": {
-              "link": { "type": "string" },
-              "caption": { "type": "string" },
-              "filename": { "type": "string" }
+              "link": {
+                "type": "string"
+              },
+              "caption": {
+                "type": "string"
+              },
+              "filename": {
+                "type": "string"
+              }
             }
           },
           "sticker": {
             "type": "object",
             "properties": {
-              "link": { "type": "string" }
+              "link": {
+                "type": "string"
+              }
             }
           },
-          "location": { "$ref": "#/components/schemas/Location" },
+          "location": {
+            "$ref": "#/components/schemas/Location"
+          },
           "contacts": {
             "type": "array",
-            "items": { "$ref": "#/components/schemas/Contact" }
+            "items": {
+              "$ref": "#/components/schemas/Contact"
+            }
           },
-          "interactive": { "$ref": "#/components/schemas/Interactive" },
-          "createdAt": { "type": "string", "format": "date-time" },
-          "updatedAt": { "type": "string", "format": "date-time" }
+          "interactive": {
+            "$ref": "#/components/schemas/Interactive"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time"
+          }
         }
       },
       "WhatsAppMsg": {
@@ -1330,7 +2042,10 @@
           },
           "direction": {
             "type": "string",
-            "enum": ["inbound", "outbound"]
+            "enum": [
+              "inbound",
+              "outbound"
+            ]
           },
           "from": {
             "type": "string",
@@ -1521,7 +2236,6 @@
         "description": "System message object.",
         "properties": {}
       },
-
       "WabaAccount": {
         "type": "object",
         "properties": {
@@ -1673,7 +2387,10 @@
           },
           "flow_action": {
             "type": "string",
-            "enum": ["NAVIGATE", "DATA_EXCHANGE"],
+            "enum": [
+              "NAVIGATE",
+              "DATA_EXCHANGE"
+            ],
             "nullable": true
           },
           "flow_name": {
@@ -1691,12 +2408,19 @@
           },
           "icon": {
             "type": "string",
-            "enum": ["DOCUMENT", "PROMOTION", "REVIEW"],
+            "enum": [
+              "DOCUMENT",
+              "PROMOTION",
+              "REVIEW"
+            ],
             "nullable": true
           },
           "otp_type": {
             "type": "string",
-            "enum": ["COPY_CODE", "ONE_TAP"],
+            "enum": [
+              "COPY_CODE",
+              "ONE_TAP"
+            ],
             "nullable": true
           },
           "supported_apps": {
@@ -1860,11 +2584,18 @@
           },
           "format": {
             "type": "string",
-            "enum": ["NAMED", "POSITIONAL"]
+            "enum": [
+              "NAMED",
+              "POSITIONAL"
+            ]
           },
           "category": {
             "type": "string",
-            "enum": ["AUTHENTICATION", "MARKETING", "UTILITY"]
+            "enum": [
+              "AUTHENTICATION",
+              "MARKETING",
+              "UTILITY"
+            ]
           },
           "name": {
             "type": "string",
@@ -1955,7 +2686,10 @@
           },
           "direction": {
             "type": "string",
-            "enum": ["BUSINESS_INITIATED", "CUSTOMER_INITIATED"],
+            "enum": [
+              "BUSINESS_INITIATED",
+              "CUSTOMER_INITIATED"
+            ],
             "description": "Who initiated the call."
           },
           "timestamp": {
@@ -1972,7 +2706,11 @@
           },
           "status": {
             "type": "string",
-            "enum": ["CONNECTING", "CONNECTED", "END"],
+            "enum": [
+              "CONNECTING",
+              "CONNECTED",
+              "END"
+            ],
             "description": "Current status of the call."
           },
           "openAiThreadId": {
@@ -2005,7 +2743,10 @@
             "example": "v=0\r\no=- 46117317 2 IN IP4 127.0.0.1\r\n..."
           }
         },
-        "required": ["phone", "sdp"]
+        "required": [
+          "phone",
+          "sdp"
+        ]
       },
       "ConnectCallResponse": {
         "type": "object",
@@ -2045,7 +2786,10 @@
             "example": "v=0\r\no=- 46117317 2 IN IP4 127.0.0.1\r\n..."
           }
         },
-        "required": ["id", "sdp"]
+        "required": [
+          "id",
+          "sdp"
+        ]
       },
       "EndCallRequest": {
         "type": "object",
@@ -2057,7 +2801,9 @@
             "example": "64f1a2b3c4d5e6f7a8b9c0d1"
           }
         },
-        "required": ["id"]
+        "required": [
+          "id"
+        ]
       },
       "CallActionResponse": {
         "type": "object",
@@ -2078,6 +2824,145 @@
           "msg": {
             "type": "string",
             "example": "Call accepted."
+          }
+        }
+      },
+      "BusinessAgentError": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean",
+            "example": false
+          },
+          "code": {
+            "type": "string",
+            "enum": [
+              "FEATURE_DISABLED",
+              "META_NOT_FOUND",
+              "NOT_ONBOARDED",
+              "INVALID_INPUT",
+              "TAKE_NOT_ALLOWED",
+              "SERVER_ERROR"
+            ]
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      },
+      "BusinessAgentEventRequest": {
+        "type": "object",
+        "required": [
+          "phoneId",
+          "to",
+          "type",
+          "description"
+        ],
+        "properties": {
+          "phoneId": {
+            "type": "string",
+            "description": "The Meta phone number ID of your WhatsApp number (`phoneId` from **List WABA Accounts**).",
+            "example": "123456789012345"
+          },
+          "to": {
+            "type": "string",
+            "description": "Customer phone number with country code.",
+            "example": "919876543210"
+          },
+          "type": {
+            "type": "string",
+            "maxLength": 256,
+            "description": "Short event name, e.g. `order_shipped`.",
+            "example": "order_shipped"
+          },
+          "description": {
+            "type": "string",
+            "maxLength": 1024,
+            "description": "What happened, in plain words, for the agent to act on.",
+            "example": "Order #1042 has shipped with BlueDart, AWB 1234567890."
+          },
+          "payload": {
+            "oneOf": [
+              {
+                "type": "object"
+              },
+              {
+                "type": "string"
+              }
+            ],
+            "description": "Optional facts as a JSON object (or JSON string), at most 4096 characters.",
+            "example": {
+              "order_id": "1042",
+              "tracking_url": "https://track.example.com/1234567890"
+            }
+          },
+          "contactId": {
+            "type": "string",
+            "description": "Optional AdsEra contact _id to link the event to."
+          }
+        }
+      },
+      "BusinessAgentEvent": {
+        "type": "object",
+        "properties": {
+          "_id": {
+            "type": "string"
+          },
+          "phoneId": {
+            "type": "string"
+          },
+          "to": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "payload": {
+            "type": "string"
+          },
+          "metaEventId": {
+            "type": "string",
+            "nullable": true
+          },
+          "status": {
+            "type": "string",
+            "description": "Status from Meta, e.g. `accepted`."
+          },
+          "errorMessage": {
+            "type": "string",
+            "nullable": true
+          },
+          "skippedReason": {
+            "type": "string",
+            "nullable": true
+          },
+          "source": {
+            "type": "string",
+            "example": "api"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "ThreadRequest": {
+        "type": "object",
+        "required": [
+          "phoneId",
+          "to"
+        ],
+        "properties": {
+          "phoneId": {
+            "type": "string",
+            "description": "The Meta phone number ID of your WhatsApp number."
+          },
+          "to": {
+            "type": "string",
+            "description": "Customer phone number with country code. The contact must exist in AdsEra."
           }
         }
       }

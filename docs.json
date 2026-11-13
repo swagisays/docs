@@ -193,7 +193,8 @@
           {
             "group": "Template",
             "pages": [
-              "api-reference/template/list"
+              "api-reference/template/list",
+              "api-reference/template/all-list"
             ]
           },
           {
@@ -223,6 +224,15 @@
               "api-reference/call/pre-accept",
               "api-reference/call/accept",
               "api-reference/call/end"
+            ]
+          },
+          {
+            "group": "Meta AI Agent",
+            "pages": [
+              "api-reference/business-agent/event",
+              "api-reference/business-agent/event-status",
+              "api-reference/business-agent/take",
+              "api-reference/business-agent/release"
             ]
           }
         ]
