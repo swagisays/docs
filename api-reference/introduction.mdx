@@ -25,3 +25,16 @@ Here is the required format for the request headers:
 x-api-key: YOUR_APP_ID
 x-api-secret: YOUR_APP_SECRET
 ```
+### Plan requirements
+
+Every API call, including calls that only read data, needs an active paid or API-only plan that includes the feature you call. Otherwise the call is refused with `403`:
+
+| Message | What to do |
+| --- | --- |
+| `Please upgrade your plan to use API.` | You are on the free plan. Upgrade to use the API. |
+| `Plan Expired: Please renew to continue using our services.` | Renew your plan. |
+| `This feature (...) is not included in your current plan.` | Move to a plan that includes that feature. |
+
+<Note>
+  The send-message endpoints (template v1 and v2, message, snippet) answer plan problems with `400` instead of `403`, with the same messages.
+</Note>

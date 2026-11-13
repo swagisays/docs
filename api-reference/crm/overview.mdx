@@ -23,7 +23,7 @@ A successful call answers `{ "success": true, "data": ... }`. A failed call answ
 | --- | --- |
 | 400 | The body or query is invalid, for example an unknown attribute or a stage that is not in the pipeline. |
 | 401 | Missing or wrong App Id / App Secret. |
-| 403 | Your plan has expired or does not include this feature. |
+| 403 | You are on the free plan, your plan has expired, or it does not include this feature. Applies to reads too. See [plan requirements](/api-reference/introduction#plan-requirements). |
 | 404 | The record does not exist in your workspace. |
 | 409 | Another contact already has this phone number or email. |
 | 429 | Too many requests. Each app can make 120 requests a minute; wait the seconds in the `Retry-After` header. |
