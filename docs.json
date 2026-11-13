@@ -104,6 +104,10 @@
           {
             "group": "Sequence",
             "pages": ["help/sequence/sequence"]
+          },
+          {
+            "group": "Integrations",
+            "pages": ["help/integrations/zoom"]
           }
         ]
       },
