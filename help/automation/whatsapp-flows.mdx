@@ -1,0 +1,54 @@
+---
+title: 'WhatsApp Flows'
+description: 'Build in-chat forms on WhatsApp (lead forms, bookings, surveys, sign-ups) with a visual builder and a live phone preview.'
+icon: 'mobile-screen'
+---
+
+**WhatsApp Flows** are forms that open **inside the WhatsApp chat**. Customers fill in screens with text fields, dates, choices, photos or documents without leaving WhatsApp. Use them for lead forms, appointment bookings, surveys, sign-ups and orders.
+
+Open it from **Flows** in the left menu.
+
+## Create a flow
+
+<Steps>
+<Step title="Start">
+  Click to create a flow. Enter the **Flow name**, choose the **WhatsApp account** and pick **What is this flow for?** (the category). You can also **Import Flow JSON**, or describe the flow and let AI generate it.
+</Step>
+<Step title="Build the screens">
+  Add screens and fields in the outline. The live phone preview shows how each screen looks. Fields include:
+  - text and links,
+  - text inputs (with minimum and maximum characters),
+  - dates (with the earliest and latest date),
+  - single and multiple choice,
+  - photo and document pickers,
+  - images and image carousels.
+
+  Each field has a **Field key**: the name its answer is saved under in responses and CRM mapping. Turn on **Pass answers between screens for me** to carry answers forward automatically.
+</Step>
+<Step title="Add dynamic data (optional)">
+  Under **Integration Type**, choose:
+  - **Cal.com — Appointment Booking** or **Calendly — Appointment Booking**: the flow shows real free slots and books them. Map the date, time slot, name and email fields.
+  - **Custom API**: your own **Slots Endpoint URL** and **Booking Endpoint URL**.
+  - **Rules-Based Logic Engine**: show screens and options based on earlier answers.
+</Step>
+<Step title="Save or publish">
+  **Save draft** to keep working. **Publish** sends the flow to WhatsApp. Before publishing, AdsEra checks the flow, for example that it has at least one screen and that one screen is marked **Last screen**. Fix any items it lists.
+</Step>
+</Steps>
+
+<Warning>
+  A **published** flow can't be edited on WhatsApp. To change it, create a new version. Old versions can be **deprecated**.
+</Warning>
+
+## Send a flow
+
+- in a [template](/help/template/wa) with a flow button,
+- from a [workflow](/help/automation/workflows),
+- as an [Addy](/help/ai/addy) quick action,
+- or from **Chat**.
+
+Answers are saved to the contact and can start a workflow.
+
+## The flow list
+
+The list shows each flow's name, status (**Draft**, **Published** or **Deprecated**), categories, validation result and creation date. Filter it by WhatsApp account or search by name.

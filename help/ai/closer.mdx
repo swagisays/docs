@@ -1,0 +1,96 @@
+---
+title: 'Closer, the follow-up agent'
+description: 'Closer follows up every lead on WhatsApp and email until they convert: it plans each day, writes in your brand voice, and tells your team when a lead turns hot.'
+icon: 'bullseye'
+---
+
+**Closer** is AdsEra's follow-up agent. You set a **goal** (a site visit, a demo, a payment, a deal stage and so on). Closer then follows up each lead on WhatsApp and email until they reach it, with messages written for that lead in your brand voice. Each evening it plans the next day's follow-ups, and each morning it sends your team a report.
+
+Open it from **Closer** in the left menu.
+
+---
+
+## Set up a goal
+
+On **Goals & content → Goals**, create a goal.
+
+<Steps>
+<Step title="What counts as a win">
+  Choose the outcome:
+  - **Site visit**, **Demo booking** or **Booking / appointment**
+  - **Payment**: any paid payment request, or one for a product you choose
+  - **Deal stage**: won when the deal reaches the stage you pick
+  - **Form filled** or **Label added**
+  - **Lifecycle stage**: synced with HubSpot
+  - **Something else**: describe the win in your own words
+
+  Give the goal a name.
+</Step>
+<Step title="Who to follow up">
+  Pick **Specific contacts** or **Segments**.
+</Step>
+<Step title="What to say">
+  Tell Closer what to offer and what to stress. It also uses Addy's knowledge, your selling points and your **Brand kit**.
+</Step>
+<Step title="Channels & timing">
+  - Choose the WhatsApp numbers to send from, and the approved **templates** Closer may use once the 24-hour window is closed.
+  - For email, choose the [ZeptoMail](/help/integrations/zeptomail) sender.
+  - Set quiet hours (**Don't send from … until**) and whether to follow up on Sundays.
+</Step>
+<Step title="Mode & team">
+  - **Plan, I review**: every evening Closer plans tomorrow on the calendar, and you approve or edit it before anything goes out.
+  - **Auto mode**: Closer plans and sends on its own. You watch the calendar and the daily report.
+
+  Also choose whether to **tell the owner when a lead turns hot**, and **who gets leads without an owner**.
+</Step>
+</Steps>
+
+Before going live, use the **Simulator** to see the messages Closer would send to a sample lead.
+
+---
+
+## Daily use
+
+| Tab | What it shows |
+| --- | --- |
+| **Today** | Followed up today, read or opened, replies, won today, won in 30 days and the **return on AI**. |
+| **Needs you** | Leads that need a person, with each lead's **Closer Score** (how close they are to converting) and a link to chat in AdsEra. |
+| **Plan** | The calendar of planned and delivered follow-ups. In Plan mode, approve or edit them here. |
+| **Leads** | Every lead in a goal: what the agent knows, the deal value, and a link to work it in [Prospects](/help/sales/prospects). |
+| **Results** | Wins and conversions over time. |
+
+### Content
+
+- **Brand kit:**
+  - business name, what you sell and to whom, and your logo,
+  - fonts,
+  - languages (Closer matches the lead's own language),
+  - content style, **Words to use** and **Never say**,
+  - your WhatsApp sign-off and email footer.
+- **Creatives:** images and files Closer can attach.
+- **Website:** add the Closer tag to your site to see visitors, page views, WhatsApp clicks and forms captured, and to show a WhatsApp chat bubble. A short reference is added to the WhatsApp message so Closer knows who the visitor is.
+- **Signals:** send Meta conversion events (to a pixel or dataset) when Closer's leads convert. You can limit this to leads from Meta ads.
+
+---
+
+## Settings
+
+- **Plan tomorrow at** and **Morning report at**.
+- **Email the report to** and **WhatsApp the report and alerts to** (staff numbers with the country code), and the number to send it from.
+- **Team template:** an approved UTILITY template with one variable, for example "Follow-up update: `{{summary}}`". Without it, WhatsApp reports only reach staff who messaged the number in the last 24 hours.
+- **Monthly AI-credit limit for Closer** (0 means no limit).
+- **Closer only sends from these senders:** the ZeptoMail senders Closer may use.
+
+## Troubleshooting
+
+<AccordionGroup>
+<Accordion title="Nothing was sent today">
+  In **Plan, I review** mode, items need your approval. Turn on **Send items nobody reviewed by their time** to send them anyway. Also check the quiet hours, the Sunday setting and the monthly AI-credit limit.
+</Accordion>
+<Accordion title="WhatsApp follow-ups stop after a day">
+  Outside the 24-hour window, WhatsApp only allows approved templates. Add templates under the goal's **Channels & timing**.
+</Accordion>
+<Accordion title="Staff don't get the WhatsApp report">
+  Set a **Team template** in Settings.
+</Accordion>
+</AccordionGroup>

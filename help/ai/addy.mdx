@@ -1,0 +1,130 @@
+---
+title: 'Addy, the WhatsApp AI agent'
+description: 'Set up Addy to answer customers on WhatsApp 24/7: teach it your business, let it qualify leads, book meetings, sell products and hand over to your team.'
+icon: 'robot'
+---
+
+**Addy** is AdsEra's AI agent for WhatsApp. It answers your customers around the clock from what you teach it, qualifies and scores leads, books meetings, sells from your catalog, and hands the chat to your team when a person is needed. Addy works on every WhatsApp number connected to AdsEra, including numbers that also use the WhatsApp Business app (coexistence).
+
+Open it from **Addy** in the left menu.
+
+---
+
+## Get started
+
+The **Overview** tab shows a short checklist:
+
+<Steps>
+<Step title="Choose the WhatsApp number">
+  On **Setup → Where Addy answers**, pick the numbers Addy replies on. Mark what each number is for. On a **support** number, Addy helps first and never pushes a sale. On a **sales** number, it leads to the next step.
+
+  Your keyword auto-replies still take priority when a keyword matches.
+</Step>
+<Step title="Teach Addy your business">
+  On **Knowledge**, fill in **About your business**: name, what you do, products and prices you're happy to share, location, opening hours, website, contact details and policies. Then add your website and FAQs (see [Knowledge](#knowledge)).
+</Step>
+<Step title="Give it your personality (optional)">
+  On **Personality**, set the tone, greeting and reply length. Add two or three example replies and Addy copies your style.
+</Step>
+<Step title="Try it in the test chat">
+  Open the test chat and ask what your customers ask.
+</Step>
+</Steps>
+
+<Tip>
+  **Roll out safely.** Under **Setup → Who Addy answers**, enter your own phone numbers first (one per line, with the country code). Everyone else keeps getting your usual auto-replies or your team. When you're happy, switch Addy on for everyone.
+</Tip>
+
+Use **Schedule** to choose when Addy answers, in your time zone:
+
+- **Always, 24/7**
+- **Only outside business hours** (your team answers during the day)
+- **Only during business hours**
+
+The switch at the top of the page puts Addy **live** or **paused**.
+
+---
+
+## Knowledge
+
+Addy only answers from what you teach it. It never invents prices or policies.
+
+- **About your business:** facts Addy always knows.
+- **Website:** enter the **Website address** and how many **Pages to read** at most. You can also:
+  - turn on **Keep it up to date**,
+  - read the PDFs and documents the site links to (brochures, price lists, menus),
+  - limit reading to **Only these paths**, or exclude **Skip these paths**.
+
+  Each page shows as **Learned**, **Waiting**, **Learning…** or **Failed**.
+- **Files:** upload documents for Addy to learn from.
+- **FAQs:** exact answers Addy always uses first. Add your own, or pick them from what Addy learned.
+
+### Unanswered questions
+
+When a customer asks something Addy can't find in your knowledge, it doesn't guess. It tells the customer you'll check, logs the question and creates a task for your team. Answer the question once and it becomes an FAQ, so Addy answers it next time.
+
+---
+
+## Selling
+
+The **Selling** tab sets what Addy does to move a lead forward.
+
+| Section | What Addy does |
+| --- | --- |
+| **Qualify and score leads** | Helps first, then asks your questions one at a time (never one already answered), saves each answer to a contact field and scores the lead from 0 to 100. It can **create a deal** for buyers in the pipeline you choose. |
+| **Follow up when they go quiet** | Sends a short, useful nudge a set number of hours after its last reply (up to 3 times, for example after 3 and 21 hours). This only happens inside WhatsApp's 24-hour window, and never after a person stepped in. |
+| **Book appointments** | Turn on **Offer bookings**. Addy can book in the chat with [Cal.com](/help/integrations/calcom), [Calendly](/help/integrations/calendly) or [Zoom](/help/integrations/zoom), or share a booking link. |
+| **Sell on WhatsApp** | Recommends products with today's price, offers and stock, confirms the variant, sends product cards, builds the cart, collects the delivery address and checks out with [WhatsApp Pay](/help/integrations/whatsapp-pay) or a payment link. |
+| **How Addy sells** | Your typical customers, true reasons to choose you, and honest answers to common doubts. Addy uses them when they fit, never to pressure. |
+
+---
+
+## Actions
+
+- **Quick actions:** rich WhatsApp messages Addy sends exactly as you set them up when the moment fits. Examples: a price list PDF, a booking button, your store on the map, an image card with a button, or a WhatsApp Flow. Choose **When Addy sends it** for each one.
+- **WhatsApp forms:** when Addy needs several details at once (an address, booking details), it builds a short WhatsApp form on the spot and saves the answers to the contact.
+- **Workflows Addy can start:** let Addy put a lead into one of your [workflows](/help/automation/workflows) when it clearly fits, even at a specific step. Each workflow runs once per lead.
+
+---
+
+## Events from your systems
+
+On **Events**, tell Addy which updates your systems send (an order shipped, a payment received and so on), what each one means, and what to tell the customer. Addy writes the message in its own voice from exactly the facts you send. If the customer's 24-hour window is closed, Addy sends the **approved template** you choose instead.
+
+Any system that can call a URL can send events: your website, Shopify, a shipping tool, n8n, Zapier or Make. The tab shows the URL and an example request. Use **Customer's WhatsApp number** to send yourself a test first.
+
+---
+
+## More tabs
+
+| Tab | What it does |
+| --- | --- |
+| **Meta CAPI** | Sends conversion events (for example, a lead or a purchase) from Addy's chats to your Meta pixel or dataset, so your ads optimize for real customers. |
+| **Calls** | Addy answers WhatsApp calls with the same knowledge and tools, and can send photos, links and templates while you talk. Choose the voice and language, whether to record calls (Addy tells the caller first), and whether to send a recap on WhatsApp after the call. Calls use your [AI credits](/help/account/credit-usage). |
+| **Connections** | The Marketplace integrations and [AI connectors](/help/integrations/ai-connectors) Addy may use. |
+
+---
+
+## Handover to your team
+
+Addy always hands over when a customer asks for a person, is upset, wants a refund or a discount, or when it can't find the answer. Your team gets a summary in the chat and a notification. Outside your hours, Addy tells the customer when you're back and keeps helping.
+
+Under **Selling → Hand over to your team** you can:
+
+- add your own rules in **Also hand over when…**, for example "orders above ₹1 lakh" or "bulk / dealer enquiries",
+- set **What Addy says when handing over**,
+- choose **Hand back to Addy after** a number of hours (0 means never).
+
+## Troubleshooting
+
+<AccordionGroup>
+<Accordion title="Addy doesn't reply">
+  Check that the number is selected under **Where Addy answers**, that **Who Addy answers** isn't limited to test numbers, and that the **Schedule** covers the current time. A keyword auto-reply that matches takes priority, and Addy stays quiet after a person replies.
+</Accordion>
+<Accordion title="Addy says it will check with the team">
+  The answer isn't in its knowledge. Answer the question under **Unanswered questions** and it becomes an FAQ.
+</Accordion>
+<Accordion title="Addy doesn't offer booking times">
+  Check **Selling → Book appointments**, and the hours set in the calendar integration.
+</Accordion>
+</AccordionGroup>

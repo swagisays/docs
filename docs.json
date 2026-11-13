@@ -27,7 +27,8 @@
               "help/account/register",
               "help/account/forgot",
               "help/account/account",
-              "help/account/company"
+              "help/account/company",
+              "help/account/credit-usage"
             ]
           },
           {
@@ -40,6 +41,36 @@
             "group": "Inbox",
             "pages": [
               "help/inbox/chat"
+            ]
+          },
+          {
+            "group": "AI agents",
+            "pages": [
+              "help/ai/addy",
+              "help/ai/closer",
+              "help/ai/ask-ai"
+            ]
+          },
+          {
+            "group": "Sales",
+            "pages": [
+              "help/sales/prospects",
+              "help/sales/meetings",
+              "help/sales/tasks",
+              "help/sales/forms"
+            ]
+          },
+          {
+            "group": "Automation",
+            "pages": [
+              "help/automation/workflows",
+              "help/automation/whatsapp-flows"
+            ]
+          },
+          {
+            "group": "Email",
+            "pages": [
+              "help/email/inbox-and-mailboxes"
             ]
           },
           {

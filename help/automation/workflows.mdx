@@ -1,0 +1,101 @@
+---
+title: 'Workflows'
+description: 'Automate replies, reminders and follow-ups: start a workflow when a lead, message, form, booking or payment comes in, and let it send, wait, decide and update your CRM.'
+icon: 'diagram-project'
+---
+
+A **workflow** runs a series of steps by itself when something happens, for example:
+
+- welcome every new Meta ad lead on WhatsApp,
+- remind a customer before a booked meeting,
+- chase an unpaid payment request.
+
+Open it from **Workflows** in the left menu.
+
+<Tip>
+  Describe what you want in plain words to the AI chat in the builder, or to [Ask AI](/help/ai/ask-ai), and it builds the workflow for you to review.
+</Tip>
+
+## Triggers: start the flow when…
+
+| Trigger | Starts when |
+| --- | --- |
+| A Meta ad lead comes in | Someone fills your Facebook or Instagram lead form |
+| A WhatsApp message arrives | A customer messages you, taps a button or replies |
+| A form is submitted | One of your AdsEra [forms](/help/sales/forms) gets an entry |
+| A contact changes | A contact is added, updated, labelled or moved to a segment |
+| A deal changes | A deal is created, won, lost or moved to a stage |
+| A task changes | A task is created, done or overdue |
+| A Cal.com booking | A meeting is booked, moved or cancelled |
+| A Calendly booking | A meeting is booked or cancelled |
+| A payment happens | A payment request is paid or fails |
+| On a schedule | Every day, every week, or at a set time |
+| Another app sends data | Another tool calls the workflow's webhook URL |
+
+## Steps
+
+**Send**
+
+- Send a WhatsApp message
+- Send a message with buttons
+- Ask a question (and wait for the reply)
+- Send an email
+- Hand over to the AI agent ([Addy](/help/ai/addy))
+
+**Wait and decide**
+
+- Wait
+- If / else
+- Repeat for each item
+- Join paths
+- Go to another flow
+
+**Contacts and CRM**
+
+- Add or update a contact
+- Add or update a deal
+- Create a task
+- Find a contact, or find many contacts
+- Match a lead to their WhatsApp
+- Check a payment request
+- Cal.com booking
+- Data table
+
+**Advanced**
+
+- Call another app (HTTP)
+- Reshape data
+- Custom code
+
+## Build, test and publish
+
+<Steps>
+<Step title="Create">
+  Click to create a workflow, then add the trigger and steps on the canvas. Click a step to set it up in the side panel. A phone preview shows your WhatsApp messages.
+</Step>
+<Step title="Test">
+  Switch to **Test**, pick a sample contact or data, and run it. Each step shows what it did.
+</Step>
+<Step title="Publish">
+  Every change is saved as a **draft**. **Publish** makes the draft live and turns the workflow on. On a live workflow, **Publish changes** makes your draft the next version.
+</Step>
+<Step title="Watch the runs">
+  **Runs** shows every run, step by step, with any errors.
+</Step>
+</Steps>
+
+## Workflow settings
+
+Click the settings icon in the builder:
+
+- **About:** the name and what the workflow does.
+- **If a step fails:** **Try again** a set number of times, **Wait between tries**, and **Email me when it gives up**.
+- **Take people out of this workflow when…:** add a **stop rule**, for example once they buy. Without stop rules, everyone goes through to the end.
+
+## Data tables
+
+The **Data tables** tab stores your own lists (for example, price lists, pincodes or store branches) that workflow steps can read and write.
+
+## Stopping a workflow
+
+Turn the workflow off from its header. Stopping a live workflow ends every run that is waiting in it (on a wait, a button or a reply), and AdsEra tells you how many first.
