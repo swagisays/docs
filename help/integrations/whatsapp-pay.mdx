@@ -1,0 +1,104 @@
+---
+title: 'WhatsApp Pay'
+description: 'Collect payments inside WhatsApp chats (UPI, cards, netbanking, wallets) from deals and orders, confirmed by Meta, and track every request.'
+icon: 'indian-rupee-sign'
+---
+
+WhatsApp Pay lets your customers pay **inside the WhatsApp chat**: a **Pay Now** card opens UPI, cards, netbanking or wallets without leaving WhatsApp. AdsEra checks every payment against Meta's own payment record and shows its status on the deal.
+
+<Info>
+  WhatsApp Pay is offered by Meta for businesses in **India**, in Indian rupees.
+</Info>
+
+---
+
+## Adding the integration
+
+### Before you begin
+
+- A WhatsApp number connected in AdsEra.
+- An account with a supported payment gateway (**Razorpay**, **PayU** or **Zaakpay**), or a business UPI ID.
+- Meta's WhatsApp payments terms accepted for your WhatsApp Business Account. If they aren't, AdsEra shows an **Accept the terms** link.
+
+### Create a payment configuration
+
+<Steps>
+<Step title="Open Setup">
+  Open **Marketplace → WhatsApp Pay** (or go to [app.adsera.in/dashboard/meta/payments](https://app.adsera.in/dashboard/meta/payments)) and the **Setup** tab. Find your WhatsApp number and click **New configuration**.
+</Step>
+<Step title="Fill in the configuration">
+  - **Name**: used in payment messages, for example `shop_razorpay`.
+  - **Payment gateway**: Razorpay (UPI, cards, netbanking, wallets), PayU, Zaakpay, or **UPI ID only**, which needs a **Business UPI ID** such as `business@bank`.
+  - **Business category** and **Purpose**.
+
+  Click **Create**.
+</Step>
+<Step title="Link your gateway">
+  Click **Connect gateway account** and log in to your gateway to link it. If you're sending the link to someone else, use **Get connect link** instead. Meta checks the link, and the status turns **Active**.
+</Step>
+<Step title="Add order details (if asked)">
+  Click **Order details** and fill in the importer name, address, city, state, postal code and country of origin. WhatsApp Pay shows them on every item.
+</Step>
+</Steps>
+
+### Payment settings
+
+In **Payment settings**, choose **How customers pay**:
+
+- **WhatsApp Pay Now**: a payment card in the chat.
+- **Payment link**: a gateway link.
+- **Both**.
+
+Then set **When the chat is closed**. WhatsApp only lets you send free-form messages within 24 hours of the customer's last message, so pick the approved template to use after that, per WhatsApp account.
+
+---
+
+## Using the integration
+
+### Collect a payment from a deal
+
+Open a deal and click **Collect payment** in its payments section. Enter the amount and send. The customer gets a Pay Now card or a payment link, depending on your settings. The deal shows the request and its status.
+
+Addy and other agents can also send payment requests when you allow it on the **Used by agents** tab.
+
+### Track payments
+
+| Tab | What it shows |
+| --- | --- |
+| **Requests** | Every payment request, with date, deal, contact, rep, amount, method and status. Filter by status, method, source and date, or by **Needs review**. Click **Export CSV** to download. |
+| **WhatsApp payments** | Every payment WhatsApp reports, with its **Verification**. |
+| **Activity** | A log of what the integration did. |
+
+**Verification statuses:**
+
+| Status | Meaning |
+| --- | --- |
+| Confirmed by WhatsApp | Meta's payment record confirms it. |
+| Check this | The details don't match. Check it in your gateway before you deliver. |
+| Waiting | Not confirmed yet. |
+| Meta only | Confirmed by Meta; your gateway couldn't cross-check it. |
+| Couldn't check | AdsEra couldn't reach Meta. Click **Check again**. |
+
+<Tip>
+  Set up the Razorpay webhook in **Marketplace → Razorpay** so AdsEra also cross-checks every payment with Razorpay.
+</Tip>
+
+### Troubleshooting
+
+<AccordionGroup>
+<Accordion title="&quot;Accept the terms&quot; appears when creating a configuration">
+  Click the link, accept Meta's WhatsApp payments terms for your business, then create the configuration again.
+</Accordion>
+<Accordion title="The configuration doesn't turn Active">
+  Finish **Connect gateway account** with the gateway's account owner, then click **Refresh from Meta**.
+</Accordion>
+<Accordion title="A payment shows &quot;Check this&quot; or appears under Needs review">
+  Check the payment in your gateway's dashboard before you deliver the order.
+</Accordion>
+</AccordionGroup>
+
+---
+
+## Removing the integration
+
+On the **Setup** tab, click **Remove** on the configuration and confirm. **Payment messages that use it stop working.** Requests and payments already recorded stay in AdsEra. You can also unlink AdsEra in your gateway's dashboard.

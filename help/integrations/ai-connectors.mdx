@@ -1,0 +1,63 @@
+---
+title: 'AI connectors (MCP)'
+description: 'Connect Shopify, HubSpot, Razorpay, n8n, Notion and any app with an MCP server, so Addy and Ask AI can use its tools.'
+icon: 'plug-circle-bolt'
+---
+
+AI connectors give your AI agents tools from other apps. For example, Addy can check live stock in Shopify, or Ask AI can look up a deal in HubSpot. They use the open **MCP** (Model Context Protocol) standard.
+
+**Ready-made connectors:** n8n, Zapier, Make, Zoho CRM, HubSpot, Intercom, Shopify, Razorpay, Stripe, PayPal, Square, Klaviyo, Notion, monday.com, Asana, Jira & Confluence, Linear, Slack, GitHub, Supabase and Sentry. You can add any other app that has an MCP server as a **custom connector**.
+
+---
+
+## Adding a connector
+
+### A ready-made connector
+
+1. Open **Marketplace**, search for the app and click its card. It's marked **AI connector**.
+2. Click connect. A window opens to sign in to the app. Approve access.
+3. You see *"&lt;App&gt; is connected"* and AdsEra lists the tools it found.
+
+Some apps ask you to register your own OAuth app. AdsEra then shows a **Redirect URL to add in the app**. Copy it into the app's settings and enter your **Client ID** and **Client secret**.
+
+### A custom MCP connector
+
+1. In **Marketplace**, click **Custom MCP connector**.
+2. Enter the **Server address**, for example `https://mcp.yourtool.com`. A bare address such as `yourtool.com` also works, because AdsEra finds the MCP endpoint itself.
+3. Optional:
+   - **Name**, which is taken from the address if left empty.
+   - **When should agents use it?**, for example "Check live stock before promising delivery".
+   - **API key or token instead of signing in**: a **Header** (such as `Authorization`) and a **Value** (such as `Bearer …`).
+   - **Your own OAuth app**: Client ID, Client secret and scopes.
+4. Connect. Sign in if the app asks.
+
+---
+
+## Using a connector
+
+Open the connector from the Marketplace.
+
+- **Used by agents:** choose which tools **Addy on WhatsApp**, **Addy in AdsEra (Ask AI)** and the **Meta AI Agent** may use. Turn on only what you need.
+- **Activity:** every call an agent made, with the agent, tool, result and time, plus calls, success rate, average time and last error.
+- **Re-read its tools:** click this after the app adds or changes tools.
+- **Razorpay only:** the **Payment webhook** tab gives a URL to add in Razorpay. Razorpay then tells AdsEra about every payment, which confirms WhatsApp Pay payments and records why a payment failed.
+
+### Troubleshooting
+
+<AccordionGroup>
+<Accordion title="The connector shows &quot;Needs sign-in&quot;">
+  The app's login expired or was revoked. Open the connector and sign in again.
+</Accordion>
+<Accordion title="&quot;No tools found&quot; or an error when connecting a custom connector">
+  Check the server address and that the server is reachable from the internet. If the app uses an API key, add it under **API key or token instead of signing in**.
+</Accordion>
+<Accordion title="An agent doesn't use the connector">
+  Turn on its tools under **Used by agents**. Adding a clear **When should agents use it?** note also helps.
+</Accordion>
+</AccordionGroup>
+
+---
+
+## Removing a connector
+
+Open the connector and click **Remove from the Marketplace**, then confirm. Agents lose its tools straight away. To revoke access on the app's side too, remove AdsEra from the app's connected apps or delete the API key you gave it.

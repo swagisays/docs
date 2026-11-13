@@ -15,7 +15,10 @@
         "groups": [
           {
             "group": "Get Started",
-            "pages": ["help/introduction/adsera", "help/introduction/price"]
+            "pages": [
+              "help/introduction/adsera",
+              "help/introduction/price"
+            ]
           },
           {
             "group": "Account Center",
@@ -29,11 +32,15 @@
           },
           {
             "group": "Dashboard",
-            "pages": ["help/dashboard"]
+            "pages": [
+              "help/dashboard"
+            ]
           },
           {
             "group": "Inbox",
-            "pages": ["help/inbox/chat"]
+            "pages": [
+              "help/inbox/chat"
+            ]
           },
           {
             "group": "Audience",
@@ -59,7 +66,10 @@
           },
           {
             "group": "Email Channel",
-            "pages": ["help/channel/email/email", "help/channel/email/smtp"]
+            "pages": [
+              "help/channel/email/email",
+              "help/channel/email/smtp"
+            ]
           },
           {
             "group": "Email Campaign",
@@ -79,7 +89,11 @@
           },
           {
             "group": "CRM",
-            "pages": ["help/crm/product", "help/crm/pipeline", "help/crm/deal"]
+            "pages": [
+              "help/crm/product",
+              "help/crm/pipeline",
+              "help/crm/deal"
+            ]
           },
           {
             "group": "Template",
@@ -91,23 +105,48 @@
           },
           {
             "group": "Snippet",
-            "pages": ["help/snippet/list", "help/snippet/create"]
+            "pages": [
+              "help/snippet/list",
+              "help/snippet/create"
+            ]
           },
           {
             "group": "File Manager",
-            "pages": ["help/file/manager"]
+            "pages": [
+              "help/file/manager"
+            ]
           },
           {
             "group": "Autoreply",
-            "pages": ["help/autoreply/wa"]
+            "pages": [
+              "help/autoreply/wa"
+            ]
           },
           {
             "group": "Sequence",
-            "pages": ["help/sequence/sequence"]
+            "pages": [
+              "help/sequence/sequence"
+            ]
           },
           {
             "group": "Integrations",
-            "pages": ["help/integrations/zoom"]
+            "pages": [
+              "help/integrations/marketplace",
+              "help/integrations/calcom",
+              "help/integrations/calendly",
+              "help/integrations/zoom",
+              "help/integrations/whatsapp-pay",
+              "help/integrations/whatsapp-commerce",
+              "help/integrations/meta-ads",
+              "help/integrations/meta-ai-agent",
+              "help/integrations/zeptomail",
+              "help/integrations/indiamart",
+              "help/integrations/google-sheets",
+              "help/integrations/whatsera",
+              "help/integrations/dialogflow",
+              "help/integrations/pabbly",
+              "help/integrations/ai-connectors"
+            ]
           }
         ]
       },
@@ -116,7 +155,9 @@
         "groups": [
           {
             "group": "API documentation",
-            "pages": ["api-reference/introduction"]
+            "pages": [
+              "api-reference/introduction"
+            ]
           },
           {
             "group": "WhastApp",
@@ -127,11 +168,15 @@
           },
           {
             "group": "Template",
-            "pages": ["api-reference/template/list"]
+            "pages": [
+              "api-reference/template/list"
+            ]
           },
           {
             "group": "Snippets",
-            "pages": ["api-reference/snippet/list"]
+            "pages": [
+              "api-reference/snippet/list"
+            ]
           },
           {
             "group": "Message",
@@ -143,7 +188,9 @@
           },
           {
             "group": "Media",
-            "pages": ["api-reference/media/get"]
+            "pages": [
+              "api-reference/media/get"
+            ]
           },
           {
             "group": "Call",

@@ -1,0 +1,56 @@
+---
+title: 'Pabbly Connect'
+description: 'Send WhatsApp messages from AdsEra when something happens in thousands of other apps, using Pabbly Connect.'
+icon: 'plug'
+---
+
+[Pabbly Connect](https://www.pabbly.com/connect/) links AdsEra with other apps. For example, when a form is filled, an order is placed or a lead is added to your CRM, Pabbly can send a WhatsApp template message through AdsEra.
+
+---
+
+## Adding the integration
+
+### Before you begin
+
+- An AdsEra account with a connected WhatsApp number and at least one approved template.
+- A Pabbly Connect account.
+
+### Connect
+
+<Steps>
+<Step title="Get your AdsEra API credentials">
+  In AdsEra, open [**Account → API Key**](https://app.adsera.in/dashboard/user/account?tab=API%20Key) and generate your **App Id** and **App Secret**. See [API Authentication](/api-reference/introduction).
+</Step>
+<Step title="Add AdsEra in Pabbly">
+  In Pabbly Connect, create a workflow. Set up the trigger (the app and event that should start it), then add an action step and search for **AdsEra**.
+</Step>
+<Step title="Authorize">
+  Paste your App Id and App Secret when Pabbly asks for the connection.
+</Step>
+<Step title="Choose the message">
+  Pick the WhatsApp number and the approved template. Map data from the trigger (name, phone and so on) to the template's variables. Save and test the workflow.
+</Step>
+</Steps>
+
+---
+
+## Using the integration
+
+Each time the trigger fires, Pabbly calls AdsEra and the message is sent. You can see it in **Chat** in AdsEra.
+
+### Troubleshooting
+
+<AccordionGroup>
+<Accordion title="Pabbly says authentication failed">
+  Check that you copied the App Id and App Secret exactly. If you regenerated them in AdsEra, update them in Pabbly too.
+</Accordion>
+<Accordion title="The message isn't delivered">
+  The template must be approved, and the phone number must include the country code. Check the message status in AdsEra **Chat**.
+</Accordion>
+</AccordionGroup>
+
+---
+
+## Removing the integration
+
+Turn off or delete the Pabbly workflows that use AdsEra, and remove the AdsEra connection in Pabbly. To make sure the old credentials can't be used, regenerate your App Secret under **Account → API Key**. Anything else that uses the old secret stops working, so update it there as well.

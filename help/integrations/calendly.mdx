@@ -1,0 +1,80 @@
+---
+title: 'Calendly'
+description: 'Receive every Calendly booking in AdsEra, save booking answers on the contact, and let Addy book meetings in WhatsApp chats.'
+icon: 'calendar-days'
+---
+
+With Calendly connected, AdsEra:
+
+- **Receives every booking.** A contact is created or updated, the booking fields you choose are written to the contact, and your workflows can send confirmations and reminders.
+- **Lets your agents book.** Addy can offer free times and book meetings in WhatsApp chats, and Ask AI can look up your bookings.
+
+<Warning>
+  Calendly webhooks need a **Calendly Standard plan or higher**. On the free plan, AdsEra can't receive bookings.
+</Warning>
+
+---
+
+## Adding the integration
+
+### Before you begin
+
+- An AdsEra account with access to **Marketplace**.
+- A Calendly Standard (or higher) plan.
+- To receive bookings for your whole Calendly organization, a token from an organization **owner or admin**.
+
+### Connect
+
+<Steps>
+<Step title="Create a token in Calendly">
+  In Calendly, open **Integrations & apps → API & webhooks → Generate new token**. Copy the token.
+</Step>
+<Step title="Paste it in AdsEra">
+  In AdsEra, open **Marketplace → Calendly** and click **Connect Calendly account**. Enter a **Label**, paste the **Calendly personal access token**, and choose **Bookings to receive**:
+  - **My bookings**, or
+  - **Everyone in my Calendly organization** (needs an owner or admin token).
+
+  Click **Connect**.
+</Step>
+<Step title="Done">
+  AdsEra checks the token and sets up the booking webhook in Calendly for you. The account appears with the status **active**.
+</Step>
+</Steps>
+
+---
+
+## Using the integration
+
+The Calendly page has the same tabs as Cal.com: **Connections**, **Bookings**, **Used by agents** and **Activity**.
+
+- **Contact fields:** click it on a connection to map a booking field or form question to a contact attribute. With no rows, bookings don't change contact attributes.
+- **Addy:** open **Addy → Goals → Book appointments**, switch on **Offer bookings** and choose **Book in the chat (Calendly)**. Pick the account and event type, then save.
+- **Used by agents:** choose what Addy, Ask AI and the Meta AI agent may do: offer free times, book, tell customers about their meetings, reschedule, see bookings, cancel. Anything that changes a booking starts **off**.
+
+### Troubleshooting
+
+<AccordionGroup>
+<Accordion title="Connecting fails with a plan or permission error">
+  Calendly webhooks need the Standard plan or higher. If you chose **Everyone in my Calendly organization**, the token must come from an owner or admin.
+</Accordion>
+<Accordion title="The status shows &quot;error&quot;">
+  The token was probably revoked. Click **Replace token** and paste a new token from the same Calendly account.
+</Accordion>
+<Accordion title="Bookings arrive but contact fields stay empty">
+  Click **Contact fields** and map the booking questions to contact attributes, then click **Save**.
+</Accordion>
+</AccordionGroup>
+
+---
+
+## Removing the integration
+
+1. Open **Marketplace → Calendly**.
+2. Click **Disconnect** on the connection and confirm.
+
+**What happens:**
+
+- AdsEra removes its webhook from Calendly and deletes the connection: the token, signing key and account details.
+- AdsEra stops receiving that account's bookings. Addy and Ask AI can no longer use it.
+- **Bookings and contacts already in AdsEra are kept.**
+- To use it again, connect it as new.

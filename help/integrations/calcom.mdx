@@ -1,0 +1,105 @@
+---
+title: 'Cal.com'
+description: 'Receive every Cal.com booking in AdsEra, keep contacts up to date, and let Addy and Ask AI book meetings on your Cal.com calendar.'
+icon: 'calendar-check'
+---
+
+With Cal.com connected, AdsEra:
+
+- **Receives every booking.** A contact is created or updated, and its **Booking Status**, **Start**, **Event** and **Link** fields stay current, so your workflows can send confirmations and reminders.
+- **Lets your agents book.** Addy can offer free times and book meetings in WhatsApp chats, and Ask AI can look up, book, reschedule or cancel bookings for your team.
+
+---
+
+## Adding the integration
+
+### Before you begin
+
+- An AdsEra account with access to **Marketplace**.
+- A Cal.com account. For **team** (round-robin or collective) event types, use the API key of a team **admin or owner**.
+- A free connection on your plan. The page shows how many you have used, for example "1 of 4 connections used".
+
+### Connect
+
+<Steps>
+<Step title="Create an API key in Cal.com">
+  In Cal.com, open **Settings → Developer → API Keys** and create a key. We recommend **no expiry**, so the connection doesn't stop working later. Copy the key.
+</Step>
+<Step title="Paste it in AdsEra">
+  In AdsEra, open **Marketplace → Cal.com** and click **Connect Cal.com account**. Enter a **Label** (for example "Sales team Cal.com"), paste the **Cal.com API key** and click **Connect**.
+</Step>
+<Step title="Done">
+  AdsEra checks the key and sets up the booking webhook in Cal.com for you. The account appears with the status **active**.
+</Step>
+</Steps>
+
+<Note>
+  **Using Cal.com Teams?** Cal.com needs a webhook on each team event type. AdsEra adds them when you connect. After you create a **new** team event type in Cal.com, click **Sync team events** on the connection so its bookings reach AdsEra. You can check this in Cal.com under **Event Types → the team event → Webhooks**.
+</Note>
+
+---
+
+## Using the integration
+
+The Cal.com page has four tabs.
+
+| Tab | What you do there |
+| --- | --- |
+| **Connections** | Connect, rename, replace the key, sync team events, choose contact fields, disconnect. |
+| **Bookings** | Every booking received, filtered by status, connection and date. Click a booking to see attendees and history, or open the contact. |
+| **Used by agents** | Choose what Addy, Ask AI and the Meta AI agent may do with Cal.com. |
+| **Activity** | A log of what the integration did. |
+
+### Save booking answers on the contact
+
+Click **Contact fields** on a connection. Each row maps a **booking field or form question** to a **contact attribute**. Click **Save**, or **Reset to default** to go back to the standard mapping. With no rows, bookings don't change contact attributes.
+
+### Let Addy book in WhatsApp chats
+
+Open **Addy → Goals → Book appointments**, switch on **Offer bookings** and choose **Book in the chat (Cal.com)**. Pick the account and the event type, then save. Addy offers free times from your Cal.com calendar and books the one the customer picks.
+
+### What agents can do
+
+Set these on the **Used by agents** tab. Anything that changes a booking starts **off**.
+
+| Group | What it does |
+| --- | --- |
+| Free times | Find free times in your calendar to offer the customer |
+| Book meetings | Book the time the customer picked, with their name and email |
+| Customer's own meetings | Tell a customer the time and link of the meetings they booked |
+| Reschedule | Move a booked meeting to another free time |
+| See bookings | See every booking, the event types and the connection status (your team) |
+| Cancel bookings | Cancel a booking; Cal.com tells the attendee |
+
+### Troubleshooting
+
+<AccordionGroup>
+<Accordion title="The key is rejected when connecting">
+  Check that you copied the whole key and that it hasn't expired. Create a new key in **Settings → Developer → API Keys** and try again.
+</Accordion>
+<Accordion title="Bookings from a team event don't arrive">
+  Click **Sync team events** on the connection. If the **Team events** column shows a warning, the key isn't from a team admin or owner. Click **Replace key** and use an admin's key.
+</Accordion>
+<Accordion title="The status shows &quot;error&quot;">
+  The **Last error** column shows Cal.com's message. Most often the key was deleted or expired. Click **Replace key** and paste a new key from the same Cal.com account.
+</Accordion>
+<Accordion title="&quot;Your plan limit is reached&quot;">
+  Disconnect an account you no longer use, or upgrade your AdsEra plan.
+</Accordion>
+</AccordionGroup>
+
+---
+
+## Removing the integration
+
+1. Open **Marketplace → Cal.com**.
+2. Click **Disconnect** on the connection and confirm.
+
+**What happens:**
+
+- AdsEra removes its webhooks from Cal.com and deletes the connection: the API key, settings and account details.
+- AdsEra stops receiving that account's bookings. Addy and Ask AI can no longer book with it.
+- **Bookings and contacts already in AdsEra are kept.**
+- To use it again, connect it as new.
+
+You can also delete the API key in Cal.com. AdsEra then shows the connection as **error** until you disconnect it or replace the key.

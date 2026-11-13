@@ -1,0 +1,66 @@
+---
+title: 'Google Sheets'
+description: 'Link Google Sheets to AdsEra and use a sheet as the audience of a campaign.'
+icon: 'table'
+---
+
+Link your Google spreadsheets to AdsEra and use a sheet's rows as the recipients of a campaign.
+
+<Info>
+  AdsEra only uses Google's `drive.file` permission. It can open **only the spreadsheets you pick**, not the rest of your Google Drive.
+</Info>
+
+---
+
+## Adding the integration
+
+<Steps>
+<Step title="Connect your Google account">
+  Open **Marketplace → Google Sheets** and click **Connect Google Account**. Sign in with Google and allow access.
+</Step>
+<Step title="Add a spreadsheet">
+  Click **Add Spreadsheet**. Google's file picker opens. Choose the spreadsheet. It appears under **Linked Spreadsheets**.
+</Step>
+<Step title="Map the columns">
+  For each sheet, choose the **Mobile Number Column (For WhatsApp)**, the **Email Column (For Email Campaigns)** and the **Attribute Mapping** from columns to contact attributes.
+</Step>
+</Steps>
+
+Changed the sheet's columns or added tabs? Click the sync icon (**Sync all tabs and fetch latest structure**).
+
+---
+
+## Using the integration
+
+### Send a campaign to a sheet
+
+1. Create a campaign and, under the audience, switch on **Use Google Sheet Audience**.
+2. Choose the **Google Account**, **Spreadsheet** and **Tab**.
+3. Under **Automation Rules**, choose how rows are used:
+   - **Run on Existing Rows**: the sheet is processed once when the campaign starts.
+   - **Automated**: new and updated rows are processed as they come in. This needs the AdsEra webhook script installed in the spreadsheet. Contact support to set it up.
+4. Optionally, add a condition (a column **Equals** or **Not Equals** a value) to send only to matching rows.
+
+### Ask AI
+
+The **Used by agents** section sets what Ask AI may do with your linked sheets.
+
+### Troubleshooting
+
+<AccordionGroup>
+<Accordion title="The spreadsheet isn't listed">
+  AdsEra only sees spreadsheets you picked. Click **Add Spreadsheet** and choose it.
+</Accordion>
+<Accordion title="New columns don't show up">
+  Click the sync icon on the spreadsheet to fetch the latest structure.
+</Accordion>
+</AccordionGroup>
+
+---
+
+## Removing the integration
+
+- **Remove one spreadsheet:** click **Remove Sheet** on it and confirm.
+- **Disconnect the Google account:** choose the account and disconnect it, then confirm. Every spreadsheet linked through it is removed.
+
+Campaigns that used a removed sheet can't fetch its rows again. Contacts already created stay in AdsEra. You can also remove AdsEra's access from your Google account at [myaccount.google.com/permissions](https://myaccount.google.com/permissions).

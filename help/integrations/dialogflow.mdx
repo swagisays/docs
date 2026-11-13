@@ -1,0 +1,67 @@
+---
+title: 'Dialogflow & Conversational Agents'
+description: 'Connect a Google Dialogflow ES or Conversational Agents (Dialogflow CX) bot to one or more WhatsApp numbers in AdsEra.'
+icon: 'robot'
+---
+
+Connect your own Google chatbot to your WhatsApp numbers in AdsEra. Customer messages go to the bot, and its replies are sent back on WhatsApp.
+
+- **Dialogflow** is for Dialogflow ES agents.
+- **Conversational Agents** is for Dialogflow CX agents.
+
+<Tip>
+  Don't have a bot? [Addy](/help/ai/addy) is AdsEra's own WhatsApp AI agent and needs no Google Cloud setup.
+</Tip>
+
+---
+
+## Adding the integration
+
+### Before you begin
+
+- At least one WhatsApp number connected in AdsEra.
+- A Google Cloud project with the **Dialogflow API** enabled and your agent built in it.
+- A **service account** with at least the **Dialogflow API Client** role (add **Dialogflow API Reader** for CX), plus its **JSON key** file. In Google Cloud, open **IAM & Admin → Service Accounts**, create or open the account, then go to **Keys → Add key → JSON**.
+
+### Dialogflow (ES)
+
+1. Open **Marketplace → Dialogflow** and click **Connect**.
+2. Choose the **WhatsApp** number or numbers that should use this agent.
+3. Enter the **Project Id** (from Google Cloud Console) and a **Description**.
+4. **Upload JSON file**: the service account key.
+5. Save.
+
+### Conversational Agents (CX)
+
+1. Open **Marketplace → Conversational Agents** and click **Connect**.
+2. Choose the **WhatsApp** number or numbers.
+3. Fill in the **Agent Name**, **Project Id**, **Agent Id** and **Location** (the agent's region, for example `global` or `asia-south1`). In the CX console, open the agent's menu (three dots) and click **Copy name**. The copied name contains the project, location and agent ID.
+4. **Upload JSON file**: the service account key. If access is denied, add the service account's email under the agent's access control in the CX console.
+5. Add a **Description** and save.
+
+---
+
+## Using the integration
+
+Send a message to the linked WhatsApp number. The agent should reply. Test the default and fallback intents too.
+
+You can edit a connection later to change the numbers, upload a new JSON key or switch agents.
+
+### Troubleshooting
+
+<AccordionGroup>
+<Accordion title="The bot doesn't reply">
+  Check that the Dialogflow API is enabled in the project, that the JSON key belongs to that project, and that the service account has the roles above. For CX, also check the **Location** and **Agent Id**.
+</Accordion>
+<Accordion title="The bot replies with the wrong answers">
+  Responses come from your agent's intents and training phrases in Google. Update them in Dialogflow.
+</Accordion>
+</AccordionGroup>
+
+---
+
+## Removing the integration
+
+Open **Marketplace → Dialogflow** (or **Conversational Agents**), open the menu on the connection card and choose **Delete**. The WhatsApp numbers stop sending messages to the bot.
+
+To revoke access completely, delete the service account key in Google Cloud Console under **IAM & Admin → Service Accounts → Keys**.
