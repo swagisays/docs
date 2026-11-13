@@ -153,7 +153,6 @@
               "help/integrations/zeptomail",
               "help/integrations/indiamart",
               "help/integrations/google-sheets",
-              "help/integrations/whatsera",
               "help/integrations/dialogflow",
               "help/integrations/pabbly",
               "help/integrations/ai-connectors"
@@ -283,6 +282,10 @@
     {
       "source": "/introduction",
       "destination": "/help/introduction/adsera"
+    },
+    {
+      "source": "/help/integrations/whatsera",
+      "destination": "/help/integrations/marketplace"
     }
   ]
 }
