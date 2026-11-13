@@ -40,17 +40,27 @@ On the **Connection** tab, open the menu on the Slack card and choose **Edit**. 
 | Group | Alerts | On by default |
 | --- | --- | --- |
 | **Chats** | Addy or the Meta AI agent hands a chat to your team | ✓ |
-| | Every new WhatsApp message (busy numbers send a lot) | |
-| | A chat is assigned to someone | |
+| | A new contact messages you for the first time | ✓ |
 | **Leads** | New Meta ad lead | ✓ |
+| | Addy scores a lead as hot | ✓ |
+| | Addy alerts your team (an urgent order, ready to buy…) | ✓ |
+| **Meetings** | A meeting is booked (Cal.com, Calendly or Zoom) | ✓ |
 | **Tasks** | A task is assigned, task reminders, a task's status changes | |
-| **WhatsApp account** | Template approved, rejected or edited; template quality drops | ✓ |
+| **WhatsApp account** | Template approved, rejected or edited; Meta changes a template's category; template quality drops | ✓ |
 | | Messaging limit or quality changes; business verification; account review; display name review | ✓ |
 | **Meta ads** | Ad delivery issues | ✓ |
-| | Ad or campaign status changes; creative fatigue; Meta recommendations | |
+| | An ad goes into Meta review; ad or campaign status changes; creative fatigue; Meta recommendations; other ad account updates | |
 | **Billing** | AI credits running low | ✓ |
 
+<Note>
+  Slack only gets alerts that need attention, not every chat message. To keep within Slack's limits, AdsEra posts at most **20 alerts a minute** per account. Meta ads alerts are posted once per ad a day.
+</Note>
+
 Each Slack message shows what happened and the key details (for example, the contact, template or task), with an **Open in AdsEra** link where there is one.
+
+### Let Addy alert your team
+
+On the **Used by agents** tab, choose whether [Addy](/help/ai/addy) may **Alert your team**. When it's on and Slack is connected, Addy posts an urgent alert to your channel by itself, without handing the chat over. Examples: a bulk order, a customer ready to pay right now, or a VIP. Hot leads Addy scores are posted automatically as **Addy scores a lead as hot**.
 
 ### Pause or resume
 
@@ -60,7 +70,7 @@ Choose **Deactive** on the card's menu to stop posting, or **Active** to start a
 
 <AccordionGroup>
 <Accordion title="Nothing is posted">
-  Check that the card shows the connection as active and that the alert is ticked under **Edit**. Some alerts only happen now and then. For a quick test, turn on **Every new WhatsApp message** and send your number a message.
+  Check that the card shows the connection as active and that the alert is ticked under **Edit**. Some alerts only happen now and then. For a quick test, message your WhatsApp number from a phone that has never messaged it: **A new contact messages you for the first time** is posted.
 </Accordion>
 <Accordion title="Posts go to the wrong channel">
   Click **Connect** again and pick the right channel in Slack.
