@@ -1,0 +1,71 @@
+---
+title: 'Use AdsEra from Claude, ChatGPT or Cursor'
+description: "Connect your own AI app to AdsEra through its MCP server, then ask it about your account, contacts, campaigns, flows, ads and CRM, or have it do the work."
+icon: 'plug-circle-bolt'
+---
+
+AdsEra has an **MCP server**. Connect it to an AI app you already use (Claude, ChatGPT, Cursor or Claude Code) and that app can read and work in your AdsEra account with your permissions. For example: *"Show me my AdsEra account overview"*, *"Which campaigns did best this month?"* or *"Build a flow that welcomes new leads"*.
+
+Open **Account → AI Access** to get started. The server URL is:
+
+```
+https://app.adsera.in/mcp
+```
+
+## Connect your AI app
+
+<Tabs>
+<Tab title="Claude">
+1. In Claude (claude.ai or the desktop app), open **Settings → Connectors**.
+2. Choose **Add custom connector**, name it **AdsEra** and paste the server URL.
+3. Click **Connect**, sign in to AdsEra if asked, and press **Allow**.
+4. In a chat, enable the AdsEra connector and ask, for example, *"Show me my AdsEra account overview"*.
+</Tab>
+<Tab title="ChatGPT">
+1. In ChatGPT, open **Settings → Apps & Connectors** and turn on **developer mode** under **Advanced settings**.
+2. Create a connector: name it **AdsEra**, paste the server URL and choose **OAuth** authentication.
+3. Sign in to AdsEra when asked and press **Allow**.
+4. Pick the AdsEra connector in a new chat.
+</Tab>
+<Tab title="Cursor">
+Open **Cursor Settings → MCP → Add new MCP server**, or add this to `~/.cursor/mcp.json`:
+
+```json
+{
+  "mcpServers": {
+    "adsera": { "url": "https://app.adsera.in/mcp" }
+  }
+}
+```
+
+Cursor opens AdsEra in the browser to sign in. Press **Allow**.
+
+<Tip>
+  Cursor works best with fewer tools. Add `?toolsets=flows,whatsapp` (or `contacts`, `campaigns`, `ads`, `crm`…) to the URL.
+</Tip>
+</Tab>
+<Tab title="Claude Code">
+Run this in a terminal, then type `/mcp` in Claude Code and choose **Authenticate**:
+
+```bash
+claude mcp add --transport http adsera https://app.adsera.in/mcp
+```
+
+For scripts or headless use, create a personal access key (below) and add `--header "Authorization: Bearer <key>"`.
+</Tab>
+</Tabs>
+
+## Personal access keys
+
+For AI tools that take a key instead of signing in (Claude Code, scripts), create a key under **Personal access keys**:
+
+1. Click to create a key, give it a **Name** and choose when it **Expires after**.
+2. Copy the key. **This is the only time it's shown**, so store it somewhere safe.
+
+The list shows when each key was last used and when it expires. Revoke a key you no longer need.
+
+## Connected apps and security
+
+- **Connected apps** lists every AI app signed in to your account, who signed it in, when it connected and when it was last used. Click **Disconnect** to remove one.
+- An AI app can only do what **your** AdsEra user role allows.
+- If the AI Access tab says it is switched off for your company, contact AdsEra support.

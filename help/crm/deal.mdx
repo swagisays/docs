@@ -8,12 +8,15 @@ icon: 'handshake'
 The **Deals** page is the heart of your CRM, providing a visual representation of your sales process. Here, you can track the progress of each sales opportunity (a "deal") as it moves through the stages of your [Pipelines](/help/crm/pipeline), from initial contact to a final win or loss.
 
 
-### List View vs. Kanban View
+### List, Board and Calendar
 
-You can visualize your deals in two different ways using the toggle buttons at the top of the page:
+Use **How to show deals** at the top of the page to switch views:
 
-- **List View (📝):** A traditional table layout that provides a detailed, sortable list of all your deals. This view is great for seeing specific data points like `Subtotal`, `Discount`, and `GST` in a structured format.
-- **Kanban View (📋):** A visual board that organizes your deals into columns representing each stage of your selected pipeline. This is the default and most popular view for tracking sales flow.
+- **List:** a table of all your deals, sortable by close date or last change.
+- **Board:** the Kanban board, with one column per stage of the selected pipeline. This is the default.
+- **Calendar:** deals on their close dates. Drag a deal onto a day to plan it. Deals without a close date are listed on the side until every open deal has one.
+
+Pick the pipeline with **Pipelines**, and turn on **Money by stage** to see the value in each stage.
 
 ![The Deals page in Kanban view.](https://sgp1.digitaloceanspaces.com/whatsera/7a3c2d29-719c-4191-af3f-47d9c285f53d_deal.png)
 
@@ -70,3 +73,19 @@ Clicking the **"+ New Deal"** button or editing an existing deal opens a side pa
 </AccordionGroup>
 
 Once all details are filled in, click **"Create"** or **"Save Changes"** to add the deal to your pipeline.
+
+---
+
+## Deal preview
+
+Click a deal to open its preview: details, products, activity and payments. Use **Previous deal** and **Next deal** to move through the list without closing it, and **More actions** for the rest.
+
+## Collecting payment
+
+In the deal's payments section, click **Collect payment**. The customer gets a WhatsApp **Pay Now** card or a payment link, and the deal shows each request's status (paid, pending or needs review). See [WhatsApp Pay](/help/integrations/whatsapp-pay).
+
+## Deals created for you
+
+- [Addy](/help/ai/addy) can create a deal for each buyer it qualifies.
+- A [workflow](/help/automation/workflows) step can **Add or update a deal**.
+- Payments collected from a chat open a deal.

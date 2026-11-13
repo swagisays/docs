@@ -1,72 +1,72 @@
 ---
-title: 'Managing Products'
-description: 'Create and manage your product or service catalog to associate them with deals in your CRM sales pipelines.'
+title: 'Products'
+description: 'Add what you sell (items, services, subscription plans, properties or courses), use them in deals, payments and chats, and sync them to your WhatsApp catalog.'
 icon: 'box'
 ---
 
 **Want to Manage Products? [Go to the AdsEra Products Page &rarr;](https://app.adsera.in/dashboard/crm/product)**
 
-The **Products** page is your central catalog for all goods and services you offer. Creating products here allows you to associate them with specific **Deals** in your CRM pipelines, making it easy to track what you're selling and manage your sales process effectively.
+**Products** is your catalog of everything you sell. Products are used across AdsEra:
 
-![The main Product List page.](https://sgp1.digitaloceanspaces.com/whatsera/0b19f74d-d6ec-4740-9ff1-e8cbb886c7f5_product.png)
+- **Deals:** add products as line items to a deal.
+- **Payments:** collect payment for products with [WhatsApp Pay](/help/integrations/whatsapp-pay).
+- **Chats:** send product cards in chats, and let [Addy](/help/ai/addy) recommend and sell them.
+- **WhatsApp catalog:** sync products to your Meta catalog for [WhatsApp Commerce](/help/integrations/whatsapp-commerce).
 
-### The Product List
+## The product list
 
-This page displays all the products you've created in a clear, sortable table.
+- Filter by type (**All types**), search, and **Download this page as CSV**.
+- The **WhatsApp catalog** column shows each product's sync status: **Synced**, **Pending**, **Rejected**, **Not in catalog**, **Not linked** or **Via variants**.
+- Select products to **Activate** or **Discontinue** them in bulk.
 
-- **Search:** Use the search bar at the top to quickly find a product by name.
-- **New Product:** Click the **"+ New Product"** button in the top-right to open the creation panel.
+## Create a product
 
-#### Understanding the Table Columns
-
-| Column | Description |
-| :--- | :--- |
-| **Name** | The name of the product, along with its description. |
-| **Last Updated** | The date and time the product was last modified. |
-| **Mail** | The contact email associated with this product (optional). |
-| **Website** | A link to the product's webpage (optional). |
-| **Status** | A color-coded tag indicating if the product is `Active` or `Deactive`. |
-| **⋮ (Actions)**| A menu to **Edit** or **Delete** the product. |
-
----
-
-## Creating and Editing a Product
-
-Clicking **"+ New Product"** or the **Edit** option on an existing item will open a side panel where you can define all the product's details.
-
-![The Create/Edit Product side panel.](https://sgp1.digitaloceanspaces.com/whatsera/c304b58d-f577-44bf-805d-352215cf99e9_product_edit.png)
+Click **New product** and choose the type. Each type has its own form, in sections:
 
 <AccordionGroup>
-  <Accordion title="Core Product Details">
-    - **Name of the Product (Required):** A clear, descriptive name for your product or service.
-    - **Mail (Optional):** A contact email for product-specific inquiries.
-    - **Website (Optional):** A direct link to the product's landing page.
-    - **Description (Optional):** A multi-line field to add more detailed information about the product.
-  </Accordion>
-  <Accordion title="Inventory & Pricing">
-    - **SKU (Optional):** The Stock Keeping Unit or any unique internal identifier for the product.
-    - **Unit (Optional):** The unit of measurement (e.g., "per user," "kg," "license").
-    - **Quantity (Optional):** The available stock quantity.
-    - **Price (Optional):** The price of a single unit.
-    - **Currency:** The currency for the price (e.g., INR, USD).
-  </Accordion>
-  <Accordion title="Status">
-    - **Active:** The product is available and can be added to new deals.
-    - **Deactive:** The product is archived or unavailable and cannot be added to new deals.
-  </Accordion>
+<Accordion title="Physical item">
+  - Name, SKU, brand and description
+  - Up to 5 pictures
+  - Selling price, cost and tax
+  - *Optional:* price by quantity, wholesale price and order limits
+  - Stock tracking and batches
+  - *Optional:* variants (size, colour…)
+  - Weight, size and HS code for shipping
+  - *Optional:* bundles (products inside this one) and extra details to show
+</Accordion>
+<Accordion title="Service">
+  - What you offer, and up to 5 pictures
+  - Currency, tax, billing cycles and prices
+  - *Optional:* the things the customer gets
+</Accordion>
+<Accordion title="Subscription">
+  - Name, description, currency and tax, and up to 5 pictures
+  - *Optional:* days before the first charge (a trial)
+  - How often customers pay
+  - Plans, prices and trials, and what each plan includes
+  - *Optional:* extras sold with a plan
+</Accordion>
+<Accordion title="Property">
+  - Title, reference and address
+  - Type and furnishing (unfurnished, semi-furnished or fully furnished)
+  - Size (sq.ft or sq.yd), rooms and units
+  - Sale, rent or short-term pricing: at least one
+  - Up to 5 pictures
+</Accordion>
+<Accordion title="Course">
+  - How the course is delivered
+  - Name, code and description, plus a thumbnail and gallery (up to 5)
+  - Seats, dates and timings
+  - Price, instalments and tax
+</Accordion>
 </AccordionGroup>
 
-<Info>
-  Once you've filled in the details, click **"Create Product"** or **"Save Changes"** at the bottom of the panel to save your work.
-</Info>
+Save the product. If you leave the page with unsaved changes, AdsEra asks you first.
 
-### How Products Integrate with Deals
+<Tip>
+  Products with complete, accurate details (price, stock, pictures) make [Addy](/help/ai/addy) far better at selling. It quotes exactly what's in your catalog.
+</Tip>
 
-The primary purpose of creating products in AdsEra is to link them to your sales process.
+## Edit or discontinue
 
-<Card title="Connecting Products to Deals" icon="handshake">
-  When you create or edit a **Deal** in one of your [Pipelines](/help/crm/pipeline), you can associate one or more of these products with it. This helps you:
-  - Automatically calculate the deal's total value.
-  - Track which products are selling the most.
-  - Provide your sales team with clear information about what's included in each potential sale.
-</Card>
+Click **Edit** on a product to change it. **Discontinue** a product you no longer sell instead of deleting it: past deals and payments that used it stay intact.

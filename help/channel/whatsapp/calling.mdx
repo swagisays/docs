@@ -1,0 +1,72 @@
+---
+title: 'WhatsApp calling'
+description: 'Take and make WhatsApp voice calls in AdsEra: your team answers in the browser, Addy answers with an AI voice, or your own system handles calls through the API.'
+icon: 'phone'
+---
+
+Customers can **call your WhatsApp Business number**, and your team can call customers back, right inside AdsEra. Calls are answered in the browser: no phone needed.
+
+<Note>
+  Calling isn't available on **Coexistence** numbers (numbers also used in the WhatsApp Business app). Calls to those numbers keep ringing in the WhatsApp Business app.
+</Note>
+
+## Choose who answers
+
+Open **Numbers**, pick the WhatsApp number, and under **Call handling** choose who answers voice calls to it:
+
+| Option | What happens |
+| --- | --- |
+| **Human** | The call rings in AdsEra for your team. Anyone logged in sees the incoming call and can **accept** or **reject** it. |
+| **AI** | [Addy](/help/ai/addy) answers with an AI voice, using the same knowledge, tools and personality as in chats. |
+| **API** | Your own system handles the call through the [Call API](/api-reference/call/connect). |
+
+## Answering calls (Human)
+
+When a customer calls, every team member who is logged in to AdsEra sees the incoming call with the caller's name and number, and hears a ringtone. Click **Accept** to talk in the browser (allow microphone access the first time), and hang up when done.
+
+If Addy was on the call and hands it over, the incoming screen shows Addy's summary of the call so far.
+
+## Calling a customer
+
+WhatsApp only lets a business call a customer who has given **permission**.
+
+<Steps>
+<Step title="Ask for permission">
+  Send the customer a template with a **call permission request** (a template type in **Templates**: no buttons or media headers). The customer taps to allow calls.
+</Step>
+<Step title="Call">
+  Open the chat. While the permission is valid, the **Audio Call via WhatsApp** button in the chat header is active. Click it to call. The button is greyed out when there's no valid permission.
+</Step>
+</Steps>
+
+## Addy on calls (AI)
+
+Set Addy up for calls on **Addy → Calls**:
+
+- **Voice and language:** pick a voice, with Indian voices included.
+- **Record calls:** Addy tells the caller at the start, and you can play recordings from the call's details.
+- **After a call, send the caller a short recap on WhatsApp.**
+- **Extra instructions for calls** (optional).
+
+While talking, Addy can send photos, links and templates to the caller's WhatsApp. When a person is needed, Addy transfers the call to your team. **Recent calls** lists the calls Addy answered. Open one to read what was said.
+
+AI calls use [AI credits](/help/account/credit-usage), about 5–8 credits per minute.
+
+## Call history
+
+- In the chat, each call appears as a message. Open it to see the details, a **Summary** and the **Original** transcript, and the recording when there is one.
+- On the contact, **See call logs** lists every call with that contact.
+
+## Troubleshooting
+
+<AccordionGroup>
+<Accordion title="The call button is greyed out">
+  The customer hasn't given call permission, or it has expired. Send a call permission request template again.
+</Accordion>
+<Accordion title="No incoming call shows in AdsEra">
+  Check that **Call handling** is set to **Human** and that you're logged in to AdsEra in a browser tab. Coexistence numbers ring in the WhatsApp Business app instead.
+</Accordion>
+<Accordion title="The other person can't hear me">
+  Allow microphone access for app.adsera.in in your browser settings, and check your selected microphone.
+</Accordion>
+</AccordionGroup>

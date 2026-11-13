@@ -48,7 +48,8 @@
             "pages": [
               "help/ai/addy",
               "help/ai/closer",
-              "help/ai/ask-ai"
+              "help/ai/ask-ai",
+              "help/ai/connect-ai-apps"
             ]
           },
           {
@@ -92,26 +93,12 @@
             "pages": [
               "help/channel/whatsapp/whatsapp",
               "help/channel/whatsapp/connect",
-              "help/channel/whatsapp/opt"
+              "help/channel/whatsapp/opt",
+              "help/channel/whatsapp/calling"
             ]
           },
           {
-            "group": "Email Channel",
-            "pages": [
-              "help/channel/email/email",
-              "help/channel/email/smtp"
-            ]
-          },
-          {
-            "group": "Email Campaign",
-            "pages": [
-              "help/campaign/email/list",
-              "help/campaign/email/create",
-              "help/campaign/email/report"
-            ]
-          },
-          {
-            "group": "WhastApp Campaign",
+            "group": "WhatsApp Campaign",
             "pages": [
               "help/campaign/wa/list",
               "help/campaign/wa/create",
@@ -129,9 +116,7 @@
           {
             "group": "Template",
             "pages": [
-              "help/template/wa",
-              "help/template/email-list",
-              "help/template/email-create"
+              "help/template/wa"
             ]
           },
           {
@@ -154,12 +139,6 @@
             ]
           },
           {
-            "group": "Sequence",
-            "pages": [
-              "help/sequence/sequence"
-            ]
-          },
-          {
             "group": "Integrations",
             "pages": [
               "help/integrations/marketplace",
@@ -170,6 +149,7 @@
               "help/integrations/whatsapp-commerce",
               "help/integrations/meta-ads",
               "help/integrations/meta-ai-agent",
+              "help/integrations/slack",
               "help/integrations/zeptomail",
               "help/integrations/indiamart",
               "help/integrations/google-sheets",
@@ -177,6 +157,19 @@
               "help/integrations/dialogflow",
               "help/integrations/pabbly",
               "help/integrations/ai-connectors"
+            ]
+          },
+          {
+            "group": "Legacy",
+            "pages": [
+              "help/channel/email/email",
+              "help/channel/email/smtp",
+              "help/campaign/email/list",
+              "help/campaign/email/create",
+              "help/campaign/email/report",
+              "help/sequence/sequence",
+              "help/template/email-list",
+              "help/template/email-create"
             ]
           }
         ]
@@ -191,7 +184,7 @@
             ]
           },
           {
-            "group": "WhastApp",
+            "group": "WhatsApp",
             "pages": [
               "api-reference/whatsapp/list",
               "api-reference/whatsapp/link"
@@ -274,5 +267,11 @@
       "instagram": "https://www.instagram.com/adsera.in",
       "linkedin": "https://www.linkedin.com/company/adsera-it-services"
     }
-  }
+  },
+  "redirects": [
+    {
+      "source": "/introduction",
+      "destination": "/help/introduction/adsera"
+    }
+  ]
 }

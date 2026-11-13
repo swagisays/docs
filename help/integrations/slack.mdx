@@ -1,0 +1,80 @@
+---
+title: 'Slack'
+description: 'Post AdsEra alerts to a Slack channel: AI handovers, new ad leads, template reviews, WhatsApp account and ad issues, and more. You choose which.'
+icon: 'slack'
+---
+
+Connect Slack to post AdsEra alerts to one channel as they happen. Your team then sees new leads, AI handovers and account problems without opening AdsEra. You choose which alerts are posted.
+
+---
+
+## Adding the integration
+
+### Before you begin
+
+- An AdsEra account with access to **Marketplace**.
+- A Slack workspace where you're allowed to add apps, and the channel to post to.
+
+### Connect
+
+<Steps>
+<Step title="Start in AdsEra">
+  Open **Marketplace → Slack** and click **Connect**.
+</Step>
+<Step title="Allow in Slack">
+  Slack opens. Pick the **channel** AdsEra should post to and click **Allow**.
+</Step>
+<Step title="Done">
+  You're sent back to AdsEra. The **Connection** tab shows the Slack card with your channel.
+</Step>
+</Steps>
+
+AdsEra only asks Slack for permission to **post to that one channel**. It can't read your Slack messages.
+
+---
+
+## Choosing the alerts
+
+On the **Connection** tab, open the menu on the Slack card and choose **Edit**. Tick the alerts to post and click **Save**.
+
+| Group | Alerts | On by default |
+| --- | --- | --- |
+| **Chats** | Addy or the Meta AI agent hands a chat to your team | ✓ |
+| | Every new WhatsApp message (busy numbers send a lot) | |
+| | A chat is assigned to someone | |
+| **Leads** | New Meta ad lead | ✓ |
+| **Tasks** | A task is assigned, task reminders, a task's status changes | |
+| **WhatsApp account** | Template approved, rejected or edited; template quality drops | ✓ |
+| | Messaging limit or quality changes; business verification; account review; display name review | ✓ |
+| **Meta ads** | Ad delivery issues | ✓ |
+| | Ad or campaign status changes; creative fatigue; Meta recommendations | |
+| **Billing** | AI credits running low | ✓ |
+
+Each Slack message shows what happened and the key details (for example, the contact, template or task), with an **Open in AdsEra** link where there is one.
+
+### Pause or resume
+
+Choose **Deactive** on the card's menu to stop posting, or **Active** to start again. Your choices are kept.
+
+### Troubleshooting
+
+<AccordionGroup>
+<Accordion title="Nothing is posted">
+  Check that the card shows the connection as active and that the alert is ticked under **Edit**. Some alerts only happen now and then. For a quick test, turn on **Every new WhatsApp message** and send your number a message.
+</Accordion>
+<Accordion title="Posts go to the wrong channel">
+  Click **Connect** again and pick the right channel in Slack.
+</Accordion>
+<Accordion title="Posts stopped after someone changed Slack">
+  The AdsEra app may have been removed from the workspace or the channel deleted. Click **Connect** again.
+</Accordion>
+</AccordionGroup>
+
+---
+
+## Removing the integration
+
+- **Pause:** choose **Deactive** on the Slack card. Nothing more is posted.
+- **Disconnect:** in Slack, open **Apps → Manage**, find **AdsEra** and click **Remove App**. Slack revokes AdsEra's access to the channel at once.
+
+Messages already posted stay in your Slack channel.
