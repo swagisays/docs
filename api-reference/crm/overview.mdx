@@ -26,6 +26,7 @@ A successful call answers `{ "success": true, "data": ... }`. A failed call answ
 | 403 | Your plan has expired or does not include this feature. |
 | 404 | The record does not exist in your workspace. |
 | 409 | Another contact already has this phone number or email. |
+| 429 | Too many requests. Each app can make 120 requests a minute; wait the seconds in the `Retry-After` header. |
 
 Lists take `page` and `perPage` (at most 100) and answer `{ items, total, page, perPage }`.
 

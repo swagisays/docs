@@ -1356,6 +1356,16 @@
                 }
               }
             }
+          },
+          "429": {
+            "description": "Rate limit: 120 requests a minute per app. See the Retry-After header.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CrmError"
+                }
+              }
+            }
           }
         }
       },
@@ -1485,6 +1495,16 @@
                 }
               }
             }
+          },
+          "429": {
+            "description": "Rate limit: 120 requests a minute per app. See the Retry-After header.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CrmError"
+                }
+              }
+            }
           }
         }
       }
@@ -1559,6 +1579,16 @@
                 }
               }
             }
+          },
+          "429": {
+            "description": "Rate limit: 120 requests a minute per app. See the Retry-After header.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CrmError"
+                }
+              }
+            }
           }
         }
       }
@@ -1607,6 +1637,16 @@
           },
           "404": {
             "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CrmError"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Rate limit: 120 requests a minute per app. See the Retry-After header.",
             "content": {
               "application/json": {
                 "schema": {
@@ -1690,6 +1730,16 @@
           },
           "409": {
             "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CrmError"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Rate limit: 120 requests a minute per app. See the Retry-After header.",
             "content": {
               "application/json": {
                 "schema": {
@@ -1781,6 +1831,16 @@
                 }
               }
             }
+          },
+          "429": {
+            "description": "Rate limit: 120 requests a minute per app. See the Retry-After header.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CrmError"
+                }
+              }
+            }
           }
         }
       }
@@ -1838,6 +1898,16 @@
           },
           "404": {
             "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CrmError"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Rate limit: 120 requests a minute per app. See the Retry-After header.",
             "content": {
               "application/json": {
                 "schema": {
@@ -1929,6 +1999,16 @@
                 }
               }
             }
+          },
+          "429": {
+            "description": "Rate limit: 120 requests a minute per app. See the Retry-After header.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CrmError"
+                }
+              }
+            }
           }
         }
       }
@@ -1993,6 +2073,16 @@
                 }
               }
             }
+          },
+          "429": {
+            "description": "Rate limit: 120 requests a minute per app. See the Retry-After header.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CrmError"
+                }
+              }
+            }
           }
         }
       }
@@ -2024,6 +2114,16 @@
                       }
                     }
                   }
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Rate limit: 120 requests a minute per app. See the Retry-After header.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CrmError"
                 }
               }
             }
@@ -2094,6 +2194,16 @@
           },
           "404": {
             "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CrmError"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Rate limit: 120 requests a minute per app. See the Retry-After header.",
             "content": {
               "application/json": {
                 "schema": {
@@ -2244,6 +2354,16 @@
                 }
               }
             }
+          },
+          "429": {
+            "description": "Rate limit: 120 requests a minute per app. See the Retry-After header.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CrmError"
+                }
+              }
+            }
           }
         }
       }
@@ -2292,6 +2412,16 @@
           },
           "404": {
             "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CrmError"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Rate limit: 120 requests a minute per app. See the Retry-After header.",
             "content": {
               "application/json": {
                 "schema": {
@@ -2372,6 +2502,16 @@
                 }
               }
             }
+          },
+          "429": {
+            "description": "Rate limit: 120 requests a minute per app. See the Retry-After header.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CrmError"
+                }
+              }
+            }
           }
         }
       }
@@ -2439,6 +2579,16 @@
           },
           "404": {
             "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CrmError"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Rate limit: 120 requests a minute per app. See the Retry-After header.",
             "content": {
               "application/json": {
                 "schema": {
@@ -2579,6 +2729,16 @@
                 }
               }
             }
+          },
+          "429": {
+            "description": "Rate limit: 120 requests a minute per app. See the Retry-After header.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CrmError"
+                }
+              }
+            }
           }
         }
       }
@@ -2627,6 +2787,16 @@
           },
           "404": {
             "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CrmError"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Rate limit: 120 requests a minute per app. See the Retry-After header.",
             "content": {
               "application/json": {
                 "schema": {
@@ -2700,6 +2870,16 @@
           },
           "404": {
             "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CrmError"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Rate limit: 120 requests a minute per app. See the Retry-After header.",
             "content": {
               "application/json": {
                 "schema": {
@@ -2805,6 +2985,16 @@
                 }
               }
             }
+          },
+          "429": {
+            "description": "Rate limit: 120 requests a minute per app. See the Retry-After header.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CrmError"
+                }
+              }
+            }
           }
         }
       }
@@ -2859,6 +3049,16 @@
                 }
               }
             }
+          },
+          "429": {
+            "description": "Rate limit: 120 requests a minute per app. See the Retry-After header.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CrmError"
+                }
+              }
+            }
           }
         }
       }
@@ -2900,6 +3100,16 @@
                       }
                     }
                   }
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Rate limit: 120 requests a minute per app. See the Retry-After header.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CrmError"
                 }
               }
             }
@@ -2947,6 +3157,16 @@
                       }
                     }
                   }
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Rate limit: 120 requests a minute per app. See the Retry-After header.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CrmError"
                 }
               }
             }
