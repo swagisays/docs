@@ -4,7 +4,11 @@ description: "Connect your own AI app to AdsEra through its MCP server, then ask
 icon: 'plug-circle-bolt'
 ---
 
-AdsEra has an **MCP server**. Connect it to an AI app you already use (Claude, ChatGPT, Cursor or Claude Code) and that app can read and work in your AdsEra account with your permissions. For example: *"Show me my AdsEra account overview"*, *"Which campaigns did best this month?"* or *"Build a flow that welcomes new leads"*.
+AdsEra has an **MCP server**. Connect it to an AI app you already use (Claude, ChatGPT, Cursor or Claude Code) and that app can read and work in your AdsEra account with your permissions. For example: *"Show me my AdsEra account overview"*, *"Which campaigns did best this month?"*, *"Build a flow that welcomes new leads"* or *"Who should I call today?"* (from your [Prospects](/help/sales/prospects) queue).
+
+<Note>
+  The MCP server needs an active **paid plan**. On a free or expired plan, AI apps get "AI connectors need a paid plan" until you [upgrade](/help/introduction/price).
+</Note>
 
 Open **Account → AI Access** to get started. The server URL is:
 
@@ -41,7 +45,7 @@ Open **Cursor Settings → MCP → Add new MCP server**, or add this to `~/.curs
 Cursor opens AdsEra in the browser to sign in. Press **Allow**.
 
 <Tip>
-  Cursor works best with fewer tools. Add `?toolsets=flows,whatsapp` (or `contacts`, `campaigns`, `ads`, `crm`…) to the URL.
+  Cursor works best with fewer tools. Add `?toolsets=flows,whatsapp` (or `contacts`, `campaigns`, `ads`, `crm`, `prospects`…) to the URL.
 </Tip>
 </Tab>
 <Tab title="Claude Code">
@@ -69,3 +73,4 @@ The list shows when each key was last used and when it expires. Revoke a key you
 - **Connected apps** lists every AI app signed in to your account, who signed it in, when it connected and when it was last used. Click **Disconnect** to remove one.
 - An AI app can only do what **your** AdsEra user role allows.
 - If the AI Access tab says it is switched off for your company, contact AdsEra support.
+- Zoom meetings an AI app schedules are saved to AdsEra, so they show in the CRM's **Meetings** list.

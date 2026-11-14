@@ -8,6 +8,10 @@ icon: 'list-check'
 
 Open it from **Prospects** in the left menu. Choose **Mine** to see your own leads or **Everyone** to see the whole team's.
 
+### Choose where your leads come from
+
+Click the funnel button (**All leads**) and pick one or more segments under **Take leads from**. Your queue then only takes leads from those segments. This setting is yours alone, so each rep can work their own segments. Choose **Show all leads** to go back to every lead.
+
 ## The levels
 
 1. **Hot leads**
@@ -34,17 +38,17 @@ The lead on screen shows its details, activity and chat. Reach out from the quic
 
 Then log what happened:
 
-| Outcome | Key |
-| --- | --- |
-| Connected | `1` |
-| No answer | `2` |
-| Call back… | `3` |
-| Meeting set | `4` |
-| Not interested | `5` |
-| Won | `6` |
-| To Closer (hand the lead to [Closer](/help/ai/closer)) | `7` |
+| Outcome | Key | What happens |
+| --- | --- | --- |
+| Connected | `1` | The call is logged. |
+| No answer | `2` | A retry is planned for tomorrow at the same hour. |
+| Call back… | `3` | You pick when, and a call-back task is created. |
+| Meeting set | `4` | The meeting is booked and the deal moves on. |
+| Not interested | `5` | The lead leaves your list. |
+| Won | `6` | The deal is marked won. |
+| To Closer | `7` | [Closer](/help/ai/closer) keeps following the lead up. |
 
-After an outcome, you can **plan the next step** and add a note.
+Every outcome is saved as a call in the contact's activity. You can add a note and **plan the next step**. You stay on the lead after logging, so you can add more, until you click **Next lead**.
 
 **Moving around:**
 
@@ -57,6 +61,24 @@ After an outcome, you can **plan the next step** and add a note.
 
 On **Team**, set the **Daily goal per rep** and compare **Today vs goal**. The level track shows the outcomes logged today against the daily goal.
 
-## What makes a good lead
+## Prospects settings
 
-Click **What makes a good lead** to pick questions from your lead forms and the answers that make a lead hot. AdsEra uses them to rank your queue.
+Managers click the settings button next to the queue to open **Prospects settings**. It has three tabs:
+
+- **Good leads:** pick questions from your lead forms and tick the answers your best customers give. Leads with those answers rank higher in everyone's queue, with the answer shown as the reason.
+- **Junk:** answers that mean a lead is junk, like Lead status "Junk" or "Wrong number". These leads never show in Prospects, and Closer stops following them up. Leads marked **Not interested** are treated the same way.
+- **Rules:** keep contact fields up to date as reps call. For example:
+  - Connected sets Lead status to "Contacted".
+  - Meeting set sets it to "Demo scheduled".
+  - No answer **3 days in a row** sets it to "No response".
+
+  Workflows that watch the field still run.
+
+## Prospects from Ask AI and your AI apps
+
+[Ask AI](/help/ai/ask-ai) and AI apps connected through the [AdsEra MCP server](/help/ai/connect-ai-apps) can also work your queue. Try asking:
+
+- *"Who should I call today?"*
+- *"Give me a brief on this lead"*
+- *"Log no answer and plan a retry"*
+- *"Show the team's day"*
