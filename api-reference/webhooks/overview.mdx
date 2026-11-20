@@ -41,12 +41,14 @@ You can add several webhooks, for example one for your CRM and one for your anal
 | `call.ended` | A WhatsApp call ends, is missed or is rejected | No: all numbers | [Calls](/api-reference/webhooks/calls#call-ended) |
 | `call.summary` | The AI voice agent's summary of a call is ready | No: all numbers | [Calls](/api-reference/webhooks/calls#call-summary) |
 | `call` | Live call signals, only for numbers whose calls your own system answers | Yes | [Calls](/api-reference/webhooks/calls#call-live-signals) |
+| `addy.handoff` | Addy (the AI agent) hands a chat to your team | No: all numbers | [Addy](/api-reference/webhooks/addy#addy-handoff) |
+| `addy.lead_updated` | Addy moves a lead to a new temperature or stage (for example warm → hot) | No: all numbers | [Addy](/api-reference/webhooks/addy#addy-lead-updated) |
 | `contact.created` | A contact is added by hand, import, form, IndiaMART or the API | No | [Contacts & orders](/api-reference/webhooks/contacts-orders) |
 | `contact.updated` | A contact is edited in AdsEra or through the API | No | [Contacts & orders](/api-reference/webhooks/contacts-orders) |
 | `order.created` | A customer places an order through WhatsApp Commerce | No | [Contacts & orders](/api-reference/webhooks/contacts-orders#order-created) |
 
 <Tip>
-**Showing WhatsApp chats in your own CRM?** Tick `message.new`, `message.sent` and `message.status_updated`. Add `call.ended` and `call.summary` for calls. See [Use AdsEra with your own CRM](/api-reference/connect-your-crm).
+**Showing WhatsApp chats in your own CRM?** Tick `message.new`, `message.sent` and `message.status_updated`. Add `call.ended` and `call.summary` for calls, and `addy.lead_updated` and `addy.handoff` for what the AI agent finds out. See [Use AdsEra with your own CRM](/api-reference/connect-your-crm).
 </Tip>
 
 ## What AdsEra sends

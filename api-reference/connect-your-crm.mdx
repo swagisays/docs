@@ -36,6 +36,8 @@ Open [**Settings → Webhooks**](https://app.adsera.in/setting/webhooks) and add
 | `message.status_updated` | A message is delivered, read or fails | Show ticks |
 | `call.ended` | A WhatsApp call ends, or is missed or rejected | Log the call |
 | `call.summary` | The AI has summarised a call it took | Add the summary to the call log |
+| `addy.lead_updated` | Addy, the AI agent, moves a lead to a new temperature or stage (for example warm → hot) | Create or update the lead with its score and summary |
+| `addy.handoff` | Addy hands a chat to a person | Alert the salesperson, with Addy's summary |
 | `contact.created` / `contact.updated` | A contact is added or changed in AdsEra (by hand, an import, a form). New WhatsApp chats come as `message.new`. | Keep contacts in sync |
 
 Every webhook is a `POST` with this body:
@@ -67,6 +69,10 @@ Answer with any `2xx` within 5 seconds. Do slow work after you answer. Failed de
 curl "https://app.adsera.in/api/pub/wa/messages?phone=919876543210" \
   -H "x-api-key: YOUR_APP_ID" -H "x-api-secret: YOUR_APP_SECRET"
 ```
+
+## Work with the AI agent (Addy)
+
+From your CRM you can also see what Addy learned about a customer, take a chat over while your salesperson replies, hand it back, and tell Addy when an order ships. See the [Addy API](/api-reference/addy/overview).
 
 ## Send from your CRM (optional)
 

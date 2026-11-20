@@ -1,0 +1,32 @@
+---
+title: "Send an Event to Addy"
+openapi: "POST /api/pub/addy/events"
+---
+
+Use events to keep customers updated from your own systems: an order shipped, a payment arrived, an appointment moved, a document is ready.
+
+**Before you start:** set your events up in [**AI Agent → Events**](https://app.adsera.in/dashboard/ai-agent?tab=events). For each event you set:
+
+- its key (`type`), such as `order_shipped`
+- what it means and what Addy should tell the customer
+- the facts it carries, such as `order_id` and `tracking_url`
+- a WhatsApp template to use when the 24-hour window has closed
+
+You can also send a `type` you haven't set up, as long as you add a `description` of what happened.
+
+**What Addy does:**
+
+| When | What is sent |
+| --- | --- |
+| Within 24 hours of the customer's last message | Addy writes the update in its own voice, using **only** the facts in `data`. The response has `via: "message"` and the text. |
+| After 24 hours | The event's WhatsApp template, with its variables filled from `data` or the contact. The response has `via: "template"`. With no template set, nothing is sent and `reason` is `outside_24h_window`. |
+| Within 24 hours, but your team has taken the chat | Nothing is sent (`reason: "a_person_is_handling_this_chat"`), so Addy never talks over your salesperson. Outside the 24 hours the template still goes out. |
+
+```bash
+curl -X POST https://app.adsera.in/api/pub/addy/events \
+  -H "x-api-key: YOUR_APP_ID" -H "x-api-secret: YOUR_APP_SECRET" \
+  -H "Content-Type: application/json" \
+  -d '{"phone": "919876543210", "type": "order_shipped", "data": {"order_id": "A-1042", "courier": "Delhivery", "tracking_url": "https://track.example.com/AWB123"}}'
+```
+
+Every event is listed with what happened under **AI Agent → Events → Recent events**. WhatsApp Pay payments and Cal.com bookings need no event: Addy already knows about them.

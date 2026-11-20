@@ -249,11 +249,23 @@
               "api-reference/webhooks/overview",
               "api-reference/webhooks/messages",
               "api-reference/webhooks/calls",
+              "api-reference/webhooks/addy",
               "api-reference/webhooks/contacts-orders"
             ]
           },
           {
-            "group": "Meta AI Agent",
+            "group": "AI Agent (Addy)",
+            "pages": [
+              "api-reference/addy/overview",
+              "api-reference/addy/chat",
+              "api-reference/addy/take",
+              "api-reference/addy/handback",
+              "api-reference/addy/events",
+              "api-reference/addy/leads"
+            ]
+          },
+          {
+            "group": "Meta Business AI (Meta's agent)",
             "pages": [
               "api-reference/business-agent/event",
               "api-reference/business-agent/event-status",

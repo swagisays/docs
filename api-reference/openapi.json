@@ -3553,6 +3553,466 @@
           }
         }
       }
+    },
+    "/api/pub/addy/chat": {
+      "get": {
+        "tags": [
+          "AI Agent (Addy)"
+        ],
+        "summary": "Get a Customer's Addy Chat",
+        "operationId": "addyGetChat",
+        "description": "What Addy knows about a customer (summary, answers, lead score) and who is answering their chat right now.",
+        "parameters": [
+          {
+            "name": "phone",
+            "in": "query",
+            "required": true,
+            "description": "The customer's phone with country code.",
+            "schema": {
+              "type": "string",
+              "example": "919876543210"
+            }
+          },
+          {
+            "name": "whatsapp",
+            "in": "query",
+            "required": false,
+            "description": "Optional: id of your WhatsApp number.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "example": true
+                    },
+                    "data": {
+                      "$ref": "#/components/schemas/AddyChat"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "description": "Your plan has no API access, has expired, or doesn't include WhatsApp.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CrmError"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CrmError"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Contact or WhatsApp number not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CrmError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/pub/addy/chat/take": {
+      "post": {
+        "tags": [
+          "AI Agent (Addy)"
+        ],
+        "summary": "Take a Chat from Addy",
+        "operationId": "addyTake",
+        "description": "Your team takes over: Addy stops replying to this customer until you hand the chat back (or until it hands itself back after the quiet hours set in AdsEra).",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddyChatRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "example": true
+                    },
+                    "data": {
+                      "$ref": "#/components/schemas/AddyChat"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "description": "Your plan has no API access, has expired, or doesn't include WhatsApp.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CrmError"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CrmError"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Contact or WhatsApp number not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CrmError"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Addy isn't answering on this WhatsApp number",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CrmError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/pub/addy/chat/handback": {
+      "post": {
+        "tags": [
+          "AI Agent (Addy)"
+        ],
+        "summary": "Hand a Chat Back to Addy",
+        "operationId": "addyHandBack",
+        "description": "Addy answers this customer again.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddyChatRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "example": true
+                    },
+                    "data": {
+                      "$ref": "#/components/schemas/AddyChat"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "description": "Your plan has no API access, has expired, or doesn't include WhatsApp.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CrmError"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CrmError"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Contact or WhatsApp number not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CrmError"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Addy isn't answering on this WhatsApp number",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CrmError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/pub/addy/events": {
+      "post": {
+        "tags": [
+          "AI Agent (Addy)"
+        ],
+        "summary": "Send an Event to Addy",
+        "operationId": "addyEvent",
+        "description": "Tell Addy something happened for a customer, such as an order shipped or a payment received. Within 24 hours of the customer's last message Addy writes the update itself, using only the facts you send. Later, it sends the event's WhatsApp template.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddyEventRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "example": true
+                    },
+                    "data": {
+                      "$ref": "#/components/schemas/AddyEventResult"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "description": "Your plan has no API access, has expired, or doesn't include WhatsApp.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CrmError"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CrmError"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Contact or WhatsApp number not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CrmError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/pub/addy/leads": {
+      "get": {
+        "tags": [
+          "AI Agent (Addy)"
+        ],
+        "summary": "List Addy's Leads",
+        "operationId": "addyLeads",
+        "description": "Customers Addy has talked to, best leads first.",
+        "parameters": [
+          {
+            "name": "temperature",
+            "in": "query",
+            "required": false,
+            "description": "Only these temperatures, comma-separated.",
+            "schema": {
+              "type": "string",
+              "example": "hot,warm"
+            }
+          },
+          {
+            "name": "stage",
+            "in": "query",
+            "required": false,
+            "description": "Only these stages, comma-separated.",
+            "schema": {
+              "type": "string",
+              "example": "qualified,booked"
+            }
+          },
+          {
+            "name": "minScore",
+            "in": "query",
+            "required": false,
+            "description": "Only leads with at least this score.",
+            "schema": {
+              "type": "integer",
+              "example": 70
+            }
+          },
+          {
+            "name": "updatedSince",
+            "in": "query",
+            "required": false,
+            "description": "Only chats that changed since this time. Use it to sync every few minutes.",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "description": "Page, from 1.",
+            "schema": {
+              "type": "integer",
+              "example": 1
+            }
+          },
+          {
+            "name": "perPage",
+            "in": "query",
+            "required": false,
+            "description": "Leads per page, at most 100. Default 25.",
+            "schema": {
+              "type": "integer",
+              "example": 25
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "example": true
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "items": {
+                          "type": "array",
+                          "items": {
+                            "$ref": "#/components/schemas/AddyConversation"
+                          }
+                        },
+                        "total": {
+                          "type": "integer"
+                        },
+                        "page": {
+                          "type": "integer"
+                        },
+                        "perPage": {
+                          "type": "integer"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "description": "Your plan has no API access, has expired, or doesn't include WhatsApp.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CrmError"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CrmError"
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "components": {
@@ -6103,6 +6563,279 @@
           "createdAt": {
             "type": "string",
             "format": "date-time"
+          }
+        }
+      },
+      "AddyLead": {
+        "type": "object",
+        "properties": {
+          "score": {
+            "type": "integer",
+            "example": 82,
+            "description": "0–100. How likely this customer is to buy, from what they told Addy."
+          },
+          "temperature": {
+            "type": "string",
+            "enum": [
+              "cold",
+              "warm",
+              "hot"
+            ],
+            "example": "hot"
+          },
+          "stage": {
+            "type": "string",
+            "enum": [
+              "new",
+              "engaged",
+              "qualified",
+              "hot",
+              "booked",
+              "ordered",
+              "paid",
+              "lost"
+            ],
+            "example": "qualified"
+          },
+          "reason": {
+            "type": "string",
+            "nullable": true,
+            "example": "Has budget, needs it this month, decision maker."
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          }
+        }
+      },
+      "AddyConversation": {
+        "type": "object",
+        "properties": {
+          "contact": {
+            "type": "string",
+            "example": "919876543210"
+          },
+          "contactId": {
+            "type": "string"
+          },
+          "whatsapp": {
+            "type": "string",
+            "description": "Id of your WhatsApp number this chat is on."
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "active",
+              "handed_off",
+              "paused"
+            ],
+            "nullable": true,
+            "description": "active: Addy is talking. handed_off: Addy passed the chat to your team. null: Addy hasn't talked to this customer yet."
+          },
+          "summary": {
+            "type": "string",
+            "nullable": true,
+            "example": "Runs 3 salons in Pune; wants WhatsApp reminders for appointments; asked about pricing for 3 users."
+          },
+          "learned": {
+            "type": "object",
+            "additionalProperties": true,
+            "example": {
+              "business_type": "Salon",
+              "team_size": "3",
+              "timeline": "this month"
+            },
+            "description": "Answers to Addy's qualifying questions so far."
+          },
+          "lead": {
+            "$ref": "#/components/schemas/AddyLead"
+          },
+          "handoff": {
+            "type": "object",
+            "nullable": true,
+            "description": "When Addy last passed the chat to your team, and why.",
+            "properties": {
+              "reason": {
+                "type": "string"
+              },
+              "summary": {
+                "type": "string"
+              },
+              "at": {
+                "type": "string",
+                "format": "date-time"
+              }
+            }
+          },
+          "booked": {
+            "type": "boolean",
+            "description": "Addy booked a meeting with this customer."
+          },
+          "order": {
+            "type": "object",
+            "nullable": true,
+            "description": "The order Addy took in the chat.",
+            "properties": {
+              "status": {
+                "type": "string",
+                "enum": [
+                  "pending",
+                  "paid",
+                  "failed"
+                ]
+              },
+              "total": {
+                "type": "number"
+              },
+              "currency": {
+                "type": "string"
+              },
+              "via": {
+                "type": "string",
+                "enum": [
+                  "whatsapp",
+                  "link",
+                  "team"
+                ]
+              },
+              "at": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "paidAt": {
+                "type": "string",
+                "format": "date-time",
+                "nullable": true
+              }
+            }
+          },
+          "replies": {
+            "type": "integer",
+            "description": "How many messages Addy has sent in this chat."
+          },
+          "lastCustomerMessageAt": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "lastReplyAt": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          }
+        }
+      },
+      "AddyChat": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/AddyConversation"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "addyOn": {
+                "type": "boolean",
+                "description": "Addy is set up and switched on for this WhatsApp number."
+              },
+              "answeredBy": {
+                "type": "string",
+                "enum": [
+                  "addy",
+                  "team"
+                ],
+                "description": "Who replies to this customer right now."
+              },
+              "since": {
+                "type": "string",
+                "format": "date-time",
+                "nullable": true,
+                "description": "Since when."
+              },
+              "needsPerson": {
+                "type": "boolean",
+                "description": "Addy asked for a person and nobody has replied yet."
+              }
+            }
+          }
+        ]
+      },
+      "AddyChatRequest": {
+        "type": "object",
+        "required": [
+          "phone"
+        ],
+        "properties": {
+          "phone": {
+            "type": "string",
+            "example": "919876543210",
+            "description": "The customer's phone with country code."
+          },
+          "whatsapp": {
+            "type": "string",
+            "description": "Optional: id of your WhatsApp number. Leave out to use the number Addy last talked to them on."
+          }
+        }
+      },
+      "AddyEventRequest": {
+        "type": "object",
+        "required": [
+          "phone",
+          "type"
+        ],
+        "properties": {
+          "phone": {
+            "type": "string",
+            "example": "919876543210",
+            "description": "The customer's phone with country code."
+          },
+          "type": {
+            "type": "string",
+            "example": "order_shipped",
+            "description": "The event's key, as set up in AdsEra → AI Agent → Events (for example order_shipped, payment_received)."
+          },
+          "description": {
+            "type": "string",
+            "example": "The order was handed to the courier.",
+            "description": "What happened, in plain words. Needed for events you haven't set up in AdsEra."
+          },
+          "data": {
+            "type": "object",
+            "additionalProperties": true,
+            "example": {
+              "order_id": "A-1042",
+              "courier": "Delhivery",
+              "tracking_url": "https://track.example.com/AWB123"
+            },
+            "description": "The facts Addy may tell the customer. Addy only uses what you send here."
+          },
+          "whatsapp": {
+            "type": "string",
+            "description": "Optional: id of the WhatsApp number to send from."
+          }
+        }
+      },
+      "AddyEventResult": {
+        "type": "object",
+        "properties": {
+          "delivered": {
+            "type": "boolean"
+          },
+          "via": {
+            "type": "string",
+            "enum": [
+              "message",
+              "template"
+            ],
+            "description": "message: Addy wrote it (inside 24 hours of the customer's last message). template: the event's WhatsApp template was sent."
+          },
+          "text": {
+            "type": "string",
+            "description": "What was sent."
+          },
+          "reason": {
+            "type": "string",
+            "description": "Why it wasn't sent: outside_24h_window (no template set for the event), a_person_is_handling_this_chat, addy_off, addy_not_set_up, event_turned_off, contact_not_found, no_whatsapp_number, not_in_audience, out_of_credits, busy_try_again."
           }
         }
       }

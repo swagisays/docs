@@ -1,0 +1,63 @@
+---
+title: "Addy API"
+description: "Work with Addy, AdsEra's AI WhatsApp agent, from your own CRM: see what it learned, take chats over, tell it what happened, and get its leads."
+---
+
+Addy is AdsEra's AI agent. It answers your customers on WhatsApp, asks your qualifying questions, scores every lead, books meetings and takes orders. You set it up once in [**AI Agent**](https://app.adsera.in/dashboard/ai-agent).
+
+With the Addy API, your own CRM or backend can:
+
+| You want to | Use |
+| --- | --- |
+| See what Addy knows about a customer: chat summary, their answers, lead score, and who is replying | [Get a Customer's Addy Chat](/api-reference/addy/chat) |
+| Let your salesperson take over a chat, so Addy stops replying | [Take a Chat from Addy](/api-reference/addy/take) |
+| Let Addy answer again | [Hand a Chat Back to Addy](/api-reference/addy/handback) |
+| Tell Addy something happened (order shipped, payment received) so it tells the customer | [Send an Event to Addy](/api-reference/addy/events) |
+| Pull Addy's best leads into your CRM | [List Addy's Leads](/api-reference/addy/leads) |
+| Be told the moment Addy hands a chat to a person, or a lead turns hot | Webhooks [`addy.handoff`](/api-reference/webhooks/addy#addy-handoff) and [`addy.lead_updated`](/api-reference/webhooks/addy#addy-lead-updated) |
+
+<Note>
+This is **Addy**, AdsEra's own AI agent. The [Meta Business AI](/api-reference/business-agent/event) endpoints are for Meta's agent, which some businesses switch on in WhatsApp Manager instead. If you use Addy, you don't need them.
+</Note>
+
+## Authentication
+
+The same API key as the rest of the API: create one in [**Settings → API Keys**](https://app.adsera.in/setting/api-keys) and send both headers.
+
+```http
+x-api-key: YOUR_APP_ID
+x-api-secret: YOUR_APP_SECRET
+```
+
+Customers are found by **phone number with the country code**, for example `919876543210`. Spaces, `+` and dashes are ignored. If you have several WhatsApp numbers, AdsEra uses the one Addy last talked to that customer on. Send `whatsapp` (a number id from [List WhatsApp Numbers](/api-reference/whatsapp/list)) to choose one.
+
+## A typical setup
+
+<Steps>
+  <Step title="Get leads as Addy finds them">
+    Subscribe to the `addy.lead_updated` webhook in [Settings → Webhooks](https://app.adsera.in/setting/webhooks). Each time Addy moves a lead to a new stage or temperature, your CRM gets the score, the reason and the chat summary. To catch up, call [List Addy's Leads](/api-reference/addy/leads) with `updatedSince`.
+  </Step>
+  <Step title="Alert your team when Addy needs a person">
+    Subscribe to `addy.handoff`. It arrives when a customer asks for a human, or when Addy can't help. It has Addy's summary, so your salesperson knows the context before replying.
+  </Step>
+  <Step title="Take over and hand back from your CRM">
+    When your salesperson starts replying, call [Take a Chat from Addy](/api-reference/addy/take). When they're done, call [Hand a Chat Back to Addy](/api-reference/addy/handback). AdsEra also does this automatically: replying from the AdsEra inbox takes the chat, and Addy takes back chats that have been quiet for a while; you set how long in your AI Agent settings.
+  </Step>
+  <Step title="Keep customers updated">
+    When an order ships or a payment comes in, call [Send an Event to Addy](/api-reference/addy/events). Addy tells the customer in its own words, using only the facts you send.
+  </Step>
+</Steps>
+
+## Lead scores
+
+Addy scores every customer from 0 to 100, from what they tell it, such as budget, need, timeline and whether they decide. The thresholds in your AI Agent settings turn the score into a **temperature**:
+
+| Temperature | Meaning |
+| --- | --- |
+| `cold` | Little interest yet, or Addy doesn't know enough. |
+| `warm` | Interested, with some buying signals. |
+| `hot` | Ready to buy. Addy has already told your team, added the "Hot lead" label and created a task. |
+
+The **stage** shows how far they got: `new` → `engaged` → `qualified` → `hot` → `booked` / `ordered` → `paid`, or `lost`.
+
+The score, temperature and stage are also saved on the contact as `LEAD_SCORE`, `LEAD_TEMPERATURE` and `LEAD_STAGE`. So they also appear in [CRM contacts](/api-reference/crm/contacts/get).
