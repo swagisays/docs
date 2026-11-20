@@ -191,7 +191,8 @@
           {
             "group": "API documentation",
             "pages": [
-              "api-reference/introduction"
+              "api-reference/introduction",
+              "api-reference/connect-your-crm"
             ]
           },
           {
@@ -220,7 +221,8 @@
               "api-reference/msg/send",
               "api-reference/msg/send-v2",
               "api-reference/msg/snippet",
-              "api-reference/msg/msg"
+              "api-reference/msg/msg",
+              "api-reference/msg/conversation"
             ]
           },
           {
@@ -232,10 +234,19 @@
           {
             "group": "Call",
             "pages": [
+              "api-reference/call/list",
+              "api-reference/call/get",
+              "api-reference/call/recording",
               "api-reference/call/connect",
               "api-reference/call/pre-accept",
               "api-reference/call/accept",
               "api-reference/call/end"
+            ]
+          },
+          {
+            "group": "Webhooks",
+            "pages": [
+              "api-reference/webhooks/events"
             ]
           },
           {

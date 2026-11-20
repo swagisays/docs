@@ -1,0 +1,78 @@
+---
+title: "Use AdsEra with your own CRM"
+description: "Keep working in your CRM. AdsEra runs WhatsApp, the AI agent and calls, and sends everything to you."
+---
+
+AdsEra can run WhatsApp, the AI chat agent, AI calls and follow-ups in the background while your team works in your own CRM. Setup has three parts:
+
+1. **Get your API keys.** You need them to read data and send messages.
+2. **Add a webhook.** AdsEra posts each message and call to your CRM as it happens.
+3. **Read history when you need it.** Use this to load a full conversation or old calls.
+
+You don't need to change anything inside AdsEra for this. The AI keeps answering, and your CRM shows what it said.
+
+## 1. Get your API keys
+
+In AdsEra, open [**Settings → API Keys**](https://app.adsera.in/setting/api-keys) and create a key. You get an **App Id** and an **App Secret**. Send both headers with every request:
+
+```http
+x-api-key: YOUR_APP_ID
+x-api-secret: YOUR_APP_SECRET
+```
+
+All URLs start with `https://app.adsera.in`.
+
+## 2. Add a webhook
+
+Open [**Settings → Webhooks**](https://app.adsera.in/setting/webhooks) and add your CRM's URL. Then:
+
+- **Pick your WhatsApp numbers.**
+- **Tick these events:**
+
+| Event | When it arrives | Use it to |
+| --- | --- | --- |
+| `message.new` | A customer sends a message | Show the incoming message, create a lead |
+| `message.sent` | AdsEra sends a message: the AI, your team, a template, a campaign, a follow-up | Show what was sent and who sent it |
+| `message.status_updated` | A message is delivered, read or fails | Show ticks |
+| `call.ended` | A WhatsApp call ends, or is missed or rejected | Log the call |
+| `call.summary` | The AI has summarised a call it took | Add the summary to the call log |
+| `contact.created` / `contact.updated` | A contact is added or changed in AdsEra (by hand, an import, a form). New WhatsApp chats come as `message.new`. | Keep contacts in sync |
+
+Every webhook is a `POST` with this body:
+
+```json
+{
+  "event": "message.sent",
+  "timestamp": "2026-11-20T10:15:02.000Z",
+  "data": { "...": "the message, call or contact" }
+}
+```
+
+Each message has a ready-to-show `preview` (the text, or a template with its values filled in) and a `sentBy` (`Customer`, `AI`, `Team`, `Broadcast (bulk campaign)` or `Automation (sequence)`). You don't need to decode WhatsApp message types. See [Webhook events](/api-reference/webhooks/events) for every field.
+
+<Tip>
+Answer with any `2xx` within 5 seconds. Do slow work after you answer. Failed deliveries are not retried, so use the read endpoints below to fill gaps.
+</Tip>
+
+## 3. Read history
+
+| What | Endpoint |
+| --- | --- |
+| A contact's whole WhatsApp conversation | [`GET /api/pub/wa/messages?phone=…`](/api-reference/msg/conversation) |
+| Calls, with summary and recording | [`GET /api/pub/wa/call/list`](/api-reference/call/list), [`GET /api/pub/wa/call/{id}`](/api-reference/call/get) |
+| The call's audio | [`GET /api/pub/wa/call/{id}/recording`](/api-reference/call/recording) |
+| A contact, with the AI's summary of the lead | [`GET /api/pub/crm/contacts/lookup?phone=…`](/api-reference/crm/contacts/lookup) |
+
+```bash
+curl "https://app.adsera.in/api/pub/wa/messages?phone=919876543210" \
+  -H "x-api-key: YOUR_APP_ID" -H "x-api-secret: YOUR_APP_SECRET"
+```
+
+## Send from your CRM (optional)
+
+When your team replies from your CRM, send it through AdsEra so it goes out on your WhatsApp number:
+
+- **Inside 24 hours of the customer's last message:** [Send Message](/api-reference/msg/msg), any text.
+- **Otherwise:** [Send Template](/api-reference/msg/send-v2), an approved template.
+
+When you create leads in your CRM, push them to AdsEra with [Create or Update a Contact](/api-reference/crm/contacts/upsert) so the AI and follow-ups can work them.

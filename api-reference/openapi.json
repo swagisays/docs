@@ -3173,6 +3173,386 @@
           }
         }
       }
+    },
+    "/api/pub/wa/messages": {
+      "get": {
+        "tags": [
+          "Message"
+        ],
+        "summary": "Get a Conversation",
+        "operationId": "getConversation",
+        "description": "A contact's WhatsApp messages, both ways, newest first: what the customer wrote and what the AI, your team, templates and campaigns sent. Use it to show the chat inside your CRM.",
+        "parameters": [
+          {
+            "name": "phone",
+            "in": "query",
+            "required": true,
+            "description": "The contact's phone with country code. Spaces, + and dashes are ignored.",
+            "schema": {
+              "type": "string",
+              "example": "919876543210"
+            }
+          },
+          {
+            "name": "whatsapp",
+            "in": "query",
+            "required": false,
+            "description": "Only messages on this WhatsApp number (its id from List WhatsApp Numbers). Leave out for all your numbers.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "before",
+            "in": "query",
+            "required": false,
+            "description": "Only messages before this time. Pass the last message's at to read older messages.",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "description": "How many messages, 1 to 200. Default 50.",
+            "schema": {
+              "type": "integer",
+              "example": 50
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "example": true
+                    },
+                    "data": {
+                      "$ref": "#/components/schemas/Conversation"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CrmError"
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "description": "Your plan has no API access, has expired, or doesn't include WhatsApp.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CrmError"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CrmError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/pub/wa/call/list": {
+      "get": {
+        "tags": [
+          "Call"
+        ],
+        "summary": "List Calls",
+        "operationId": "listCalls",
+        "description": "WhatsApp calls, newest first: all of them, or one contact's. Each has who answered (AI or team), how long it lasted and the AI summary.",
+        "parameters": [
+          {
+            "name": "phone",
+            "in": "query",
+            "required": false,
+            "description": "Only this contact's calls (phone with country code).",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "from",
+            "in": "query",
+            "required": false,
+            "description": "Calls from this date.",
+            "schema": {
+              "type": "string",
+              "format": "date",
+              "example": "2026-11-01"
+            }
+          },
+          {
+            "name": "to",
+            "in": "query",
+            "required": false,
+            "description": "Calls up to this date.",
+            "schema": {
+              "type": "string",
+              "format": "date"
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "description": "Page, from 1.",
+            "schema": {
+              "type": "integer",
+              "example": 1
+            }
+          },
+          {
+            "name": "perPage",
+            "in": "query",
+            "required": false,
+            "description": "Calls per page, at most 100. Default 25.",
+            "schema": {
+              "type": "integer",
+              "example": 25
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "example": true
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "calls": {
+                          "type": "array",
+                          "items": {
+                            "$ref": "#/components/schemas/CallRecord"
+                          }
+                        },
+                        "page": {
+                          "type": "integer"
+                        },
+                        "perPage": {
+                          "type": "integer"
+                        },
+                        "total": {
+                          "type": "integer"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CrmError"
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "description": "Your plan has no API access, has expired, or doesn't include WhatsApp.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CrmError"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CrmError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/pub/wa/call/{id}": {
+      "get": {
+        "tags": [
+          "Call"
+        ],
+        "summary": "Get a Call",
+        "operationId": "getCall",
+        "description": "One call with its summary and, for calls the AI took, the transcript.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "The call's id (from List Calls or the call.ended webhook).",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "example": true
+                    },
+                    "data": {
+                      "$ref": "#/components/schemas/CallRecord"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CrmError"
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "description": "Your plan has no API access, has expired, or doesn't include WhatsApp.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CrmError"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CrmError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/pub/wa/call/{id}/recording": {
+      "get": {
+        "tags": [
+          "Call"
+        ],
+        "summary": "Download a Call Recording",
+        "operationId": "getCallRecording",
+        "description": "The call's audio. 404 when the call wasn't recorded.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "The call's id.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The recording (audio). The Content-Type header says the format, usually audio/mpeg or audio/ogg.",
+            "content": {
+              "audio/mpeg": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CrmError"
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "description": "Your plan has no API access, has expired, or doesn't include WhatsApp.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CrmError"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CrmError"
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "components": {
@@ -5052,6 +5432,12 @@
           "updatedAt": {
             "type": "string",
             "format": "date-time"
+          },
+          "aiSummary": {
+            "type": "string",
+            "nullable": true,
+            "example": "Runs a salon in Pune, wants WhatsApp reminders for 3 branches; asked for pricing.",
+            "description": "What the AI knows about this lead from its chats. Empty until the AI has summarised a conversation."
           }
         }
       },
@@ -5541,6 +5927,182 @@
           },
           "title": {
             "type": "string"
+          }
+        }
+      },
+      "ConversationMessage": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "AdsEra message id."
+          },
+          "messageId": {
+            "type": "string",
+            "description": "WhatsApp's message id (wamid)."
+          },
+          "whatsapp": {
+            "type": "string",
+            "description": "Id of your WhatsApp number that sent or received it."
+          },
+          "businessNumber": {
+            "type": "string",
+            "example": "919800000000"
+          },
+          "direction": {
+            "type": "string",
+            "enum": [
+              "inbound",
+              "outbound"
+            ],
+            "description": "inbound = from the customer."
+          },
+          "sentBy": {
+            "type": "string",
+            "example": "AI",
+            "description": "Customer, AI, Team, Team (WhatsApp app), Broadcast (bulk campaign) or Automation (sequence)."
+          },
+          "type": {
+            "type": "string",
+            "example": "text"
+          },
+          "status": {
+            "type": "string",
+            "example": "read",
+            "description": "sent, delivered, read, failed…"
+          },
+          "preview": {
+            "type": "string",
+            "example": "Hi Priya, your demo is at 4 pm today.",
+            "description": "The message as readable text. Templates come with their values filled in; media shows as [Image: caption]."
+          },
+          "at": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "Conversation": {
+        "type": "object",
+        "properties": {
+          "contact": {
+            "type": "string",
+            "example": "919876543210"
+          },
+          "messages": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ConversationMessage"
+            },
+            "description": "Newest first."
+          },
+          "hasMore": {
+            "type": "boolean",
+            "description": "true when older messages exist: call again with before = the last message's at."
+          }
+        }
+      },
+      "CallRecord": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "callId": {
+            "type": "string",
+            "description": "WhatsApp's call id."
+          },
+          "whatsapp": {
+            "type": "string",
+            "description": "Id of your WhatsApp number."
+          },
+          "contact": {
+            "type": "string",
+            "example": "919876543210"
+          },
+          "contactId": {
+            "type": "string"
+          },
+          "direction": {
+            "type": "string",
+            "enum": [
+              "inbound",
+              "outbound"
+            ]
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "CONNECTING",
+              "CONNECTED",
+              "END",
+              "MISSED",
+              "REJECTED"
+            ]
+          },
+          "handledBy": {
+            "type": "string",
+            "enum": [
+              "ai",
+              "team",
+              "api"
+            ],
+            "description": "Who answered: the AI voice agent, your team in AdsEra, or your own system."
+          },
+          "startedAt": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "endedAt": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "durationSeconds": {
+            "type": "integer",
+            "example": 95
+          },
+          "summary": {
+            "type": "string",
+            "nullable": true,
+            "example": "Wants a demo on Friday at 11; asked about pricing for 3 users.",
+            "description": "The AI's summary of the call, when the AI took it. It can arrive a little after the call ends (see the call.summary webhook)."
+          },
+          "recording": {
+            "type": "string",
+            "nullable": true,
+            "example": "/api/pub/wa/call/6740…/recording",
+            "description": "Path of the recording, when the call was recorded. Fetch it with your API headers."
+          },
+          "transcript": {
+            "type": "array",
+            "description": "Only on Get a Call: what was said, line by line (AI calls).",
+            "items": {
+              "type": "object",
+              "properties": {
+                "who": {
+                  "type": "string",
+                  "enum": [
+                    "caller",
+                    "addy",
+                    "agent",
+                    "system"
+                  ]
+                },
+                "text": {
+                  "type": "string"
+                },
+                "at": {
+                  "type": "string",
+                  "format": "date-time"
+                }
+              }
+            }
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
           }
         }
       }
