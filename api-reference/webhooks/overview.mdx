@@ -1,0 +1,185 @@
+---
+title: "Webhooks"
+description: "Get every message, call, contact and order pushed to your server the moment it happens."
+---
+
+A webhook is a URL on your server. When something happens in AdsEra, such as a customer message, an AI reply or a finished call, AdsEra sends a `POST` request to that URL with the details. You don't need to poll the API.
+
+## Set up a webhook
+
+<Steps>
+  <Step title="Open Settings → Webhooks">
+    In AdsEra, go to [**Settings → Webhooks**](https://app.adsera.in/setting/webhooks) and click **Add webhook**.
+  </Step>
+  <Step title="Enter your URL">
+    A public `https://` address on your server, for example `https://crm.example.com/hooks/adsera`.
+  </Step>
+  <Step title="Pick the events">
+    Tick only what you use. See [Choosing events](#choosing-events) below.
+  </Step>
+  <Step title="Pick your WhatsApp numbers">
+    Message events only arrive for the numbers you select here.
+  </Step>
+  <Step title="Protect it (recommended)">
+    Add a **secret**, or Basic, Bearer or custom-header authentication. See [Security](#security).
+  </Step>
+  <Step title="Send a test">
+    Click the **Send a test event** button on the webhook's row. AdsEra posts a `test` event and shows whether your server answered, with the HTTP status and the time taken.
+  </Step>
+</Steps>
+
+You can add several webhooks, for example one for your CRM and one for your analytics, each with its own events and numbers.
+
+## Choosing events
+
+| Event | Fires when | Filtered by number | Details |
+| --- | --- | --- | --- |
+| `message.new` | A customer sends you a WhatsApp message | Yes | [Messages](/api-reference/webhooks/messages#message-new) |
+| `message.sent` | AdsEra sends a message: the AI agent, your team, a template, a campaign, a sequence or a follow-up | Yes | [Messages](/api-reference/webhooks/messages#message-sent) |
+| `message.status_updated` | A message you sent is sent, delivered, read or fails | Yes | [Messages](/api-reference/webhooks/messages#message-status-updated) |
+| `message.reaction_updated` | A customer reacts to a message with an emoji | Yes | [Messages](/api-reference/webhooks/messages#message-reaction-updated) |
+| `call.ended` | A WhatsApp call ends, is missed or is rejected | No: all numbers | [Calls](/api-reference/webhooks/calls#call-ended) |
+| `call.summary` | The AI voice agent's summary of a call is ready | No: all numbers | [Calls](/api-reference/webhooks/calls#call-summary) |
+| `call` | Live call signals, only for numbers whose calls your own system answers | Yes | [Calls](/api-reference/webhooks/calls#call-live-signals) |
+| `contact.created` | A contact is added by hand, import, form, IndiaMART or the API | No | [Contacts & orders](/api-reference/webhooks/contacts-orders) |
+| `contact.updated` | A contact is edited in AdsEra or through the API | No | [Contacts & orders](/api-reference/webhooks/contacts-orders) |
+| `order.created` | A customer places an order through WhatsApp Commerce | No | [Contacts & orders](/api-reference/webhooks/contacts-orders#order-created) |
+
+<Tip>
+**Showing WhatsApp chats in your own CRM?** Tick `message.new`, `message.sent` and `message.status_updated`. Add `call.ended` and `call.summary` for calls. See [Use AdsEra with your own CRM](/api-reference/connect-your-crm).
+</Tip>
+
+## What AdsEra sends
+
+Every event except the live `call` signals arrives in the same envelope:
+
+```http
+POST /hooks/adsera HTTP/1.1
+Host: crm.example.com
+Content-Type: application/json
+x-secret: your-secret-if-you-set-one
+
+{
+  "event": "message.new",
+  "timestamp": "2026-11-20T10:14:55.120Z",
+  "data": { ... }
+}
+```
+
+| Field | Meaning |
+| --- | --- |
+| `event` | The event name, from the table above. Check it first and ignore events you don't handle. |
+| `timestamp` | When AdsEra sent the webhook (ISO 8601, UTC). The time of the message or call itself is inside `data`. |
+| `data` | The message, call, contact or order. Each event's fields are on its own page. |
+
+## Security
+
+Anyone who finds your URL could post to it, so check that each request came from AdsEra. Use any of these:
+
+- **Secret:** set a secret on the webhook. It arrives in the `x-secret` header on every request; reject requests where it doesn't match.
+- **Basic auth:** AdsEra sends `Authorization: Basic …` with your username and password.
+- **Bearer token:** AdsEra sends `Authorization: Bearer <your token>`.
+- **Custom headers:** any header names and values you choose, for example `x-api-token`.
+
+Webhook URLs must be public `https://` addresses. Local and private network addresses, such as `localhost` or `10.x.x.x`, are refused. To test on your computer, use a tunnel such as ngrok or Cloudflare Tunnel.
+
+## Answering
+
+- **Answer fast:** reply with any `2xx` status within **5 seconds**. Save the event, answer, then do slow work, such as calling other APIs, afterwards.
+- **No retries:** a failed delivery (timeout, non-`2xx`, server down) is not retried, and redirects are not followed. If your server was down, catch up with the read endpoints: [Get a Conversation](/api-reference/msg/conversation), [List Calls](/api-reference/call/list) and [List Contacts](/api-reference/crm/contacts/list).
+- **Order:** events are sent as they happen but can arrive out of order. For example, a `read` status may come before `delivered`. Use the times inside `data` to order them.
+- **Duplicates:** rare, but possible when WhatsApp itself repeats an event. Use `data._id`, `data.messageId` or `data.id` to skip ones you already saved.
+
+## Example receivers
+
+<CodeGroup>
+
+```javascript Node.js (Express)
+import express from "express";
+const app = express();
+app.use(express.json());
+
+app.post("/hooks/adsera", (req, res) => {
+  if (req.get("x-secret") !== process.env.ADSERA_WEBHOOK_SECRET) return res.sendStatus(401);
+  res.sendStatus(200); // answer first
+
+  const { event, data } = req.body;
+  switch (event) {
+    case "message.new":
+    case "message.sent":
+      saveMessage({ phone: data.contact, text: data.preview, by: data.sentBy || "Customer", id: data.messageId });
+      break;
+    case "message.status_updated":
+      updateTicks(data.messageId, data.status);
+      break;
+    case "call.ended":
+    case "call.summary":
+      saveCall(data); // same fields; call.summary has the summary filled in
+      break;
+  }
+});
+
+app.listen(3000);
+```
+
+```python Python (Flask)
+import os
+from flask import Flask, request
+
+app = Flask(__name__)
+
+@app.post("/hooks/adsera")
+def adsera():
+    if request.headers.get("x-secret") != os.environ["ADSERA_WEBHOOK_SECRET"]:
+        return "", 401
+    body = request.get_json()
+    event, data = body["event"], body["data"]
+    if event in ("message.new", "message.sent"):
+        save_message(phone=data["contact"], text=data["preview"], by=data.get("sentBy", "Customer"))
+    elif event == "message.status_updated":
+        update_ticks(data["messageId"], data["status"])
+    elif event in ("call.ended", "call.summary"):
+        save_call(data)
+    return "", 200
+```
+
+```php PHP
+<?php
+if (($_SERVER['HTTP_X_SECRET'] ?? '') !== getenv('ADSERA_WEBHOOK_SECRET')) {
+    http_response_code(401);
+    exit;
+}
+$body = json_decode(file_get_contents('php://input'), true);
+$event = $body['event'];
+$data = $body['data'];
+
+if ($event === 'message.new' || $event === 'message.sent') {
+    save_message($data['contact'], $data['preview'], $data['sentBy'] ?? 'Customer');
+} elseif ($event === 'call.ended' || $event === 'call.summary') {
+    save_call($data);
+}
+http_response_code(200);
+```
+
+</CodeGroup>
+
+## The test event
+
+**Send a test event** posts this body, with your secret and authentication headers:
+
+```json
+{ "event": "test", "data": { "message": "Test event from AdsEra" }, "timestamp": "2026-11-20T10:00:00.000Z" }
+```
+
+Answer it with `2xx` like any other event.
+
+## Troubleshooting
+
+| Problem | Check |
+| --- | --- |
+| No message events arrive | The webhook has your WhatsApp numbers selected, and the events are ticked. Message events only come for the selected numbers. |
+| The test says "not delivered" | The URL is public and `https://`, your server answers within 5 seconds, and it doesn't redirect. |
+| Only the customer's messages arrive | Tick `message.sent` too. AdsEra's own messages (AI, team, templates) come under that event. |
+| Call summaries are empty | Summaries only exist for calls the AI voice agent took. They arrive in `call.summary`, usually within a minute after `call.ended`. |
+| Your server gets requests you didn't expect | Check the `x-secret` header, and reject requests where it doesn't match. |
+| You want to pause deliveries | Delete the webhook, or edit it and untick the events. Add it again when you're ready. |

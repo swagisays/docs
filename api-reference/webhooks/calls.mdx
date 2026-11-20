@@ -1,0 +1,106 @@
+---
+title: "Call events"
+description: "call.ended, call.summary and the live call signals, field by field."
+---
+
+There are two kinds of call webhooks:
+
+- **`call.ended` and `call.summary`** are for logging calls: who called, how long it lasted, who answered, and what the AI understood. They cover every WhatsApp call on every number, whether the AI voice agent, your team or your own system answered.
+- **`call`** carries live signals for numbers whose calls your **own system** answers through the [Call API](/api-reference/call/connect). Only use it if you built your own calling app.
+
+## call.ended
+
+Sent once per call, when it ends, is missed or is rejected.
+
+```json
+{
+  "event": "call.ended",
+  "timestamp": "2026-11-20T11:03:46.300Z",
+  "data": {
+    "id": "6740b3a1e4b0a1b2c3d4e7a0",
+    "callId": "wacid.HBgMOTE5ODc2NTQzMjEwFQIAEhggN…",
+    "whatsapp": "68a06be5ea4b520115654c7",
+    "contact": "919876543210",
+    "contactId": "6740a0f2e4b0a1b2c3d4e5a1",
+    "direction": "inbound",
+    "status": "END",
+    "handledBy": "ai",
+    "startedAt": "2026-11-20T11:02:10.000Z",
+    "endedAt": "2026-11-20T11:03:45.000Z",
+    "durationSeconds": 95,
+    "summary": null,
+    "recording": null,
+    "createdAt": "2026-11-20T11:02:04.000Z"
+  }
+}
+```
+
+| Field | Type | Meaning |
+| --- | --- | --- |
+| `id` | string | AdsEra's id for the call. Use it with [Get a Call](/api-reference/call/get). |
+| `callId` | string | WhatsApp's call id. |
+| `whatsapp` | string | AdsEra's id for your WhatsApp number. |
+| `contact` | string | The customer's phone, for example `919876543210`. |
+| `contactId` | string | AdsEra's id for the contact. |
+| `direction` | string | `inbound` (the customer called you) or `outbound` (you called them). |
+| `status` | string | `END` (they talked), `MISSED` (nobody answered, or the call failed) or `REJECTED` (declined). |
+| `handledBy` | string | `ai` (the AI voice agent), `team` (someone in AdsEra) or `api` (your own system). |
+| `startedAt` | date \| null | When the call was answered. `null` for missed and rejected calls. |
+| `endedAt` | date \| null | When it ended. |
+| `durationSeconds` | number | Talk time in seconds. `0` for missed calls. |
+| `summary` | string \| null | Usually `null` here. The AI's summary follows in `call.summary`. |
+| `recording` | string \| null | Usually `null` here: recordings are saved a few seconds after the call. Get it with [Get a Call](/api-reference/call/get), then [Download a Call Recording](/api-reference/call/recording). |
+
+## call.summary
+
+Sent when the AI voice agent has summarised a call it took, usually within a minute of `call.ended`. `data` has exactly the same fields as `call.ended`, with `summary` filled in:
+
+```json
+{
+  "event": "call.summary",
+  "data": {
+    "id": "6740b3a1e4b0a1b2c3d4e7a0",
+    "contact": "919876543210",
+    "status": "END",
+    "handledBy": "ai",
+    "durationSeconds": 95,
+    "summary": "Priya runs 3 salons in Pune and wants WhatsApp reminders. Asked for pricing for 3 users; agreed to a demo Friday 11 am.",
+    "recording": "/api/pub/wa/call/6740b3a1e4b0a1b2c3d4e7a0/recording"
+  }
+}
+```
+
+Match it to the earlier `call.ended` by `id` and update the same call record. Calls your team or your own system answered don't get a summary.
+
+<Tip>
+Want the full conversation? [Get a Call](/api-reference/call/get) returns the transcript, line by line, for calls the AI took.
+</Tip>
+
+## call (live signals)
+
+Only for WhatsApp numbers set to **API calling**, where your own app answers calls through the [Call API](/api-reference/call/connect). AdsEra forwards WhatsApp's call signals so your app can connect the audio.
+
+<Warning>
+Unlike every other event, live signals are **not** wrapped in `{ event, data }`. The body is the signal itself, and its own `event` field says which one it is. Their `call.ended` is a live signal; it's not the same as the `call.ended` logging event above, which comes wrapped in `data`.
+</Warning>
+
+```json
+{
+  "event": "call.initiated",
+  "callId": "6740b3a1e4b0a1b2c3d4e7a0",
+  "metaCallId": "wacid.HBgM…",
+  "session": { "sdp_type": "offer", "sdp": "v=0\r\no=- …" },
+  "contact": { "_id": "6740a0f2e4b0a1b2c3d4e5a1", "phone": "919876543210", "name": "Priya" },
+  "waba": "68a06be5ea4b520115654c7",
+  "timestamp": "1795163755756"
+}
+```
+
+| Signal (`event`) | When | What to do |
+| --- | --- | --- |
+| `call.initiated` | A customer is calling you. `session` holds WhatsApp's SDP offer. | Create your answer, then call [Pre-accept](/api-reference/call/pre-accept) and [Accept](/api-reference/call/accept). |
+| `call.answer` | The customer answered your outbound call. `session` holds their SDP answer. | Apply it to your connection. |
+| `call.status` | Ringing, connected or rejected. `status` is `CONNECTING`, `CONNECTED` or `REJECTED`. | Update your UI. |
+| `call.ended` | The call ended. | Close the connection. |
+
+`timestamp` here is in milliseconds since 1970, as a string. Only your `secret` is sent with these signals, in the `x-secret` header; Basic, Bearer and custom-header authentication don't apply to them.

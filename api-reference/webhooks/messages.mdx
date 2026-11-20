@@ -1,0 +1,183 @@
+---
+title: "Message events"
+description: "message.new, message.sent, message.status_updated and message.reaction_updated, field by field."
+---
+
+Message events only arrive for the WhatsApp numbers selected on the webhook.
+
+**Messages in both directions share these fields:**
+
+| Field | Type | Meaning |
+| --- | --- | --- |
+| `_id` | string | AdsEra's id for the message. |
+| `messageId` | string | WhatsApp's id (`wamid…`). Status updates and replies refer to it. |
+| `direction` | string | `inbound` (from the customer) or `outbound` (sent by you). |
+| `type` | string | `text`, `image`, `video`, `audio`, `document`, `sticker`, `location`, `contacts`, `button`, `interactive`, `template`, `order`, `reaction`… |
+| `preview` | string | **The message as one line of text: show this in your CRM.** See [How previews look](#how-previews-look). |
+| `contact` | string | The customer's phone, with country code and no `+`, for example `919876543210`. |
+| `from` | string | Your WhatsApp number that sent or received it. |
+| `wabaId` | string | AdsEra's id for that WhatsApp number (the same ids as [List WhatsApp Numbers](/api-reference/whatsapp/list)). |
+| `status` | string | `pending`, `sent`, `delivered`, `read`, `failed`… The latest status AdsEra knew when the event was sent. |
+| `timestamp` | date | When the message was sent or received. |
+| `text`, `image`, `video`, `audio`, `document`, `location`, `button`, `interactive`… | object | The raw WhatsApp content for that `type`, if you need more than the preview. |
+| `context` | object | Present when the customer replied to a specific message: `context.id` is that message's `messageId`. |
+| `referral` | object | Present when the chat started from a Click-to-WhatsApp ad: `source_id` (the ad), `headline`, `body`, `ctwa_clid`. |
+| `createdAt`, `updatedAt` | date | When AdsEra saved and last changed the message. |
+
+## message.new
+
+A customer sent you a message.
+
+```json
+{
+  "event": "message.new",
+  "timestamp": "2026-11-20T10:14:55.120Z",
+  "data": {
+    "_id": "6740a1c2e4b0a1b2c3d4e5f6",
+    "messageId": "wamid.HBgMOTE5ODc2NTQzMjEwFQIAEhggQzJ…",
+    "direction": "inbound",
+    "type": "text",
+    "text": { "body": "Hi, what's the price for 3 users?" },
+    "preview": "Hi, what's the price for 3 users?",
+    "contact": "919876543210",
+    "name": "Priya",
+    "from": "919800000000",
+    "wabaId": "68a06be5ea4b520115654c7",
+    "status": "pending",
+    "timestamp": "2026-11-20T10:14:54.000Z"
+  }
+}
+```
+
+| Extra field | Meaning |
+| --- | --- |
+| `name` | The customer's first name, when AdsEra knows it. |
+
+**Media:** for images, videos, voice notes and documents, `image.id` (or `video.id`, `audio.id`, `document.id`) is WhatsApp's media id. Get a download link with [Get Media URL](/api-reference/media/get). Links expire, so download the file soon.
+
+**Button taps and list choices:** a tap on a template button comes as `type: "button"` with `button.text` and `button.payload`. A reply button or list choice comes as `type: "interactive"`, with `interactive.button_reply` or `interactive.list_reply`. The preview reads `[Tapped button: Yes]` or `[Chose: Pricing]`.
+
+## message.sent
+
+AdsEra sent a message to a customer: the AI agent's reply, your team's reply from the inbox or the WhatsApp Business app, a template, a campaign, a sequence step or a follow-up. You get one event per message, including each message of a campaign.
+
+This is a separate event from `message.new` on purpose: a system that answers `message.new` will never answer its own messages.
+
+```json
+{
+  "event": "message.sent",
+  "timestamp": "2026-11-20T10:15:02.410Z",
+  "data": {
+    "_id": "6740a1d9e4b0a1b2c3d4e600",
+    "messageId": "wamid.HBgMOTE5ODc2NTQzMjEwFQIAERgSM…",
+    "direction": "outbound",
+    "type": "text",
+    "text": { "body": "Hi Priya! For 3 users it's ₹2,499 a month. Want a quick demo today?" },
+    "preview": "Hi Priya! For 3 users it's ₹2,499 a month. Want a quick demo today?",
+    "sentBy": "AI",
+    "source": "addy",
+    "status": "sent",
+    "contact": "919876543210",
+    "from": "919800000000",
+    "wabaId": "68a06be5ea4b520115654c7",
+    "timestamp": "2026-11-20T10:15:02.000Z"
+  }
+}
+```
+
+| Extra field | Meaning |
+| --- | --- |
+| `sentBy` | Who sent it: `AI` (the AI chat agent or the AI follow-up agent), `Team` (from AdsEra), `Team (WhatsApp app)` (from the phone), `Broadcast (bulk campaign)` or `Automation (sequence)`. |
+| `source` | Where it came from in AdsEra, for example `addy` (AI chat agent), `followup` (AI follow-up agent), `adsera` (inbox, flows, API), `waApp` (WhatsApp Business app). |
+| `templateName` | For templates: the template's name. |
+| `template` | For templates: AdsEra's id of the template. |
+| `campaign` | For campaign messages: the campaign's id. |
+
+**A template message** looks like this. The preview has the values filled in, exactly as the customer saw it:
+
+```json
+{
+  "type": "template",
+  "templateName": "demo_reminder",
+  "preview": "[Template \"demo_reminder\"] Hi Priya, your demo is today at 4 pm. Reply YES to confirm.",
+  "sentBy": "Automation (sequence)"
+}
+```
+
+<Note>
+`status` is usually `sent` or `pending` here. Delivery and read updates follow as `message.status_updated`.
+</Note>
+
+## message.status_updated
+
+A message you sent changed status. Use it for ticks in your CRM, and to spot failed messages.
+
+```json
+{
+  "event": "message.status_updated",
+  "timestamp": "2026-11-20T10:16:10.900Z",
+  "data": {
+    "_id": "6740a21ae4b0a1b2c3d4e611",
+    "message": "6740a1d9e4b0a1b2c3d4e600",
+    "messageId": "wamid.HBgMOTE5ODc2NTQzMjEwFQIAERgSM…",
+    "status": "read",
+    "timestamp": "2026-11-20T10:16:09.000Z",
+    "campaign": null,
+    "messageErrors": null,
+    "wabaId": "68a06be5ea4b520115654c7"
+  }
+}
+```
+
+| Field | Meaning |
+| --- | --- |
+| `messageId` | Matches `messageId` of the `message.sent` event. |
+| `message` | Matches `_id` of the `message.sent` event. |
+| `status` | `sent`, `delivered`, `read` or `failed`. |
+| `timestamp` | When WhatsApp reported the status. |
+| `campaign` | The campaign id, for campaign messages. |
+| `messageErrors` | Only when `failed`: WhatsApp's errors, each with `code`, `title` and `message`. For example `131049` means WhatsApp held the marketing message back, and `131047` means the 24-hour window closed. |
+| `conversation`, `pricing` | WhatsApp's conversation and billing details, when it sends them. |
+
+<Tip>
+Statuses can arrive out of order. Keep the "highest" one (`read` > `delivered` > `sent`), and treat `failed` as final for that message.
+</Tip>
+
+## message.reaction_updated
+
+A customer reacted to a message with an emoji, or removed their reaction.
+
+```json
+{
+  "event": "message.reaction_updated",
+  "data": {
+    "_id": "6740a1d9e4b0a1b2c3d4e600",
+    "messageId": "wamid.HBgMOTE5ODc2NTQzMjEwFQIAERgSM…",
+    "reactionEmoji": "👍",
+    "contact": "919876543210",
+    "name": "Priya",
+    "from": "919800000000",
+    "wabaId": "68a06be5ea4b520115654c7"
+  }
+}
+```
+
+`data` is the message that got the reaction, and `reactionEmoji` is the emoji. An empty `reactionEmoji` means the reaction was removed.
+
+## How previews look
+
+| Message | `preview` |
+| --- | --- |
+| Text | The text itself |
+| Template | `[Template "name"] body with values filled in` |
+| Image / video / document | `[Image: caption]`, `[Video]`, `[Document: invoice.pdf]` (the caption, else the file name) |
+| Voice note | `[Voice note]` |
+| Location | `[Location: name, address]` |
+| Template button tap | `[Tapped button: Yes]` |
+| Reply button / list choice | `[Chose: Pricing]` |
+| Sticker | `[Sticker]` |
+| Shared contact | `[Shared contact: Name]` |
+| Call | `[WhatsApp voice call]` |
+| Deleted by the customer | `[Message deleted by sender]` |
+| WhatsApp form (Flow) | `[Form "name" submitted: field: answer, …]` |
+| Order | `[Order placed: 2x T-shirt — total 1998 INR]` |

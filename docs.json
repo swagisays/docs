@@ -246,7 +246,10 @@
           {
             "group": "Webhooks",
             "pages": [
-              "api-reference/webhooks/events"
+              "api-reference/webhooks/overview",
+              "api-reference/webhooks/messages",
+              "api-reference/webhooks/calls",
+              "api-reference/webhooks/contacts-orders"
             ]
           },
           {

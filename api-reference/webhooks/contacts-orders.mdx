@@ -1,0 +1,85 @@
+---
+title: "Contact and order events"
+description: "contact.created, contact.updated and order.created, field by field."
+---
+
+These events cover your whole account. The WhatsApp numbers selected on the webhook don't filter them.
+
+## contact.created
+
+A contact was added to AdsEra:
+- by hand in the app
+- by an import
+- by a website or WhatsApp form
+- by IndiaMART
+- through the [CRM API](/api-reference/crm/overview)
+
+```json
+{
+  "event": "contact.created",
+  "timestamp": "2026-11-20T09:40:12.000Z",
+  "data": {
+    "_id": "6740a0f2e4b0a1b2c3d4e5a1",
+    "company": "6819fd2d2579648acff91ac8",
+    "phone": "919876543210",
+    "email": "priya@example.com",
+    "FIRSTNAME": "Priya",
+    "LASTNAME": "Shah",
+    "CITY": "Pune",
+    "labels": ["6740…"],
+    "lists": ["6740…"],
+    "subscription": { "whatsapp": true, "email": true },
+    "createdAt": "2026-11-20T09:40:11.000Z",
+    "updatedAt": "2026-11-20T09:40:11.000Z"
+  }
+}
+```
+
+| Field | Meaning |
+| --- | --- |
+| `_id` | AdsEra's id for the contact. |
+| `phone` | With country code and no `+`. |
+| `email` | The email address, when known. |
+| Attribute fields | Each of the contact's fields, by its title in capitals: `FIRSTNAME`, `LASTNAME`, `CITY`, and any you created. [List Attributes](/api-reference/crm/lookups/attributes) gives all titles. |
+| `labels`, `lists` | Ids of the contact's labels and lists. [List Labels](/api-reference/crm/lookups/labels) and [List Lists](/api-reference/crm/lookups/lists) give their names. |
+| `subscription` | Whether they may get WhatsApp and email marketing (`false` = opted out). |
+
+<Note>
+Someone who messages you on WhatsApp for the first time arrives as [`message.new`](/api-reference/webhooks/messages#message-new), with their phone and name, not `contact.created`. If you need the full record, call [Find a Contact](/api-reference/crm/contacts/lookup) with the phone.
+</Note>
+
+## contact.updated
+
+A contact was edited in the AdsEra app or through the CRM API. `data` has the same fields as `contact.created`, with the new values. The event doesn't say which fields changed; store the whole record.
+
+## order.created
+
+A customer placed an order from your WhatsApp catalogue.
+
+```json
+{
+  "event": "order.created",
+  "timestamp": "2026-11-20T12:30:05.000Z",
+  "data": {
+    "contact": "919876543210",
+    "phoneNumberId": "1465708616622772",
+    "wabaId": "3038960519770897",
+    "order": {
+      "catalog_id": "1234567890",
+      "text": "Please deliver after 6 pm",
+      "product_items": [
+        { "product_retailer_id": "TSHIRT-BLK-M", "quantity": 2, "item_price": 999, "currency": "INR" }
+      ]
+    }
+  }
+}
+```
+
+| Field | Meaning |
+| --- | --- |
+| `contact` | The customer's phone. |
+| `phoneNumberId`, `wabaId` | WhatsApp's ids for your number and WhatsApp account. |
+| `order.product_items` | Each item: your product id (`product_retailer_id`), `quantity`, `item_price` and `currency`. |
+| `order.text` | The note the customer added, if any. |
+
+The order also arrives as a `message.new` with `type: "order"`, so it shows in the chat.

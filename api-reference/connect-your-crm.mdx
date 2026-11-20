@@ -48,10 +48,10 @@ Every webhook is a `POST` with this body:
 }
 ```
 
-Each message has a ready-to-show `preview` (the text, or a template with its values filled in) and a `sentBy` (`Customer`, `AI`, `Team`, `Broadcast (bulk campaign)` or `Automation (sequence)`). You don't need to decode WhatsApp message types. See [Webhook events](/api-reference/webhooks/events) for every field.
+Each message has a ready-to-show `preview` (the text, or a template with its values filled in) and a `sentBy` (`Customer`, `AI`, `Team`, `Broadcast (bulk campaign)` or `Automation (sequence)`). You don't need to decode WhatsApp message types. See [Webhooks](/api-reference/webhooks/overview) for every field.
 
 <Tip>
-Answer with any `2xx` within 5 seconds. Do slow work after you answer. Failed deliveries are not retried, so use the read endpoints below to fill gaps.
+Answer with any `2xx` within 5 seconds. Do slow work after you answer. Failed deliveries are not retried, so use the read endpoints below to fill gaps. [Webhooks](/api-reference/webhooks/overview) covers security, sample code in Node.js, Python and PHP, and troubleshooting.
 </Tip>
 
 ## 3. Read history
