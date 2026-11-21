@@ -1,6 +1,6 @@
 ---
 title: 'Creating a WhatsApp Auto-Reply'
-description: 'Set up automated replies on WhatsApp based on specific keywords to engage customers instantly and save time.'
+description: 'Greet every new conversation with a welcome message, and send automatic replies to specific keywords on WhatsApp.'
 icon: 'robot'
 ---
 
@@ -49,9 +49,38 @@ To begin, navigate to **Automation > Auto-Reply > WhatsApp** and click the **"+ 
 
 ---
 
+## Welcome Message
+
+A welcome message greets everyone who starts a conversation with you on WhatsApp, whatever they write. You don't need any keywords.
+
+<Steps>
+
+<Step title="Choose Welcome message">
+  Click **"+ New AutoReply"**. Under **Message Matching Method**, pick **welcome message (any message)**. The keyword box disappears.
+</Step>
+
+<Step title="Choose when it's sent">
+  - **Only their first message ever:** each customer gets it once, the first time they write to your number.
+  - **Also when they come back after 24 hours / 3 days / 7 days / 30 days:** they also get it when they write again after that long without messaging you.
+
+  Messages in the middle of a conversation never get it, so nobody is welcomed twice in a row.
+</Step>
+
+<Step title="Pick the reply">
+  Click **"Next"**, select the snippet or snippets to send (for example a greeting with your menu buttons), and click **"Save"**.
+</Step>
+
+</Steps>
+
+<Info>
+**How it works with other replies:** the welcome goes first. If the message also matches a keyword auto-reply, that reply follows. When a welcome or keyword reply is sent, your AI agent (Addy) doesn't answer that same message, so the customer isn't greeted twice. Addy answers their next message as usual. While someone from your team has taken a chat, auto-replies, including the welcome, don't send.
+</Info>
+
+---
+
 ## Managing Your Auto-Replies
 
 Once created, your auto-reply will appear in the main **WhatsApp Auto-Reply List**. From this list, you can:
 - **View** the keywords and associated reply snippets.
-- **Toggle the Status** to make an auto-reply `Active` or `Inactive`.
+- **Toggle the Status** to make an auto-reply `Active` or `Inactive`. Inactive replies, including welcome messages, are never sent.
 - **Edit** or **Delete** the auto-reply using the three-dots (⋮) menu.
