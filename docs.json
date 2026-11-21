@@ -17,6 +17,7 @@
             "group": "Get Started",
             "pages": [
               "help/introduction/adsera",
+              "help/introduction/getting-around",
               "help/introduction/price"
             ]
           },
@@ -75,7 +76,7 @@
             ]
           },
           {
-            "group": "Audience",
+            "group": "Contacts",
             "pages": [
               "help/audiance/audiance",
               "help/audiance/verified",
@@ -98,7 +99,7 @@
             ]
           },
           {
-            "group": "WhatsApp Campaign",
+            "group": "WhatsApp Broadcasts",
             "pages": [
               "help/campaign/wa/list",
               "help/campaign/wa/create",
@@ -133,7 +134,7 @@
             ]
           },
           {
-            "group": "Autoreply",
+            "group": "Auto-replies",
             "pages": [
               "help/autoreply/wa"
             ]

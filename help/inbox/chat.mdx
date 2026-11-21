@@ -9,7 +9,7 @@ The AdsEra WhatsApp Chat Inbox is your central hub for all real-time customer co
 
 **Want to Manage WhatsApp Chats? [Go to the AdsEra Chat Inbox Page &rarr;](https://app.adsera.in/dashboard/whatsapp/chat)**
 
-![The WhatsApp Chat Inbox interface.](https://sgp1.digitaloceanspaces.com/whatsera/cbf70366-3c0f-4f8d-b614-618b639fa0f1_chat_inbox.png)
+![Inbox → WhatsApp, with the WhatsApp | Email switch at the top.](/images/app/inbox.png)
 
 The inbox is organized into three main panels: the **Conversation List**, the **Chat Window**, and the **Contact Details** panel. Each is packed with tools to make your workflow faster and more organized.
 
@@ -25,8 +25,6 @@ At the very top, you'll find a dropdown menu to select your **WhatsApp Business 
 #### Searching and Advanced Filtering
 - **Simple Search:** Use the **Search contacts...** bar to quickly find a conversation by name or phone number.
 - **Advanced Filters:** Click the **filter icon** (ᯤ) next to the search bar to open the "Chat Filters" modal. This powerful tool allows you to create specific views of your inbox based on multiple criteria.
-
-![The Advanced Filter modal for chats.](https://sgp1.digitaloceanspaces.com/whatsera/841ed8a8-685e-4adf-9164-5ad81b32efd7_chat_filter.png)
 
 <AccordionGroup>
   <Accordion title="Filter by Status">
@@ -61,8 +59,6 @@ This is where the direct interaction with your customer happens.
 #### Message Timeline & Status
 To see the exact delivery timeline of a message you've sent, **hover over the message bubble**. An **info icon (`ⓘ`)** will appear. Clicking it opens a "Message info" drawer from the left.
 
-![The Message Info timeline drawer.](https://sgp1.digitaloceanspaces.com/whatsera/04d108b9-cf60-4224-93f2-b9f30fa247e5_msg_timeline.png)
-
 This drawer shows the precise timestamps for each status:
 - **Sent:** The time the message left AdsEra's servers.
 - **Delivered:** The time the message was successfully delivered to the recipient's device.
@@ -76,23 +72,23 @@ This is where you write your replies. The composer's functionality changes based
     While the session timer is active, you have full access to the composer:
     - **Text Area:** Type any free-form message up to 4096 characters.
     - **Attachments:** Send rich media like **images (5MB)**, **videos (16MB)**, **audio (16MB)**, or **documents (100MB)**.
-    - **Snippets & Templates:** Use quick replies or pre-approved templates to respond faster.
+    - **Quick replies & Templates:** Use quick replies or pre-approved templates to respond faster.
   </Tab>
   <Tab title="Expired Conversation (After 24 Hours)">
     Once the 24-hour window closes, the normal text area is disabled. You will see a message explaining that you must use a template to re-initiate the conversation. Your only option is to click the **Send Template** button.
   </Tab>
 </Tabs>
 
-#### Using Snippets and Message Templates
+#### Using quick replies and message templates
 <AccordionGroup>
-  <Accordion title="Using Snippets (Quick Replies)">
-    Snippets are saved, reusable text blocks for answering common questions quickly and consistently.
-    1.  Click the **snippet icon** in the composer.
-    2.  In the "Snippets" modal, search or select the snippet you need. They can include personalization variables like `{{FIRSTNAME}}`.
-    3.  Clicking a snippet will instantly populate it in your message composer.
+  <Accordion title="Using quick replies">
+    Quick replies are saved, reusable text blocks for answering common questions quickly and consistently.
+    1.  Type <kbd>/</kbd> in the reply box, or click the **quick reply icon** in the composer.
+    2.  In the "Quick replies" modal, search or select the quick reply you need. They can include personalization variables like `{{FIRSTNAME}}`.
+    3.  Clicking a quick reply will instantly populate it in your message composer.
 
     <Info>
-    To learn how to create and manage your own snippets, see our [Snippets Management](/help/snippet/list) guide.
+    To learn how to create and manage your own quick replies, see our [Quick replies](/help/snippet/list) guide.
     </Info>
   </Accordion>
   <Accordion title="Using Message Templates">
@@ -108,8 +104,6 @@ This is where you write your replies. The composer's functionality changes based
 
 ## 3. Contact & Conversation Details (Right Panel)
 Clicking the info icon (`ⓘ`) in the chat header opens this powerful CRM panel, giving you a full 360-degree view of the contact.
-
-![The Contact Details side panel.](https://sgp1.digitaloceanspaces.com/whatsera/2568a141-69eb-4d70-90f5-79b7e4046bd4_contact_chat_pannel.png)
 
 <AccordionGroup>
   <Accordion title="About This Contact">
@@ -131,13 +125,11 @@ Clicking the info icon (`ⓘ`) in the chat header opens this powerful CRM panel,
 
 ---
 
-
-
 ## 4. Team inbox, AI agents and more
 
 #### Inbox tabs
 
-At the top of the conversation list, switch between **Mine** (chats assigned to you), **Unassigned** and **Needs a person** (chats an AI agent handed to your team). Click **Start New Conversation** to message a contact who hasn't written to you yet; this needs an approved template.
+At the top of the conversation list, switch between **Mine** (chats assigned to you), **Unassigned** and **Needs you** (chats an AI agent handed to your team). Click the **new chat** button (pencil icon) to message a contact who hasn't written to you yet; this needs an approved template.
 
 #### Assigning a chat
 
@@ -149,7 +141,7 @@ If [Addy](/help/ai/addy) or the [Meta AI Agent](/help/integrations/meta-ai-agent
 
 - **Take over:** you answer from now on. Sending a message to a chat the Meta AI agent is answering also takes it over.
 - **Hand back to Addy** (or **Hand back to AI agent**): the agent answers again.
-- When an agent hands a chat to your team, it appears under **Needs a person** with the agent's summary.
+- When an agent hands a chat to your team, it appears under **Needs you** with the agent's summary.
 
 You can also hand a chat to the AI agent from the header.
 

@@ -1,5 +1,5 @@
 ---
-title: 'Creating a WhatsApp Auto-Reply'
+title: 'Auto-replies and welcome messages'
 description: 'Greet every new conversation with a welcome message, and send automatic replies to specific keywords on WhatsApp.'
 icon: 'robot'
 ---
@@ -8,36 +8,35 @@ icon: 'robot'
 
 **Want to manage WhatsApp Auto-Reply? [Go to the AdsEra Auto-Reply Page &rarr;](https://app.adsera.in/dashboard/autoreply/whatsapp/list)**
 
-![The Auto-Reply creation wizard.](https://sgp1.digitaloceanspaces.com/whatsera/0881f21d-ea57-4644-9766-09fae06f3ad7_autoreply.png)
-
+![WhatsApp → Auto-replies in AdsEra.](/images/app/autoreply.png)
 ### The Auto-Reply Creation Process
 
-To begin, navigate to **Automation > Auto-Reply > WhatsApp** and click the **"+ New AutoReply"** button. This will launch a two-step creation wizard.
+To begin, go to **WhatsApp → Auto-replies** and click **New auto-reply**. This will launch a two-step creation wizard.
 
 <Steps>
 
-<Step title="Step 1: Configure the Trigger Keywords">
+<Step title="Step 1: When it replies">
   This step defines *what* the user needs to say to trigger your automated response.
 
   #### Keywords
   - **Add Keywords:** In the "Keyword" field, type a word or phrase (e.g., `Hello`, `Pricing`, `Demo`) and click **"Add"**. You can add multiple keywords that will all trigger the same reply. The keywords will appear as chips in the list below.
   - **Remove a Keyword:** Click the `x` on any keyword chip to remove it.
 
-  #### Message Matching Method
+  #### When should it reply?
   This setting determines how strictly AdsEra should match the incoming message to your keywords.
-  - **Fuzzy matching:** (Recommended) Allows for minor misspellings and variations. You can use the slider to set the sensitivity, with 100% being a very close match and a lower percentage being more lenient.
-  - **Exact matching:** The user's message must match one of your keywords perfectly.
-  - **Contains:** The user's message must contain one of your keywords anywhere within it.
+  - **Similar words (handles typos):** (Recommended) Allows for minor misspellings and variations. You can use the slider to set the sensitivity, with 100% being a very close match and a lower percentage being more lenient.
+  - **Exact words:** The user's message must match one of your keywords perfectly.
+  - **Message contains the word:** The user's message must contain one of your keywords anywhere within it.
 
   Once you've configured your keywords and matching method, click **"Next"**.
 </Step>
 
-<Step title="Step 2: Select the Action (Reply)">
+<Step title="Step 2: What it sends">
   This step defines *how* the system will respond. Here, you will select one or more **Snippets** to send as the reply.
 
   - **Filter and Search:** Use the **Type** dropdown and the **Search** bar to find the snippets you want to use for the reply.
   - **Select Snippets:** Click the checkbox on one or more snippet cards. 
-  
+
   <Info>
     **Sending Multiple Snippets:** If you select multiple snippets, AdsEra will send them one after another in the order you select them, creating a sequence of replies. This is great for sending an image followed by a text message with buttons.
   </Info>
@@ -56,7 +55,7 @@ A welcome message greets everyone who starts a conversation with you on WhatsApp
 <Steps>
 
 <Step title="Choose Welcome message">
-  Click **"+ New AutoReply"**. Under **Message Matching Method**, pick **welcome message (any message)**. The keyword box disappears.
+  Click **New auto-reply**. Under **When should it reply?**, pick **Welcome message (any first message)**. The keyword box disappears.
 </Step>
 
 <Step title="Choose when it's sent">
