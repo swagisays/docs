@@ -1,0 +1,52 @@
+---
+title: 'Template rules, limits and costs'
+description: 'The 24-hour window, every limit for WhatsApp templates in one table, what Meta charges, and how daily sending limits work.'
+icon: 'scale-balanced'
+---
+
+## The 24-hour window
+
+When a customer messages you, a **24-hour window** opens. Inside it you can reply with anything: text, photos, documents, quick replies. When 24 hours pass without a new message from them, you can only send an **approved template**. Their next message opens a new window.
+
+Broadcasts always use templates, because most people haven’t written to you in the last 24 hours.
+
+## Limits
+
+| What | Limit |
+| --- | --- |
+| Template name | Small letters, numbers, `_`; up to 512 characters |
+| Message (body) | 1,024 characters |
+| Text header | 60 characters, no emojis, one variable |
+| Footer | 60 characters |
+| Image header | JPG or PNG, up to 5 MB |
+| Video header | MP4, up to 16 MB |
+| Document header | PDF, up to 100 MB |
+| Buttons | 10 in total: 2 website links, 1 phone call, 1 copy code, 1 WhatsApp Flow, 1 voice call, 1 Pay Now (alone) |
+| Button label | 25 characters |
+| Carousel | 2 to 10 cards; card text 160 characters; 2 shared buttons |
+| Limited-time offer | Offer text 16 characters; 3 buttons |
+| Login code expiry | 1 to 90 minutes |
+| Category | Can’t be changed after you submit |
+
+## Costs
+
+Meta, not AdsEra, charges for template messages, to the payment method in your Meta account:
+
+- **Marketing** templates cost the most.
+- **Utility** and **Authentication** templates cost less. Utility templates sent while the customer’s 24-hour window is open are free.
+- Replies inside the 24-hour window are free.
+
+Prices depend on the customer’s country. See Meta’s pricing page in WhatsApp Manager. Add a payment method in **Meta Business Settings → Billing**, or marketing messages aren’t delivered.
+
+## How many people can I message a day?
+
+Your number’s **daily limit** (see [Numbers & profile](/help/channel/whatsapp/whatsapp)) is how many different people you can start conversations with in 24 hours. It starts low for new numbers and grows as you send messages people want. Verifying your business in Meta raises it.
+
+Meta also limits how many **marketing** messages one person gets from all businesses. Messages held back show as failed with code 131049 in your broadcast report. That is normal: try those people again in a few days.
+
+## Related
+
+<CardGroup cols={2}>
+  <Card title="Templates: overview" icon="file-lines" href="/help/template/wa">Categories and types.</Card>
+  <Card title="Template FAQs" icon="circle-question" href="/help/template/faq">Quick answers.</Card>
+</CardGroup>

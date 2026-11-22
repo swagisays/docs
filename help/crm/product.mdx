@@ -1,74 +1,123 @@
 ---
 title: 'Products'
-description: 'Add what you sell (items, services, subscription plans, properties or courses), use them in deals, payments and chats, and sync them to your WhatsApp catalog.'
+description: 'Everything you sell, with prices: find and filter products, change many at once, open a product for its prices, stock, pictures and add-ons, and show it in your WhatsApp catalog.'
 icon: 'box'
 ---
 
-**Want to Manage Products? [Go to the AdsEra Products Page &rarr;](https://app.adsera.in/dashboard/crm/product)**
+**Products** is your price list: flats, services, plans, courses, kits. Add them once and use them in [deals](/help/crm/deal), in [payment requests](/help/crm/deal-payments), in Pay Now cards from the inbox, and in your WhatsApp catalog.
 
-![Sales → Products in AdsEra.](/images/app/products.png)
+**Where:** **Sales → Products** in the menu on the left. [Open it →](https://app.adsera.in/dashboard/crm/product)
 
-**Products** is your catalog of everything you sell. Products are used across AdsEra:
+![Products: every product with its type, price, stock, status and catalog state.](/images/app/sales/products.png)
 
-- **Deals:** add products as line items to a deal.
-- **Payments:** collect payment for products with [WhatsApp Pay](/help/integrations/whatsapp-pay).
-- **Chats:** send product cards in chats, and let [Addy](/help/ai/addy) recommend and sell them.
-- **WhatsApp catalog:** sync products to your Meta catalog for [WhatsApp Commerce](/help/integrations/whatsapp-commerce).
+To add one, click **New product** and pick its type. See [Product types and their fields](/help/crm/product-types).
 
-## The product list
+## The list
 
-- Filter by type (**All types**), search, and **Download this page as CSV**.
-- The **WhatsApp catalog** column shows each product's sync status: **Synced**, **Pending**, **Rejected**, **Not in catalog**, **Not linked** or **Via variants**.
-- Select products to **Activate** or **Discontinue** them in bulk.
+| Column | Meaning |
+| --- | --- |
+| **Product** | Picture, name, product number (like P-0002), SKU and, for products with variants, how many. |
+| **Type** | Physical item, Service, Subscription, Property or Course. |
+| **Price** | The price now. An offer shows in red with the old price crossed out and its end date. Plans show "/ month". |
+| **Stock** | "40 in stock" (red when below the low-stock alert), **Available** for a one-of-a-kind property, **Unlimited** when stock isn't tracked, **See variants** for products with variants. |
+| **Status** | **Active** (on sale), **Draft** (not ready yet) or **Discontinued** (no longer sold, history kept). |
+| **WhatsApp catalog** | See below. Point at it for what it means. |
+| Pencil | Opens the edit form. |
 
-## Create a product
+| Control | What it does |
+| --- | --- |
+| **Search name, SKU or number** | Finds products. |
+| **Type** | Only one type. |
+| **Status** | Only Active, Draft or Discontinued. |
+| **Show add-ons** | Also lists the extras sold with other products (like "Extra covered parking"). |
+| Tick boxes | Tick products, then **Activate** or **Discontinue** them all at once. |
+| Download icon | Saves the products on this page as a CSV file (Number, Name, Type, SKU, Price, Price type, Stock, Status). |
 
-Click **New product** and choose the type. Each type has its own form, in sections:
+### WhatsApp catalog states
+
+| State | Meaning | What to do |
+| --- | --- | --- |
+| **Synced** | Shown in your WhatsApp catalog. | Nothing. |
+| **Pending** | Being sent to WhatsApp. | Wait a few minutes. |
+| **Rejected** | Meta turned it down. | Open it: the reason is on its page. Fix the name, picture or product link and save. |
+| **Not linked** | Not shown in WhatsApp. | Open it and pick a catalog under **Show in catalog**. |
+| **Via variants** | Each variant is sent on its own. | Open it to see each variant. |
+| **Not in catalog** | Subscriptions, properties and courses can't go in the catalog. | Sell them with a deal or a payment link. |
+
+## A product's page
+
+Click a product.
+
+![A product's page: the catalog card and the details.](/images/app/sales/product-detail.png)
+
+| Part | What it does |
+| --- | --- |
+| **Edit** | Opens the full form. |
+| **Discontinue** / **Activate** | Stops or restarts selling it. |
+| **Delete** | Removes it (see below). |
+| **Price today** | What it costs now, offers included. |
+| **Overview** | The **WhatsApp catalog** card, then the details you can change in place (Basics, Stock, Cost and order limits, Item details…). **Save changes** saves them. |
+| **Pricing** | Every price: **Standard price**, **Offer** (with dates) and **Lowest allowed price** (only managers who can approve discounts can add it). **Add price**. |
+| **Variants** | The sizes, colours… **Add an option**, **Create variants**. |
+| **Stock** | How many are in stock, **Adjust stock**, **Warehouses** and the **History** of every change. Only for products that track stock. |
+| **Add-ons & bundle** | **Options**: a question with choices sold with this product (**New question**, **Fewest picks**, **Most picks**, **Add question**). **Bundle**: the products inside this one (**Add a part**). |
+| **Features** | For subscriptions: what each plan includes. |
+| **Course** | For courses: modules and batches. |
+| **Media** | Pictures, brochures and videos: **Choose files** or **Add link**. |
+| **Categories** | Pick categories, or **Create** one, then **Save**. |
+| **Reviews** | Customer reviews. |
+
+![Pricing: a standard price and a Diwali offer.](/images/app/sales/product-pricing.png)
+
+![Stock and its history.](/images/app/sales/product-stock.png)
+
+![Add-ons & bundle.](/images/app/sales/product-addons.png)
+
+![A property's page.](/images/app/sales/product-property-detail.png)
+
+## Show a product in your WhatsApp catalog
+
+Only physical items and services. You need a WhatsApp catalog connected under **Ads → WhatsApp Commerce**.
+
+<Steps>
+<Step title="Open the product">From the list.</Step>
+<Step title="Pick the catalog under Show in catalog">In the **WhatsApp catalog** card on Overview. You see "Catalog set. It syncs in a few seconds."</Step>
+<Step title="Optional: click Sync now">Sends it straight away ("Sent to WhatsApp catalog"). After that, price, stock, offers and pictures are sent by themselves within a minute of a change.</Step>
+</Steps>
+
+The card shows **In WhatsApp catalog**, **Not updated** (with Meta's reason in red) or **Removed from catalog**, when it was last sent, and Meta's review result.
+
+![A product Meta rejected, with the reason.](/images/app/sales/product-rejected.png)
+
+## Discontinue or delete
+
+- **Discontinue** stops new sales but keeps the product and its history in old deals. **Activate** brings it back.
+- **Delete** asks "Delete …? This can't be undone. Its prices, pictures and categories are removed too." A product already used in a deal, or one with variants, can't be deleted: you see why, with **Discontinue instead**.
+
+![Delete a product.](/images/app/sales/product-delete.png)
+
+## When there are no products
+
+The list says **No products yet** with a **New product** button.
+
+## FAQs
 
 <AccordionGroup>
-<Accordion title="Physical item">
-  - Name, SKU, brand and description
-  - Up to 5 pictures
-  - Selling price, cost and tax
-  - *Optional:* price by quantity, wholesale price and order limits
-  - Stock tracking and batches
-  - *Optional:* variants (size, colour…)
-  - Weight, size and HS code for shipping
-  - *Optional:* bundles (products inside this one) and extra details to show
+<Accordion title="What's the difference between SKU and the product number?">
+The SKU is your own code, if you use one. The product number (P-0001…) is given by AdsEra to every product.
 </Accordion>
-<Accordion title="Service">
-  - What you offer, and up to 5 pictures
-  - Currency, tax, billing cycles and prices
-  - *Optional:* the things the customer gets
+<Accordion title="Can a deal use a different price than the product?">
+Yes. On the deal, type another **Unit price** or a discount for that deal. The product's price doesn't change.
 </Accordion>
-<Accordion title="Subscription">
-  - Name, description, currency and tax, and up to 5 pictures
-  - *Optional:* days before the first charge (a trial)
-  - How often customers pay
-  - Plans, prices and trials, and what each plan includes
-  - *Optional:* extras sold with a plan
-</Accordion>
-<Accordion title="Property">
-  - Title, reference and address
-  - Type and furnishing (unfurnished, semi-furnished or fully furnished)
-  - Size (sq.ft or sq.yd), rooms and units
-  - Sale, rent or short-term pricing: at least one
-  - Up to 5 pictures
-</Accordion>
-<Accordion title="Course">
-  - How the course is delivered
-  - Name, code and description, plus a thumbnail and gallery (up to 5)
-  - Seats, dates and timings
-  - Price, instalments and tax
+<Accordion title="Does stock go down when someone pays?">
+Yes, for products that track stock, when a payment request on a deal is paid. If it fails, the deal's Payments shows "Stock not updated" with **Check now**.
 </Accordion>
 </AccordionGroup>
 
-Save the product. If you leave the page with unsaved changes, AdsEra asks you first.
+## Related
 
-<Tip>
-  Products with complete, accurate details (price, stock, pictures) make [Addy](/help/ai/addy) far better at selling. It quotes exactly what's in your catalog.
-</Tip>
-
-## Edit or discontinue
-
-Click **Edit** on a product to change it. **Discontinue** a product you no longer sell instead of deleting it: past deals and payments that used it stay intact.
+<CardGroup cols={2}>
+<Card title="Product types and their fields" icon="boxes-stacked" href="/help/crm/product-types">Every form, field by field.</Card>
+<Card title="Deals" icon="handshake" href="/help/crm/deal">Add products to a deal.</Card>
+<Card title="Collect a payment" icon="indian-rupee-sign" href="/help/crm/deal-payments">Ask for the money.</Card>
+</CardGroup>

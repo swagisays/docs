@@ -1,62 +1,114 @@
 ---
-title: 'Managing Segments'
-description: 'Learn how to view, manage, and use your dynamic contact segments for precision targeting.'
+title: 'Segments'
+description: 'Save a filter as a segment that keeps itself up to date, show it as a tab, and send it a broadcast.'
 icon: 'layer-group'
 ---
 
-**Segments** are dynamic groups of contacts created by applying and saving filters in the [All Audience](/help/audiance/audiance) view. Think of them as living, breathing subdivisions of your audience that automatically update based on the criteria you define. They are a powerful tool for precision targeting.
+A **segment** is a saved filter, like *"City contains Pune and Labels has Hot lead"* or *"Budget is more than 50 lakh"*. You don't add people to it: they join and leave by themselves as their details change. Use segments for groups you message again and again.
 
-**Want to Manage Contact Segments? [Go to the AdsEra Segments Page &rarr;](https://app.adsera.in/dashboard/contact/segments)**
+**Where:** your segments show in two places:
+- As **tabs** above **Contacts → All contacts**. [Open it →](https://app.adsera.in/dashboard/contact/list)
+- On **Contacts → Segments**, with how many people are in each. [Open it →](https://app.adsera.in/dashboard/contact/segments)
 
-![Contacts → Segments.](/images/app/segments.png)
+![Segments page: your segments on the left, the people in one on the right.](/images/app/contacts/segments.png)
 
-### Understanding How Segments Work
-
-<CardGroup>
-    <Card title="Always Dynamic" icon="arrows-rotate">
-        Segments are not static snapshots. They update in real-time. If a contact's data changes to meet a segment's criteria, they are added. If they no longer meet the criteria, they are removed automatically.
-    </Card>
-    <Card title="Created from Filters" icon="filter">
-        Segments are born from the filter builder on the **All Audience** page. This is where you define the rules. The Segments page is for viewing and managing the segments you've already saved.
-    </Card>
-</CardGroup>
-
----
-
-## How to Create a Segment
+## Make a segment
 
 <Steps>
-<Step title="1. Navigate to All Audience">
-Go to [Contacts → All contacts](/help/audiance/audiance).
-</Step>
-<Step title="2. Build Your Filters">
-Use the advanced filter builder to define the criteria for your desired segment. You can combine multiple conditions using **AND/OR** logic.
-</Step>
-<Step title="3. Save Filters as a Segment">
-Once you are satisfied with the filtered view of contacts, click the **"Save as Segment"** button.
-</Step>
-<Step title="4. Name and Save">
-Give your segment a clear, descriptive name that reflects its rules (e.g., "Active High-Value Customers") and save it. It will now appear on this Segments page.
+<Step title="Build the filter">On **All contacts**, click **Add a filter** and build the sentence. See [Filter contacts](/help/audiance/filters).</Step>
+<Step title="Click Save as segment">Under the big number.</Step>
+<Step title="Name it and click Save">
+Like "Pune hot leads". It opens as a new tab.
+
+![Naming the segment.](/images/app/contacts/save-segment.png)
 </Step>
 </Steps>
 
----
+**New segment** on the Segments page takes you to **All contacts** to do this.
 
-## Managing Your Segments
+## Tabs on All contacts
 
-The Segments page provides a clean overview of all the dynamic segments you've created.
+| Button | What it does |
+| --- | --- |
+| A tab | Shows that segment's people. **All contacts** shows everyone. |
+| **+** (Add a tab) | **Save these filters as a segment** (needs a filter first) or **Add a list as a tab** (pick one of your [lists](/help/audiance/list)). |
+| **⋯** (Segment options) | **Rename** the open segment, **Reorder segments**, **Delete segment**. |
+| **More (N)** | Shows the tabs that don't fit on screen. |
+| **Keep as tab** | Shows when you opened a list or a report's people from another page: keeps it as a tab. |
 
-#### The Segments Table
-The table displays your segments with the following columns:
-- **Segment name:** The name you assigned when creating the segment.
-- **Created At:** The date and time the segment was originally saved.
-- **Updated At:** The date and time the segment was last modified.
-- **Contacts:** A **dynamic count** of contacts who currently match the segment's criteria. This number can change frequently.
+![The + menu: two kinds of tab.](/images/app/contacts/add-tab.png)
 
-#### Segment Actions (The ⋮ Menu)
-Clicking the three-dot menu on any segment row reveals several actions:
-- **Rename:** Opens a modal to change the segment's display name.
-- **Duplicate:** Creates a new segment with the exact same filter rules, which you can then modify.
-- **Add to Sequence:** Adds all contacts **currently matching** the segment to a specific automation sequence.
-- **Delete:** Permanently removes the segment's definition. 
-  <Warning>Deleting a segment **does not** delete any contacts from your audience. It only removes the saved set of rules.</Warning>
+![Segment options.](/images/app/contacts/segment-options.png)
+
+**Reorder segments** opens **Reorder segment tabs**: drag the tabs or use the arrows, pick which one opens first, then **Save order**. **Reset default** sorts them by the date they were made.
+
+![Reorder segment tabs.](/images/app/contacts/reorder.png)
+
+## Change a segment
+
+Open its tab (or pick it on the Segments page) and change the sentence. The count says "(edited)" and three buttons show:
+
+| Button | What it does |
+| --- | --- |
+| **Save segment** | Keeps the change in this segment. |
+| **Save as new** | Makes another segment from it; this one stays as it was. |
+| **Reset** | Goes back to the saved filter. |
+
+## The Segments page
+
+| Part | What it does |
+| --- | --- |
+| The list on the left | Every segment with how many people match now. **Search segments** finds one. |
+| **Send WhatsApp** | Makes a broadcast to everyone in the segment. See [below](#send-a-broadcast-to-a-segment). |
+| **⋮** | **Rename**, **Duplicate** (a copy you can change), **Delete**. |
+| The sentence and list | The segment's people, exactly as on All contacts. |
+
+![A segment's ⋮ menu.](/images/app/contacts/segment-menu.png)
+
+Deleting a segment never deletes the people in it.
+
+With no segments yet the page says **Segments are saved filters** with **Go to All contacts**.
+
+![Segments before you save one.](/images/app/contacts/segments-empty.png)
+
+## Send a broadcast to a segment
+
+<Steps>
+<Step title="Pick the segment">On **Contacts → Segments**.</Step>
+<Step title="Click Send WhatsApp">A window opens for the people in it.</Step>
+<Step title="Pick the template">Pick your WhatsApp number and an approved template, fill its blanks and click **Save broadcast**. It's saved as a draft broadcast.</Step>
+<Step title="Send it">Open **WhatsApp → Broadcasts** and choose **Send now** on it. See [Create a broadcast](/help/campaign/wa/create).</Step>
+</Steps>
+
+You can also pick a segment as the audience inside **WhatsApp → Broadcasts → New broadcast**.
+
+## Segment, list or label?
+
+| | Segment | List | Label |
+| --- | --- | --- | --- |
+| Who's in it | Anyone who matches the filter, now | Only people you add | Anyone you tag |
+| Changes by itself | Yes | No | No |
+| Good for | "Pune buyers over 50 lakh" | "Diwali expo 2026 visitors" | "Hot lead", "Paid booking" |
+
+## FAQ
+
+<AccordionGroup>
+  <Accordion title="Someone's details changed. When do they join the segment?">
+    Straight away: a segment is worked out every time you open it or send to it.
+  </Accordion>
+  <Accordion title="Can I export a segment?">
+    Open it, tick the top box (or **Select all**), then **More actions → Export contacts (.xlsx)**.
+  </Accordion>
+  <Accordion title="Can Closer or a broadcast use a segment?">
+    Yes. Pick it as the audience in **WhatsApp → Broadcasts → New broadcast**, or as Closer's leads in **AI → Closer**.
+  </Accordion>
+</AccordionGroup>
+
+## Related
+
+<CardGroup cols={2}>
+  <Card title="Filter contacts" icon="filter" href="/help/audiance/filters" />
+  <Card title="Lists and folders" icon="list" href="/help/audiance/list" />
+  <Card title="Create a broadcast" icon="bullhorn" href="/help/campaign/wa/create" />
+  <Card title="All contacts" icon="users" href="/help/audiance/audiance" />
+</CardGroup>

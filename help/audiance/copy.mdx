@@ -1,91 +1,63 @@
 ---
-title: 'Import Contacts via Copy-Paste'
-description: 'Add contacts by copying and pasting data directly from a spreadsheet without needing to upload a file.'
+title: 'Paste contacts from a sheet'
+description: 'Copy rows from Excel or Google Sheets and paste them in. Then check them, match the columns and pick a list.'
 icon: 'paste'
 ---
 
-This guide will walk you through importing your contacts quickly and easily using the copy-paste feature. This method is perfect for smaller lists or when you have data readily available in a spreadsheet.
+For a short list, pasting is the fastest way in. Copy the rows (with the heading row) from Excel or Google Sheets, paste, and follow four steps: **Paste your contacts → Check them → Match your columns → Pick a list**.
 
-**Want to Import Contacts via Copy-Paste? [Go to the AdsEra Contact Import Page &rarr;](https://app.adsera.in/dashboard/contact/import/option)**
+**Where:** **Contacts → Import contacts → Paste from a sheet**. [Open it →](https://app.adsera.in/dashboard/contact/import/copy-past)
 
-### Prerequisites
+![Paste your contacts.](/images/app/contacts/import-paste.png)
 
-Before you start, make sure you have the following:
+<Warning>
+  **Phone numbers need the country code**, like 919876543210. AdsEra removes +, spaces and dashes and adds 91 to a 10-digit number.
+</Warning>
 
-<CardGroup>
-  <Card title="Contact Data Ready" icon="file-excel">
-    Have your contact information ready in a spreadsheet (like Google Sheets or Excel) or a text editor.
-  </Card>
-  <Card title="Required Identifier" icon="key">
-    Your data **must** include either an `EMAIL` or a `PHONE` column. At least one of these is required to identify and manage contacts.
-  </Card>
-  <Card title="Contact Consent" icon="user-check">
-    Remember, you must have your contacts' consent to send them marketing campaigns.
-  </Card>
-</CardGroup>
-
----
-
-## Step-by-Step Import Process
-
-Follow these steps to import your contacts using the copy-paste method.
+## Paste, step by step
 
 <Steps>
-<Step title="1. Navigate to the Import Screen">
-From your AdsEra Dashboard, go to **Contacts → Import contacts**. On the next screen, select the **Copy-Paste** method.
+<Step title="Paste your rows">
+Copy the rows from your sheet, including the first row with the column names, and paste them in the big box. Typed by hand? Put commas between the values, one person per line.
 
-![Contacts → Import contacts.](/images/app/import.png)
+**Show an example** shows the layout, and **Copy** copies it:
 
-</Step>
-
-<Step title="2. Format and Copy Your Data">
-Before pasting, ensure your data is correctly formatted in your spreadsheet or text file.
-- **Column Headers:** Your data must start with a header row (e.g., `EMAIL`, `FIRSTNAME`).
-- **Comma-Separated:** Each value in a row must be separated by a comma.
-- **Required & Optional Columns:** `EMAIL` is mandatory. You can also include `FIRSTNAME`, `LASTNAME`, `PHONE`, and `LANDLINE`. Any extra columns will be saved as custom attributes.
-
-Here's an example of the expected syntax:
-```csv
-EMAIL,FIRSTNAME,LASTNAME,PHONE,COMPANY
-emma@example.com,Emma,Dubois,33612345678,Innovate Inc.
-mickael@example.com,Mickael,Parker,15555551234,Solutions Corp
 ```
-Once formatted, select and copy your data (including the header row).
+PHONE,FIRSTNAME,LASTNAME,EMAIL,CITY
+919876543210,Anil,Verma,anil@example.com,Pune
+919845011223,Sneha,Rao,sneha@example.com,Mumbai
+```
+
+![An example to copy.](/images/app/contacts/import-paste-example.png)
+
+Click **Next**.
 </Step>
+<Step title="Check them">
+You see the rows as AdsEra read them. Something wrong? Click **Back** and fix the paste. Otherwise click **Next**.
 
-<Step title="3. Paste Your Data">
-Paste your copied data directly into the text area provided on the import screen, then click Next.
+![Check them.](/images/app/contacts/import-paste-check.png)
 </Step>
-
-<Step title="4. Confirm Your Data">
-AdsEra will display a preview of your data in a table. Review it to ensure your columns and rows appear correctly, then click Next.
-</Step>
-<Step title="5. Map Your Fields">
-This crucial step matches your data columns to the corresponding fields in AdsEra. The system will attempt to auto-map them.
-
-Verify Mapping: Ensure each "Column name from imported file" is correctly matched to a "Column name on AdsEra".
-
-Set Duplicate Handling: For each column, choose an action for updating existing contacts:
-
-Overwrite: Replaces existing data with the new data.
-
-Fill only if empty: Only adds data if the field is currently blank.
-
-Skip: Ignores the new data for that field if the contact already exists.
-
-</Step>
-
-<Step title="6. Assign to a Contact List">
-Every contact you import must be assigned to at least one list.
-
-Select an existing list: Choose from your current contact lists.
-
-Create a new list: Click the "Create A List" button and give your new list a name.
-
-Once you've selected a list, click Upload.
-</Step>
-
-<Step title="7. Review the Confirmation Report">
-Congratulations! Your contacts are now being imported. After processing, you'll receive a confirmation report detailing the number of successful and failed imports, along with reasons for any failures.
-</Step>
+<Step title="Match your columns">Pick the field each column **Saves into**, and what happens to people you already have, exactly as for a file. See [Matching choices](/help/audiance/file#matching-choices). Click **Next**.</Step>
+<Step title="Pick a list and import">Tick a list (or **Create a list**), click **Import**, then confirm with **Upload**.</Step>
 </Steps>
+
+## Good to know
+
+- The first line names the columns. If it has **PHONE**, **EMAIL**, **FIRSTNAME** or **LASTNAME**, it's read as the heading row; other names (like **CITY**) are kept as they are.
+- Without a heading row, the columns are called FIELD1, FIELD2… and you match them by hand.
+- Each row needs a phone or an email.
+
+## Troubleshooting
+
+| What you see | Why | What to do |
+| --- | --- | --- |
+| Everything is in one column | The values aren't split by commas or tabs. | Copy straight from the sheet, or put commas between values. |
+| "No valid email address or phone number detected in the data." | No row has a valid phone or email. | Check the PHONE and EMAIL columns: digits for phones, a proper email address. |
+| Names like FIELD5 | No heading row. | Add the heading row, or match the columns by hand. |
+
+## Related
+
+<CardGroup cols={2}>
+  <Card title="Import a file" icon="file-import" href="/help/audiance/file" />
+  <Card title="Import from Google Sheets" icon="table" href="/help/audiance/google-sheets" />
+</CardGroup>

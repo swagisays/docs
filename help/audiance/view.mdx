@@ -1,62 +1,92 @@
 ---
-title: 'A contact’s page'
-description: 'Everything about one person in one place: their details, their whole history with you, and their WhatsApp chat.'
+title: "A contact's page"
+description: "Everything about one person: their details, AI summary, activity, notes, tasks, calls, lists, form answers, media and ad leads."
 icon: 'address-card'
 ---
 
-Click any contact in **Contacts** to open their page. It uses the same layout as a lead in [Prospects](/help/sales/prospects), so you always know where things are.
+A contact's page shows everything about one person in one place, so anyone on your team can pick up where the last person left off.
 
-![A contact’s page: details on the left, their record in the middle.](/images/app/contact-view.png)
+**Where:** **Contacts → All contacts**, then click a person's name (or **View record** in the side panel). Prospects and the Inbox open the same page.
 
-The page has three columns:
+![A contact's page: details on the left, tabs on the right.](/images/app/contacts/view-overview.png)
 
-- **Left: the person.** Name, phone, email, quick actions, and all their details.
-- **Middle: their record.** An AI summary, their activity, notes, tasks and more, in tabs.
-- **Right: the WhatsApp chat.** On wide screens it sits beside the record. On a laptop, click the green WhatsApp button at the bottom right to open it.
+## The left side: who they are
 
-At the top right:
-
-- **Open in Prospects** works this person as a lead: an AI brief, a planned next step, and one-tap outcomes after a call or chat.
-- **Help** explains the page and shows a short demo.
-
----
-
-## The person (left)
-
-#### Quick actions
-Under the name, one click each:
-- **WhatsApp** opens the chat.
-- **Email** writes an email from your connected mailbox.
-- **Meeting** books a meeting or logs one you had.
-- **Note**, **Task** and **Call log** add one to their record.
-
-#### About
-Their details: email, phone, owner, labels, last activity and WhatsApp opt-in. Click **Show all fields** to see every field, including your own [fields](/help/audiance/attribute). Click a field to change it; it saves as soon as you're done. These are the same fields, edited the same way, as in Prospects and in the Contacts preview.
-
-Below the fields you can see and change the **lists** they're in.
-
----
-
-## Their record (middle)
-
-| Tab | What it shows |
+| Part | What it does |
 | --- | --- |
-| **Overview** | An AI summary of the person (click **Generate AI summary**), their recent activity, and their latest notes and tasks. |
-| **Activity** | Everything that happened, newest first: messages, emails, calls, meetings, ad leads, deal changes and edits. Filter by kind or by date. |
-| **Notes** | Private notes your team wrote. The contact never sees them. |
-| **Tasks** | Follow-ups for this person, with due date, owner and status. |
-| **Calls** | Calls you logged, with direction, result and length. |
-| **Lists** | The lists they're in. |
-| **Form answers** | Answers they gave in WhatsApp Flows and forms. |
-| **Media** | Photos, videos and files from your chats with them. |
-| **Ad leads** | The Meta ads and lead forms that brought them in. |
+| **←** (Back to Contacts) | Back to the list. |
+| Name, labels, phone, email | Copy the phone or email with the copy icons. |
+| Round buttons | **WhatsApp** (opens their chat), **Email**, **Meeting**, **Add Note**, **Add Task**, **Log Call**. |
+| **About** | Every detail: name, email, phone, **Contact owner**, **Labels**, **Last activity**, **WhatsApp opt-in** and your fields. Click a detail to change it; it saves when you press Enter or click away. |
+| **Show all fields** | Shows empty and less-used fields too. Drag a field by its grip to move it up. |
 
----
+## Open in Prospects
 
-## The WhatsApp chat (right)
+**Open in Prospects** (top right) works this person as a lead: an AI brief, the next step and one-tap outcomes. See [Prospects](/help/sales/prospects).
 
-The chat shows your whole conversation with them. Reply, attach files, or send a template or quick reply.
+## The tabs
 
-Not sure what to say? Type what the message should do in **What should the message say?** and click **Draft**. AI writes a reply from the conversation and puts it in the message box for you to check and send.
+| Tab | What's in it |
+| --- | --- |
+| **Overview** | The **AI Summary**, **Recent Activity**, **Recent Notes**, **Recent Call Logs** and **Tasks**, each with a button to add one and **View all**. **Collapse all** folds the cards. |
+| **Activity** | Everything that happened, newest first: messages, emails, calls and meetings, notes, tasks, ad leads, deals and contact changes. Filter with the chips and **When**. |
+| **Notes** | Notes your team wrote. **Add Note**. |
+| **Tasks** | Follow-ups with a due date and who does them. **New Task**. Tick one to mark it done. |
+| **Calls** | Logged phone and WhatsApp calls. **Log Call**. |
+| **Lists (N)** | The lists they're in. |
+| **Form answers** | What they filled in your [forms](/help/sales/forms) and WhatsApp Flows. |
+| **Media** | Photos, videos and files from their WhatsApp chat. |
+| **Ad leads** | The Meta lead forms they filled, with the ad they came from. |
 
-![The WhatsApp chat beside a contact, with AI Draft.](/images/app/contact-view-chat.png)
+![The Activity tab.](/images/app/contacts/view-activity.png)
+
+![The Notes tab.](/images/app/contacts/view-notes.png)
+
+![The Tasks tab.](/images/app/contacts/view-tasks.png)
+
+## The AI summary
+
+The **AI Summary** card reads their chats and history and gives:
+
+- a mood: **High Interest**, **Positive**, **Needs Attention**, **At Risk**, **Cold** or **Neutral**,
+- **Key insights** (budget, needs, dates they mentioned),
+- a **Recommended next action**.
+
+Click **Generate AI Summary** (or **Regenerate**) to make a new one after new messages. It uses AI credits and can be made once a day per contact.
+
+## Add a note, task or call
+
+<Steps>
+<Step title="Click the button">**Add Note**, **New Task** or **Log Call** (on Overview or its own tab, or the round buttons on the left).</Step>
+<Step title="Fill it in">A note: a title and what you learned. A task: what, when and who. A call: when, how long, the outcome and notes.</Step>
+<Step title="Save">It shows on the contact and in **Activity**. Tasks also show in your task list.</Step>
+</Steps>
+
+## Change their details
+
+Click any detail under **About**: type the new value, or pick from the choices, and press Enter. The owner is picked from your team; labels are ticked from your labels. Turn **WhatsApp opt-in** off when someone asks you to stop messaging them.
+
+![Changing a detail.](/images/app/contacts/view-edit.png)
+
+## FAQ
+
+<AccordionGroup>
+  <Accordion title="Can I change someone's phone number?">
+    Yes, click **Phone** under About. The number must not belong to another contact.
+  </Accordion>
+  <Accordion title="Why is Regenerate grey?">
+    A summary can be made once a day per contact. Hover over it to see when the next one is possible.
+  </Accordion>
+  <Accordion title="Where do I see their WhatsApp messages?">
+    Click the WhatsApp button under their name: their chat opens on the right of the page.
+  </Accordion>
+</AccordionGroup>
+
+## Related
+
+<CardGroup cols={2}>
+  <Card title="All contacts" icon="users" href="/help/audiance/audiance" />
+  <Card title="WhatsApp opt-in" icon="bell-slash" href="/help/audiance/opt-in" />
+  <Card title="Prospects" icon="bullseye" href="/help/sales/prospects" />
+  <Card title="Tasks" icon="list-check" href="/help/sales/tasks" />
+</CardGroup>

@@ -1,76 +1,69 @@
 ---
-title: 'Managing Contact Labels'
-description: 'Use labels (or tags) to organize contacts, trigger automations, and segment your audience for targeted messaging.'
+title: 'Labels'
+description: 'Tag contacts with labels like "Hot lead" or "Paid booking", filter by them and send them a broadcast.'
 icon: 'tags'
 ---
 
-**Labels** (also known as tags) are a flexible way to categorize your contacts. You can use them to mark contacts based on their status, interests, or stage in the customer journey (e.g., `LEAD`, `CUSTOMER`, `FOLLOW UP`).
+A **label** is a tag on a contact, like **Hot lead**, **Site visit booked** or **Paid booking**. One contact can have many labels. Use labels for anything you want to see at a glance in the list and the inbox.
 
-**Want to Manage Contact Labels? [Go to the AdsEra Labels Page &rarr;](https://app.adsera.in/dashboard/contact/labels)**
+**Where:** **Contacts → Fields & settings → Labels**. [Open it →](https://app.adsera.in/dashboard/contact/attributes) and click the **Labels** tab.
 
-This system is crucial for organizing your audience, running targeted campaigns, and managing conversations in the Chat Inbox.
+![The Labels tab.](/images/app/contacts/labels.png)
 
-![The Labels tab in Fields & settings.](/images/app/labels.png)
-
----
-
-## Creating a New Label
-
-Adding new labels to your system is quick and easy.
+## Make a label
 
 <Steps>
-<Step title="1. Open the 'New Label' Modal">
-Click the **"+ New Label"** button located in the top-right corner of the page.
-</Step>
+<Step title="Open the Labels tab">In **Fields & settings**.</Step>
+<Step title="Click New label">Top right of the tab.</Step>
+<Step title="Name it and pick a colour">
+**Title**: up to 15 letters, like "Hot lead". Pick a colour so it stands out.
 
-<Step title="2. Define Your Label">
-A "Create label" modal will appear. You need to provide two details:
-- **Title:** The name of your label (e.g., `Lead`, `Support-Ticket`, `VIP`). This field has a 15-character limit.
-- **Color:** Select a color from the palette to make your label easily identifiable.
-
+![Create label.](/images/app/contacts/label-new.png)
 </Step>
-
-<Step title="3. Create the Label">
-Click the **"Create label"** button to save it. It will now appear in your list of labels.
-</Step>
+<Step title="Click Create label">It's ready to use.</Step>
 </Steps>
 
----
+## The labels table
 
-## Managing Your Labels
+| Column | What it shows |
+| --- | --- |
+| **Label** | The label in its colour. |
+| **Created** | When it was made. |
+| **⋮** | **Edit** (name and colour) or **Delete**. |
 
-The main table on this page lists all the labels you have created.
+**Search labels** finds one by name. Deleting a label removes it from everyone who had it; it can't be undone.
 
-| Column | Description |
-| :--- | :--- |
-| **Label** | A preview of the label, displayed in its chosen color. |
-| **Create At** | The date and time the label was created. |
-| **⋮ (Actions)** | A menu of actions you can perform on the label. |
+Some labels come with every account and can't be changed or deleted (their menu items are grey): **VIP**, **NEW CUSTOMER**, **NEW ORDER**, **PENDING PAYMENT**, **PAID**, **ORDER COMPLETE** and **ISSUE**. They're used by orders and payments.
 
-#### Label Actions (The ⋮ Menu)
+## Put labels on people
 
-Clicking the three-dot menu on any label row allows you to manage it:
+- **Many at once:** on **All contacts**, tick people (or filter and **Select all**), then **Add labels**. See [Act on many contacts](/help/audiance/bulk).
+- **One person:** click **Labels** on their page or side panel and tick the labels.
+- **From a chat:** in the Inbox, add labels from the customer's details. See [Labels and lists in the inbox](/help/inbox/team).
+- **From a form:** everyone who fills a [form](/help/sales/forms) can get labels you pick.
 
-- **Edit:** This will open a modal allowing you to change the label's name and color.
-- **Delete:** This permanently removes the label from the system.
-  <Warning>
-    Deleting a label will also remove it from all contacts it has been applied to. This action cannot be undone.
-  </Warning>
+## Use labels
 
----
+- **Filter:** **Add a filter → Labels → has** (or **doesn't have**). The first three labels also show as **Try:** buttons.
+- **Segment:** save that filter as a [segment](/help/audiance/segment) to send it broadcasts again and again.
+- **Inbox:** labels show on each chat, and you can filter chats by label.
 
-## How to Use Labels
+## FAQ
 
-Labels are integrated across the AdsEra platform to make your workflow more efficient.
+<AccordionGroup>
+  <Accordion title="Label or list?">
+    A label is a tag on a person ("Hot lead"); a list is a group you send to ("Diwali expo 2026"). Many teams label people as they talk to them, then filter by the label when it's time to send.
+  </Accordion>
+  <Accordion title="How do I remove a label from many people?">
+    Remove it on each person, or delete the label to remove it from everyone.
+  </Accordion>
+</AccordionGroup>
 
-<CardGroup>
-  <Card title="In the Chat Inbox" icon="comments">
-    Agents can apply labels directly to contacts during a conversation to categorize them in real-time. [Learn more in the Chat Inbox guide](/help/inbox/chat).
-  </Card>
-  <Card title="For Bulk Actions" icon="list">
-    Select multiple contacts on the [All Audience](/help/audiance/audiance) page and apply or remove a label for all of them at once.
-  </Card>
-  <Card title="To Create Segments" icon="filter">
-    Labels are a powerful filter criterion. Create dynamic segments of contacts who have (or do not have) a specific label.
-  </Card>
+## Related
+
+<CardGroup cols={2}>
+  <Card title="Act on many contacts" icon="list-check" href="/help/audiance/bulk" />
+  <Card title="Filter contacts" icon="filter" href="/help/audiance/filters" />
+  <Card title="Fields" icon="table-list" href="/help/audiance/attribute" />
+  <Card title="Segments" icon="layer-group" href="/help/audiance/segment" />
 </CardGroup>

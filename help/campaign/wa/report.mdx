@@ -1,95 +1,111 @@
 ---
 title: 'Broadcast reports'
-description: 'Understand your WhatsApp campaign performance with in-depth analytics on delivery, reads, replies, and more.'
-icon: 'magnifying-glass-chart'
+description: 'See how many people got, read and replied to a broadcast, why some messages failed, and send a follow-up to the right people.'
+icon: 'chart-line'
 ---
 
-After sending a WhatsApp campaign, understanding its performance is key to optimizing your future messaging strategy. The Campaign Report provides in-depth analytics, offering crucial insights into how your recipients are engaging with your messages.
+Every broadcast has a report: how it went overall, and person by person.
 
-### How to Access Your Campaign Report
+**Where:** **WhatsApp → Broadcasts** → **Report** on a broadcast (or **⋮ → View report**).
+
+![The report Overview.](/images/app/whatsapp/report-overview.png)
+
+At the top: the broadcast name, its template and the number it went from. **Refresh** gets the latest numbers; **Analytics Guide** explains everything on the page.
+
+![Analytics Guide.](/images/app/whatsapp/report-guide.png)
+
+
+## Overview tab
+
+| Number | What it means |
+| --- | --- |
+| **Sent** | Handed to WhatsApp for delivery |
+| **Delivered** | Reached the phone |
+| **Read** | Opened. People who turned off read receipts aren’t counted. |
+| **Replied** | Wrote back or tapped a quick reply button |
+| **Failed** | Couldn’t be delivered (see the Failed tab for why) |
+
+**Explain & improve** asks Ask AI what went well and what to change next time. **View contacts** lists the people behind a number. **Activity over time** shows when messages were delivered and read; filter it by **All**, **1 Hour**, **6 Hours**, **24 Hours** or a date range.
+
+## The tabs
+
+| Tab | Shows |
+| --- | --- |
+| **Overview** | The numbers above |
+| **Deliverability** | Sent vs delivered, and who got it |
+| **Retry** | Messages Meta is holding back for up to 24 hours and will try again (“Meta optimization”) |
+| **Pending** | Not delivered yet, usually phones that are off |
+| **Read** | Who read it |
+| **Replies** | Who replied, and what (a typed text or the button they tapped) |
+| **Failed** | Who didn’t get it, and why |
+| **Subscribed** | People who sent your opt-in word (like START) after it |
+| **Unsubscribed** | People who sent your opt-out word (like STOP) after it |
+
+![Deliverability.](/images/app/whatsapp/report-deliverability.png)
+
+![Read: who read it, with Smart segregation.](/images/app/whatsapp/report-read.png)
+
+![Replies: what each person answered.](/images/app/whatsapp/report-replies.png)
+
+![Retry: held by Meta for up to 24 hours.](/images/app/whatsapp/report-retry.png)
+
+
+![Pending: not delivered yet.](/images/app/whatsapp/report-pending.png)
+
+
+![Subscribed: people who opted back in after it.](/images/app/whatsapp/report-subscribed.png)
+
+
+![Unsubscribed: people who opted out after it.](/images/app/whatsapp/report-unsubscribed.png)
+
+## Why did messages fail?
+
+![Failed: each person with the reason in plain words.](/images/app/whatsapp/report-failed.png)
+
+| Code | Plain words | What to do |
+| --- | --- | --- |
+| 131049 | Meta held it back: this person got many marketing messages recently | Normal. Try them again in a few days |
+| 131026 | The number isn’t on WhatsApp, or their app is too old | Check the number; call or SMS them |
+| 131047 | More than 24 hours since their last message | Use an approved template (broadcasts always do; this shows for chat messages) |
+| 131050 | They stopped marketing messages from businesses | Don’t retry marketing to them |
+| 131048 | Too many people blocked or reported you | Pause, improve your messages, send to people who opted in |
+| 131056 | Too many messages to the same person quickly | Space out messages |
+| 130429 | Your number hit Meta’s speed limit | It retries; send smaller batches |
+| 131042 | A Meta payment problem | Fix your payment method in Meta Business Settings |
+| 132001 / 132015 / 132016 | Template missing, paused or disabled | Use an approved template |
+
+Each failed row also links to **Meta’s explanation** for its code.
+
+## Follow up with a group (Retargeting)
+
 <Steps>
-    <Step title="1. Navigate to Your Campaign List">
-      From your AdsEra Dashboard, click on **WhatsApp → Broadcasts**.
-    </Step>
-    <Step title="2. Select a Campaign">
-      On the Campaign List page, locate the sent campaign you wish to analyze.
-    </Step>
-    <Step title="3. Open the Report">
-      On that campaign's card, click the **analytics icon (📊)** to open the detailed report.
-    </Step>
+<Step title="Open a tab">Open **Read** (or another tab).</Step>
+<Step title="Pick the group">Under **Smart segregation**, choose **Has Read**, **Has not Read**, **Has Reply** or **Has not Reply**, or **Choose a Button…** to see who tapped a certain button.</Step>
+<Step title="Tick people">Tick the people (or all of them).</Step>
+<Step title="Retargeting">Click **Retargeting**. A window opens to pick a template for these people. It is saved as a draft: send it with **Send now** from Broadcasts.</Step>
 </Steps>
 
----
+**Export** downloads the people in the current tab and filter, to call them or use elsewhere.
 
-## Understanding the Report Interface
+## Broadcast audience page
 
-At the top of your report, you'll find a preview of your message, essential campaign details, and a graph filter that applies to all tabs.
+**View contacts** opens everyone in the broadcast with their status. Use the time filters and **Customize column** to choose what you see, and click a person to open their contact.
 
-- **Campaign Details:** Includes the **Campaign Name**, **Sent On** time, the **Template** used, and the sending **Channel** (WABA).
-- **Graph Filter:** Allows you to view performance data over specific timeframes: **1 Hour**, **6 Hours**, **24 Hours**, or a **custom date range**.
 
-The main report is divided into the following tabs, each providing a unique view of your campaign's performance:
+## FAQs
 
-<Tabs>
-<Tab title="Overview">
-  The **Overview** tab provides a high-level summary of your campaign's key performance indicators (KPIs).
+<AccordionGroup>
+<Accordion title="Why is Read lower than I expected?">
+  People who turned off read receipts never show as read, even when they read it.
+</Accordion>
+<Accordion title="When are the numbers final?">
+  Most deliveries happen in minutes. Retry can take up to 24 hours. Click **Refresh** to update.
+</Accordion>
+</AccordionGroup>
 
-  | Metric | Description & Interpretation |
-  | :--- | :--- |
-  | **Total Sent** | The total number of messages dispatched from AdsEra. |
-  | **Delivered To** | The number of messages successfully delivered to recipients' devices. A high delivery rate is key. |
-  | **Read** | The number of unique recipients who have read your message (indicated by blue ticks). This measures engagement. |
-  | **Replies**| The number of unique contacts who replied to your campaign message. |
-  | **Failed** | The number of messages that failed to deliver (e.g., invalid number). |
-  | **Subscribed** | The number of users who opted-in as a result of this campaign. |
-  | **Unsubscribed** | The number of users who opted-out after receiving this campaign. |
+## Related
 
-  Below the metrics, a graph visualizes these key activities over time, helping you identify trends.
-</Tab>
-
-<Tab title="Deliverability">
-  This tab provides a detailed breakdown of your message delivery success. You can see the total **Recipients**, how many messages were **Sent**, and how many were successfully **Delivered**.
-
-  <Card title="Smart Segregation: Delivered Audience" icon="address-book">
-    This section lists all contacts who received your message. You can filter this list by read status (`Has Read` / `Has not Read`) and by time frame. Use the checkboxes to select contacts and click **"Retargeting"** to create a new campaign for this specific audience.
-  </Card>
-</Tab>
-
-<Tab title="Read">
- This tab focuses on who has seen your message. It shows the total number of **Recipients**, how many have been **Delivered** to, and the final count of contacts who have **Read** the message. The **Read Rate** gives you a clear percentage of engagement. The list below allows you to segment and retarget users based on their read status.
-</Tab>
-
-<Tab title="Replies">
-  This tab is crucial for measuring direct engagement and conversation starters. It shows the number of recipients who **Read** the message versus how many sent a **Reply**. The **Reply Rate** is a powerful indicator of how compelling your message and call-to-action were.
-
-  <Info>
-  The **Smart Segregation** table on this tab shows the exact reply message (`Reply Msg`) from each contact, giving you direct insight into customer responses.
-  </Info>
-</Tab>
-
-<Tab title="Failed">
-  This tab lists all the contacts to whom the message could not be delivered. Reviewing this list is important for maintaining a clean and effective contact database. The table will show the contact details and the specific **Fail Reason** for each, helping you diagnose issues with invalid numbers.
-</Tab>
-
-<Tab title="Subscribed & Unsubscribed">
-  These tabs help you track changes in your audience's consent status resulting from this campaign.
-  - **Subscribed:** Lists any contacts who opted-in.
-  - **Unsubscribed:** Lists any contacts who opted-out. Monitoring this tab is critical for understanding if your content is meeting audience expectations.
-</Tab>
-</Tabs>
-
----
-
-## Pro Tips for Analyzing Your Reports
-
-<CardGroup>
-  <Card title="Focus on the Read Rate" icon="eye">
-    Unlike email, WhatsApp's read receipts give you a very accurate measure of engagement. A high delivery rate but a low read rate might indicate that your message was sent at a bad time or that the contact is no longer active.
-  </Card>
-  <Card title="Analyze Replies for Insights" icon="lightbulb">
-    The "Replies" tab is a goldmine of customer feedback. Analyze the `Reply Msg` column to understand customer questions, feedback, and interest levels, which can inform your next campaign.
-  </Card>
-   <Card title="Use Smart Segregation for Retargeting" icon="layer-group">
-    The "Retargeting" button is a powerful feature. Create follow-up campaigns for users who **read but did not reply**, or for those who **replied with specific keywords**, to create highly personalized customer journeys.
-  </Card>
+<CardGroup cols={2}>
+  <Card title="Your broadcasts" icon="list" href="/help/campaign/wa/list">Statuses and actions.</Card>
+  <Card title="Number health" icon="mobile" href="/help/channel/whatsapp/troubleshooting">When many messages fail.</Card>
 </CardGroup>

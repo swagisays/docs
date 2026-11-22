@@ -1,54 +1,112 @@
 ---
 title: 'WhatsApp Flows'
-description: 'Build in-chat forms on WhatsApp (lead forms, bookings, surveys, sign-ups) with a visual builder and a live phone preview.'
+description: 'Build forms that open inside the WhatsApp chat (bookings, sign-ups, surveys) screen by screen, save them, publish them and send them.'
 icon: 'mobile-screen'
 ---
 
-**WhatsApp Flows** are forms that open **inside the WhatsApp chat**. Customers fill in screens with text fields, dates, choices, photos or documents without leaving WhatsApp. Use them for lead forms, appointment bookings, surveys, sign-ups and orders.
+A **WhatsApp Flow** is a form that opens **inside the chat**. Customers fill in screens (text, dates, choices, photos, documents) without leaving WhatsApp, and their answers are saved to their contact. Use flows for site visit bookings, lead forms, admissions, surveys and sign-ups.
 
-Open it from **WhatsApp → WhatsApp Flows** in the menu on the left.
+**Where:** **WhatsApp → WhatsApp Flows** (side menu, under **Send & reply**). [Open it →](https://app.adsera.in/dashboard/whatsapp/flow/list)
 
-## Create a flow
+![WhatsApp Flows list.](/images/app/whatsapp/flows-list.png)
+
+## The list
+
+| Column / control | What it shows |
+| --- | --- |
+| **Filter by WhatsApp Account** | Flows belong to one WhatsApp Business account |
+| **Search flows…** | Find by name |
+| **Sync from Meta** | Bring in flows made in Meta’s Flow Builder |
+| **Create Flow** | Start a new flow |
+| Name, Status, Categories, Validation, Created | Status is **Draft**, **Published** or **Deprecated**; Validation shows problems Meta found |
+| **⋮** | **Edit**, **Publish** (drafts), **Deprecate** (published), **Delete** |
+
+
+![No flows yet.](/images/app/whatsapp/flows-empty.png)
+
+## Build a flow
 
 <Steps>
-<Step title="Start">
-  Click to create a flow. Enter the **Flow name**, choose the **WhatsApp account** and pick **What is this flow for?** (the category). You can also **Import Flow JSON**, or describe the flow and let AI generate it.
-</Step>
-<Step title="Build the screens">
-  Add screens and fields in the outline. The live phone preview shows how each screen looks. Fields include:
-  - text and links,
-  - text inputs (with minimum and maximum characters),
-  - dates (with the earliest and latest date),
-  - single and multiple choice,
-  - photo and document pickers,
-  - images and image carousels.
+<Step title="Create Flow">
+  Click **Create Flow**. Type the **Flow name** (only your team sees it) and pick the **WhatsApp account**.
 
-  Each field has a **Field key**: the name its answer is saved under in responses and CRM mapping. Turn on **Pass answers between screens for me** to carry answers forward automatically.
+  ![A new flow.](/images/app/whatsapp/flow-new.png)
 </Step>
-<Step title="Add dynamic data (optional)">
-  Under **Integration Type**, choose:
-  - **Cal.com — Appointment Booking** or **Calendly — Appointment Booking**: the flow shows real free slots and books them. Map the date, time slot, name and email fields.
-  - **Custom API**: your own **Slots Endpoint URL** and **Booking Endpoint URL**.
-  - **Rules-Based Logic Engine**: show screens and options based on earlier answers.
+<Step title="Add a screen">
+  Click **Add first screen**. Each screen is one page of the form; **New screen** adds more. The screen’s ⋮ menu can **Rename screen**, mark it **Last screen**, **Duplicate screen** or **Delete screen**.
+
+  ![The builder with one screen and the phone preview.](/images/app/whatsapp/flow-builder.png)
 </Step>
-<Step title="Save or publish">
-  **Save draft** to keep working. **Publish** sends the flow to WhatsApp. Before publishing, AdsEra checks the flow, for example that it has at least one screen and that one screen is marked **Last screen**. Fix any items it lists.
+<Step title="Add questions and text">
+  Click “This screen is empty. Add a question, or type /” (or **Add a component**) and pick one. Use **Move up** / **Move down** to reorder.
+
+  ![Pick what to add.](/images/app/whatsapp/flow-add-question.png)
+</Step>
+<Step title="Mark the last screen">
+  Switch on **Last screen** on the final screen. Its button sends the answers. The red **problem** box lists anything left to fix; when it says “No problems found”, the flow is ready.
+</Step>
+<Step title="Try it">
+  The phone **Preview** shows the flow as customers see it. Click through it; **Restart** starts again.
+</Step>
+<Step title="Save draft">
+  Click **Save draft**. Pick **What is this flow for?** (Meta asks for at least one), choose an integration if it needs live data (see [Book appointments](/help/automation/whatsapp-flows-booking)), keep **Pass answers between screens for me** on, and click **Save draft**.
+
+  ![Save draft: what the flow is for.](/images/app/whatsapp/flow-save.png)
+</Step>
+<Step title="Publish">
+  When it is ready, click **Publish** (in the editor or the list’s ⋮ menu). The checklist must be all green: has at least one screen, one screen is the last screen, no problems.
+
+  ![Publish to WhatsApp: the checklist.](/images/app/whatsapp/flow-publish.png)
 </Step>
 </Steps>
 
-<Warning>
-  A **published** flow can't be edited on WhatsApp. To change it, create a new version. Old versions can be **deprecated**.
-</Warning>
+<Warning>A **published** flow can’t be edited or deleted: WhatsApp doesn’t allow it. To change it, build a new flow (you can paste its JSON with **Import JSON**) and **Deprecate** the old one.</Warning>
+
+## What you can add to a screen
+
+| Group | Components |
+| --- | --- |
+| **Questions** | Short answer (name, email, phone, number), Long answer (message or address), Date, Calendar (a date or a range) |
+| **Choices** | Dropdown, Checkboxes, Single choice, Consent checkbox (“I agree to…”), Chips |
+| **Text** | Heading, Subheading, Paragraph, Small print, Formatted text (lists, links, tables), Link |
+| **Media** | Image, Photo upload, Document upload, Image carousel |
+| **Advanced** | Menu list, Show if… / Show by value… (show parts only for some answers), Form group |
+
+**What is this flow for?** options: Lead generation, Appointment booking, Sign up, Sign in, Contact us, Customer support, Survey, Other.
+
+## Outline and JSON Editor
+
+The **Outline** tab is the visual builder. **JSON Editor** shows the flow as code for developers; **Apply to Builder** loads edited code back.
+
+![JSON Editor.](/images/app/whatsapp/flow-json.png)
+
+## Import a flow
+
+Click **Import JSON**, paste a flow’s JSON (from a developer or Meta’s Flow Builder) and click **Import** (or **Replace flow** if the flow already has screens).
+
+![Import Flow JSON.](/images/app/whatsapp/flow-import.png)
+
+## Publish, deprecate, delete
+
+![A flow’s ⋮ menu.](/images/app/whatsapp/flow-menu.png)
+
+| Action | What happens | Undo? |
+| --- | --- | --- |
+| **Publish** | It can be sent to customers. It can’t be edited or deleted any more. | No |
+| **Deprecate** | It can’t be sent any more. People who already have it may still open it. | No |
+| **Delete** | A draft is removed from WhatsApp and AdsEra. A published flow is deprecated instead. | No |
 
 ## Send a flow
 
-- in a [template](/help/template/wa) with a flow button,
-- from a [workflow](/help/automation/workflows),
-- as an [Addy](/help/ai/addy) quick action,
-- or from **Chat**.
+- From a template: add a **WhatsApp Flow** button. See [Template buttons](/help/template/buttons).
+- From a quick reply: interactive type **WhatsApp Flow (form)**. See [Interactive quick replies](/help/snippet/interactive).
+- From a chat: attach a flow in the reply box (published flows only).
 
-Answers are saved to the contact and can start a workflow.
+Answers are saved to the contact, and can start workflows.
 
-## The flow list
+## Related
 
-The list shows each flow's name, status (**Draft**, **Published** or **Deprecated**), categories, validation result and creation date. Filter it by WhatsApp account or search by name.
+<CardGroup cols={2}>
+  <Card title="Book appointments with a flow" icon="calendar" href="/help/automation/whatsapp-flows-booking">Cal.com and Calendly.</Card>
+  <Card title="Template buttons" icon="hand-pointer" href="/help/template/buttons">Send a flow in a template.</Card>
+</CardGroup>

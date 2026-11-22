@@ -1,85 +1,57 @@
 ---
 title: 'Create a quick reply'
-description: 'A detailed, step-by-step guide to building rich, interactive, and text-based quick replies for your WhatsApp conversations.'
-icon: 'file-plus'
+description: 'Save a text, photo, video, audio or document reply, with the person’s name if you like, to send in one tap.'
+icon: 'pen'
 ---
 
-Creating quick replies in AdsEra allows you to build a library of powerful, reusable message blocks that your agents can use to respond to customers quickly and consistently. The creator provides a live preview on the right, so you can see your message take shape as you build it.
+**Where:** **WhatsApp → Quick replies → New quick reply**. [Open it →](https://app.adsera.in/dashboard/snippets/create)
 
-Open [WhatsApp → Quick replies &rarr;](https://app.adsera.in/dashboard/snippets/list) and click **New quick reply**.
+![A new Text quick reply with its preview.](/images/app/whatsapp/qr-new-text.png)
 
-![WhatsApp → Quick replies, with the New quick reply button.](/images/app/snippet-new.png)
-
-### The quick reply creation process
-
-After navigating to the [Quick replies](https://app.adsera.in/dashboard/snippets/list) page and clicking **"New quick reply"**, you will be guided through the following steps.
+## Step by step
 
 <Steps>
+<Step title="Name it">In **Name**, something you will search when you type / in a chat, like “Visiting hours”.</Step>
+<Step title="Pick the type">
+  In **Type**, choose one:
 
-<Step title="1. Basic Setup: Name and Type">
-  Every quick reply starts with two essential settings:
+  ![The quick reply types.](/images/app/whatsapp/qr-types.png)
 
-  - **Name:** A clear, internal name for the quick reply (e.g., "Welcome Message," "Pricing Inquiry"). This is what your agents will search for in the Chat Inbox to find the right quick reply.
-  - **Type:** The kind of message you want to create. The options available in the builder will change based on the type you select here. The available types are:
-    - **Text:** A simple text-only message.
-    - **Image:** An image with an optional caption.
-    - **Video:** A video with an optional caption.
-    - **Document:** A document (like a PDF) with an optional caption.
-    - **Interactive:** A message that includes a header, body, footer, and interactive buttons or lists.
+  | Type | What it sends | Fields |
+  | --- | --- | --- |
+  | **Text** | Words only | **Text** (up to 4,096 characters), **Add personalization**, **Link preview** |
+  | **Image** | A photo with a caption | **Select Media** (or **Link**), **Caption** |
+  | **Video** | A video with a caption | **Select Media**, **Caption** |
+  | **Audio** | A voice note or audio file | **Select Media** |
+  | **Document** | A PDF or file | **Select Media**, **File Name**, **Caption** |
+  | **Interactive** | Buttons, a list menu, a link button, a carousel, Pay Now and more | See [Buttons, lists and Pay Now](/help/snippet/interactive) |
 </Step>
+<Step title="Write it or add the file">
+  For text, write it the way you would type it in a chat. **Add personalization** inserts the person’s name or another contact field, so it reads “Hi Ravi!”. Tick **Link preview** to show a preview of the first link.
 
-<Step title="2. Composing Your Quick reply Content">
-  This is where you'll build the actual message. The interface will adapt based on the **Type** you selected in Step 1.
+  For media, click **Select Media** to upload or pick a file from your files, and add a caption.
 
-  <Tabs>
-  <Tab title="Text replies">
-    This is the most straightforward quick reply type, perfect for simple text replies.
+  ![A Document quick reply.](/images/app/whatsapp/qr-new-document.png)
 
-    - **Text:** Write your message in the main text box. You have up to 4096 characters.
-    - **Add personalization:** Click this button to insert variables like `{{FIRSTNAME}}` or `{{CODE}}` that will be automatically replaced with the contact's data.
-    - **Link Preview:** If your text contains a URL (e.g., `https://adsera.in`), check this box to automatically generate a rich link preview thumbnail in the WhatsApp chat.
-  </Tab>
-
-  <Tab title="Media replies (Image/Video/Document)">
-    These quick replies allow you to send files as quick replies.
-
-    - **Adding Media:** You have two options to attach your file:
-        - **Link:** Paste a direct public URL to your media file.
-        - **Select Media:** Click this button to open the **File Manager** and choose a file you've already uploaded to AdsEra.
-    - **Caption:** Add an optional text message (up to 1024 characters) that will be sent along with your media file. This field also supports personalization.
-  </Tab>
-
-  <Tab title="Interactive replies">
-    These are the most powerful quick replies for guiding a conversation and prompting specific user actions.
-
-    First, choose the **Interactive Type**:
-    - **Button:** A message with up to 3 quick reply buttons.
-    - **List:** A message with a single button that, when tapped, opens a list of up to 10 options for the user to choose from.
-
-    Next, configure the components of your message:
-    <AccordionGroup>
-      <Accordion title="Header (Optional)">
-        Add a header to your message. The header type can be **Text**, **Image**, **Video**, or **Document**. This is great for adding a title or visual element to grab attention.
-      </Accordion>
-      <Accordion title="Body">
-        Write the main text content of your message (up to 1024 characters). You can use formatting (like `*bold*` and `_italic_`) and personalization variables here.
-      </Accordion>
-      <Accordion title="Footer (Optional)">
-        Add a short line of text (up to 60 characters) at the bottom of your message, often used for a signature or a brief closing note.
-      </Accordion>
-      <Accordion title="Action: Buttons or List">
-        This is where you configure the interactive elements:
-        - **If Button Type:** You can add up to 3 quick reply buttons. Each button has a title with a 20-character limit.
-        - **If List Type:** You must first set the main **Button Text** (e.g., "View Options"). Then, you can create one or more **Sections**, each with its own title. Within each section, you can add up to 10 **Rows**, each with a title and an optional description.
-      </Accordion>
-    </AccordionGroup>
-  </Tab>
-  </Tabs>
+  ![An Image quick reply.](/images/app/whatsapp/qr-new-image.png)
 </Step>
-
-<Step title="3. Finalize and Create">
-  As you build your quick reply, use the **live Preview** on the right side of the screen to see exactly how your message will look on a mobile device.
-
-  Once you are satisfied with your quick reply, click the **"Create"** button at the bottom to save it to your library. It will now be available for your agents to use in the [WhatsApp Chat Inbox](/help/inbox/chat).
-</Step>
+<Step title="Check the preview">The phone on the right shows how it looks.</Step>
+<Step title="Create">Click **Create**. You land on the list for that type.</Step>
 </Steps>
+
+## Limits
+
+| What | Limit |
+| --- | --- |
+| Text | 4,096 characters |
+| Images | JPG or PNG, up to 5 MB |
+| Video | MP4, up to 16 MB |
+| Audio | Up to 16 MB |
+| Documents | Up to 100 MB |
+
+## Related
+
+<CardGroup cols={2}>
+  <Card title="Quick replies" icon="bolt" href="/help/snippet/list">Find, edit and use them.</Card>
+  <Card title="Buttons, lists and Pay Now" icon="hand-pointer" href="/help/snippet/interactive">Interactive types.</Card>
+</CardGroup>

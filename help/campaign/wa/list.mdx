@@ -1,67 +1,70 @@
 ---
-title: 'Broadcasts'
-description: 'Your central hub for managing all WhatsApp campaigns, from drafts to sent, and monitoring their performance at a glance.'
-icon: 'whatsapp'
-iconType: 'brands'
----
-**Want to Manage WhatsApp Campaigns? [Go to the AdsEra WhatsApp Campaign Page &rarr;](https://app.adsera.in/dashboard/campaign/whatsapp/list)**
-
-The WhatsApp Campaign List is your command center for managing all your WhatsApp marketing efforts. This page provides a real-time snapshot of all your campaigns, allowing you to quickly assess performance, create new campaigns, and manage existing ones with ease.
-
-![WhatsApp → Broadcasts in AdsEra.](/images/app/broadcasts-filled.png)
-### Opening your broadcasts
-Click **WhatsApp** in the menu on the left, then **Broadcasts**.
-
+title: 'Your broadcasts'
+description: 'The Broadcasts list: what each status means, Send now, View report, Edit, Duplicate, View sheet script and Delete.'
+icon: 'list'
 ---
 
-## What each broadcast shows
+**Broadcasts** lists every broadcast you made, newest first, with its numbers.
 
-Each card on the list represents an individual WhatsApp campaign and provides key information at a glance. Here's a detailed breakdown:
+**Where:** **WhatsApp → Broadcasts** (side menu, under **Send & reply**). [Open it →](https://app.adsera.in/dashboard/campaign/whatsapp/list)
 
-| Section | Field / Metric | Description |
-| :--- | :--- | :--- |
-| **Header** | **Campaign Name** | The internal name you assigned to your campaign for easy identification. |
-| | **Sent On / Last Updated** | The date and time the campaign was sent. For drafts, this shows the last time it was modified. |
-| | **Status Tag** | A color-coded tag indicating the campaign's current status: `DRAFT` or `SENT`. |
-| **Details** | **Channel** | The specific WhatsApp Business Account (WABA) number used to send the campaign. |
-| | **Template** | The name of the pre-approved WhatsApp Message Template used for the campaign. |
-| **Metrics** | **Recipients** | The total number of unique contacts the campaign was sent to. |
-| | **Delivers** | The number of messages successfully delivered to the recipients' devices. |
-| | **Read**| The number of recipients who have read the message (indicated by blue ticks). |
-| | **Failed**| The number of messages that failed to deliver. |
+![The Broadcasts list.](/images/app/whatsapp/broadcasts-list.png)
 
----
+Each row shows the name, the status and when it changed, the template and the number it went from, and **Recipients**, **Delivered**, **Read** and **Failed** (with the share of recipients). A Google Sheet broadcast has a **Sheet** label. Use the date range and **Search by name** at the top to find one.
 
-## Searching and Filtering Your Campaigns
+## Statuses
 
-To help you find specific campaigns quickly, you have powerful filtering options at the top of the page:
+| Status | What it means | What you can do |
+| --- | --- | --- |
+| **Draft** | Saved, not sent. | **Send now**, **Edit**, **Duplicate**, **Delete** |
+| **Scheduled** | Waiting for its date and time; then it starts by itself. | **View report** (empty until it starts), **Duplicate** |
+| **Processing** | Getting ready to send (checking the audience and limits). | Wait |
+| **Sending** | Messages are going out. | **View report** to watch it |
+| **Sent** | Finished. | **View report**, **Duplicate** |
+| **Failed** | It couldn’t start, for example the template was paused or the plan ran out. | **Duplicate** and send again after fixing the cause |
 
-- **Date Range Filters:** Use the **Start** and **End** date pickers to narrow down your list to campaigns sent within a specific period.
-- **Search Bar:** Type into the **Search...** field to find campaigns by their name.
+## The row buttons and ⋮ menu
 
----
+A draft has an **Edit** button; other broadcasts have **Report**. The **⋮** menu (More actions) has:
 
-## Actions: Managing Your Campaigns
+![The ⋮ menu of a draft.](/images/app/whatsapp/broadcast-menu.png)
 
-Each campaign card provides direct actions to help you manage your campaigns effectively.
+| Item | What it does |
+| --- | --- |
+| **Send now** | Drafts only. Asks you to confirm, then starts sending. It can’t be stopped once it starts. If the broadcast has a future scheduled time, it waits for that time instead. |
+| **View report** | Opens the report. See [Broadcast reports](/help/campaign/wa/report). |
+| **Edit** | Drafts only. Opens the 2-step form. Follow-up (retargeting) broadcasts can’t be edited. |
+| **Duplicate** | Makes a copy with the same audience and template, to change and send again. |
+| **View sheet script** | Google Sheet broadcasts set to **Automated** only. Shows the script to paste in your sheet. See [Send to a Google Sheet](/help/campaign/wa/google-sheet). |
+| **Delete** | Drafts only. Deletes it for good. |
+
+![Send now asks you to confirm.](/images/app/whatsapp/broadcast-send-confirm.png)
+
+<Note>Meta charges for each message it delivers. The confirm window says how many people it goes to.</Note>
+
+## No broadcasts yet
+
+![Empty Broadcasts list.](/images/app/whatsapp/broadcasts-empty.png)
+
+Click **New broadcast** to make your first one. See [Create a broadcast](/help/campaign/wa/create).
+
+## FAQs
 
 <AccordionGroup>
-  <Accordion title="Creating a New WhatsApp Campaign">
-    To start building a new broadcast, click the **"+ New campaign"** button located at the top right of the page. This will take you to the WhatsApp campaign creation wizard.
-
-    For a full walkthrough, see our guide on [Creating a WhatsApp Campaign](/help/campaign/wa/create).
-  </Accordion>
-  <Accordion title="Viewing a Detailed Report (Analytics)">
-    For any sent campaign, click the **analytics icon (📊)** to navigate to a detailed report. Here you can find in-depth statistics, including a timeline of delivery and read receipts for each contact.
-
-    Learn more in our guide to [Analyzing WhatsApp Campaign Reports](/help/campaign/wa/report).
-  </Accordion>
-  <Accordion title="Using the More Options (⋮) Menu">
-    The **three-dots (...) menu** on each card reveals a dropdown with several key actions:
-    - **Start:** For Draft campaigns, this allows you to initiate the sending or scheduling process.
-    - **Copy:** Creates an exact duplicate of the campaign, including its template, settings, and recipients.
-    - **Edit:** (Appears as a **pencil icon ✏️** on Drafts) Allows you to make changes to the campaign's setup before sending.
-    - **Delete:** Permanently removes the campaign from your list.
-      <Warning>This action cannot be undone. All data associated with the campaign will be lost.</Warning>
-  </Accordion>
+<Accordion title="I clicked Create Campaign but nothing was sent">
+  It is a draft. Open **⋮ → Send now**.
+</Accordion>
+<Accordion title="How do I send the same broadcast again?">
+  **⋮ → Duplicate**, then **Send now** on the copy.
+</Accordion>
+<Accordion title="Why is Edit greyed out?">
+  Only drafts can be edited. Duplicate a sent or scheduled broadcast to change it.
+</Accordion>
 </AccordionGroup>
+
+## Related
+
+<CardGroup cols={2}>
+  <Card title="Create a broadcast" icon="bullhorn" href="/help/campaign/wa/create">The 2-step form.</Card>
+  <Card title="Broadcast reports" icon="chart-line" href="/help/campaign/wa/report">Who read and replied.</Card>
+</CardGroup>

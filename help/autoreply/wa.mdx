@@ -1,85 +1,114 @@
 ---
 title: 'Auto-replies and welcome messages'
-description: 'Greet every new conversation with a welcome message, and send automatic replies to specific keywords on WhatsApp.'
+description: 'Greet every new conversation with a welcome message, and answer common questions like “price” or “location” by themselves, day and night.'
 icon: 'robot'
 ---
 
-**Auto-Reply** is a powerful automation feature that allows you to set up automatic responses in your WhatsApp inbox. When a user sends a message containing a specific keyword you've defined, AdsEra will instantly trigger a pre-written reply. This is perfect for answering frequently asked questions, starting a conversation, or guiding users to the right information 24/7.
+**Auto-replies** answer WhatsApp messages for you:
 
-**Want to manage WhatsApp Auto-Reply? [Go to the AdsEra Auto-Reply Page &rarr;](https://app.adsera.in/dashboard/autoreply/whatsapp/list)**
+- a **welcome message** for anyone who starts a conversation, and
+- **keyword replies** for words like “price”, “location” or “timing”.
 
-![WhatsApp → Auto-replies in AdsEra.](/images/app/autoreply.png)
-### The Auto-Reply Creation Process
+They work on all your WhatsApp numbers, at any hour, and send one or more [quick replies](/help/snippet/list) (text, photos, documents or buttons).
 
-To begin, go to **WhatsApp → Auto-replies** and click **New auto-reply**. This will launch a two-step creation wizard.
+**Where:** **WhatsApp → Auto-replies** (side menu, under **Send & reply**), or **Numbers & profile → Automation → Welcome message → Set up**. [Open it →](https://app.adsera.in/dashboard/autoreply/whatsapp/list)
 
-<Steps>
+![The Auto-replies list.](/images/app/whatsapp/autoreply-list.png)
 
-<Step title="Step 1: When it replies">
-  This step defines *what* the user needs to say to trigger your automated response.
+## The list
 
-  #### Keywords
-  - **Add Keywords:** In the "Keyword" field, type a word or phrase (e.g., `Hello`, `Pricing`, `Demo`) and click **"Add"**. You can add multiple keywords that will all trigger the same reply. The keywords will appear as chips in the list below.
-  - **Remove a Keyword:** Click the `x` on any keyword chip to remove it.
+| Column | What it shows |
+| --- | --- |
+| Keywords | The words it answers, or **Welcome message** |
+| Created | When it was made |
+| Matching | **Similar words (80%)**, **Exact words**, **Contains the word**, or for a welcome: **First message only** / “New conversations, and after 24 hours quiet” |
+| Replies | The quick replies it sends. Click one to see it. |
+| Status | **On** or **Off** |
 
-  #### When should it reply?
-  This setting determines how strictly AdsEra should match the incoming message to your keywords.
-  - **Similar words (handles typos):** (Recommended) Allows for minor misspellings and variations. You can use the slider to set the sensitivity, with 100% being a very close match and a lower percentage being more lenient.
-  - **Exact words:** The user's message must match one of your keywords perfectly.
-  - **Message contains the word:** The user's message must contain one of your keywords anywhere within it.
+Type in **Search keywords** to find one. The **⋮** menu on a row has **Edit**, **Turn off** / **Turn on** and **Delete**.
 
-  Once you've configured your keywords and matching method, click **"Next"**.
-</Step>
+![No auto-replies yet.](/images/app/whatsapp/autoreply-empty.png)
 
-<Step title="Step 2: What it sends">
-  This step defines *how* the system will respond. Here, you will select one or more **Snippets** to send as the reply.
 
-  - **Filter and Search:** Use the **Type** dropdown and the **Search** bar to find the snippets you want to use for the reply.
-  - **Select Snippets:** Click the checkbox on one or more snippet cards. 
+![The ⋮ menu of an auto-reply.](/images/app/whatsapp/autoreply-menu.png)
 
-  <Info>
-    **Sending Multiple Snippets:** If you select multiple snippets, AdsEra will send them one after another in the order you select them, creating a sequence of replies. This is great for sending an image followed by a text message with buttons.
-  </Info>
-
-  The selected snippets will appear in a list on the right. Once you're ready, click **"Save"** to activate your new auto-reply.
-</Step>
-
-</Steps>
-
----
-
-## Welcome Message
-
-A welcome message greets everyone who starts a conversation with you on WhatsApp, whatever they write. You don't need any keywords.
+## Set up a welcome message
 
 <Steps>
+<Step title="New auto-reply">Click **New auto-reply**.</Step>
+<Step title="Pick Welcome message">Under **When should it reply?** pick **Welcome message (any first message)**. No keywords needed.</Step>
+<Step title="Choose when it greets again">
+  In **Send it**:
 
-<Step title="Choose Welcome message">
-  Click **New auto-reply**. Under **When should it reply?**, pick **Welcome message (any first message)**. The keyword box disappears.
+  | Option | Who gets it |
+  | --- | --- |
+  | **Only their first message ever** | Each person once |
+  | **Also when they come back after 24 hours** | And again after a day of quiet (good for most shops) |
+  | **… after 3 days / 7 days / 30 days** | And again after that much quiet |
+
+  ![Welcome message picked, with Send it.](/images/app/whatsapp/autoreply-welcome.png)
 </Step>
+<Step title="Next">Click **Next**.</Step>
+<Step title="Pick what it sends">
+  Click the quick replies to send (they show as chips at the top). Use **Type** and **Search…** to find them, or **Write a new reply** to make one now.
 
-<Step title="Choose when it's sent">
-  - **Only their first message ever:** each customer gets it once, the first time they write to your number.
-  - **Also when they come back after 24 hours / 3 days / 7 days / 30 days:** they also get it when they write again after that long without messaging you.
-
-  Messages in the middle of a conversation never get it, so nobody is welcomed twice in a row.
+  ![Step 2: pick or write the reply.](/images/app/whatsapp/autoreply-step2.png)
 </Step>
-
-<Step title="Pick the reply">
-  Click **"Next"**, select the snippet or snippets to send (for example a greeting with your menu buttons), and click **"Save"**.
-</Step>
-
+<Step title="Save">Click **Save**. It works straight away.</Step>
 </Steps>
 
-<Info>
-**How it works with other replies:** the welcome goes first. If the message also matches a keyword auto-reply, that reply follows. When a welcome or keyword reply is sent, your AI agent (Addy) doesn't answer that same message, so the customer isn't greeted twice. Addy answers their next message as usual. While someone from your team has taken a chat, auto-replies, including the welcome, don't send.
-</Info>
+## Answer a keyword
 
----
+<Steps>
+<Step title="New auto-reply">Click **New auto-reply**.</Step>
+<Step title="Add the words">
+  In **Keyword** type a word and click **Add** (or press Enter). Add a few ways people say it: price, rate, cost. Click × on a chip to remove it.
 
-## Managing Your Auto-Replies
+  ![Keywords and how they match.](/images/app/whatsapp/autoreply-keyword.png)
+</Step>
+<Step title="Choose how it matches">See the table below. For **Similar words**, the slider sets how close (80% suits most words).</Step>
+<Step title="Pick the reply and save">Click **Next**, pick the quick replies, and click **Save**.</Step>
+</Steps>
 
-Once created, your auto-reply will appear in the main **WhatsApp Auto-Reply List**. From this list, you can:
-- **View** the keywords and associated reply snippets.
-- **Toggle the Status** to make an auto-reply `Active` or `Inactive`. Inactive replies, including welcome messages, are never sent.
-- **Edit** or **Delete** the auto-reply using the three-dots (⋮) menu.
+## How keywords match
+
+| Option | Fires when | Example: keyword “price” |
+| --- | --- | --- |
+| **Similar words (handles typos)** | The message is close to the word | “prise”, “Price” |
+| **Exact words** | The whole message is exactly the word | “price” only |
+| **Message contains the word** | The word is anywhere in the message | “what is the price of 2BHK?” |
+| **Welcome message (any first message)** | Anyone starts a conversation | Any first message |
+
+When several could fire, AdsEra uses **Message contains the word** first, then **Similar words**, then **Exact words**. A welcome message is sent first, before any keyword reply.
+
+## Turn off, edit or delete
+
+- **Turn off** (⋮ menu): stops it without deleting it. The status shows **Off**. **Turn on** starts it again.
+- **Edit**: change the words, the matching or the replies, then **Save**.
+- **Delete**: removes it for good. The quick replies it sent stay saved.
+
+## Fields
+
+| Field | What it does | Example | Required? |
+| --- | --- | --- | --- |
+| Keyword | Words that trigger it | price, rate | Yes, unless Welcome message |
+| When should it reply? | How words match, or Welcome message | Message contains the word | Yes |
+| Similarity slider | How close Similar words must be | 80% | For Similar words |
+| Send it | When a welcome is sent again | After 24 hours | For Welcome message |
+| Replies | Quick replies it sends, in order | “Price list” document | Yes |
+
+## Troubleshooting
+
+| Problem | Why | Fix |
+| --- | --- | --- |
+| No reply arrives | It is **Off**, or the word didn’t match | Turn it on; use **Message contains the word**, or add more keywords |
+| Two replies arrive | A welcome and a keyword reply both fired | Expected: on a first message the welcome goes first, then the keyword reply |
+| A contact never gets auto-replies | Automatic replies are switched off for that contact | Switch them back on from the contact’s chat |
+
+## Related
+
+<CardGroup cols={2}>
+  <Card title="Quick replies" icon="bolt" href="/help/snippet/list">What auto-replies send.</Card>
+  <Card title="Opt-in & opt-out keywords" icon="toggle-on" href="/help/channel/whatsapp/opt">STOP and START.</Card>
+  <Card title="Addy" icon="robot" href="/help/ai/addy">Your AI agent, for questions keywords can’t cover.</Card>
+</CardGroup>

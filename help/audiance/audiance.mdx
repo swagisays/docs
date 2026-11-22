@@ -1,98 +1,129 @@
 ---
-title: 'Contacts'
-description: 'A central hub to view, manage, filter, and take bulk actions on all your contacts.'
+title: 'All contacts'
+description: 'Every person you talk to in one list: add them, find them with the filter sentence, choose your columns and open anyone in a side panel.'
 icon: 'users'
 ---
 
-The **All Audience** table is your command center for contact management. It's a powerful, interactive database designed to give you a complete and actionable view of every person you connect with, whether they came from a CSV import, a form, or were added manually.
+**All contacts** is the list of everyone you talk to. People arrive here from WhatsApp chats, forms, Meta ads and imports, and you can add anyone by hand. From this one page you find the right people, change their details and act on many at once.
 
-**Want to manage you Audience? [Go to the All Audience Page &rarr;](https://app.adsera.in/dashboard/contact/list)**
+**Where:** **Contacts → All contacts** in the left menu. [Open it →](https://app.adsera.in/dashboard/contact/list)
 
-![Contacts → All contacts in AdsEra.](/images/app/contacts-filled.png)
-From this single screen, you can get a quick overview, search for specific people, sort data, and use powerful filters to find hyper-specific groups for your campaigns.
+![All contacts with segment tabs, the filter sentence and the list.](/images/app/contacts/list.png)
 
-<CardGroup>
-  <Card title="Add & Import Contacts" icon="user-plus">
-    Grow your audience by adding contacts one by one or by importing them in bulk from a file.
-  </Card>
-  <Card title="Filter & Segment" icon="filter">
-    Use the advanced filter builder to find any group of contacts based on their data and behavior.
-  </Card>
-  <Card title="Customize Your View" icon="table-columns">
-    Show, hide, and reorder columns to create a personalized table view that matches your workflow.
-  </Card>
-  <Card title="Perform Bulk Actions" icon="list">
-    Save time by applying tags, adding contacts to lists, exporting, or deleting thousands of contacts at once.
-  </Card>
-</CardGroup>
+## The parts of the page
 
----
+| Part | What it does |
+| --- | --- |
+| **Organise with AI** | Opens Ask AI with a ready question: it suggests useful segments from your fields and labels. |
+| **Help** | Help for this page, with every lesson you can do here. |
+| **Create contact** | Add one person by hand. See [below](#add-one-contact). |
+| **Import** | Add many people from a file, a paste or a Google Sheet. See [Import a file](/help/audiance/file). |
+| **Tabs** (All contacts, your segments) | Each tab is a saved [segment](/help/audiance/segment). **+** adds a tab; **⋯** renames, reorders or deletes. |
+| **The sentence** ("Show all contacts …") | Your filter. **Add a filter** narrows the list. See [Filter contacts](/help/audiance/filters). |
+| **Try:** buttons | One-click filters: **Mine**, **New today**, **New this week**, **New this month**, **Quiet for 30 days**, and your first labels. |
+| **The big number** | How many contacts match the filter right now. |
+| **Advanced filters** | The same filter as rows, for long filters. |
+| **Search name, phone or email** | Finds someone inside the current filter. |
+| **Showing N of M** | How many are loaded. More load as you scroll. |
+| **Edit columns** | Choose which details show as columns. |
 
-## Adding Contacts
-
-Your audience table grows with your business. Here’s how to add new contacts and when to use each method:
-
-<AccordionGroup>
-  <Accordion title="Create Contact (Manual Add)">
-    This is perfect for adding a single contact on the fly, like a new prospect you just met. Click the **"Create Contact"** button, fill out the form with their details, and they'll instantly appear in your table.
-  </Accordion>
-  <Accordion title="Import Contacts (Bulk Upload)">
-    This is your go-to for adding contacts in bulk. It's essential when migrating from another platform or uploading a list of event attendees. You'll upload a CSV file and **map** the columns in your file to the corresponding attributes in AdsEra.
-  </Accordion>
-</AccordionGroup>
-
----
-
-## The Core Workflow: Filter, Save, Repeat
-
-The true power of the All Audience page lies in its filtering capabilities. This workflow allows you to find hyper-specific groups and save them for reuse.
+## Add one contact
 
 <Steps>
-<Step title="Step 1: Apply Advanced Filters">
-Click the **"Add filters"** button to open the filter builder. Here, you can create rules to segment your audience with precision.
-
-![Contacts with a filter sentence above the list.](/images/app/contacts-filled.png)
-
-A filter consists of three parts:
-- **Attribute:** The data point you want to examine (e.g., `City`, `Last Seen Date`, `Total Spent`).
-- **Condition:** The logic you want to apply (e.g., `is`, `is not`, `greater than`, `contains`).
-- **Value:** The specific data you're looking for (e.g., `New York`, `30 days ago`, `500`).
-
-You can chain rules together with **AND** (for more specific results) or **OR** (for broader results).
-</Step>
-
-<Step title="Step 2: Save a Filter as a Segment">
-Once you've built a filter that isolates a valuable group of contacts, don't let it go to waste! Click the **"Save as Segment"** button that appears.
-
-Give your segment a descriptive name (e.g., "Active High-Value Customers"). This new segment is **dynamic**—it will automatically update, adding or removing contacts as they meet (or no longer meet) the filter rules you set.
-</Step>
-
-<Step title="Step 3: Load Lists or Segments">
-Anytime you want to view a specific group, use the **"Load a list or a segment"** dropdown at the top of the page. This gives you one-click access to your manually created **Lists** (static groups) and your rule-based **Segments** (dynamic groups).
-</Step>
+<Step title="Click Create contact">Top right of the page. The **Add single contact** panel opens.</Step>
+<Step title="Fill in the details">Type the **First name**, then the **Phone** (pick the country, then the number) or the **Email**. One of the two is a must. Fill any other fields you like.</Step>
+<Step title="Lists, labels and WhatsApp">Pick **Lists** and **Labels** if you want. Leave **WhatsApp Subscription** on **Subscribe** if the person agreed to hear from you on WhatsApp.</Step>
+<Step title="Click Add contact">They show at the top of the list.</Step>
 </Steps>
 
----
+![The Add single contact panel.](/images/app/contacts/create.png)
 
-## Customizing and Managing the Table
+| Field | What to enter | Example | Required? |
+| --- | --- | --- | --- |
+| **First name** | Their first name | Anil | Yes (by default) |
+| **Last name** | Their last name | Verma | No |
+| **Phone** | Country, then the number | India (+91), 98201 44718 | Phone or email |
+| **Email** | Their email | anil@example.com | Phone or email |
+| Your fields (City, Budget…) | Whatever you keep | Pune, 6800000 | Your choice |
+| **Lists** | Groups to put them in | Pune buyers | No |
+| **Labels** | Tags | Hot lead | No |
+| **WhatsApp Subscription** | **Subscribe** or **Unsubscribe** | Subscribe | Yes |
+| **Email Subscription** | **Subscribe** or **Unsubscribe** | Subscribe | Yes |
 
-Tailor the table to your needs and manage your contacts at scale.
+Which fields show here, in what order and which are required is set in **Fields & settings → Add-contact form**. See [Fields](/help/audiance/attribute#the-add-contact-form).
+
+<Note>A phone number or email that is already in AdsEra can't be added twice. You'll see "A contact with this phone number already exists": search for them instead.</Note>
+
+## Search and sort
+
+Type in **Search name, phone or email**. It looks inside the current filter, so clear the filter first to search everyone. Click a column heading with arrows (**Phone**, **Email**, **Last activity**, **Created**) to sort by it; click again to flip the order.
+
+## Choose your columns
+
+<Steps>
+<Step title="Click Edit columns">Right side, above the list.</Step>
+<Step title="Add, move or hide">**Add column** lists every field you can show (like **City** or **Budget**). Drag a row or use the arrows to move it; click ✕ to hide it. **Name** is always first.</Step>
+<Step title="Click Save columns">The list changes for you. Each team member chooses their own columns.</Step>
+</Steps>
+
+![Edit columns.](/images/app/contacts/columns.png)
+
+On a small screen the list scrolls sideways: use the scroll bar under the list to see the columns on the right.
+
+## Quick look: the side panel
+
+Click anywhere on a row (not the name) to open the side panel. Click the name to open the [contact's page](/help/audiance/view).
+
+![The side panel of a contact.](/images/app/contacts/preview.png)
+
+- **WhatsApp / Email / Meeting / Note / Task / Log call** buttons under the name.
+- **About this contact**: click any detail to change it. Drag a field by its grip to move it up. **Show all fields** shows the empty ones too.
+- **WhatsApp opt-in** switch. See [WhatsApp opt-in](/help/audiance/opt-in).
+- **Recent activity**, **Notes**, **Tasks**, **Calls**, **Meetings** and **Meta lead forms**.
+- **View record** opens the full page; **Work as lead** opens them in Prospects.
+- The arrows at the top move to the previous or next contact.
+
+## Act on many contacts
+
+Tick the box at the start of a row (or the top box for every loaded contact). A bar shows: **Send a broadcast**, **Add to list**, **Add labels** and **More actions**. See [Act on many contacts](/help/audiance/bulk).
+
+## When there are no contacts yet
+
+A new account shows **Your contacts will live here** with **Import contacts**, **Add one contact** and **Do it with me**.
+
+![All contacts before anyone is added.](/images/app/contacts/empty.png)
+
+## Troubleshooting
+
+| What you see | Why | What to do |
+| --- | --- | --- |
+| "A contact with this phone number already exists." | That number is already a contact. | Search for it and update that contact. |
+| Someone you imported isn't in the list | A filter or tab is on, or the import is still running. | Click **All contacts**, clear the sentence, and refresh after a minute or two. |
+| A column is cut off on the right | The window is narrow. | Scroll the list sideways, or hide a column in **Edit columns**. |
+| **Create contact** shows "fill in" errors | A required field is empty. | Fill the fields marked in red, or change what is required in **Add-contact form**. |
+
+## FAQ
 
 <AccordionGroup>
-  <Accordion title="Customize Your Column View">
-    Click the **"Customize column"** button to open a side panel. From here, you can:
-    - **Show/Hide Columns:** Uncheck any attribute you don't need to see to reduce clutter.
-    - **Reorder Columns:** Simply drag and drop the column names in the panel to reorder them in the table. Your custom view is saved automatically for your next visit.
-
+  <Accordion title="What's the difference between a list, a label and a segment?">
+    A **list** is a group you fill yourself ("Diwali expo 2026"). A **label** is a tag on a person ("Hot lead"); one person can have many. A **segment** is a saved filter ("City is Pune and Budget more than 50 lakh") that updates by itself. All three can receive a broadcast.
   </Accordion>
-  <Accordion title="Perform Bulk Actions">
-    Manage thousands of contacts at once.
-    1.  **Select contacts** using the checkboxes on the left. Use the master checkbox in the header to select all visible contacts.
-    2.  The **Bulk Actions** menu will appear at the top.
-    3.  Choose an action: **Assign Tag**, **Add to List**, **Export** to CSV, **Edit** an attribute for all, or **Delete**.
-
-    <Warning>
-      The **Delete** action is permanent and cannot be undone. Use it with caution.
-    </Warning>
+  <Accordion title="Do my team members see all contacts?">
+    It depends on their role. An admin can limit a team member to their own contacts (or their own and unassigned) in Settings → Team members.
+  </Accordion>
+  <Accordion title="Can I undo a delete?">
+    No. Deleted contacts can't be brought back. Export them first if you're unsure: tick them, then **More actions → Export contacts (.xlsx)**.
+  </Accordion>
+  <Accordion title="Why are names in capitals (FIRSTNAME) in some places?">
+    That's the field's code name from older imports. AdsEra shows it as **First name** in forms and on the contact.
   </Accordion>
 </AccordionGroup>
+
+## Related
+
+<CardGroup cols={2}>
+  <Card title="Filter contacts" icon="filter" href="/help/audiance/filters" />
+  <Card title="Segments" icon="layer-group" href="/help/audiance/segment" />
+  <Card title="Act on many contacts" icon="list-check" href="/help/audiance/bulk" />
+  <Card title="A contact's page" icon="address-card" href="/help/audiance/view" />
+</CardGroup>

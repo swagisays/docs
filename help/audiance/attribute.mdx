@@ -1,83 +1,104 @@
 ---
-title: 'Contact Attributes Settings'
-description: 'Create and manage custom data fields to store personalized information about your contacts.'
-icon: 'wrench'
+title: 'Fields and the add-contact form'
+description: 'The details you keep about each contact (City, Budget, Site visit date…), the six field types, and the form your team fills in to add a contact.'
+icon: 'table-list'
 ---
 
-Contact attributes are custom fields used to store additional information about your contacts beyond standard details like email and name. Think of them as personalized data points such as job title, city, product preferences, or subscription tier.
+A **field** is a detail you keep about every contact, like **City**, **Budget** or **Site visit date**. Fields show on each contact, in forms and imports, as columns, in filters and in WhatsApp template blanks.
 
-**Want to manage Attributes? [Go to the AdsEra Attributes Settings &rarr;](https://app.adsera.in/dashboard/contact/attributes)**
+**Where:** **Contacts → Fields & settings**. Three tabs: **Fields**, **Add-contact form** and **Labels**. [Open it →](https://app.adsera.in/dashboard/contact/attributes)
 
-These attributes are incredibly powerful, enabling you to:
-- **Personalize** your email and WhatsApp content for a more individual touch.
-- **Create** highly specific segments for targeted campaigns.
-- **Refine** your targeting in automation sequences.
+![Fields & settings: every field with its type.](/images/app/contacts/fields.png)
 
-![Contacts → Fields & settings.](/images/app/fields.png)
+## The Fields tab
 
----
+| Part | What it shows |
+| --- | --- |
+| **Search fields** | Finds a field by name or type. |
+| **All / Yours / Built in** | Every field, the ones you made, or the ones every account has. |
+| **All types** | Show one type only. |
+| **Field** | The field's name. "Every contact has it" marks built-in fields. |
+| **Type** | Text, Number, Date, Dropdown (pick one), Dropdown (pick many) or Yes / No. |
+| **Choices** | The answers of a dropdown. |
+| **Made by** | **Built in** (lock) or **You**. |
+| ⚙ / bin | Edit or delete one of your fields. Built-in fields show a lock: they can't be deleted. |
 
-## Creating a New Attribute
+Built-in fields: **Email**, **Phone**, **Lists**, **Labels** and **Subscribed to messages** (the WhatsApp and email opt-in), plus **First name** and **Last name**.
 
-Adding a new custom field to store specific data about your contacts is simple.
+## Make a field
 
 <Steps>
-<Step title="1. Open the 'Add Attribute' Modal">
-Click the **“+ Add attribute”** button located at the top of the page.
-</Step>
+<Step title="Click New field">Top right.</Step>
+<Step title="Name it">Like "City", "Budget" or "Site visit date". It can't be changed later.</Step>
+<Step title="Pick the type">
+See the table below. It can't be changed later either.
 
-<Step title="2. Define Your Attribute">
-An “Add Attribute” modal will appear, prompting you for two key details:
-- **Attribute Name:** A clear, descriptive name (e.g., "Job Title", "Preferred Language", "Last Purchase Date").
-- **Attribute Type:** Select the type of data this attribute will store.
-
-    - **Text:** For free-form text.
-    - **Number:** For numerical values like scores or IDs.
-    - **Date:** For specific dates like birthdays or subscription start dates.
-    - **Boolean:** For true/false values (displays as a checkbox).
-    - **Dropdown:** A predefined list where a contact can only have one value.
-    - **Multi-select:** A predefined list where a contact can have multiple values.
+![The six field types.](/images/app/contacts/field-types.png)
 </Step>
+<Step title="Add the choices (dropdowns only)">
+Type each choice; **Add Another Choice** adds a row, ✕ removes one.
 
-<Step title="3. Configure and Save">
-If you choose a "Dropdown" or "Multi-select" type, you will be able to add the specific choices for that attribute. Once finished, click **Save**. Your new attribute will now appear in the list.
+![A dropdown with three choices.](/images/app/contacts/field-dropdown.png)
 </Step>
+<Step title="Click Create field">It shows on every contact, in Edit columns, imports, forms and filters.</Step>
 </Steps>
 
----
+## The six types
 
-## Managing Existing Attributes
+| Type | Holds | Example | Filter it by |
+| --- | --- | --- | --- |
+| **Text** | Any words | Project: "Greenleaf Heights, Baner" | contains, is, is not, is empty, is known |
+| **Number** | An amount | Budget: 6800000 | is more than, is less than, is between, is at least, is at most |
+| **Date** | A day | Site visit date: 20 Nov 2026 | in the last N days, more than N days ago, after, before, between |
+| **Dropdown (pick one)** | One answer from your list | Property type: Flat / Plot / Villa | is, is not |
+| **Dropdown (pick many)** | Several answers from your list | Looking for: 2 BHK + Parking | is, is not |
+| **Yes / No** | A tick | Home loan: Yes | is yes / is no |
+
+<Tip>
+  Pick **Number** for anything you'll compare (budget, family size) and **Date** for days. A Text field can't be filtered by "more than" or "before", and the type can't be changed later.
+</Tip>
+
+## Change or delete a field
+
+- Click ⚙ (**Edit field**) on one of your fields to add, rename or remove dropdown choices, then **Save changes**. The name and type stay as they are.
+- Click the bin (**Delete field**) and confirm. The field and its values go from every contact.
+
+![Edit field.](/images/app/contacts/field-edit.png)
+
+## The add-contact form
+
+The **Add-contact form** tab sets what your team fills in when they click **Create contact**: which fields, in what order, and which are required.
+
+![What your team fills in.](/images/app/contacts/add-contact-form.png)
+
+<Steps>
+<Step title="Open Add-contact form">The second tab.</Step>
+<Step title="Add, move or remove fields">**Add a field** puts another field on the form. Drag a row to move it. The ✕ takes it off the form (the field itself stays).</Step>
+<Step title="Required or optional">Switch on the fields that must be filled before a contact can be saved.</Step>
+<Step title="Click Save changes">The next **Create contact** uses it.</Step>
+</Steps>
+
+Email or Phone must stay on the form: a contact needs at least one of them.
+
+## FAQ
 
 <AccordionGroup>
-  <Accordion title="Editing Options for Multi-Select Attributes (⚙️)">
-    For attribute types like **Dropdown** or **Multi-select**, a **gear icon (⚙️)** will appear next to the attribute name. Clicking this opens a configuration modal where you can:
-    - Add new choices to the list.
-    - Edit the wording of existing choices.
-    - Remove choices that are no longer relevant.
+  <Accordion title="I imported a file and got fields in capitals (CITY, BUDGET). Why?">
+    Columns you didn't match to a field become new Text fields named after the column. They work like any field and show as "City" and "Budget" on contacts. To filter Budget as a number, make a **Number** field and import the column into it.
   </Accordion>
-  <Accordion title="Deleting Attributes (🗑️)">
-    To permanently remove an attribute, click the **trash can icon** next to it.
-
-    <Warning>
-      **This action is permanent and cannot be undone.** Deleting an attribute will remove it and **all its associated data** from every contact in your database.
-    </Warning>
+  <Accordion title="How do I use a field in a WhatsApp template?">
+    When you send a broadcast, each blank in the template can be filled from a contact field (like First name or City). See [Template variables](/help/template/variables).
+  </Accordion>
+  <Accordion title="Can I rename a field?">
+    No, not after it's made. Make a new one with the right name and type.
   </Accordion>
 </AccordionGroup>
 
----
+## Related
 
-## How Attributes Power Your Marketing
-
-Effectively using contact attributes will significantly enhance the relevance and impact of your marketing efforts.
-
-<CardGroup>
-  <Card title="Powering Segmentation" icon="filter">
-    Custom attributes are the building blocks of targeted segments. Use them in the [All Audience](/help/audiance/audiance) filter builder to create dynamic groups like "Contacts where 'Job Title' is 'Manager'".
-  </Card>
-  <Card title="Personalizing Campaigns" icon="wand-magic-sparkles">
-    Attribute values can be inserted directly into your email and WhatsApp campaigns using personalization tokens (e.g., `{{contact.job_title}}` or `{{contact.city}}`) to create highly individualized content.
-  </Card>
-  <Card title="Customizing Your View" icon="table-columns">
-    The attributes you create here can be displayed as columns in the main "All Audience" contact table, allowing you to see your most important custom data at a glance.
-  </Card>
+<CardGroup cols={2}>
+  <Card title="Labels" icon="tag" href="/help/audiance/label" />
+  <Card title="Filter contacts" icon="filter" href="/help/audiance/filters" />
+  <Card title="Import a file" icon="file-import" href="/help/audiance/file" />
+  <Card title="Forms" icon="file-pen" href="/help/sales/forms" />
 </CardGroup>

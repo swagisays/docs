@@ -41,7 +41,14 @@
           {
             "group": "Inbox",
             "pages": [
-              "help/inbox/chat"
+              "help/inbox/chat",
+              "help/inbox/filters",
+              "help/inbox/24-hour-window",
+              "help/inbox/team",
+              "help/inbox/contact-panel",
+              "help/inbox/errors",
+              "help/inbox/payments",
+              "help/email/inbox"
             ]
           },
           {
@@ -56,17 +63,22 @@
           {
             "group": "Sales",
             "pages": [
+              "help/sales/lead-to-payment",
               "help/sales/prospects",
+              "help/sales/own-leads",
+              "help/crm/deal",
+              "help/crm/deal-payments",
               "help/sales/meetings",
               "help/sales/tasks",
-              "help/sales/forms"
+              "help/crm/pipeline",
+              "help/crm/product",
+              "help/crm/product-types"
             ]
           },
           {
             "group": "Automation",
             "pages": [
-              "help/automation/workflows",
-              "help/automation/whatsapp-flows"
+              "help/automation/workflows"
             ]
           },
           {
@@ -79,64 +91,86 @@
             "group": "Contacts",
             "pages": [
               "help/audiance/audiance",
-              "help/audiance/verified",
-              "help/audiance/list",
+              "help/audiance/filters",
               "help/audiance/segment",
+              "help/audiance/bulk",
+              "help/audiance/view",
+              "help/audiance/opt-in",
+              "help/audiance/list",
+              "help/audiance/file",
+              "help/audiance/copy",
+              "help/audiance/google-sheets",
               "help/audiance/attribute",
               "help/audiance/label",
-              "help/audiance/copy",
-              "help/audiance/file",
-              "help/audiance/view"
+              "help/sales/forms"
             ]
           },
           {
-            "group": "WhatsApp Channel",
+            "group": "WhatsApp",
             "pages": [
-              "help/channel/whatsapp/whatsapp",
-              "help/channel/whatsapp/connect",
-              "help/channel/whatsapp/opt",
-              "help/channel/whatsapp/calling"
-            ]
-          },
-          {
-            "group": "WhatsApp Broadcasts",
-            "pages": [
-              "help/campaign/wa/list",
-              "help/campaign/wa/create",
-              "help/campaign/wa/report"
-            ]
-          },
-          {
-            "group": "CRM",
-            "pages": [
-              "help/crm/product",
-              "help/crm/pipeline",
-              "help/crm/deal"
-            ]
-          },
-          {
-            "group": "Template",
-            "pages": [
-              "help/template/wa"
-            ]
-          },
-          {
-            "group": "Snippet",
-            "pages": [
-              "help/snippet/list",
-              "help/snippet/create"
+              {
+                "group": "Numbers & profile",
+                "pages": [
+                  "help/channel/whatsapp/connect",
+                  "help/channel/whatsapp/whatsapp",
+                  "help/channel/whatsapp/troubleshooting",
+                  "help/channel/whatsapp/opt",
+                  "help/channel/whatsapp/calling"
+                ]
+              },
+              {
+                "group": "Templates",
+                "pages": [
+                  "help/template/wa",
+                  "help/template/create",
+                  "help/template/variables",
+                  "help/template/buttons",
+                  "help/template/carousel",
+                  "help/template/limited-time-offer",
+                  "help/template/call-permission",
+                  "help/template/authentication",
+                  "help/template/manage",
+                  "help/template/status",
+                  "help/template/rules-and-limits",
+                  "help/template/faq"
+                ]
+              },
+              {
+                "group": "Broadcasts",
+                "pages": [
+                  "help/campaign/wa/create",
+                  "help/campaign/wa/list",
+                  "help/campaign/wa/report",
+                  "help/campaign/wa/google-sheet"
+                ]
+              },
+              {
+                "group": "Auto-replies",
+                "pages": [
+                  "help/autoreply/wa"
+                ]
+              },
+              {
+                "group": "Quick replies",
+                "pages": [
+                  "help/snippet/list",
+                  "help/snippet/create",
+                  "help/snippet/interactive"
+                ]
+              },
+              {
+                "group": "WhatsApp Flows",
+                "pages": [
+                  "help/automation/whatsapp-flows",
+                  "help/automation/whatsapp-flows-booking"
+                ]
+              }
             ]
           },
           {
             "group": "File Manager",
             "pages": [
               "help/file/manager"
-            ]
-          },
-          {
-            "group": "Auto-replies",
-            "pages": [
-              "help/autoreply/wa"
             ]
           },
           {
@@ -157,19 +191,6 @@
               "help/integrations/dialogflow",
               "help/integrations/pabbly",
               "help/integrations/ai-connectors"
-            ]
-          },
-          {
-            "group": "Legacy",
-            "pages": [
-              "help/channel/email/email",
-              "help/channel/email/smtp",
-              "help/campaign/email/list",
-              "help/campaign/email/create",
-              "help/campaign/email/report",
-              "help/sequence/sequence",
-              "help/template/email-list",
-              "help/template/email-create"
             ]
           }
         ]
@@ -343,7 +364,7 @@
     "links": [
       {
         "label": "Support",
-        "href": "mailto:shubham@adsera.in"
+        "href": "mailto:contact@adsera.in"
       }
     ],
     "primary": {
@@ -361,6 +382,10 @@
     }
   },
   "redirects": [
+    {
+      "source": "/help/audiance/verified",
+      "destination": "/help/audiance/audiance"
+    },
     {
       "source": "/introduction",
       "destination": "/help/introduction/adsera"

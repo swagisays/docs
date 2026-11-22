@@ -1,90 +1,151 @@
 ---
-title: 'Send a broadcast'
-description: 'A step-by-step guide to building, designing, targeting, and scheduling your WhatsApp campaigns.'
-icon: 'wand-magic-sparkles'
----
-**Want to Create WhatsApp Campaigns? [Go to the AdsEra Campaign Create Page &rarr;](https://app.adsera.in/dashboard/campaign/create/WHATSAPP)**
-
-Creating a WhatsApp campaign in AdsEra is a structured process designed to give you precise control over your campaign's name, audience, content, and delivery schedule. This guide will walk you through each step of the creation wizard.
-
-### Before You Begin: A Quick Checklist
-
-<CardGroup>
-  <Card title="Define Your Goal" icon="bullseye">
-    Know what you want to achieve with this campaign (e.g., send transaction alerts, promote an offer, re-engage users).
-  </Card>
-  <Card title="Prepare Your Audience" icon="users">
-    Know which contacts you want to reach. Have a [Contact List](/help/audiance/audiance) or [Segment](/help/audiance/segment) ready for targeting.
-  </Card>
-  <Card title="Select a Template" icon="file-lines">
-    All WhatsApp campaigns must use a pre-approved Message Template. Ensure the template you want to use has been approved by Meta.
-  </Card>
-</CardGroup>
-
+title: 'Create a broadcast'
+description: 'Send one approved template to many people: pick who gets it, pick the template and fill its variables, test it, then send it now or schedule it.'
+icon: 'bullhorn'
 ---
 
-## Building Your WhatsApp Campaign
+A **broadcast** sends one approved WhatsApp template to many people at once, like a Diwali offer to all your Pune leads. Each person gets it as a normal WhatsApp message, with their own name and details.
 
-After navigating to the **WhatsApp → Broadcasts** page and clicking **"+ New campaign"**, you will be guided through the following setup wizard.
+**Where:** **WhatsApp → Broadcasts → New broadcast**. [Open it →](https://app.adsera.in/dashboard/campaign/whatsapp/list)
 
-![Step 1 of a new broadcast: name and audience.](/images/app/broadcast-new.png)
+**Before you start:** a [connected number](/help/channel/whatsapp/connect), an [approved template](/help/template/create), and your [contacts](/help/audiance/audiance).
+
+The form has **2 steps**: **Audience & Setup** (who gets it) and **Content & Sender** (what they get, and when). Clicking **Create Campaign** at the end saves it:
+
+<Warning>**Create Campaign does not send.** It saves the broadcast. A broadcast set to **I’ll send it with Send now** waits as a **Draft** until you open its **⋮** menu in Broadcasts and click **Send now**. A broadcast set to **Schedule for later** goes out on its own at the time you picked.</Warning>
+
+## Step 1: Audience & Setup
+
+![Step 1: the broadcast name and who gets it.](/images/app/whatsapp/bc-step1.png)
 
 <Steps>
-<Step title="1. Name Your Campaign">
-  This is an internal name for easy identification within AdsEra (e.g., "Post-Purchase Follow-Up," "Diwali Sale Offer"). It is not visible to recipients. The name can be up to 150 characters.
+<Step title="Name it">
+  In **Broadcast name**, type a name only your team sees, like “Diwali offer: Pune leads” (up to 150 characters).
 </Step>
+<Step title="Choose who gets it">
+  Pick one of the three tabs under **Target Audience & Recipients**:
 
-<Step title="2. Define Your Recipients">
-  This is where you select who will receive your campaign. AdsEra offers powerful segmentation options:
-  - **Select Lists:** Choose one or more of your static contact lists.
-  - **Select Segments:** Target dynamic, rule-based segments of your contacts.
-  - **Filter Recipients (Advanced):** Build a custom, one-time filter for this specific campaign using various contact attributes and `AND`/`OR` logic.
+  - **Contacts Directory**: tick people in the list, or click **Select All** to pick everyone who matches (not only the people on this page). **Select Page** picks just this page. Click a saved segment chip (like **Hot leads**) to see only those people. **More filters** adds conditions like City is Pune. The **Selected Contacts** chip shows who you picked.
+  - **Saved Lists & Segments**: send to whole lists and segments. A segment updates itself as contacts change.
+  - **Google Sheets Import**: send to the rows of a Google Sheet. See [Send to a Google Sheet](/help/campaign/wa/google-sheet).
 
-  For more details, see our guide on [All Audience & Segments](/help/audiance/audiance).
+  ![Select All picks every contact that matches.](/images/app/whatsapp/bc-select-all.png)
+
+  ![More filters: add conditions.](/images/app/whatsapp/bc-filter.png)
+
+  ![Saved Lists & Segments.](/images/app/whatsapp/bc-lists.png)
 </Step>
-
-<Step title="3. Select Your Channel (WABA)">
-  Choose the specific WhatsApp Business Account (WABA) number you want to send this campaign from. This is especially important if you manage multiple numbers for different brands or departments.
-</Step>
-
-<Step title="4. Choose Your Message Template">
-  All WhatsApp campaigns must use a Message Template that has been pre-approved by Meta.
-  - Click **"Manage template"** to open a gallery of your approved templates.
-  - Browse or search for the template you wish to use.
-  - If the template includes variables (e.g., `{{name}}`), you will be prompted to provide values for them in a subsequent step to personalize the message for each recipient.
-</Step>
-
-<Step title="5. Schedule Your Campaign">
-  Decide when your campaign will be sent.
-  - **Send Immediately:** To send the campaign as soon as you finish the setup.
-  - **Schedule for Later:** Pick a specific future date and time for delivery.
-</Step>
-
-<Step title="6. Create Your Campaign">
-  Once all the steps are configured and show a green checkmark, the **"Create"** button at the top of the page will become active. Click it to finalize and either send or schedule your campaign.
+<Step title="Next">
+  Click **Next: Content & Sender**. It stays grey until there is a name and at least one person.
 </Step>
 </Steps>
 
----
+<Note>Only message people who agreed to hear from you. People who sent **STOP** are skipped automatically ([opt-out](/help/channel/whatsapp/opt)).</Note>
 
-## More ways to choose recipients and test
+## Step 2: Content & Sender
 
-- **All contacts** or **Selected Contacts:** send to everyone, or pick contacts one by one.
-- **Google Sheet:** switch on **Use Google Sheet Audience** to send to the rows of a linked spreadsheet, once or automatically as new rows arrive. See [Google Sheets](/help/integrations/google-sheets).
-- **Preview & test:** before sending, use **Send test template to your colleagues** to check the message on a real phone.
-- **Channel type:** choose **WhatsApp Business** to send from your WhatsApp API numbers.
+![Step 2: the number, the template and the preview.](/images/app/whatsapp/bc-step2.png)
 
-<Tip>
-  [Ask AI](/help/ai/ask-ai) can import a spreadsheet and set up the broadcast for you: *"Import contacts from this sheet and send them our offer template"*.
-</Tip>
+<Steps>
+<Step title="Send from">
+  Pick the WhatsApp number in **Send from this WhatsApp number**. Its **Daily Send Limit** shows next to it.
+</Step>
+<Step title="Pick the template">
+  Click **Browse Approved Templates** and click **Use Template** on the one you want. Only **Approved** templates can be used. **Change Template** swaps it.
 
-## Important Considerations
+  ![Pick an approved template.](/images/app/whatsapp/bc-tpl-picker.png)
+
+  ![The template picked, with its preview on the right.](/images/app/whatsapp/bc-tpl-picked.png)
+</Step>
+<Step title="Fill its variables and media">
+  For each variable (like `{{name}}`), pick a **Contact field** (like FIRSTNAME) so everyone gets their own value, **or** type **Same text for everyone**.
+
+  Depending on the template, you also fill:
+  - **Image, video or document header**: pick from **Media Library** or paste a **Direct Media URL**. You can use a different file than the sample.
+  - **Location header**: **Latitude**, **Longitude**, **Location Name** and **Full Street Address**.
+  - **Limited-time offer**: **Offer Expiration** (**Select Expiration Time**), when the offer ends.
+  - **Carousel**: each card’s media.
+
+  ![Fill each variable from a contact field.](/images/app/whatsapp/bc-variables.png)
+</Step>
+<Step title="Choose when to send">
+  In **When to send**:
+  - **I’ll send it with Send now**: saved as a draft. You send it from Broadcasts whenever you like.
+  - **Schedule for later**: pick the **Date and time** (your computer’s time zone). It goes out on its own then. Needs a plan with scheduling; on other plans this option is greyed out with an upgrade note.
+
+  ![When to send.](/images/app/whatsapp/bc-when.png)
+
+  ![Schedule for later: pick the date and time.](/images/app/whatsapp/bc-schedule.png)
+</Step>
+<Step title="Send a test (recommended)">
+  Click **Send Test** above the preview. In **Preview & test**, search a contact (like yourself) and click **Send Test**. Check it on your phone.
+
+  ![Preview & test.](/images/app/whatsapp/bc-test.png)
+</Step>
+<Step title="Check the summary and save">
+  **Broadcast summary** shows the channel, how many people, the number and its daily limit. Click **Create Campaign**.
+
+  ![Broadcast summary and Create Campaign.](/images/app/whatsapp/bc-summary.png)
+</Step>
+</Steps>
+
+## What happens next
+
+| You chose | Status in the list | What to do |
+| --- | --- | --- |
+| I’ll send it with Send now | **Draft** | Open its **⋮** menu → **Send now** → confirm. It changes to **Processing**, **Sending**, then **Sent**. |
+| Schedule for later | **Scheduled** | Nothing. It starts at the time you picked. |
+
+Then open **Report** to see who got it, read it and replied. See [Your broadcasts](/help/campaign/wa/list) and [Broadcast reports](/help/campaign/wa/report).
+
+## Fields
+
+| Field | What it does | Example | Required? |
+| --- | --- | --- | --- |
+| Broadcast name | Your name for it | Diwali offer: Pune leads | Yes |
+| Audience | Contacts, lists/segments or a Google Sheet | Hot leads | Yes |
+| Send from this WhatsApp number | The sending number | Greenleaf Realty (+91 98000 00000) | Yes |
+| Template | An approved template | diwali_flat_offer | Yes |
+| Variables | Contact field or same text for everyone | FIRSTNAME | Yes, per variable |
+| Header media / location / offer end | Depends on the template | Flat photo | When the template has it |
+| When to send | Send now later, or a date and time | Sat 23 Nov, 11:00 am | Yes |
+
+## Limits and costs
+
+- Each send counts against your number’s **daily limit** of new people.
+- Meta charges for each delivered template message (marketing costs most). See [Rules, limits and costs](/help/template/rules-and-limits).
+- Meta may hold back marketing messages to people who got many recently (code 131049): they show as failed in the report.
+
+## Troubleshooting
+
+| What you see | Why | What to do |
+| --- | --- | --- |
+| **Next: Content & Sender** is grey | No name or nobody picked | Type a name and pick people |
+| **Create Campaign** is grey | Template, number or a variable is missing | Fill every variable and the media |
+| A template is missing in the picker | It isn’t approved, or belongs to another number | Pick the right number; wait for approval |
+| Schedule for later is greyed out | Your plan doesn’t include scheduling | Upgrade in Settings → My plan, or send with Send now |
+| “Template is not approved!” when scheduling | The template was paused or rejected | Pick an approved template |
+| I saved it but nothing was sent | It is a Draft | **⋮ → Send now** in Broadcasts |
+
+## FAQs
 
 <AccordionGroup>
-  <Accordion title="Understanding Message Templates">
-    WhatsApp requires that all business-initiated conversations use pre-approved Message Templates to prevent spam and ensure a high-quality user experience. These templates can include text, rich media (images/videos), and interactive buttons.
-  </Accordion>
-  <Accordion title="Personalization with Variables">
-    Using variables like `{{FIRSTNAME}}` or `{{order_id}}` in your templates is key to creating personalized and engaging messages. When you select a template with variables, AdsEra will guide you through mapping these to the corresponding contact attributes.
-  </Accordion>
+<Accordion title="Can I stop a broadcast after Send now?">
+  No. Once it starts it can’t be stopped. Send a test first and check the audience.
+</Accordion>
+<Accordion title="Can I change or cancel a scheduled broadcast?">
+  Not from the list today: only drafts can be edited or deleted. Duplicate it to make a corrected copy, and ask support to cancel the scheduled one.
+</Accordion>
+<Accordion title="Will people who opted out get it?">
+  No. Contacts who sent STOP are skipped.
+</Accordion>
 </AccordionGroup>
+
+## Related
+
+<CardGroup cols={2}>
+  <Card title="Your broadcasts" icon="list" href="/help/campaign/wa/list">Statuses, Send now, edit, duplicate, delete.</Card>
+  <Card title="Broadcast reports" icon="chart-line" href="/help/campaign/wa/report">Who read and replied.</Card>
+  <Card title="Send to a Google Sheet" icon="table" href="/help/campaign/wa/google-sheet">Rows of a sheet as the audience.</Card>
+  <Card title="Variables and samples" icon="brackets-curly" href="/help/template/variables">How variables work.</Card>
+</CardGroup>

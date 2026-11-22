@@ -1,62 +1,102 @@
 ---
-title: 'Managing Sales Pipelines'
-description: 'Create and customize sales pipelines to visually track the progress of your deals from initial contact to close.'
+title: 'Pipelines'
+description: 'The stages a deal moves through, from first enquiry to won or lost. Make one, give each stage its chance of winning, and change it as you learn.'
 icon: 'sliders'
 ---
-**Want to Manage Pipelines? [Go to the AdsEra Pipeline Page &rarr;](https://app.adsera.in/dashboard/crm/pipeline)**
 
-**Pipelines** are the foundation of your sales process in the AdsEra CRM. They provide a visual representation of your sales cycle, allowing you to track the progress of **Deals** as they move through different stages, from a new lead to a won customer.
+A **pipeline** is the list of steps your sales go through, like *New enquiry → Site visit → Negotiation → Token paid → Won / Lost*. Each step is a **stage**, and each stage is a column on the [Deals](/help/crm/deal) board. Most businesses need one pipeline; make a second only for a different kind of sale, like **Rentals**.
 
-![Sales → Pipelines in AdsEra.](/images/app/pipelines.png)
-### The Pipeline List
+**Where:** **Sales → Pipelines** in the menu on the left. [Open it →](https://app.adsera.in/dashboard/crm/pipeline)
 
-This page gives you an overview of all the sales pipelines you have created. You can search for a specific pipeline or filter the list by a date range to see pipelines created within that period.
+![Your pipelines.](/images/app/sales/pipelines.png)
 
-#### Understanding the Table Columns
+## The list
 
-| Column | Description |
-| :--- | :--- |
-| **Name** | The name of the sales pipeline (e.g., "Sales," "Enterprise Clients"). |
-| **Last updated at** | The date and time the pipeline was last modified. |
-| **CreatedBy** | The user who originally created the pipeline. |
-| **UpdatedBy**| The user who last updated the pipeline. |
-| **Stages** | The total number of stages defined within that pipeline. |
-| **View (👁️)**| An icon to navigate to the visual board view of that specific pipeline to see all associated deals. |
+| Column | Meaning |
+| --- | --- |
+| **Name** | The pipeline's name. |
+| **Last updated** | When it last changed. |
+| **Created by**, **Updated by** | Who made it and who changed it last. |
+| **Stages** | How many stages it has. |
+| Pencil | Opens it to change it. |
 
----
+**Search pipelines** finds one by name. **Created from** / **Created to** show the ones made between two dates. **Clear** shows them all again.
 
-## Creating and Editing a Pipeline
+## Make a pipeline
 
-Clicking the **"+ New Pipeline"** button or editing an existing one opens a side panel where you can define the pipeline's structure.
+<Steps>
+<Step title="Click New pipeline">The **New pipeline** panel opens on the right.</Step>
+<Step title="Name it">**Pipeline name**, like "Home sales".</Step>
+<Step title="Add the stages, left to right">
+For each stage, a **Stage name** and a **Stage type**. Click **Add stage** for the next one.
 
-![The Create pipeline panel with its stages.](/images/app/pipeline-new.png)
+![A new pipeline with the Stage type list open.](/images/app/sales/pipeline-new.png)
+</Step>
+<Step title="Click Create pipeline">You see "Pipeline created". You can now add deals to it.</Step>
+</Steps>
 
-A pipeline consists of a name and a series of stages that a deal will move through.
+### Stage type
 
-### 1. Naming Your Pipeline
-The first step is to give your pipeline a clear, descriptive name that reflects its purpose, such as "Standard Sales Process" or "Partnership Pipeline".
+| Stage type | Meaning | Example |
+| --- | --- | --- |
+| **10%** to **90%** | How likely a deal at this stage is to close. You can type your own number, like 35. | New enquiry 10%, Site visit 30%, Negotiation 60%, Token paid 80% |
+| **won** | The deal is won. **Mark won** moves deals here, and paid deals move here when you collect a payment with "Won when fully paid". | Won |
+| **lost** | The deal is lost. **Mark lost** moves deals here. | Lost |
 
-### 2. Defining Pipeline Stages
-Stages represent the key milestones in your sales process. You can add, reorder, and customize each stage. For each stage, you must define:
-- **Stage Title:** A short, clear name for the stage (e.g., `New Lead`, `Demo Scheduled`, `Contract Sent`).
-- **Stage Type (Probability):** The likelihood of a deal in this stage being won, expressed as a percentage (e.g., `10%`, `50%`, `90%`). This is used for sales forecasting. You can also select `won` or `lost` for the final stages.
+<Tip>Give every pipeline exactly one **won** and one **lost** stage, at the end. Without them there are no Mark won / Mark lost buttons, and payments can't move the deal to Won.</Tip>
 
-#### Managing Stages
-- **Add a Stage:** Click the **"+ Add Stage"** button to add a new row to your pipeline.
-- **Reorder Stages:** Use the drag-and-drop handles to rearrange the order of your stages to match your sales workflow.
-- **Delete a Stage:** Click the **trash can icon (🗑️)** to remove a stage.
-  <Warning>
-    Deleting a stage with active deals will require you to move those deals to another stage.
-  </Warning>
+### A real-estate example
 
-Once you've defined your pipeline name and all its stages, click **"Create Pipeline"** or **"Save Changes"** to finish.
+| Stage name | Stage type |
+| --- | --- |
+| New enquiry | 10% |
+| Site visit | 30% |
+| Negotiation | 60% |
+| Token paid | 80% |
+| Won | won |
+| Lost | lost |
 
----
+## Change a pipeline
 
-## How Pipelines Work with Deals
+<Steps>
+<Step title="Click the pencil on its row">The **Edit pipeline** panel opens.
 
-<Card title="The Heart of Your CRM" icon="handshake" href="/help/crm/deal">
-  The pipelines you create here are the framework for managing your sales opportunities. Each opportunity is represented as a **Deal**, which is then placed in a specific stage of a pipeline. As the deal progresses, you simply drag and drop it from one stage to the next, giving your entire team a real-time visual update on your sales efforts.
+![Editing a pipeline.](/images/app/sales/pipeline-edit.png)
+</Step>
+<Step title="Change what you need">Rename a stage, change its type, **Add stage** for a new one at the end, or the bin to remove one (a pipeline needs at least one stage).</Step>
+<Step title="Click Save changes">You see "Changes saved".</Step>
+</Steps>
 
-  [Learn more about Managing Deals](/help/crm/deal).
-</Card>
+<Warning>Deals remember their stage by its name. If you **rename** or **remove** a stage, the deals in it no longer show on the board. Move them to another stage first (drag them on the board), then change the stage.</Warning>
+
+## What you can't do (yet)
+
+- **Delete a pipeline.** There's no delete. Stop using a pipeline by not adding deals to it.
+- **Reorder stages by dragging.** Stages stay in the order you added them. To put one in the middle, rename the stages in the order you want.
+- **Move a deal to another pipeline.** Make a new deal in the other pipeline instead.
+
+## Troubleshooting
+
+| What you see | What to do |
+| --- | --- |
+| "Give the pipeline a name" / "Give the stage a name" | Fill in every name. |
+| "Pick the chance of winning, or won / lost" | Every stage needs a Stage type. |
+| Deals vanished after I edited the pipeline | A stage was renamed or removed. Change the name back, move the deals, then rename. |
+
+## FAQs
+
+<AccordionGroup>
+<Accordion title="What does the percentage do?">
+It says how likely deals at that stage are to close, so the pipeline reads at a glance. The Deals page totals show the full value of each stage.
+</Accordion>
+<Accordion title="How many stages should I have?">
+Four to six plus Won and Lost. More than that and deals sit in stages nobody updates.
+</Accordion>
+</AccordionGroup>
+
+## Related
+
+<CardGroup cols={2}>
+<Card title="Deals" icon="handshake" href="/help/crm/deal">Move deals through the stages.</Card>
+<Card title="Collect a payment" icon="indian-rupee-sign" href="/help/crm/deal-payments">Paid deals move to Won.</Card>
+</CardGroup>

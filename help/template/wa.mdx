@@ -1,94 +1,91 @@
 ---
-title: 'Managing WhatsApp Templates'
-description: 'Manage, sync, and preview your Meta-approved WhatsApp message templates for use in campaigns and automations.'
-icon: 'file-invoice'
+title: 'Templates: overview'
+description: 'What WhatsApp templates are, when you need one, the 3 categories, every template type AdsEra can make, and the Templates page.'
+icon: 'file-lines'
 ---
 
-The **Templates** page is your central library for all the WhatsApp Message Templates associated with your business accounts. To initiate a conversation with a customer or to reply after the initial 24-hour window has closed, you **must** use a template that has been pre-approved by Meta.
+A **template** is a WhatsApp message that Meta approves before you send it. You need one whenever you message someone first:
 
-**Want to Manage WhatsApp Templates? [Go to the AdsEra WhatsApp Templates Page &rarr;](https://app.adsera.in/dashboard/template/whatsapp/list)**
+- to message a person who hasn’t written to you in the last **24 hours**, and
+- for every **broadcast**.
 
-![WhatsApp → Templates in AdsEra.](/images/app/templates.png)
-### Managing Your Templates
+Inside 24 hours of a customer’s last message you can reply with anything (text, photos, quick replies). After that, only an approved template can go out. Meta does this to stop spam.
 
-This page provides a visual gallery of all your templates, allowing you to quickly find the one you need.
+**Where:** **WhatsApp → Templates** (side menu, under **Content**). [Open it →](https://app.adsera.in/dashboard/template/whatsapp/list)
 
-<CardGroup>
-  <Card title="Select Your WABA" icon="whatsapp" iconType="brands">
-    Use the **Waba** dropdown at the top of the page to select the specific WhatsApp Business Account whose templates you want to view.
-  </Card>
-  <Card title="Sync Templates" icon="arrows-rotate">
-    Click the **"Sync template"** button to fetch the latest status of all your templates directly from Meta. This is useful after you've submitted a new template for approval or made changes in the Meta Business Manager.
-  </Card>
-  <Card title="Create a Template" icon="plus">
-    Click **Create Template** to build a new template in AdsEra and submit it to Meta for review. See below.
-  </Card>
+![The Templates page: each card shows a template as it looks on a phone.](/images/app/whatsapp/templates-grid.png)
+
+## The 3 categories
+
+Every template has one category. Meta checks it, charges by it, and it **can’t be changed later**.
+
+| Category | Use it for | Examples | Not allowed |
+| --- | --- | --- | --- |
+| **Marketing** | Anything that sells or promotes | Diwali offer, new project launch, festive greeting, “we miss you” | — |
+| **Utility** | Updates about something the person already asked for or bought | Site visit confirmed, payment reminder, order shipped, class rescheduled | Offers, discounts, sales words |
+| **Authentication** | One-time login codes sent by your website or app | “123456 is your verification code” | Any other text |
+
+<Warning>Picking Utility for a promotional message is the most common reason for rejection. When in doubt, choose **Marketing**.</Warning>
+
+## Template types AdsEra can make
+
+| Type | What it looks like | Category | Guide |
+| --- | --- | --- | --- |
+| **Standard** | Optional header (text, image, video, document or location), the message, an optional footer and up to 10 buttons | Marketing, Utility | [Create a template](/help/template/create) |
+| **Carousel** | A short message, then 2–10 cards people swipe, each with a photo or video, text and buttons | Marketing | [Carousel](/help/template/carousel) |
+| **Limited-time offer** | An offer title, a countdown to when it ends, a copy-code button and a link | Marketing | [Limited-time offer](/help/template/limited-time-offer) |
+| **Call permission** | Asks if you may call them on WhatsApp; they tap Allow | Marketing, Utility | [Call permission](/help/template/call-permission) |
+| **Authentication (login code)** | Meta’s fixed code text with a **Copy code**, **One-tap** or **Zero-tap** button | Authentication | [Login codes](/help/template/authentication) |
+
+Buttons you can add: **Quick Reply**, **Website Link**, **Phone Call**, **Copy Offer Code**, **WhatsApp Flow**, **Voice Call** and **Pay Now**. See [Buttons](/help/template/buttons).
+
+<Note>AdsEra doesn’t make catalog or product templates. To show products in a chat, use a [quick reply with a product list or Pay Now](/help/snippet/interactive).</Note>
+
+## The Templates page
+
+| Part | What it does |
+| --- | --- |
+| **New template** | Opens the template editor for the account picked below. |
+| **WhatsApp Business Account** | Each account has its own templates. Pick the one to see. |
+| **Sync Templates** | Brings in templates made in Meta’s WhatsApp Manager and the latest statuses. |
+| **All / Approved / Pending / Rejected** tabs | Show templates by status; the number is how many. |
+| **Category** | Show only Marketing, Utility or Authentication. |
+| **Search templates by name…** | Find a template by part of its name. |
+| **Clear Filters** | Shows everything again. |
+| Grid / Table icons | Cards that look like the phone message, or a compact table. |
+
+Each card shows the category, header type, language and status, the message itself, and buttons to **Preview**, edit, copy the developer request, and delete. Its **⋮** menu has **View Details**, **Edit Template**, **Copy Template ID**, **Copy API request (v2)**, **View on Meta Manager** and **Delete Template**. See [Find, edit and delete](/help/template/manage).
+
+![The Table view lists more templates at once.](/images/app/whatsapp/templates-table.png)
+
+
+![A limited-time offer and a login code template on the Templates page.](/images/app/whatsapp/template-lto-otp-cards.png)
+
+No templates yet? The page says so and offers **Create First Template** and **Template rules** (a summary of Meta’s rules).
+
+
+![No templates yet.](/images/app/whatsapp/templates-empty.png)
+
+
+![Template rules.](/images/app/whatsapp/template-rules.png)
+
+## Statuses at a glance
+
+| Status | Meaning |
+| --- | --- |
+| **Approved** | Ready to send. |
+| **Pending** | Meta is checking it: usually minutes, up to 24 hours. It can’t be edited meanwhile. |
+| **Rejected** | Meta said no. The card says why and how to fix it. |
+| **Paused** | Meta paused it because people blocked or reported it. |
+| **Disabled** | Meta switched it off after repeated pauses. |
+
+Full details, reasons and fixes: [Statuses and rejections](/help/template/status).
+
+## Next
+
+<CardGroup cols={2}>
+  <Card title="Create a template" icon="pen" href="/help/template/create">Header, message, footer and buttons, step by step.</Card>
+  <Card title="Variables and samples" icon="brackets-curly" href="/help/template/variables">{"{{name}}"}, {"{{amount}}"} and how they get filled.</Card>
+  <Card title="Statuses and rejections" icon="circle-check" href="/help/template/status">Why Meta said no, and how to fix it.</Card>
+  <Card title="Rules, limits and costs" icon="scale-balanced" href="/help/template/rules-and-limits">Every limit in one place.</Card>
 </CardGroup>
-
----
-
-## Create a Template
-
-Click **Create Template**, then:
-
-1. **Choose the category:**
-   - **Marketing:** promotions, offers, updates.
-   - **Utility:** order confirmations, billing alerts, reminders.
-   - **Authentication:** one-time passwords.
-2. **Name it and pick the language.** The name can use lowercase letters, numbers and underscores.
-3. **Choose the format:**
-   - **Standard:** an optional header (text, image, video or document), the body, an optional footer and buttons.
-   - **Carousel:** up to 10 swipeable cards, each with its own image or video and buttons.
-   - **Limited-time offer:** a marketing template with an expiry countdown and an offer code.
-   - **Call permission request:** asks the customer to allow WhatsApp calls from you. No buttons or media headers. See [WhatsApp calling](/help/channel/whatsapp/calling).
-4. **Add variables** like `{{1}}` in the body. Give each one a **sample value** for Meta's review.
-5. **Add buttons:**
-   - **Quick Reply**
-   - **Website Link**
-   - **Phone Call**
-   - **Copy Offer Code**
-   - **WhatsApp Flow** (opens one of your published [Flows](/help/automation/whatsapp-flows))
-   - **Voice Call**
-   - **Pay Now (Review and Pay)** (for [WhatsApp Pay](/help/integrations/whatsapp-pay))
-6. Check the live preview and **submit**. The template shows **PENDING** until Meta approves or rejects it, usually within minutes.
-
-<Tip>
-  [Ask AI](/help/ai/ask-ai) can write a template for you: try *"Create a WhatsApp template with buttons for our Diwali offer"*.
-</Tip>
-
----
-
-## Filtering and Viewing Templates
-
-To help you organize and find templates quickly, you can filter the gallery in several ways:
-
-#### Filter by Status
-Use the tabs at the top of the gallery to filter templates by their current approval status:
-- **All:** Shows every template associated with the selected WABA.
-- **APPROVED:** Shows only templates that are approved by Meta and ready to use.
-- **PENDING:** Shows templates you have submitted that are still under review by Meta.
-- **REJECTED:** Shows templates that Meta did not approve. You will need to edit and resubmit them.
-- **DRAFT:** Shows templates you have started but not yet submitted for approval.
-
-#### Filter by Category and Language
-- **Category:** Use the category dropdown to filter for `Marketing`, `Utility`, or `Authentication` templates.
-- **Search:** Use the search bar to find a template by its name.
-
----
-
-## Understanding a Template Card
-
-Each card in the gallery gives you a preview and key details about the template.
-
-![WhatsApp → Templates.](/images/app/templates.png)
-
-- **Template Name:** The unique internal name for the template.
-- **Preview (👁️):** Click the **eye icon** to open a side panel with a full, device-sized preview of how the message will look, including any media, buttons, and variables.
-- **Header:** If the template includes a header, it will display the rich media type (e.g., Image, Video, Document).
-- **Body Content:** A preview of the main text message. Variables like `{{name}}` are shown as placeholders.
-- **Footer:** Any footer text included in the template.
-- **Buttons:** Interactive buttons like "Call Now" or "Check Now" are displayed at the bottom.
-
-<Info>
-When viewing a template's full preview in the side panel, you can also click the **"Sync template"** button at the bottom to refresh its status individually.
-</Info>

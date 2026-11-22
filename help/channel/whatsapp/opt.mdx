@@ -1,66 +1,81 @@
 ---
-title: 'WhatsApp Opt-In Management'
-description: 'Configure the automated opt-in and opt-out keywords and responses for all your WhatsApp Business Accounts.'
+title: 'Opt-in & opt-out keywords (STOP / START)'
+description: 'Let people stop your broadcasts by sending a word like STOP, and come back with START. Set the words and the reply they get.'
 icon: 'toggle-on'
 ---
 
-The **Opt Settings** page allows you to define and manage how users can subscribe (opt-in) to or unsubscribe (opt-out) from your WhatsApp communications. Properly configuring these settings is essential for respecting user consent and complying with messaging policies.
+When someone sends **STOP** (or any word you choose), AdsEra marks them as opted out of WhatsApp messages and your broadcasts skip them. When they send **START**, they are back in. Each time, they can get an automatic reply.
 
-**Want to Manage WhatsApp WhatsApp Opt-In and Opt-Out? [Go to the AdsEra WhatsApp Opt-In and Opt-Out settings Page &rarr;](https://app.adsera.in/dashboard/whatsapp/opt-settings)**
+Keeping this on protects your number: people who can’t stop your messages tend to block or report you, and that lowers your quality and daily limit.
 
-<Info>
-  **Global Setting:** Please note that the settings configured on this page are applied globally to **all** of your connected WhatsApp Business Accounts (WABAs).
-</Info>
+**Where:** **WhatsApp → Numbers & profile → Automation**, card **Opt-in & opt-out keywords**, button **Manage**. [Open it →](https://app.adsera.in/dashboard/whatsapp/opt-settings)
 
-![WhatsApp → Numbers & profile → Automation.](/images/app/wa-automation.png)
+<Info>These words work on **all** your WhatsApp numbers.</Info>
 
----
+![Opt-in & opt-out keywords: opt-out words on top, opt-in words below, each with its reply.](/images/app/whatsapp/opt-settings.png)
 
-## Opt-Out Settings
+## Set the opt-out words
 
-This section controls how users can automatically unsubscribe from your messages.
+<Steps>
+<Step title="Add the words">
+  In **Enter keywords**, type a word like **STOP** and click **Add** (or press Enter). It shows as a chip. Click × on a chip to remove it.
+</Step>
+<Step title="Add every way people write it">
+  The word must be the whole message, written the same way. Capital letters count, so add **STOP** and **stop**, and the words your customers use, like **UNSUBSCRIBE** or **band karo**.
+</Step>
+<Step title="Choose the reply">
+  The switch next to **Opt-out response** turns the automatic reply on or off. Click **Configure** to write it.
 
-<Card title="Opt-Out Keywords" icon="comment-slash">
-  Here you can define a list of keywords that will automatically trigger an opt-out. When a user sends a message containing one of these exact keywords (e.g., `STOP`), their WhatsApp subscription status will be updated to "unsubscribed."
+  ![Reply they get: type a text, or pick a saved quick reply.](/images/app/whatsapp/opt-response.png)
 
-  - **To add a keyword:** Type it into the "Enter keywords" field and click **Add**.
-  - **To remove a keyword:** Click the `x` on the keyword's chip.
-</Card>
+  - **Text**: type the reply in **Reply message**, like “You won’t get offers from Greenleaf Realty any more. Reply START to get them again.”
+  - **Quick reply**: click **Select quick reply** and pick one you saved.
 
-#### Opt-Out Matching Method
-You can choose how strictly the system matches the keywords sent by users:
-- **Similar words (handles typos):** Allows for minor misspellings.
-- **Exact words:** The user's message must match your keyword perfectly.
-- **Message contains the word:** The user's message must contain your keyword anywhere within it.
+  ![Quick reply chosen as the reply.](/images/app/whatsapp/opt-response-quick-reply.png)
 
-#### Opt-Out Response Message
-You can configure an automatic message that is sent to a user immediately after they opt out.
-- **Enable/Disable:** Use the toggle switch to turn this automated response on or off.
-- **Configure:** Click the **"Configure"** button to edit the content of the response message. A common best practice is to confirm the unsubscribe action and let them know how to re-subscribe, as shown in the preview.
+  Click **Save** to close the window.
+</Step>
+<Step title="Save">
+  Click **Save setting**.
+</Step>
+</Steps>
 
----
+## Set the opt-in words
 
-## Opt-In Settings
+The **Opt-in keywords** card works the same way: add words like **START** and **start**, configure the reply (“Welcome back! You’ll get our offers again.”) and click **Save setting**.
 
-This section controls how users can subscribe or re-subscribe to your WhatsApp messages.
+## What happens after someone opts out
 
-<Card title="Opt-In Keywords" icon="comment-dots">
-  Define a list of keywords that will automatically opt a user in. When a user who is not currently subscribed sends one of these keywords (e.g., `START`), their WhatsApp subscription status will be set to "subscribed."
+- Their contact is marked as not subscribed to WhatsApp.
+- **Broadcasts skip them** from then on.
+- You can still reply to them in the inbox when they message you.
+- If they opted out by replying to a broadcast, the broadcast’s report counts them under **Unsubscribed**.
+- Meta’s own **Stop promotions** button (on some marketing messages) opts them out too.
 
-  - **To add a keyword:** Type it into the "Enter keywords" field and click **Add**.
-  - **To remove a keyword:** Click the `x` on the keyword's chip.
-</Card>
+## Fields
 
-#### Opt-In Matching Method
-Similar to the opt-out settings, you can define the logic for matching keywords: **Similar words**, **Exact words** or **Message contains the word**.
+| Field | What it does | Example |
+| --- | --- | --- |
+| Opt-out keywords | Words that opt someone out | STOP, stop, UNSUBSCRIBE |
+| Opt-out response (switch) | Send a reply when someone opts out | On |
+| Configure → Text / Quick reply | What the reply says | “You won’t get offers from us any more.” |
+| Opt-in keywords | Words that opt someone back in | START, start |
+| Opt-in response | Reply when someone opts in | “Welcome back!” |
 
-#### Opt-In Response Message
-Set up an automated welcome message for new subscribers.
-- **Enable/Disable:** Use the toggle switch to turn this automated welcome message on or off.
-- **Configure:** Click the **"Configure"** button to edit the content of the response message. This is a great place to thank the user for subscribing and set expectations.
+## FAQs
 
----
+<AccordionGroup>
+<Accordion title="Someone wrote “please stop sending” but was not opted out">
+  The whole message must be one of your words. Add common phrases as keywords, or opt them out yourself from their contact.
+</Accordion>
+<Accordion title="Can I send a Pay Now quick reply as the response?">
+  No. A Pay Now message needs an order, so it is skipped here. Use a text reply.
+</Accordion>
+</AccordionGroup>
 
-### Saving Your Changes
+## Related
 
-After configuring your keywords and responses for both Opt-Out and Opt-In, be sure to click the **"Save setting"** button within each respective card to apply your changes.
+<CardGroup cols={2}>
+  <Card title="Numbers & profile" icon="mobile" href="/help/channel/whatsapp/whatsapp">The Automation tab.</Card>
+  <Card title="Broadcast reports" icon="chart-line" href="/help/campaign/wa/report">Subscribed and Unsubscribed tabs.</Card>
+</CardGroup>

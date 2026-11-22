@@ -1,89 +1,194 @@
 ---
-title: 'Managing Deals'
-description: 'Track and manage your sales opportunities visually using a Kanban board or a detailed list view.'
+title: 'Deals'
+description: 'Track every sale as a deal: see the money by stage, move deals along your pipeline on a board, list or calendar, and keep every note, task, call, meeting and payment with it.'
 icon: 'handshake'
 ---
-**Want to Manage Deals? [Go to the AdsEra Deal Page &rarr;](https://app.adsera.in/dashboard/crm/deal)**
 
-The **Deals** page is the heart of your CRM, providing a visual representation of your sales process. Here, you can track the progress of each sales opportunity (a "deal") as it moves through the stages of your [Pipelines](/help/crm/pipeline), from initial contact to a final win or loss.
+A **deal** is one chance to sell: one person, what they want to buy, how much it's worth, and how far along it is. Deals move through the stages of a [pipeline](/help/crm/pipeline), like *New enquiry → Site visit → Negotiation → Token paid → Won*. The Deals page shows them all, with the money at each stage, so you can see what's close and what's stuck.
 
-### List, Board and Calendar
+**Where:** **Sales → Deals** in the menu on the left. [Open it →](https://app.adsera.in/dashboard/crm/deal)
 
-Use **How to show deals** at the top of the page to switch views:
+**Before you start:** you need a pipeline. If you have none, Deals says **Set up your stages first** with a **Make a pipeline** button. See [Pipelines](/help/crm/pipeline).
 
-- **List:** a table of all your deals, sortable by close date or last change.
-- **Board:** the Kanban board, with one column per stage of the selected pipeline. This is the default.
-- **Calendar:** deals on their close dates. Drag a deal onto a day to plan it. Deals without a close date are listed on the side until every open deal has one.
+![Deals as a board: one column per stage, with the money on top.](/images/app/sales/deals-board.png)
 
-Pick the pipeline with **Pipelines**, and turn on **Money by stage** to see the value in each stage.
+## The top of the page
 
-![Sales → Deals in AdsEra.](/images/app/deals.png)
----
+| Part | What it does |
+| --- | --- |
+| Pipeline tabs (**Home sales**, **Rentals**…) | One tab per pipeline. Click to switch. |
+| **List** / **Board** / **Calendar** | Three ways to see the same deals (below). |
+| **New deal** | Adds a deal. |
+| **Open** | The money in all open deals, and how many. |
+| **Won this month** | Deals won since the 1st of this month. |
+| **Overdue** | Open deals past their close date. Click to show only those. |
+| **Closing in 7 days** | Open deals due today or in the next 7 days. Click to show only those. |
+| **Show all deals** + **Add a filter** | A filter you build as a sentence. Starters: **Mine**, **Overdue**, **Closing in 7 days**, **Over ₹50,000**, **New this month**. |
+| **Search deals** | Finds deals by name. |
 
-## The Kanban View
+Filter on **Stage**, **Owner**, **Amount**, **Close date** (overdue, in the next 7 or 30 days, in the last 30 days, or a date), **Created** or **Last changed**.
 
-The Kanban view is designed for an active, visual approach to sales management.
+![Add a filter: pick what to filter on.](/images/app/sales/deals-filter.png)
 
-#### Filtering Your View
-At the top of the board, you can filter the deals that are displayed:
-- **Select a Pipeline:** Choose which sales pipeline you want to view from the dropdown. The columns on the board will update to show the stages of the selected pipeline.
-- **Date Range Filters:** Filter deals by their **Create Date** or **Close Date**.
-- **Search:** Find a specific deal by its name or description.
+## Three views
 
-#### Anatomy of a Kanban Column
-Each column on the board represents a **stage** from your selected pipeline (e.g., `Created`, `Demo`, `Negotiation`).
-- **Stage Title & Deal Count:** The header of each column shows the stage name and the number of deals currently in it.
-- **Total & Weighted Value:** At the bottom of each column, you'll find:
-    - **Total:** The sum of the total value of all deals in that stage.
-    - **Weighted:** The total value multiplied by the stage's win probability (set in the [Pipeline settings](/help/crm/pipeline)). This provides a forecast of expected revenue.
+<Tabs>
+<Tab title="Board">
+A column per stage, left to right, with how many deals and their total. The thin bar on top shows where the money sits (point at a part for the stage and amount). Each card shows the deal name, the contact, the money and:
 
-#### Managing Deals with Drag-and-Drop
-The power of the Kanban view is its simplicity. To move a deal from one stage to the next, simply **click and drag the deal card** and drop it into a new column. The Total and Weighted values for the columns will update automatically.
+- **Due 02 Dec**: its close date,
+- **Overdue** in red when the close date has passed,
+- **9d idle** when nothing changed for a week or more (red after two weeks),
+- **No close date** when none is set.
 
----
+Drag a card to another column to move the deal. It saves at once; if saving fails it goes back.
 
-## Creating and Editing a Deal
+![The board.](/images/app/sales/deals-board.png)
+</Tab>
+<Tab title="List">
+Deals grouped by when they should close: **Overdue**, **This week**, **Next week**, **Later**, **No close date**, and **Won and lost** at the bottom. Columns: **Amount**, **Stage**, **Owner**, **Close date**, **Last change**.
 
-Clicking the **"+ New Deal"** button or editing an existing deal opens a side panel where you can manage all its information.
+![The list.](/images/app/sales/deals-list.png)
+</Tab>
+<Tab title="Calendar">
+A month with each open deal on its close date. Drag a deal to another day to change its close date. **No close date** on the right lists the deals without one: drag them onto a day. The arrows show the previous or next month.
 
-![The Create deal panel.](/images/app/deal-new.png)
+![The calendar.](/images/app/sales/deals-calendar.png)
+</Tab>
+</Tabs>
+
+## Add a deal
+
+<Steps>
+<Step title="Click New deal">The **New deal** panel opens on the right.</Step>
+<Step title="Title and Description">
+**Title**: like "3BHK Baner – Ravi Kumar", so it's clear on the board. **Description**: one line on what they want, budget or timing. Both are required.
+
+![The New deal panel.](/images/app/sales/deal-new.png)
+</Step>
+<Step title="Contact">Type a name or number and pick the person. Their chats, calls and notes show on the deal.</Step>
+<Step title="Pick the pipeline and stage">
+Click the box, pick the pipeline, then the stage the deal is at now.
+
+![Pick the pipeline, then the stage.](/images/app/sales/deal-new-stage.png)
+</Step>
+<Step title="Close date">When you expect to close. Past it, the deal shows as Overdue.</Step>
+<Step title="Products">Pick what they're buying (see the table below). The total adds up by itself. No products? Type the **Deal value**.</Step>
+<Step title="Click Create">The deal shows on the board in its stage.</Step>
+</Steps>
+
+### Products on a deal
+
+| Field | What it does | Example |
+| --- | --- | --- |
+| **Currency** | The deal's currency. | INR |
+| **Product** | Search your [products](/help/crm/product) by name or SKU. Shows each one's price. | 2BHK at Greenleaf Heights |
+| **Item name** | For **Add a custom item**: something that's not in Products. | Covered car parking |
+| **Billing option** | Only for products with several prices, like a subscription's monthly and yearly plans. | Yearly · ₹27,000 |
+| **Qty** | How many. | 1 |
+| **Unit price** | Filled from the product (it says "from catalog", or the offer's name). Type a different price to change it for this deal. | 66,50,000 |
+| **%** or **₹** + **Discount** | A discount as a percent or an amount. | 2 % |
+| Line total | The line's total, with "incl. GST" when the product charges tax. | ₹65,17,000 |
+| **Subtotal**, **Discount**, **GST**, **Total** | The deal's totals, worked out for you. | |
+
+**Add product** adds a line from Products. **Add a custom item** adds a typed line. The bin removes a line.
+
+<Note>GST comes from each product's **Charge tax?** setting (see [Product types](/help/crm/product-types)). A deal has no GST field of its own.</Note>
+
+## Open a deal: the preview
+
+Click a card (or a row) and the deal opens on the right, so you keep your place.
+
+![The deal preview.](/images/app/sales/deal-preview.png)
+
+| Part | What it does |
+| --- | --- |
+| Arrows at the top | Previous / next deal. |
+| **⋮** (More actions) | **Edit deal and products**, **Open in a new tab**. |
+| Name, money, contact | Click the contact to open their page. |
+| **Stage: …** | Click to pick another stage. The bar under it shows how far along it is. |
+| **Mark won** / **Mark lost** | Moves the deal to your pipeline's won or lost stage. |
+| **Email**, **Meeting**, **Note**, **Task**, **Log call**, **Contact** | Quick actions. **Meeting** offers **Schedule a meeting** and **Log a meeting**. |
+| **About this deal** | **Owner** and **Close date** (click to change), **Pipeline**, **Created**, **Description**, then **Subtotal**, **Discount**, GST and **Total**. |
+| **Products**, **Payments** | The lines, and payment requests with **Collect payment**. |
+| **Recent activity**, **Notes**, **Tasks**, **Calls**, **Meetings** | Everything about the deal. **Add** / **Log** adds one. |
+| **View deal** | Opens the deal's own page. |
+
+![Stage: pick the stage.](/images/app/sales/deal-stage-menu.png)
+
+![More actions.](/images/app/sales/deal-more.png)
+
+## Move a deal, win or lose it
+
+- **Drag** the card to another column on the board.
+- Or open it and click **Stage: …**, or click a stage in the arrow bar on its page.
+- **Mark won** when they've bought: it counts in **Won this month**. **Mark lost** when they won't. Changed your mind? Pick another stage.
+
+Mark won and Mark lost use the stages in your pipeline marked **won** and **lost**. If they're missing, add them in [Pipelines](/help/crm/pipeline). A [workflow](/help/automation/workflows) can react when a deal reaches a stage.
+
+## Edit a deal
+
+Open it → **⋮** → **Edit deal and products**. Change the title, description, stage, close date and products, then click **Update**. The **contact** and the **pipeline** can't be changed after a deal is made: make a new deal instead. The edit panel also shows the deal's **Payments**.
+
+![Edit deal and products.](/images/app/sales/deal-edit.png)
+
+## A deal's own page
+
+Click **View deal** (or **Open in a new tab**).
+
+![A deal's page.](/images/app/sales/deal-page.png)
+
+| Part | What it does |
+| --- | --- |
+| Back arrow, **Deals / Home sales** | Back to Deals. |
+| **Edit deal and products** | Opens the edit panel. |
+| Round buttons | **Email**, **Meeting**, **Note**, **Task**, **Log call**, **Contact**. |
+| Arrow bar | Every open stage; click one to move the deal. **Mark won** / **Mark lost** on the right. |
+| Left side | **About this deal**, **Products**, **Payments**. |
+| Tabs | **Activity**, **Notes**, **Tasks**, **Calls**, **Meetings**, each with its count and an Add or Log button. |
+
+To take a payment, see [Collect a payment](/help/crm/deal-payments).
+
+## When there are no deals
+
+![No deals in this pipeline yet.](/images/app/sales/deals-empty.png)
+
+The page says **No deals in this pipeline yet** with **New deal** and **Edit stages**. If you have no pipeline at all it says **Set up your stages first** with **Make a pipeline**.
+
+## Limits
+
+- A pipeline shows up to 500 deals at once. With more, a note says "Showing the newest 500. Narrow the sentence to see the rest."
+- Deals can't be deleted from the app today. Mark them lost instead.
+
+## Troubleshooting
+
+| What you see | What to do |
+| --- | --- |
+| "Give the deal a name" / "Add a line about the deal" / "Pick the pipeline and stage" | Title, Description and the stage are required. |
+| "Couldn't move that deal" | The card went back: check your connection and drag again. |
+| "Deal saved, but its products weren't…" | Open the deal → Edit deal and products, and add the products again. |
+| No **Mark won** / **Mark lost** buttons | Your pipeline has no stage marked won or lost. Add them in Pipelines. |
+| A deal disappeared from the board | Its stage was renamed or removed in the pipeline. Search for it in **List** and pick a stage. |
+
+## FAQs
 
 <AccordionGroup>
-  <Accordion title="Core Deal Information">
-    - **Title & Description:** Give your deal a clear name and add any relevant notes.
-    - **Contact:** Associate the deal with a specific contact from your audience list.
-    - **Select a stage:** Assign the deal to its current stage within the pipeline.
-    - **Closing Date:** Set an expected closing date for sales forecasting.
-  </Accordion>
-  <Accordion title="Products & Value">
-    This is where you add the products or services the deal is for.
-    1.  Select a **Currency**.
-    2.  Click **"+ Add Product"** to add a line item.
-    3.  Choose a product from your [Product Catalog](/help/crm/product).
-    4.  Enter the **Quantity** and adjust the **Unit Cost** if needed. The Product Total will calculate automatically.
-    5.  Repeat for all products in the deal.
-  </Accordion>
-  <Accordion title="Financials (Subtotal, Discount & GST)">
-    - **Subtotal:** Automatically calculated from the sum of all product totals.
-    - **Discount:** Apply a discount amount to the subtotal.
-    - **GST:** Toggle the GST switch on to add tax. You can then select the GST type (`IGST` or `SGST`) and enter the percentage. The final tax amount and **Total** are calculated for you.
-  </Accordion>
+<Accordion title="How is a deal different from a contact?">
+A contact is a person. A deal is one sale to that person. One contact can have several deals, like a flat now and a shop later.
+</Accordion>
+<Accordion title="Can I make a deal from a chat or from Prospects?">
+New deals are made here, with **New deal**. A payment you collect from an inbox chat is saved on a deal. In Prospects, the outcomes **Meeting set** and **Won** move the lead's open deal for you, and **Pay link** asks for a payment on it.
+</Accordion>
+<Accordion title="Who sees a deal?">
+Admins see all deals. Team members see the deals their Data visibility allows (see [Give each salesperson their own leads](/help/sales/own-leads)).
+</Accordion>
 </AccordionGroup>
 
-Once all details are filled in, click **"Create"** or **"Save Changes"** to add the deal to your pipeline.
+## Related
 
----
-
-## Deal preview
-
-Click a deal to open its preview: details, products, activity and payments. Use **Previous deal** and **Next deal** to move through the list without closing it, and **More actions** for the rest.
-
-## Collecting payment
-
-In the deal's payments section, click **Collect payment**. The customer gets a WhatsApp **Pay Now** card or a payment link, and the deal shows each request's status (paid, pending or needs review). See [WhatsApp Pay](/help/integrations/whatsapp-pay).
-
-## Deals created for you
-
-- [Addy](/help/ai/addy) can create a deal for each buyer it qualifies.
-- A [workflow](/help/automation/workflows) step can **Add or update a deal**.
-- Payments collected from a chat open a deal.
+<CardGroup cols={2}>
+<Card title="Collect a payment" icon="indian-rupee-sign" href="/help/crm/deal-payments">Pay Now cards and payment links.</Card>
+<Card title="Pipelines" icon="sliders" href="/help/crm/pipeline">The stages your deals move through.</Card>
+<Card title="Products" icon="box" href="/help/crm/product">What you sell, with prices.</Card>
+<Card title="From lead to payment" icon="route" href="/help/sales/lead-to-payment">The whole journey.</Card>
+</CardGroup>

@@ -1,101 +1,113 @@
 ---
-title: 'Import Contacts via File Upload'
-description: 'A step-by-step guide to adding contacts in bulk to AdsEra by uploading a CSV or XLSX file.'
-icon: 'file-arrow-up'
+title: 'Import contacts from a file'
+description: 'Upload an Excel or CSV file, match its columns to your fields, choose what happens to people you already have, and put everyone in a list.'
+icon: 'file-import'
 ---
 
-This guide will walk you through importing your contacts by uploading a file. This method is perfect for larger lists and ensures all your contact data is seamlessly integrated into AdsEra.
+Have your leads in Excel? Upload the file and AdsEra adds everyone as contacts in three steps: **Upload your file → Match your columns → Pick a list**.
 
-**Want to Import Contacts via File Upload? [Go to the AdsEra Contact Import Page &rarr;](https://app.adsera.in/dashboard/contact/import/option)**
+**Where:** **Contacts → Import contacts → Upload a file**. [Open it →](https://app.adsera.in/dashboard/contact/import/option)
 
-### Prerequisites
+![The three ways to import.](/images/app/contacts/import-option.png)
 
-Before you start, make sure you have the following:
+<Warning>
+  **Phone numbers need the country code**, like **91 98765 43210**. AdsEra removes +, spaces and dashes for you, and adds 91 to a 10-digit number that has no code. Only import people who agreed to hear from you: messaging people who never asked can get your WhatsApp number limited.
+</Warning>
 
-<CardGroup>
-  <Card title="Contact Data Ready" icon="file-excel">
-    Have your contact information ready in a spreadsheet (like Google Sheets or Excel) or a text editor.
-  </Card>
-  <Card title="Required Identifier" icon="key">
-    Your data **must** include either an `EMAIL` or a `PHONE` column. At least one of these is required to identify and manage contacts.
-  </Card>
-  <Card title="Contact Consent" icon="user-check">
-    Remember, you must have your contacts' consent to send them marketing campaigns.
-  </Card>
-</CardGroup>
+## Before you start
 
----
+- **One person per row**, with the column names in the first row (Phone, First name, City…).
+- Each row needs a **phone number** or an **email**. Rows with neither are skipped.
+- Want to filter by an amount or a date later (like Budget or Site visit date)? Create that field as **Number** or **Date** in [Fields](/help/audiance/attribute) **first**. A column you don't match to a field becomes a new **Text** field, and a field's type can't be changed later.
+- Make the list you want them in (or make it on the last step).
 
-## Step-by-Step Import Process
+**Download sample file** on the upload step gives you a sheet set out the right way.
 
-Follow these simple steps to import your contacts using a file upload.
+## Import, step by step
 
 <Steps>
-<Step title="1. Navigate to the Import Screen">
-From your AdsEra Dashboard, go to **Contacts → Import contacts**. On the next screen, select the **Import contacts from a file** option.
+<Step title="Pick Upload a file">On **Import contacts**, click **Upload a file**.</Step>
+<Step title="Upload your file">
+Drop the file on the box, or click it to pick one. Excel (.xlsx, .xls) or CSV. Click **Next**.
 
-![Contacts → Import contacts.](/images/app/import.png)
-
+![Upload your file.](/images/app/contacts/import-upload.png)
 </Step>
+<Step title="Match your columns">
+Each row is a column of your file. Under **Saves into**, pick the field it goes into. A green tick means it's matched; a blue plus means it will become a new field with the column's name. One column must be **Phone** or **Email**.
 
-<Step title="2. Upload Your File">
-On the "Upload File" screen, either drag and drop your CSV or XLSX file into the designated area, or click "browse through your machine" to select it manually.
-
-<Info>
-  **Tip:** If you need a template to structure your data correctly, click the **"Download sample file"** link.
-</Info>
+![Match your columns.](/images/app/contacts/import-map.png)
 </Step>
+<Step title="Choose what happens to people you already have">Under **If the contact is already in AdsEra**, pick for each column (table below). Click **Next**.</Step>
+<Step title="Put them in a list">
+Tick one or more lists. No list yet? Click **Create a list**. **Folder** narrows the lists shown. Click **Import**.
 
-<Step title="3. Confirm and Preview Your Data">
-After a successful upload, AdsEra will display a preview of the first few rows of your data. Review the table to ensure your columns and data appear correctly, then click **Next**.
+![Put them in a list.](/images/app/contacts/import-list.png)
 </Step>
+<Step title="Confirm">
+Click **Upload** in **Import this file?**. You go back to All contacts while they're added.
 
-<Step title="4. Map Fields to Platform Fields">
-This crucial step matches your file's columns to the corresponding fields in AdsEra.
-- **Verify Mapping:** The system will attempt to auto-map your columns. Double-check that each "Column name from imported file" is correctly matched to a "Column name on AdsEra".
-- **Set Duplicate Handling:** For each column, choose an action for updating existing contacts:
-    - **Overwrite:** Replaces existing data with the new data.
-    - **Fill only if empty:** Only adds data if the field is currently blank.
-    - **Skip:** Ignores the new data for that field if the contact already exists.
-
-</Step>
-
-<Step title="5. Assign to a Contact List">
-Every contact you import must be assigned to at least one list.
-- **Select an existing list:** Choose from your current contact lists.
-- **Create a new list:** Click the **"Create A List"** button and give your new list a name.
-
-Once you've selected a list, click **Upload**.
+![Confirm the import.](/images/app/contacts/import-confirm.png)
 </Step>
 </Steps>
 
----
+## Matching choices
 
-## After the Upload
+| Saves into | What happens |
+| --- | --- |
+| **Phone** | The WhatsApp number. Cleaned and given 91 if it has 10 digits. |
+| **Email** | Their email (saved in small letters). |
+| One of **Your fields** | The value goes into that field (City, Budget…). |
+| **New field "COLUMN"** (nothing picked) | A new Text field is made with the column's name. |
 
-After clicking **Upload**, AdsEra will process your file. You will receive a **confirmation report** detailing the number of **successful** and **failed** imports, along with specific reasons for any failures.
+Columns named like a field match by themselves: **First name**, **FIRST_NAME** and **firstname** all match **First name**.
 
-### Troubleshooting Common Errors
+| If the contact is already in AdsEra | What happens to that person |
+| --- | --- |
+| **Keep what they have** | Their value stays. A field they don't have yet is filled. |
+| **Replace with the file's value** | The file's value replaces theirs. |
+| **Fill it only if it's empty** | Only a blank value is filled. |
 
-| Common Error | Description & Solution |
-| :--- | :--- |
-| **Missing Identifier** | A row in your file is missing both an email and a phone number. **Solution:** Ensure every contact has a valid value in either the `EMAIL` or `PHONE` column. |
-| **Incorrect File Type** | You've uploaded a file that isn't a CSV or XLSX. **Solution:** Ensure your file is saved in either `.csv` or `.xlsx` format. |
-| **File Corrupted** | AdsEra could not read the file. **Solution:** Open your file in a spreadsheet program and save it again as a new, clean CSV or XLSX. |
-| **Missing Headers** | Your file is missing the first row of column headers. **Solution:** Ensure your very first row contains clear column headers. |
+A contact "already in AdsEra" has the same phone number or email. They're updated, never added twice, and join the lists you ticked. The same person twice in your file is merged into one.
 
----
+## After you import
 
-## Pro Tips for a Smooth Import
+- Small files are done in seconds; a file with **10,000 or more** rows takes about **5 to 10 minutes**. Refresh **All contacts** to see them.
+- Everyone joins the lists you ticked. Find them with **Contacts → Lists**, or filter **List is …** on All contacts.
+- To check a column came in, show it in **Edit columns**.
+
+## Troubleshooting
+
+| What you see | Why | What to do |
+| --- | --- | --- |
+| **Next** stays grey | No file yet, or it couldn't be read. | Use .xlsx, .xls or .csv with the column names in the first row. |
+| **Import** stays grey | No list ticked. | Tick a list, or **Create a list**. |
+| Fewer contacts than rows | Rows without a phone or email are skipped; repeated people are merged; people you already have are updated. | Check those rows in your file. |
+| WhatsApp messages fail for some | A number without the right country code (for example a 10-digit number from another country). | Put the country code in the file and import again with **Replace with the file's value** on Phone. |
+| Budget can't be filtered by "more than" | The column became a Text field. | Make a **Number** field, import again and pick it under **Saves into**. |
+| New fields named in capitals (CITY) | New fields take the column name. | That's fine; they show as "City" on contacts. |
+
+## FAQ
 
 <AccordionGroup>
-  <Accordion title="Clean Your Data Before Importing">
-    Take a moment to clean your data first. Remove any unnecessary characters, extra spaces, or inconsistent formatting to ensure a smooth import.
+  <Accordion title="Can I undo an import?">
+    No. Import into a new list so you can find everyone it added (tick them all and delete if you need to).
   </Accordion>
-  <Accordion title="Test with a Small Batch">
-    If you're importing a very large list for the first time, try importing a small sample (5-10 contacts) to ensure everything maps and imports as expected.
+  <Accordion title="Can I add a label during the import?">
+    Not during the import. Afterwards, filter **List is** (your list), click **Select all**, then **Add labels**.
   </Accordion>
-  <Accordion title="Review Mapping Carefully">
-    The mapping step is critical! Double-check that your columns are correctly aligned with AdsEra's fields to avoid data discrepancies.
+  <Accordion title="Is there a size limit?">
+    Very big files work but take longer (about 5 to 10 minutes for 10,000 rows). Split huge files into a few.
+  </Accordion>
+  <Accordion title="Do imported people get a WhatsApp message?">
+    No. Importing never sends anything. You choose when to send a broadcast.
   </Accordion>
 </AccordionGroup>
+
+## Related
+
+<CardGroup cols={2}>
+  <Card title="Paste contacts" icon="paste" href="/help/audiance/copy" />
+  <Card title="Import from Google Sheets" icon="table" href="/help/audiance/google-sheets" />
+  <Card title="Fields" icon="table-list" href="/help/audiance/attribute" />
+  <Card title="Lists and folders" icon="list" href="/help/audiance/list" />
+</CardGroup>

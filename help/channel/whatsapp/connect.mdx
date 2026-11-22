@@ -1,76 +1,133 @@
 ---
-title: 'Connecting New WhatsApp'
-description: 'A step-by-step guide to connecting your WhatsApp number to AdsEra using Meta Embedded Signup flow.'
+title: 'Connect your WhatsApp number'
+description: 'Connect a new number, or the number you already use on the WhatsApp Business app, in a few minutes with a Facebook login.'
 icon: 'link'
 ---
-Connecting a new WhatsApp Business Account (WABA) to AdsEra is a streamlined process that uses Meta's secure **Embedded Signup** pop-up window. This guide will walk you through the prerequisites and steps to get your new number live.
 
-**Want to Add WhatsApp Account? [Go to the AdsEra WhatsApp Login Page &rarr;](https://app.adsera.in/dashboard/whatsapp/login)**
+To chat, reply automatically and send broadcasts from AdsEra, connect your WhatsApp number first. It takes about 5 minutes and happens in a Facebook window that AdsEra opens for you.
 
-### Choose how to connect
+You can connect two kinds of number:
 
-AdsEra offers two ways to connect a number:
+- **A new number** that is not on WhatsApp yet.
+- **The number you already use on the WhatsApp Business app.** You keep using the app on your phone, and AdsEra works alongside it. Meta calls this **Coexistence**.
+
+**Where:** **WhatsApp → Numbers & profile** (in the side menu, under **Setup**). [Open it in AdsEra →](https://app.adsera.in/dashboard/channel/whatsapp)
+
+<Note>Only workspace **admins** can connect a number. Team members see a message asking an admin to do it.</Note>
+
+![The connect card on WhatsApp → Numbers & profile, before any number is connected.](/images/app/whatsapp/connect-empty.png)
+
+## Which kind of number should I pick?
 
 | | **New number (Cloud API)** | **Existing number (Coexistence)** |
 | --- | --- | --- |
-| Best for | A fresh business line, or a number not yet on WhatsApp | A number your team already uses in the WhatsApp Business app |
-| Phone app | The number leaves the WhatsApp Business app and is managed entirely in AdsEra | Your team keeps using the WhatsApp Business app |
-| Chats and contacts | Start fresh | Recent chats and contacts sync into AdsEra |
-| Automation, templates and broadcasts | Full | Template broadcasts from AdsEra; some Cloud-API-only features stay limited |
-| Sending limits | Highest | Lower |
-| WhatsApp calling and AI voice | ✓ | ✗ (calls keep ringing in the app) |
+| Pick it when | The number is not on WhatsApp yet, or you are happy to move it off the phone app | Your team already chats on the WhatsApp Business app with this number |
+| What you need | The number can get an SMS or a call for a 6-digit code | The WhatsApp Business app (latest version) on the phone with this number, to scan a QR code |
+| WhatsApp Business app on the phone | Stops working for this number | Keeps working. Chats show in the app and in AdsEra |
+| Old chats and contacts | Start fresh | Recent chats and your app contacts come across |
+| Welcome message, keyword replies, broadcasts, templates | ✓ | ✓ |
+| Sending speed | Fastest (up to 80 messages a second, more on request) | Slower |
+| WhatsApp calling and the AI voice agent | ✓ | ✗ Calls keep ringing in the phone app |
+| Edit the business profile from AdsEra | ✓ | ✗ Edit it in the phone app |
 
-Click **+ Add WABA**, pick the option, and follow Meta's pop-up. The steps below are for a **new number**. For **Coexistence**, scan the QR code shown in the pop-up with the WhatsApp Business app on your phone instead of verifying with an OTP.
+<Tip>Most shops and agencies in India already use the WhatsApp Business app. Pick **Existing number (Coexistence)** so nothing changes for your team.</Tip>
 
-### Before You Begin: The 3 Essentials (new number)
+## Before you start
 
-To ensure a smooth setup, please complete the following steps first.
+- **A Facebook login** that can manage your business on Meta (or create the business during the steps).
+- **The phone with the number**, next to you. A new number gets a code; an app number scans a QR code.
+- **A few minutes**, and this page kept open until the Facebook window closes.
+- **Pop-ups allowed** for app.adsera.in in your browser.
+
+## Connect it
 
 <Steps>
-<Step title="Step 1: Prepare Your Meta Business Manager">
-You must have an **admin account** for your Meta Business Manager. This is required to grant the necessary permissions. If you don't have one, you can create it at [business.facebook.com](https://business.facebook.com).
+<Step title="Open Numbers & profile">
+  Go to **WhatsApp → Numbers & profile**. If a number is already connected, click **Add number** at the top to connect another.
+
+![Add number opens the connect card; Back to connected numbers returns.](/images/app/whatsapp/add-number.png)
 </Step>
+<Step title="Click Connect WhatsApp">
+  Click the green **Connect WhatsApp** button. A Facebook window opens.
 
-<Step title="Step 2: Prepare a Fresh Phone Number">
-The phone number you intend to use must meet these criteria:
-- It is **not** currently registered on the personal WhatsApp or WhatsApp Business app.
-- It can receive an OTP (One-Time Password) via SMS or a voice call.
-- It will be used exclusively for the WhatsApp API.
+  The card also explains, in **What happens in the Facebook window**, the steps below.
 
-<Warning>
-  If you use a number that was previously active on WhatsApp, your old chats, groups, and contact history **will not** be synced or restored. The number will start completely fresh on the API.
-</Warning>
+  ![The two kinds of number and the Facebook window steps, as the card explains them.](/images/app/whatsapp/connect-facebook-steps.png)
 </Step>
-
-<Step title="Step 3: Prepare Your Business Details">
-Have the following information ready, as you will need it during the setup process:
-- A professional **Display Name** that clearly represents your brand.
-- Your official **Business Website URL**.
+<Step title="Log in and pick your business">
+  Log in to Facebook and choose your business (Meta calls it a business portfolio). No business yet? Create one there: use your real business name.
+</Step>
+<Step title="Pick or create the WhatsApp Business account">
+  Choose an existing WhatsApp Business account or create one, and type the **display name** customers will see, like *Greenleaf Realty*. Meta checks that the name matches your business.
+</Step>
+<Step title="Add the number">
+  - **New number:** type the number, choose SMS or phone call, and type the 6-digit code Meta sends.
+  - **Number on the WhatsApp Business app:** choose to connect your WhatsApp Business app. Meta shows a QR code. On your phone, the WhatsApp Business app asks you to scan it: scan it, and agree to share your chat history with AdsEra.
+</Step>
+<Step title="Allow and finish">
+  Allow the permissions AdsEra asks for and click **Finish**. The window closes by itself.
+</Step>
+<Step title="Check it is Connected">
+  Back in AdsEra, the number shows with the status **Connected**. On a number from the WhatsApp Business app, recent chats start coming in; this can take some minutes.
 </Step>
 </Steps>
 
----
+## Let someone else connect it (Setup link)
 
-## The Onboarding Flow
+If your agency, partner or the owner of the Facebook business should do the Facebook steps, send them a link instead.
 
-Once your prerequisites are met, you can begin the connection process.
+1. On **Numbers & profile**, click **Setup link** (top right), or on the connect card click **Or copy a setup link for someone else to finish**.
+2. AdsEra copies the link. Send it to them on WhatsApp or email.
+3. They open it, log in with their Facebook and finish the steps above. The number then shows up in your account.
 
-![WhatsApp → Numbers & profile.](/images/app/wa-overview.png)
+![Setup link copied: the message at the top right confirms it.](/images/app/whatsapp/setup-link.png)
 
-1. Navigate to the [WhatsApp Channel](/help/channel/whatsapp/whatsapp) page and click **"+ Add WABA"**.
-2. On the "Connect with Facebook" page, review the steps and click the **"Connect WhatsApp"** button.
-3. A secure pop-up window from Meta will open to guide you through the official onboarding.
+## How many numbers can I connect?
 
-<Info>
-  **Official Meta Documentation:** This pop-up is a secure flow managed directly by Meta. For a detailed preview of each step within the pop-up, you can refer to Meta's official [Embedded Signup documentation](https://developers.facebook.com/docs/whatsapp/embedded-signup/).
+Your plan sets how many numbers you can connect. When all are in use, **Add number** is greyed out and the connect card shows **Upgrade plan** instead of **Connect WhatsApp**.
 
-</Info>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/zWlVkTHdP-U?si=eHQGZjLFbwig0Vqv" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+![When your plan has no free number, the card says so and shows Upgrade plan.](/images/app/whatsapp/connect-upgrade.png)
 
-4. Inside the pop-up, you will be asked to:
-    - Log in to your Facebook account.
-    - Create or select your Meta Business Account.
-    - Create or select your WhatsApp Business Account (WABA).
-    - Create or select your WhatsApp Business Profile.
-    - **Verify** your new WhatsApp Business phone number with an OTP.
-5. After completing all steps, the pop-up will close automatically. Your new WABA will now be connected and will appear in the dropdown list on your AdsEra WhatsApp Channel page, ready to use!
+Click **Upgrade plan** to see plans, or disconnect a number you no longer use.
+
+## What happens next
+
+- Set a **welcome message** and **keyword replies**: [Auto-replies](/help/autoreply/wa).
+- Check the number is healthy: [Numbers & profile](/help/channel/whatsapp/whatsapp).
+- Get your first template approved: [Create a template](/help/template/create).
+
+## Troubleshooting
+
+| What you see | Why | What to do |
+| --- | --- | --- |
+| Nothing happens when you click **Connect WhatsApp** | The browser blocked the pop-up | Allow pop-ups for app.adsera.in (icon at the right of the address bar) and click again |
+| Meta says the number is already registered on WhatsApp | You chose a new number, but it is on WhatsApp | Choose **connect your WhatsApp Business app** instead. For a personal WhatsApp number, delete that WhatsApp account first |
+| The 6-digit code doesn’t arrive | SMS delays or a DND setting | Wait a minute, then choose **phone call** instead of SMS |
+| The QR code expired | It is valid for a short time | Go back one step in the window to get a new code, keep the app open, and scan again |
+| Meta rejects the display name | It doesn’t match your business | Use your real business or brand name, without words like “official” or extra symbols |
+| The window closed but no number shows | The steps weren’t finished | Click **Refresh** at the top, or run **Connect WhatsApp** again |
+| **Upgrade plan** instead of **Connect WhatsApp** | Your plan’s numbers are all in use | Upgrade, or disconnect a number you don’t use |
+
+<AccordionGroup>
+<Accordion title="Will my chats on the WhatsApp Business app be deleted?">
+  No. With **Existing number (Coexistence)** you keep the app and your chats. Recent chats are also copied into AdsEra.
+</Accordion>
+<Accordion title="Can I move from Coexistence to a new (Cloud API) number later?">
+  Yes, but it means taking the number off the phone app. Disconnect it here, delete it from the WhatsApp Business app, then connect it again as a new number.
+</Accordion>
+<Accordion title="Do I need Meta business verification?">
+  Not to start. Without it you can message a limited number of new people a day. Verify your business in Meta Business Settings to raise that limit.
+</Accordion>
+<Accordion title="Who pays for messages?">
+  Meta charges for some messages (for example marketing templates) to the payment method in your Meta account. Add one in Meta Business Settings → Billing.
+</Accordion>
+</AccordionGroup>
+
+## Related
+
+<CardGroup cols={2}>
+  <Card title="Numbers & profile" icon="mobile" href="/help/channel/whatsapp/whatsapp">Status, health, profile, automation and team access.</Card>
+  <Card title="My number can’t send" icon="triangle-exclamation" href="/help/channel/whatsapp/troubleshooting">Every warning and its fix.</Card>
+  <Card title="Auto-replies" icon="reply" href="/help/autoreply/wa">Welcome message and keyword replies.</Card>
+  <Card title="Templates" icon="file-lines" href="/help/template/wa">Get messages approved by Meta.</Card>
+</CardGroup>
