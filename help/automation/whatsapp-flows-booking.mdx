@@ -11,7 +11,11 @@ A booking flow shows people the free times from your calendar and books the one 
 ## Connect the flow to your calendar
 
 <Steps>
-<Step title="Open Save draft">In the flow editor, click **Save draft**.</Step>
+<Step title="Open Save draft">
+  In the flow editor, click **Save draft**.
+
+  ![The Save draft window: What is this flow for? and Integration Type.](/images/app/whatsapp/flow-save.png)
+</Step>
 <Step title="What is this flow for?">Pick **Appointment booking**.</Step>
 <Step title="Integration Type">
   Choose:
@@ -24,12 +28,19 @@ A booking flow shows people the free times from your calendar and books the one 
   | **Custom API** | Your developer has a booking system: they give the **Slots Endpoint URL**, **Booking Endpoint URL** and any **Custom Headers (JSON)** |
   | **Rules-Based Logic Engine** | Screens should change based on answers, written as **Flow Logic JSON** (for developers; **Generate with AI — Copy Prompt** copies a prompt to paste into the AI app you use) |
 </Step>
-<Step title="Pick the account and event type">For Cal.com or Calendly, pick the connected account and the **Event type** (like “Site visit, 30 min”).</Step>
-<Step title="Match the fields">Match **Date field**, **Time slot field**, **Name field** and **Email field** to the questions in your flow. **Detect automatically** picks them for you when the names are clear.</Step>
+<Step title="Pick the account and event type">
+  For Cal.com or Calendly, a note says where the free times come from. Pick the connected account (**Cal.com account** or **Calendly account**), then the **Event type** (like “Site visit, 30 min”). The event type list stays empty until you pick an account.
+
+  ![Save draft with Appointment booking and Cal.com — Appointment Booking chosen: the Cal.com account and Event type boxes, then Form fields.](/images/app/whatsapp/flow-save-booking.png)
+</Step>
+<Step title="Match the fields">
+  Under **Form fields**, match **Date field**, **Time slot field**, **Name field** and **Email field** to the questions in your flow. **Detect automatically** picks them for you when the names are clear.
+
+  ![The account and event type picked, and the Form fields to match.](/images/app/whatsapp/flow-save-calcom.png)
+</Step>
 <Step title="Save, then publish">Click **Save draft**, try it in the preview, then **Publish**.</Step>
 </Steps>
 
-![Save draft with the integration settings.](/images/app/whatsapp/flow-save.png)
 
 ## What the customer sees
 

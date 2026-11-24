@@ -1,104 +1,141 @@
 ---
 title: 'WhatsApp Pay'
-description: 'Collect payments inside WhatsApp chats (UPI, cards, netbanking, wallets) from deals and orders, confirmed by Meta, and track every request.'
+description: 'Take UPI, card, netbanking and wallet payments inside WhatsApp chats (India): set up a payment configuration with Razorpay, choose Pay Now or a payment link, and track every request and payment.'
 icon: 'indian-rupee-sign'
 ---
 
-WhatsApp Pay lets your customers pay **inside the WhatsApp chat**: a **Pay Now** card opens UPI, cards, netbanking or wallets without leaving WhatsApp. AdsEra checks every payment against Meta's own payment record and shows its status on the deal.
+WhatsApp Pay lets customers pay you **inside the WhatsApp chat**: a **Pay Now** card opens UPI, cards, netbanking or wallets without leaving WhatsApp. You can also send a **payment link** (a Razorpay page). Requests are sent from a deal, from a chat (**Collect payment**), from quick replies and workflows, or by Addy when you allow it.
 
-<Info>
-  WhatsApp Pay is offered by Meta for businesses in **India**, in Indian rupees.
-</Info>
+**Where:** **Automations → Apps & integrations → WhatsApp Pay** (it has no menu item of its own; it opens in the Ads area). Also from **Set up WhatsApp Pay** links in deals and chats. [Open it →](https://app.adsera.in/dashboard/meta/payments)
 
----
+![WhatsApp Pay: Requests, Setup, WhatsApp payments, Used by agents, Activity.](/images/app/ads/pay-requests.png)
 
-## Adding the integration
+<Note>
+WhatsApp Pay is for **Indian businesses** (Meta's rule). It needs a WhatsApp number connected in AdsEra, an account with a payment gateway (**Razorpay**, **PayU** or **Zaakpay**) or just a business UPI ID, and the **Meta business agent, ads & commerce** permission.
+</Note>
 
-### Before you begin
-
-- A WhatsApp number connected in AdsEra.
-- An account with a supported payment gateway (**Razorpay**, **PayU** or **Zaakpay**), or a business UPI ID.
-- Meta's WhatsApp payments terms accepted for your WhatsApp Business Account. If they aren't, AdsEra shows an **Accept the terms** link.
-
-### Create a payment configuration
+## Set it up
 
 <Steps>
-<Step title="Open Setup">
-  Open **Automations → Apps & integrations → WhatsApp Pay** (or go to [app.adsera.in/dashboard/meta/payments](https://app.adsera.in/dashboard/meta/payments)) and the **Setup** tab. Find your WhatsApp number and click **New configuration**.
+<Step title="Open the Setup tab">
+![Setup: payment settings, then one card per WhatsApp number.](/images/app/ads/pay-setup.png)
 </Step>
-<Step title="Fill in the configuration">
-  - **Name**: used in payment messages, for example `shop_razorpay`.
-  - **Payment gateway**: Razorpay (UPI, cards, netbanking, wallets), PayU, Zaakpay, or **UPI ID only**, which needs a **Business UPI ID** such as `business@bank`.
-  - **Business category** and **Purpose**.
+<Step title="Click New configuration on your number">
+![New payment configuration.](/images/app/ads/pay-new-config.png)
 
-  Click **Create**.
+| Field | What to put | Example |
+| --- | --- | --- |
+| **Name** | A short name, used in payment messages. Small letters and _ . | shop_razorpay |
+| **Payment gateway** | **Razorpay** (UPI, cards, netbanking, wallets), **PayU**, **Zaakpay**, or **UPI ID only** | Razorpay |
+| **Business UPI ID** | Only for **UPI ID only** | greenleaf@okhdfcbank |
+| **Business category** | What your business does (Meta's category code shows in brackets) | Real estate (6513) |
+| **Purpose** | Keep **Default (00)** unless your bank told you otherwise | Default |
+
+Click **Create**. If Meta's payment terms aren't accepted for your WhatsApp account yet, a yellow box shows **Accept the terms**: click it, accept, and create again.
 </Step>
-<Step title="Link your gateway">
-  Click **Connect gateway account** and log in to your gateway to link it. If you're sending the link to someone else, use **Get connect link** instead. Meta checks the link, and the status turns **Active**.
+<Step title="Connect your gateway">
+On the new configuration click **Connect gateway account** and log in to Razorpay (or your gateway) to link it. Sending the link to whoever owns the Razorpay account? Use **Get connect link** / **New link**. Meta checks it and the status turns **Active**. The round arrow (**Refresh from Meta**) checks again.
+
+![Your payment configurations.](/images/app/ads/pay-configs.png)
 </Step>
-<Step title="Add order details (if asked)">
-  Click **Order details** and fill in the importer name, address, city, state, postal code and country of origin. WhatsApp Pay shows them on every item.
+<Step title="Add the order details">
+A chip *Add the order details (click Order details) before you can use it* shows until you do. Click **Order details** and fill in the **Country of origin** and the importer **name, address line 1, city, state and postal code** (6 digits). WhatsApp Pay shows them on every item; name and address line 1 come from your company details.
+
+![Order details.](/images/app/ads/pay-order-details.png)
+</Step>
+<Step title="Choose how customers pay">
+See **Payment settings** below, then **Save settings**.
 </Step>
 </Steps>
 
-### Payment settings
+### Configuration statuses
 
-In **Payment settings**, choose **How customers pay**:
+| Status | Meaning | What to do |
+| --- | --- | --- |
+| **Active** | Ready: Pay Now cards can be sent from this number. | Nothing. |
+| **Needs Connecting** | The gateway isn't linked yet. | **Connect gateway account**. |
+| **Needs Testing** | The gateway is linked; Meta hasn't finished checking it. | Click **Refresh from Meta** later. |
 
-- **WhatsApp Pay Now**: a payment card in the chat.
-- **Payment link**: a gateway link.
-- **Both**.
+**Remove** deletes a configuration (it asks first). Payment messages using it stop working; requests and payments already recorded stay.
 
-Then set **When the chat is closed**. WhatsApp only lets you send free-form messages within 24 hours of the customer's last message, so pick the approved template to use after that, per WhatsApp account.
+## Payment settings
 
----
+| Setting | Choices | What it does |
+| --- | --- | --- |
+| **How customers pay** | **WhatsApp Pay Now**, **Payment link**, **Both** | Pay Now = a card in the chat. Payment link = a Razorpay page. Both = they choose. Payment links need Razorpay connected (Apps & integrations → Razorpay). |
+| **When the chat is closed** | **Don't send**, **Send Pay Now with a template**, **Send a payment link with a template** | After 24 hours since the customer last wrote, WhatsApp only allows approved templates. |
+| **WhatsApp account** | Your numbers' accounts | Templates belong to an account: pick one to set its templates. |
+| **Pay Now template** | Your approved templates with an order details button | Used when the chat is closed. |
+| **Payment link template** | Your approved templates | Gets payment_link, amount, deal_title, balance and item_list. |
+| **Receipt template** | Your approved templates | Sent after a payment is confirmed. |
 
-## Using the integration
+## Requests
 
-### Collect a payment from a deal
+![Requests: every payment request, with totals and filters.](/images/app/ads/pay-requests.png)
 
-Open a deal and click **Collect payment** in its payments section. Enter the amount and send. The customer gets a Pay Now card or a payment link, depending on your settings. The deal shows the request and its status.
+**Requested**, **Paid** and **Pending** totals for the filters you pick. Filters: **Status**, **Team member**, **Method**, **Source** (sales rep, quick reply or flow, AI agent), **From**, **To**, **Needs review** (payments that don't add up, like a different amount paid) and **WhatsApp-only paid** (WhatsApp says paid by Pay Now, but Razorpay has no matching payment: check before you deliver).
 
-Addy and other agents can also send payment requests when you allow it on the **Used by agents** tab.
-
-### Track payments
-
-| Tab | What it shows |
+| Column | Meaning |
 | --- | --- |
-| **Requests** | Every payment request, with date, deal, contact, rep, amount, method and status. Filter by status, method, source and date, or by **Needs review**. Click **Export CSV** to download. |
-| **WhatsApp payments** | Every payment WhatsApp reports, with its **Verification**. |
-| **Activity** | A log of what the integration did. |
+| **Date**, **Deal**, **Contact**, **Team member** | Who it was for and who sent it. Click the deal to open it. |
+| **Amount**, **Method** | WhatsApp Pay Now or Payment link, and *via* who made it if not a team member. |
+| **Status** | **Pending**, **Paid**, **Failed**, **Expired**, **Cancelled**, with **Test** for test requests and a cross-check chip. |
+| **Review** | **Needs review**: hover for why. |
 
-**Verification statuses:**
+**Export CSV** downloads the list (up to 5,000 rows).
 
-| Status | Meaning |
-| --- | --- |
-| Confirmed by WhatsApp | Meta's payment record confirms it. |
-| Check this | The details don't match. Check it in your gateway before you deliver. |
-| Waiting | Not confirmed yet. |
-| Meta only | Confirmed by Meta; your gateway couldn't cross-check it. |
-| Couldn't check | AdsEra couldn't reach Meta. Click **Check again**. |
+## WhatsApp payments
+
+![Every payment WhatsApp reported, and whether Meta confirmed it.](/images/app/ads/pay-payments.png)
+
+Every payment WhatsApp reports: **When**, **Customer**, **Reference**, **Amount**, **Method**, **WhatsApp says** and **Verification**. Filter by **Verification**. **Check again** asks Meta once more.
+
+| Verification | Meaning | What to do |
+| --- | --- | --- |
+| **Confirmed by WhatsApp** | Meta's own payment record says it was paid (and Razorpay agrees, if its webhook is set up). | Deliver. |
+| **Check this** | Meta and Razorpay disagree; the reason shows under it (like a different amount). | Check your Razorpay dashboard before you deliver. |
+| **Waiting** | Not paid yet, or the confirmation hasn't come. | Wait, or ask the customer. |
+| **Meta only** | Only Meta's record was checked so far. | **Check again**. |
+| **Couldn't check** | A check failed. | **Check again**. |
 
 <Tip>
-  Set up the Razorpay webhook in **Automations → Apps & integrations → Razorpay** so AdsEra also cross-checks every payment with Razorpay.
+Add the Razorpay payment webhook (**Automations → Apps & integrations → Razorpay**) so AdsEra also cross-checks every payment with Razorpay.
 </Tip>
 
-### Troubleshooting
+## Used by agents and Activity
+
+**Used by agents** sets what Addy and Ask AI may do with payments (for example, send a payment request in a chat). **Activity** lists what the integration did.
+
+## Troubleshooting
+
+| Problem | Fix |
+| --- | --- |
+| **Accept the terms** when creating | Click it, accept Meta's WhatsApp payments terms, then create again. |
+| The configuration stays **Needs Connecting** | Finish **Connect gateway account** with the gateway account's owner, then **Refresh from Meta**. |
+| Pay Now can't be sent: *Add order details to the WhatsApp payment configuration* | Click **Order details** and fill in the required fields. |
+| *This number has no active WhatsApp Pay configuration* | Create one on that number and connect the gateway. |
+| A payment shows **Check this** or **Needs review** | Check it in your gateway's dashboard before delivering. |
+| The number shows *not available* | WhatsApp Pay works only for Indian numbers and businesses. |
+
+## FAQs
 
 <AccordionGroup>
-<Accordion title="&quot;Accept the terms&quot; appears when creating a configuration">
-  Click the link, accept Meta's WhatsApp payments terms for your business, then create the configuration again.
+<Accordion title="Does AdsEra take a cut?">
+No. The gateway (Razorpay, PayU, Zaakpay) charges its own fee and pays you directly.
 </Accordion>
-<Accordion title="The configuration doesn't turn Active">
-  Finish **Connect gateway account** with the gateway's account owner, then click **Refresh from Meta**.
+<Accordion title="How do I send a payment request?">
+From a deal (**Collect payment**), from a chat (**Collect payment** in the reply box), from a quick reply or workflow, or let Addy do it (**Used by agents**). See [Collect a payment in a chat](/help/inbox/payments) and [Deal payments](/help/crm/deal-payments).
 </Accordion>
-<Accordion title="A payment shows &quot;Check this&quot; or appears under Needs review">
-  Check the payment in your gateway's dashboard before you deliver the order.
+<Accordion title="Pay Now or a payment link?">
+Pay Now is quickest (it stays in WhatsApp). A payment link works for any amount the gateway allows and when the chat is closed with a template. **Both** lets the customer choose.
 </Accordion>
 </AccordionGroup>
 
----
+## Related
 
-## Removing the integration
-
-On the **Setup** tab, click **Remove** on the configuration and confirm. **Payment messages that use it stop working.** Requests and payments already recorded stay in AdsEra. You can also unlink AdsEra in your gateway's dashboard.
+<CardGroup cols={2}>
+<Card title="Collect a payment in a chat" icon="comments-dollar" href="/help/inbox/payments">From the Inbox.</Card>
+<Card title="Deal payments" icon="handshake" href="/help/crm/deal-payments">Advances and balances on a deal.</Card>
+<Card title="WhatsApp Commerce" icon="cart-shopping" href="/help/integrations/whatsapp-commerce">Orders from your catalog.</Card>
+<Card title="Apps & integrations" icon="puzzle-piece" href="/help/integrations/marketplace">Razorpay and other apps.</Card>
+</CardGroup>

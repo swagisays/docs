@@ -10,7 +10,10 @@ AdsEra has an **MCP server**. Connect it to an AI app you already use (Claude, C
   The MCP server needs an active **paid plan**. On a free or expired plan, AI apps get "AI connectors need a paid plan" until you [upgrade](/help/introduction/price).
 </Note>
 
-Open **Account → AI Access** to get started. The server URL is:
+Open **Settings → AI access** to get started. The page calls the server URL **AdsEra link for AI apps (server URL)**; copy it with the button next to it:
+
+![Settings → AI access: the AdsEra link for AI apps, a tab for each app with its steps, Connected apps and Personal access keys.](/images/app/settings/ai-access.png)
+
 
 ```
 https://app.adsera.in/mcp
@@ -63,7 +66,10 @@ For scripts or headless use, create a personal access key (below) and add `--hea
 
 For AI tools that take a key instead of signing in (Claude Code, scripts), create a key under **Personal access keys**:
 
-1. Click to create a key, give it a **Name** and choose when it **Expires after**.
+1. Click **New key**, give it a **Name** and choose when it **Expires after** (30 days, 90 days, 1 year, or Never for admins). Click **Create key**.
+
+   ![New personal access key: Name and Expires after.](/images/app/settings/ai-access-key.png)
+
 2. Copy the key. **This is the only time it's shown**, so store it somewhere safe.
 
 The list shows when each key was last used and when it expires. Revoke a key you no longer need.
@@ -72,5 +78,5 @@ The list shows when each key was last used and when it expires. Revoke a key you
 
 - **Connected apps** lists every AI app signed in to your account, who signed it in, when it connected and when it was last used. Click **Disconnect** to remove one.
 - An AI app can only do what **your** AdsEra user role allows.
-- If the AI Access tab says it is switched off for your company, contact AdsEra support.
+- If Settings → AI access says it is switched off for your company, contact AdsEra support.
 - Zoom meetings an AI app schedules are saved to AdsEra, so they show in the CRM's **Meetings** list.

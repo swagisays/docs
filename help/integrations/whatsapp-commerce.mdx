@@ -1,68 +1,152 @@
 ---
 title: 'WhatsApp Commerce'
-description: 'Link your Meta product catalog to WhatsApp, sell products in chats, and manage orders in AdsEra.'
+description: 'Link your Meta product catalog to your WhatsApp number so customers browse and order inside the chat, then add products, get them approved by Meta and handle orders in AdsEra.'
 icon: 'cart-shopping'
 ---
 
-WhatsApp Commerce links a **Meta product catalog** to your WhatsApp number. Customers browse your products and send orders inside WhatsApp, and you manage products and orders in AdsEra.
+WhatsApp Commerce puts your **product catalog** inside WhatsApp. Customers tap the shop icon in your chat, browse products, add them to a basket and send you the order, without leaving WhatsApp. You add products, see orders and update them in AdsEra.
 
----
+**Where:** **Ads → WhatsApp Commerce**. [Open it →](https://app.adsera.in/dashboard/meta/commerce)
 
-## Adding the integration
+![WhatsApp Commerce before a catalog is connected.](/images/app/ads/commerce.png)
 
-### Before you begin
+## Before you start
 
-- A WhatsApp number connected in AdsEra.
-- A product catalog in your Meta Business account (or create products in AdsEra and sync them).
-- A Facebook login with admin access to that Meta Business account.
+| You need | Why |
+| --- | --- |
+| A **product catalog** in Meta Commerce Manager with active items (or make products in AdsEra and sync them) | It is the list WhatsApp shows. |
+| A **WhatsApp number** connected in AdsEra (WhatsApp → Numbers & profile) | Customers order from that number's chat. |
+| **Admin access** to your business on Meta | To let AdsEra read and update the catalog. |
 
-### Connect a catalog
+<Note>
+WhatsApp Commerce needs the **Meta business agent, ads & commerce** permission (Settings → Team members). A number can have only one catalog.
+</Note>
+
+## Connect your catalog
 
 <Steps>
-<Step title="Open the Catalog Manager">
-  Open **Automations → Apps & integrations → WhatsApp Commerce** and click **Connect New Catalog**.
+<Step title="Click Connect your product catalog">
+The page shows the three steps: log in with Facebook, pick your catalog, pick your WhatsApp number.
 </Step>
-<Step title="Connect your Meta account">
-  Click **Connect Meta Account** and allow access to your Meta Business catalogs and commerce settings.
+<Step title="Log in with Facebook">
+Click **Connect with Meta** and log in with the Facebook account that manages your catalog. AdsEra never sees your password.
 </Step>
-<Step title="Assign WhatsApp accounts">
-  For each catalog, choose a WhatsApp Business Account from the same business, or **Skip** it. Catalogs marked **Ads Only** can only be used for Meta ads, not WhatsApp. Click **Connect Catalog**.
+<Step title="Pick the WhatsApp number for each catalog">
+Each catalog found shows with a number to pick. **Already connected** means it is linked; **Other business** means the number belongs to a different business on Meta; **For ads only** catalogs (like property listings) can't go on WhatsApp. **No WhatsApp number can take this catalog** means each of your numbers already has a catalog. **Refresh Catalogs** looks again.
 </Step>
-<Step title="Done">
-  You see **Commerce Activated**. Linked catalogs show the status **Linked**.
+<Step title="Finish">
+The catalog shows on the page as **Linked to WhatsApp**.
 </Step>
 </Steps>
 
----
+## Your catalogs
 
-## Using the integration
+![Two catalogs: one linked to WhatsApp, one for ads only.](/images/app/ads/commerce-catalogs.png)
 
-Open a catalog from the Catalog Manager.
+| Part | What it shows |
+| --- | --- |
+| **All / Linked to WhatsApp / Unlinked** | Filter the catalogs. |
+| **Search catalog name or ID…**, **Recently added** | Find and order them. |
+| Card | Name, business, **Catalog ID** (copy button), **Type** (**Shop products**, or the kind of listing), the **WhatsApp number** it sells on. |
+| **Linked to WhatsApp** / **For ads only** | **For ads only** is a catalog Meta only allows in ads (property listings, hotels, flights…). WhatsApp can't show it. |
+| **Manage catalog** / **Manage products** | Opens the catalog. |
+| **Connect another catalog** | Adds one more. |
 
-- **Products:** create or edit products, then **Submit for Meta Review**. Each product shows whether it is **Synced** with Meta, still **Local**, and whether it is **Shown** to customers.
-- **Orders:** orders customers place in WhatsApp. Open one to change the **Order Status**, add an internal note and **tracking info** (carrier, tracking number and URL), and send a message to the customer, or **Save & Send Payment Link**.
-- **Reports:** total orders, revenue, orders by status and top products.
-- **Catalog issues:** problems Meta found with your products, and how to fix them.
-- **Commerce settings:** whether the **catalog icon in the chat header** and the **Add to Basket button** are on for the number.
+## One catalog
 
-Products also appear under **Products** in AdsEra, and you can send them in chats and quick replies.
+![A catalog: overview, products, orders and reports.](/images/app/ads/commerce-catalog.png)
 
-### Troubleshooting
+The top shows the **WhatsApp Business Account** it is linked to (**Linked**; the round arrow re-links it) and the **Meta Catalog Details** (ID, business, **WhatsApp shop** or **For Meta ads only**). Buttons: **Settings**, **Diagnostics**, **New product**.
+
+**Catalog Overview**: **Total Products**, **Synced to Meta**, **Local Only** (only in AdsEra), **Total Orders**, **Pending Orders**, **Delivered**, **Total Revenue**.
+
+### Products
+
+![Products with their Meta status.](/images/app/ads/commerce-products.png)
+
+Each product card shows its picture, name, SKU, price and stock, with two badges: **Synced** (on Meta) or **Local** (only in AdsEra), and Meta's review: **Approved**, **Pending** or **Rejected**. Only approved products show on WhatsApp.
+
+| Control | What it does |
+| --- | --- |
+| Search, **All Products / Synced to Meta / Local Only / Review Approved / Review Pending / Review Rejected** | Find products. |
+| **Sort: Name / Price (Low to High) / Price (High to Low)** | Order them. |
+| Tick boxes + sync | Send the ticked products to Meta. |
+| **Fetch from Meta** | Brings in products made in Meta Commerce Manager. |
+| **Refresh Review** | Gets Meta's latest review decision. |
+| **New product** | Opens the product form (the same as Sales → Products): name, price, pictures, stock. |
+
+![New product.](/images/app/ads/commerce-new-product.png)
+
+A rejected product shows Meta's reason. A common one: *Products need a "Product URL" to appear in Meta Dynamic Ads* — this affects ads only, not your WhatsApp shop; add the product's page link and sync again.
+
+### Orders
+
+![Orders sent from WhatsApp.](/images/app/ads/commerce-orders.png)
+
+Totals (orders, revenue, delivered, pending, cancelled, and orders by status), then every order with the customer, items, amount and status. Click **Manage** on an order:
+
+![Update an order.](/images/app/ads/commerce-order.png)
+
+| Field | What it does |
+| --- | --- |
+| **Order Status** | pending, confirmed, processing, shipped, delivered, cancelled. |
+| **Internal Note (not sent to customer)** | For your team. |
+| **Tracking Info**: **Carrier**, **Tracking #**, **Tracking URL** | Shipping details (shown once the status is shipped). |
+| **Send Message to Customer** → **Custom message (optional)** | A WhatsApp message with the update. |
+| **Save Status** / **Save & Send Message** / **Save & Send Payment Link** | Save, and optionally message the customer or send a payment link ([WhatsApp Pay](/help/integrations/whatsapp-pay)). |
+
+### Reports, Settings and Diagnostics
+
+![Reports: orders and top products.](/images/app/ads/commerce-reports.png)
+
+**Reports** shows total orders, revenue, delivered, pending and cancelled, **Orders by Status** and your **Top Products** by quantity ordered.
+
+**Settings** shows whether the **Catalog Icon in Chat Header** and the **Add to Basket Button** are **On** for the number. To change them, open Meta's WhatsApp Manager → Catalogue.
+
+![Commerce Settings.](/images/app/ads/commerce-settings.png)
+
+**Diagnostics** lists Meta's catalog issues, **ERROR** or **WARNING**, with how many products each affects (like pictures smaller than 500 × 500 pixels or missing descriptions). Fix the products and sync again.
+
+![Catalog issues from Meta.](/images/app/ads/commerce-diagnostics.png)
+
+### A catalog that isn't linked yet
+
+The page shows **Link a WhatsApp number**: pick one of your numbers and click **Link WhatsApp number**. If Meta already links the catalog to a number that AdsEra doesn't know about yet, a blue box says so: pick it and click **Link WhatsApp number**. A **For ads only** catalog has no Orders or Reports.
+
+![A catalog for Meta ads only.](/images/app/ads/commerce-adsonly.png)
+
+## Send products in a chat
+
+In the Inbox, use the product list in the reply box, or a [quick reply](/help/snippet/interactive) with a product list, to send one product or several. Customers tap, add to basket and send the order; it shows under **Orders**.
+
+## Troubleshooting
+
+| Problem | Fix |
+| --- | --- |
+| No catalogs found after logging in | Make a catalog in Meta Commerce Manager, or allow catalog access in the Facebook window. |
+| **No WhatsApp number can take this catalog** | Each number can have one catalog. Use another number or unlink the old catalog in Meta. |
+| A product doesn't show on WhatsApp | It must be **Synced** and **Approved**. Click **Refresh Review**. |
+| Customers don't see the shop icon | **Settings** shows **Off**: switch it on in Meta's WhatsApp Manager → Catalogue. |
+
+## FAQs
 
 <AccordionGroup>
-<Accordion title="&quot;Not available for WhatsApp&quot; or &quot;No eligible WABAs&quot;">
-  The catalog and the WhatsApp Business Account must belong to the same Meta business, and the catalog can't be **Ads Only**.
+<Accordion title="Does WhatsApp take payment for orders?">
+Not by itself. Send a payment link from the order, or set up [WhatsApp Pay](/help/integrations/whatsapp-pay).
 </Accordion>
-<Accordion title="Products don't show in WhatsApp">
-  Check that each product is approved by Meta and **Shown**, and look at **Catalog issues**. Also check that the catalog icon is on in **Commerce settings**.
+<Accordion title="Can I use the same catalog for ads?">
+Yes. A shop catalog works in Meta ads too. A "For ads only" catalog works only in ads.
+</Accordion>
+<Accordion title="Are there catalog message templates?">
+No. AdsEra can't make catalog or product templates. Send products in an open chat (the 24 hours after the customer wrote), with the product list or a quick reply.
 </Accordion>
 </AccordionGroup>
 
----
+## Related
 
-## Removing the integration
-
-- **Unlink a catalog from WhatsApp:** in WhatsApp Manager, open **Catalogue** and disconnect it.
-- **Remove a product from Meta:** click **Remove from Meta** on the product, or **Delete** to remove it everywhere.
-
-Orders already received stay in AdsEra. To remove AdsEra's access to your Meta business completely, remove the AdsEra app in Meta Business Settings under **Integrations → Business integrations**.
+<CardGroup cols={2}>
+<Card title="WhatsApp Pay" icon="indian-rupee-sign" href="/help/integrations/whatsapp-pay">Take payments in the chat.</Card>
+<Card title="Products" icon="box" href="/help/crm/product">Your products in Sales.</Card>
+<Card title="Quick replies with a product list" icon="bolt" href="/help/snippet/interactive">Send products in one tap.</Card>
+<Card title="Connect your Meta ad account" icon="link" href="/help/ads/connect">Ads from the same business.</Card>
+</CardGroup>

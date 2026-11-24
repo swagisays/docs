@@ -1,62 +1,88 @@
 ---
-title: 'File Manager'
-description: 'Upload, organize, and manage all your marketing assets like images, videos, and documents in one central library.'
+title: 'File manager'
+description: 'Keep the pictures, videos, audio and documents you send on WhatsApp in folders: upload them as public or private, find, open and delete them, and pick them in templates, quick replies and chats.'
 icon: 'folder-open'
 ---
 
-The **File Manager** is your central library for all the digital assets you use in your marketing efforts. Here, you can upload and organize images, videos, documents, and audio files into folders, making them easy to find and reuse in your email campaigns, WhatsApp templates, and snippets.
+The **File manager** is your library for the pictures, videos, audio and documents you send to customers: brochures, floor plans, site photos, walk-through videos. Upload a file once and pick it whenever a WhatsApp template, broadcast, quick reply, chat or email template needs it.
 
-**Want to manage Files & Folders? [Go to the AdsEra File Manager Page &rarr;](https://app.adsera.in/dashboard/folder/list)**
+**Where:** **WhatsApp → File manager** in the left menu (under **Content**, next to Templates and Quick replies). [Open it →](https://app.adsera.in/dashboard/folder/list)
 
-![Automations → Files in AdsEra.](/images/app/files.png)
-### Navigating Your File Manager
+![The File manager: your folders, under WhatsApp → Content.](/images/app/automations/files.png)
 
-The File Manager uses a standard folder-based system.
-- **Root View:** The main page displays all your top-level folders.
-- **Folder View:** Clicking on a folder will take you inside it, showing all the files and sub-folders it contains. Use the breadcrumbs at the top to navigate back to parent folders.
+Files live in **folders**. The first page shows your folders; click one to see its files (and any folders inside it).
 
----
+Before you have any, it says **No folders yet**:
 
-## Managing Folders and Files
+![No folders yet.](/images/app/automations/files-empty.png)
 
-You can manage your assets using the actions at the top of the page and on individual items.
+## Make a folder
 
-<CardGroup>
-  <Card title="New Folder" icon="folder-plus">
-    Click the **"New Folder"** button to create a new folder. A pop-up will appear asking for a **Folder name** and an optional **Description**.
-  </Card>
-  <Card title="Upload" icon="upload">
-    Click the **"Upload"** button to add new files. This will open a modal where you can select the file type and choose whether the file should be **Public** or **Private**.
-  </Card>
-  <Card title="Search" icon="magnifying-glass">
-    Use the **Search...** bar to quickly find a specific file or folder by its name within your current view.
-  </Card>
+<Steps>
+<Step title="Click New folder">
+![New folder: a name and a description.](/images/app/automations/folder-new.png)
+</Step>
+<Step title="Name it">
+**Folder name** (needed), like *Brochures* or *Site photos*, and an optional **Description**.
+</Step>
+<Step title="Save">
+The folder shows on the page. Inside a folder, **New folder** makes a folder inside it.
+</Step>
+</Steps>
+
+A folder's **⋮** menu: **View** (open it), **Edit** (rename it or change its description) and **Delete**. Only an **empty** folder can be deleted: delete its files (and folders) first, or AdsEra says what's still in it.
+
+![A folder's menu: View, Edit, Delete.](/images/app/automations/folder-menu.png)
+
+## Upload files
+
+<Steps>
+<Step title="Open a folder and click Upload files">
+![Inside a folder: its files, Show, Search this folder, New folder and Upload files.](/images/app/automations/folder.png)
+</Step>
+<Step title="Choose who can open it">
+- **Public (can be sent on WhatsApp)**: the file gets a link that works anywhere. WhatsApp needs this to send it, so use Public for anything in templates, broadcasts and quick replies.
+- **Private (only your team)**: only people signed in to your AdsEra can open it, for invoices, agreements and other private papers.
+
+![Upload files: who can open it, and what kind of file.](/images/app/automations/upload.png)
+</Step>
+<Step title="Pick what kind of file">
+| Kind | File types | Biggest file |
+| --- | --- | --- |
+| **Image** | JPG, PNG | 5 MB |
+| **Video** | MP4, 3GP | 16 MB |
+| **Audio** | AAC, M4A, MP3, AMR, OGG | 16 MB |
+| **Document** | PDF, Word, Excel, PowerPoint, TXT | 100 MB |
+
+These match WhatsApp's own limits for each kind. **Change** picks another kind.
+</Step>
+<Step title="Drop the files in and upload">
+Drag files onto the box or click it to choose them (several at once is fine), then upload.
+
+![Ready to upload: the kind and its size limit.](/images/app/automations/upload-image.png)
+</Step>
+</Steps>
+
+## Find, open and delete files
+
+| To… | Do this |
+| --- | --- |
+| Show only public or private files | **Show**: **All files**, **Public files**, **Private files** |
+| Find a file | **Search this folder** (by name). **Clear** resets both |
+| Open a file | Its **⋮** → **View** |
+| Delete a file | Its **⋮** → **Delete** (asks first) |
+
+<Warning>
+Deleting a file can't be undone. Templates, quick replies and saved messages that still use its link stop showing it.
+</Warning>
+
+## Use a file
+
+When a template, quick reply, chat or email template asks for a picture or document, choose **from your files** and pick it from its folder. Or paste the file's link.
+
+## Related
+
+<CardGroup cols={2}>
+<Card title="WhatsApp templates" icon="message" href="/help/template/wa">Pictures and documents in a template's header.</Card>
+<Card title="Quick replies" icon="bolt" href="/help/snippet/list">Saved messages with a file.</Card>
 </CardGroup>
-
-#### File & Folder Actions (⋮)
-Each file and folder has a **three-dots (...) menu** that appears when you hover over it. This menu contains two actions:
-- **View:** Opens the file in a new browser tab for a full preview.
-- **Delete:** Permanently removes the file or folder from your library.
-  <Warning>This action cannot be undone and will break any existing campaigns or snippets that use this file.</Warning>
-
----
-
-## Public vs. Private Files
-
-When uploading a file, you must choose its visibility. This is a critical security setting.
-
-<AccordionGroup>
-  <Accordion title="Public Files">
-    - **Accessibility:** Public files are accessible to anyone with the direct link.
-    - **Use Case:** Ideal for pictures in WhatsApp templates and broadcasts, or any file you want to share widely. The URL for these files does not expire.
-  </Accordion>
-  <Accordion title="Private Files">
-    - **Accessibility:** Private files are secure and cannot be accessed directly via a public URL.
-    - **Use Case:** Perfect for sensitive documents like invoices, contracts, or internal reports.
-    - **Secure Viewing:** When you need to view a private file, AdsEra generates a **temporary, secure URL that expires after 60 seconds**. This ensures the file cannot be shared or accessed later.
-  </Accordion>
-</AccordionGroup>
-
-<Info>
-  The File Manager is your single source of truth for assets. When you build a **Snippet** or an **Email Template** and need to add an image or document, you can select it directly from your File Manager.
-</Info>

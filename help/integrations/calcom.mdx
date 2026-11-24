@@ -9,13 +9,14 @@ With Cal.com connected, AdsEra:
 - **Receives every booking.** A contact is created or updated, and its **Booking Status**, **Start**, **Event** and **Link** fields stay current, so your workflows can send confirmations and reminders.
 - **Lets your agents book.** Addy can offer free times and book meetings in WhatsApp chats, and Ask AI can look up, book, reschedule or cancel bookings for your team.
 
----
+
+![The Cal.com page: your connected accounts, Bookings, Used by agents and Activity.](/images/app/automations/calcom.png)
 
 ## Adding the integration
 
 ### Before you begin
 
-- An AdsEra account with access to **Marketplace**.
+- The **Integrations & data tables** permission in AdsEra (admins have it).
 - A Cal.com account. For **team** (round-robin or collective) event types, use the API key of a team **admin or owner**.
 - A free connection on your plan. The page shows how many you have used, for example "1 of 4 connections used".
 
@@ -27,17 +28,17 @@ With Cal.com connected, AdsEra:
 </Step>
 <Step title="Paste it in AdsEra">
   In AdsEra, open **Automations → Apps & integrations → Cal.com** and click **Connect Cal.com account**. Enter a **Label** (for example "Sales team Cal.com"), paste the **Cal.com API key** and click **Connect**.
+
+  ![Connect Cal.com account: where to find the key in Cal.com, then Label and Cal.com API key.](/images/app/automations/calcom-connect.png)
 </Step>
 <Step title="Done">
-  AdsEra checks the key and sets up the booking webhook in Cal.com for you. The account appears with the status **active**.
+  AdsEra checks the key and sets up the booking webhook in Cal.com for you. The account appears with the status **Connected**.
 </Step>
 </Steps>
 
 <Note>
   **Using Cal.com Teams?** Cal.com needs a webhook on each team event type. AdsEra adds them when you connect. After you create a **new** team event type in Cal.com, click **Sync team events** on the connection so its bookings reach AdsEra. You can check this in Cal.com under **Event Types → the team event → Webhooks**.
 </Note>
-
----
 
 ## Using the integration
 
@@ -50,9 +51,13 @@ The Cal.com page has four tabs.
 | **Used by agents** | Choose what Addy, Ask AI and the Meta AI agent may do with Cal.com. |
 | **Activity** | A log of what the integration did. |
 
+![The Bookings tab: filters for status, connection and dates, then each booking with its attendee, event, start time and status.](/images/app/automations/calcom-bookings.png)
+
 ### Save booking answers on the contact
 
-Click **Contact fields** on a connection. Each row maps a **booking field or form question** to a **contact attribute**. Click **Save**, or **Reset to default** to go back to the standard mapping. With no rows, bookings don't change contact attributes.
+Click **Contact fields** on a connection. Each row maps a **booking field or form question** to a **contact field**. Click **Save**, or **Reset to default** to go back to the standard mapping. With no rows, bookings don’t change contact fields.
+
+![Contact fields for a Cal.com connection: each booking field or form question and the contact field it fills.](/images/app/automations/calcom-fields.png)
 
 ### Let Addy book in WhatsApp chats
 
@@ -61,6 +66,8 @@ Open **Addy → Goals → Book appointments**, switch on **Offer bookings** and 
 ### What agents can do
 
 Set these on the **Used by agents** tab. Anything that changes a booking starts **off**.
+
+![Used by agents: what Addy on WhatsApp and Ask AI may do with Cal.com.](/images/app/automations/calcom-agents.png)
 
 | Group | What it does |
 | --- | --- |
@@ -87,8 +94,6 @@ Set these on the **Used by agents** tab. Anything that changes a booking starts 
   Disconnect an account you no longer use, or upgrade your AdsEra plan.
 </Accordion>
 </AccordionGroup>
-
----
 
 ## Removing the integration
 

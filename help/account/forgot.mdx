@@ -1,61 +1,69 @@
 ---
-title: 'Forgot Password'
-description: 'Learn how to reset your AdsEra account password if you have forgotten it or lost access.'
+title: 'Forgot password'
+description: 'Set a new AdsEra password with a link sent to your email.'
 icon: 'lock-keyhole'
 ---
 
-If you've forgotten your password, you can easily reset it by requesting a secure link to be sent to your email address.
+Forgot your password? Ask for a link by email, open it, and type a new password. It takes a minute.
 
-**Need to reset your password now? [Go to the Forgot Password Page &rarr;](https://app.adsera.in/auth/reset-password)**
-
----
-
-## Password Reset Process
-
-The process involves two main stages: requesting the reset link and creating your new password.
+**Where:** on the sign-in page click **Forgot password?**, or open [app.adsera.in/auth/reset-password](https://app.adsera.in/auth/reset-password).
 
 <Steps>
-<Step title="Request a Password Reset Link">
-  On the "Forgot Password" page, you'll see a field to enter your email.
+<Step title="Type your email">
+  On **Forgot your password?**, type the **Email address** you sign in with and click **Send Request**.
 
-  ![The Forgot your password page.](/images/app/forgot.png)
-
-  1.  In the **Email address** field, type the email associated with your AdsEra account.
-  2.  Click the **Send Request** button.
-
-  A confirmation will appear, and a password reset link will be sent to your email inbox.
+  ![The Forgot your password page: Email address and Send Request.](/images/app/settings/forgot.png)
 </Step>
 
-<Step title="Check Your Email for the Reset Link">
-  Open your email client and look for a new email from AdsEra.
+<Step title="Check your email">
+  A message at the bottom of the page says the email was sent.
 
-  <Warning>
-    The password reset link is only **valid for 10 minutes**. If you don't use it within that time, you'll need to start the process over.
+  ![After Send Request: the message "Email sent. Check your inbox for the link."](/images/app/settings/forgot-sent.png)
 
-    If you can't find the email, please check your spam or junk folder.
-  </Warning>
-
-  Click the reset link in the email to proceed to the final step.
+  Open the email from AdsEra and click the link. The link works for **10 minutes**. No email? Look in spam.
 </Step>
 
-<Step title="Create Your New Password">
-  Clicking the link will take you to the "Create your new password" page. Your email address will be pre-filled and disabled for security.
+<Step title="Choose a new password">
+  The link opens **Create your new password**. Your email is already filled in. Type the new **Password**, type it again in **Confirm New Password**, and click **Update Password**.
 
-  1.  In the **Password** field, enter your new, secure password.
-  2.  In the **Confirm New Password** field, enter the same password again to ensure it's correct.
-  3.  Click the **Update Password** button.
+  ![Create your new password: Email (filled in), Password, Confirm New Password and Update Password.](/images/app/settings/new-password.png)
+
+  Link too old? Click **Send me a new link** on the same page.
 </Step>
 
+<Step title="Sign in">
+  AdsEra takes you back to the sign-in page. Sign in with your email and the new password.
+</Step>
 </Steps>
 
----
+## Password rules
 
-### You're all set!
+At least 8 characters, with a capital letter, a small letter, a number and a symbol like @ $ #. For example: `Greenleaf@2026`.
 
-Once you update your password, you will be redirected to the login page. You can now sign in with your email and your new password.
+## Troubleshooting
 
-<CardGroup>
-  <Card title="Return to Sign In" icon="arrow-right-to-bracket" href="/help/account/login">
-    After resetting your password, proceed to the sign-in page.
-  </Card>
+| What you see | What to do |
+| --- | --- |
+| No email arrives | Check spam. The page says the email was sent even if no AdsEra login uses that email (so nobody can test which emails exist): check you typed the email you sign in with. |
+| "Too many reset requests. Try again later." | You asked several times in a row. Wait a while, then use the newest email only. |
+| The link says it has expired | Links work for 10 minutes. Click **Send me a new link**, or start again from **Forgot password?**. |
+| "Passwords must match" | The two password boxes are different. Type the same password in both. |
+| You're a team member and never had a password | Ask your admin for the first password, or use this page with the email they added you with. |
+
+## FAQs
+
+<AccordionGroup>
+<Accordion title="What happens to AI apps I connected?">
+  A new password signs out the AI apps you connected in **Settings → AI access**. Connect them again. See [Connect AI apps](/help/ai/connect-ai-apps).
+</Accordion>
+<Accordion title="I signed up with Google. Do I need this?">
+  No. Click **Continue with Google** on the sign-in page.
+</Accordion>
+</AccordionGroup>
+
+## Related
+
+<CardGroup cols={2}>
+  <Card title="Sign in" icon="arrow-right-to-bracket" href="/help/account/login">Back to the sign-in page.</Card>
+  <Card title="Account" icon="user" href="/help/account/account">Change your password while signed in.</Card>
 </CardGroup>

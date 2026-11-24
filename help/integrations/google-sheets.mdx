@@ -1,16 +1,19 @@
 ---
 title: 'Google Sheets'
-description: 'Link Google Sheets to AdsEra and use a sheet as the audience of a campaign.'
+description: 'Link Google Sheets to AdsEra: import contacts from a sheet, and send a WhatsApp broadcast to the rows of a sheet.'
 icon: 'table'
 ---
 
-Link your Google spreadsheets to AdsEra and use a sheet's rows as the recipients of a campaign.
+Link your Google spreadsheets to AdsEra to [import contacts](/help/audiance/google-sheets) from them, and to send a WhatsApp broadcast to a sheet's rows.
+
+**Where:** **Automations → Apps & integrations → Google Sheets**.
 
 <Info>
   AdsEra only uses Google's `drive.file` permission. It can open **only the spreadsheets you pick**, not the rest of your Google Drive.
 </Info>
 
----
+
+![Google Sheets: your Google account and linked spreadsheets.](/images/app/automations/sheets.png)
 
 ## Adding the integration
 
@@ -22,23 +25,25 @@ Link your Google spreadsheets to AdsEra and use a sheet's rows as the recipients
   Click **Add Spreadsheet**. Google's file picker opens. Choose the spreadsheet. It appears under **Linked Spreadsheets**.
 </Step>
 <Step title="Map the columns">
-  For each sheet, choose the **Mobile Number Column (For WhatsApp)**, the **Email column (optional)** and the **Attribute Mapping** from columns to contact attributes.
+  For each sheet, choose the **Mobile Number Column (For WhatsApp)**, the **Email column (optional)** and **Match columns to fields** (which sheet column goes into which contact field). Click the pencil next to a tab to open its settings.
+
+  ![A tab's settings: its columns, the phone and email columns, and Match columns to fields.](/images/app/automations/sheets-tab.png)
 </Step>
 </Steps>
 
 Changed the sheet's columns or added tabs? Click the sync icon (**Sync all tabs and fetch latest structure**).
 
----
-
 ## Using the integration
 
-### Send a campaign to a sheet
+### Send a broadcast to a sheet
 
-1. Create a campaign and, under the audience, switch on **Use Google Sheet Audience**.
+Full steps: [Broadcast to a Google Sheet](/help/campaign/wa/google-sheet).
+
+1. In **WhatsApp → Broadcasts → New broadcast**, step 1, open the **Google Sheets Import** tab and switch on **Use Google Sheet Audience**.
 2. Choose the **Google Account**, **Spreadsheet** and **Tab**.
 3. Under **Automation Rules**, choose how rows are used:
-   - **Run on Existing Rows**: the sheet is processed once when the campaign starts.
-   - **Automated**: new and updated rows are processed as they come in. This needs the AdsEra webhook script installed in the spreadsheet. Contact support to set it up.
+   - **Run on Existing Rows**: the rows there now get it once, when the broadcast starts.
+   - **Automated**: new and changed rows get it as they arrive. This needs the AdsEra script in the spreadsheet: AdsEra shows it after you save (**Google Sheets Automation Script**, also under the broadcast's **⋮ → View sheet script**).
 4. Optionally, add a condition (a column **Equals** or **Not Equals** a value) to send only to matching rows.
 
 ### Ask AI
@@ -56,11 +61,9 @@ The **Used by agents** section sets what Ask AI may do with your linked sheets.
 </Accordion>
 </AccordionGroup>
 
----
-
 ## Removing the integration
 
 - **Remove one spreadsheet:** click **Remove Sheet** on it and confirm.
 - **Disconnect the Google account:** choose the account and disconnect it, then confirm. Every spreadsheet linked through it is removed.
 
-Campaigns that used a removed sheet can't fetch its rows again. Contacts already created stay in AdsEra. You can also remove AdsEra's access from your Google account at [myaccount.google.com/permissions](https://myaccount.google.com/permissions).
+Broadcasts that used a removed sheet can't fetch its rows again. Contacts already created stay in AdsEra. You can also remove AdsEra's access from your Google account at [myaccount.google.com/permissions](https://myaccount.google.com/permissions).

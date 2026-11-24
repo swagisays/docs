@@ -7,7 +7,7 @@ The CRM API lets your website, backend or another tool write to AdsEra's CRM. Ch
 
 ## Authentication
 
-Send the same App Id and App Secret as the rest of the API, in the `x-api-key` and `x-api-secret` headers. Every request works on the workspace that owns the app. Records created through the API are recorded as created by the app's user.
+Send the same Key and Secret as the rest of the API, in the `x-api-key` and `x-api-secret` headers. Every request works on the company account that owns the key. Records created through the API are recorded as created by the app's user.
 
 ## Base URL
 
@@ -22,7 +22,7 @@ A successful call answers `{ "success": true, "data": ... }`. A failed call answ
 | Status | Meaning |
 | --- | --- |
 | 400 | The body or query is invalid, for example an unknown attribute or a stage that is not in the pipeline. |
-| 401 | Missing or wrong App Id / App Secret. |
+| 401 | Missing or wrong Key / Secret. |
 | 403 | You are on the free plan, your plan has expired, or it does not include this feature. Applies to reads too. See [plan requirements](/api-reference/introduction#plan-requirements). |
 | 404 | The record does not exist in your workspace. |
 | 409 | Another contact already has this phone number or email. |

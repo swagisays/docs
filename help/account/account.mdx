@@ -1,117 +1,122 @@
 ---
-title: 'Account Settings'
-description: 'Manage your personal information, change your password, and generate API keys for integrations.'
-icon: 'circle-user'
+title: 'Your account'
+description: 'Your own profile, photo, password and email notifications in AdsEra. Changes here affect only you.'
+icon: 'user'
 ---
 
-Your Account Settings page is where you can manage all your personal details, update your security credentials, and create API keys for connecting AdsEra to other applications.
+Your **Account** page is about you: your name, photo and phone, the email you sign in with, your password and the emails AdsEra sends you. Everyone on your team has their own Account page, so nothing you change here changes anything for them.
 
-**Want to manage profile? [Go to the AdsEra Profile Page &rarr;](https://app.adsera.in/dashboard/company)**
+<Note>
+  Looking for **API keys**, **AI access** or **Webhooks**? They used to be tabs on this page. Each one is now its own page under **Settings → Developers**: see [API keys](/help/account/api-keys), [Connect AI apps](/help/ai/connect-ai-apps) and [Webhooks](/help/account/webhooks).
+</Note>
 
-## How to Access Account Settings
+## Where to find it
 
-You can easily navigate to your account settings from the main dashboard.
+Click **Settings** (the gear at the bottom of the menu on the left), then **Account** under **Personal**. Or click your photo in the top-right corner and pick **Settings**.
 
-![Settings → Account in AdsEra.](/images/app/account.png)
-1.  Log in to your AdsEra dashboard.
-2.  Click **Settings** at the bottom of the menu on the left.
-3.  Click **Account**.
+[Open your Account page &rarr;](https://app.adsera.in/setting/user/account)
 
----
-## Account Tabs
+![The Account page: your name and role at the top, About on the left, Company and Sign-in and notifications on the right.](/images/app/settings/account.png)
 
-<Tabs>
-<Tab title="Information">
+## What's on the page
 
-The **Information** tab allows you to update your personal details and profile picture.
+| Part | What it shows |
+| --- | --- |
+| **Top** | Your photo, name and role: **Admin** or **Team member**, and the company you work in. **Edit profile** is on the right. |
+| **About** | **Email**: the email you sign in with (a green **Verified** tag once it's confirmed). **Phone**. **Member since**: the day your login was made. |
+| **Company** | Your business name, industry and city. Admins see **View company**, which opens [Company](/help/account/company). |
+| **Sign-in and notifications** | **Password** with **Change password**, and **Email notifications** (On or Off) with **Manage**. |
 
-![Settings → Account.](/images/app/account.png)
+A row you haven't filled in shows **Not added**.
 
-### Profile Photo
-
-You can upload a custom photo to personalize your account.
-- **To upload:** Click on the camera icon overlaying your current avatar.
-- **File types:** `*.jpeg`, `*.jpg`, `*.png`, `*.gif`
-- **Max size:** 3.1 MB
-
-### Personal Details
-
-Update your user information using the fields provided:
-- **First Name:** Your first name.
-- **Last Name:** Your last name.
-- **Email Address:** This field is linked to your account and **cannot be changed**.
-- **Country:** Your country of residence.
-- **Phone Number:** Your contact phone number.
-
-After making your desired changes, click the **Save Changes** button to apply them.
-
-</Tab>
-
-<Tab title="Password">
-
-### Change Password
-The **Password** tab allows you to securely change the password for your AdsEra account. For your security, this process requires email verification.
+## Change your name, phone or photo
 
 <Steps>
-    <Step title="Start the Verification Process">
-        Click the **Verify** button. This will send a one-time password (OTP) to the email address you log in with.
-    </Step>
-    <Step title="Enter the OTP">
-        Check your email for the OTP, and enter it on the verification screen that appears.
-    </Step>
-    <Step title="Set Your New Password">
-        Once verified, you will be prompted to enter and confirm your new password.
-    </Step>
+<Step title="Click Edit profile">
+At the top of the Account page.
+
+![The Edit profile window: photo on the left, First name, Last name and Phone number on the right.](/images/app/settings/edit-profile.png)
+</Step>
+<Step title="Change your photo (optional)">Click the round photo and pick a picture from your computer or phone. **JPG or PNG, up to 3 MB.**</Step>
+<Step title="Change your name or phone">Type in **First name**, **Last name** or **Phone number** (pick the country first).</Step>
+<Step title="Click Save changes">The button stays grey until you change something. You see "Profile updated" and the new photo shows straight away.</Step>
 </Steps>
 
-</Tab>
+| Field | What it's for | Example | Required? |
+| --- | --- | --- | --- |
+| Photo | Shown to your team next to your name, in chats you handle and in the top bar. | A clear photo of your face | No |
+| First name | Your first name. | Priya | Yes |
+| Last name | Your last name. | Mehta | No |
+| Phone number | How your team can reach you. | +91 98000 00000 | Yes |
 
-<Tab title="API Key">
+Your sign-in **email** can't be changed here. If you need a different email, write to [contact@adsera.in](mailto:contact@adsera.in).
 
-This tab allows you to generate and manage API keys. API keys are used to integrate your AdsEra account with third-party applications and services securely.
-![Settings → API keys.](/images/app/api-keys.png)
+## Change your password
 
-### Creating an API Key
+AdsEra doesn't ask for your old password. It emails you a 6-digit code instead, so this also works if you signed up with Google and never had a password.
 
 <Steps>
-    <Step title="Create a New App">
-        Click the **+ Create app** button to open the API key creation dialog.
-    </Step>
-    <Step title="Configure Your Key">
-        In the pop-up window, provide the following details:
-        - **App Name:** A descriptive name for your key (e.g., "My Custom CRM").
-        - **Never Expire:** Check this box if you want the key to be valid indefinitely.
-        - **End date:** If "Never Expire" is unchecked, select a date when the key should automatically expire.
+<Step title="Click Change password">Under **Sign-in and notifications**.</Step>
+<Step title="Click Send code">
+The window says where the code goes: the email you sign in with.
 
-    </Step>
-    <Step title="Generate and Save Your Key">
-        Click **Submit**. Your new API Key and Secret will be generated and displayed.
-    </Step>
+![Change password, first step: we'll email a 6-digit code, and the Send code button.](/images/app/settings/change-password-send.png)
+</Step>
+<Step title="Type the code and your new password">
+One digit in each box under **Code from your email**. Then type the **New password**.
+
+![Change password, second step: six code boxes, New password, and Sign out of all other devices.](/images/app/settings/change-password.png)
+</Step>
+<Step title="Sign out of other devices (optional)">Tick **Sign out of all other devices** if you might still be signed in somewhere else, like an old phone or a shared computer. You stay signed in where you are.</Step>
+<Step title="Click Change password">You see "Password changed".</Step>
 </Steps>
 
-<Warning>
-  **Important:** Your **API Secret** will only be displayed **once**, immediately after creation. Make sure to copy it and store it in a secure location like a password manager. **You will not be able to retrieve it again.**
-</Warning>
+A new password needs **8 or more characters** with **a capital letter, a small letter, a number and a symbol** (like ! or @). If one is missing, the box says which, for example "Add a number".
 
-Once created, your API key will appear in a list on this tab, allowing you to manage or delete it in the future.
+## Choose which emails you get
 
-</Tab>
-<Tab title="Notifications">
+<Steps>
+<Step title="Click Manage next to Email notifications">
+![Email notifications: the Tasks switch and the Done button.](/images/app/settings/notifications.png)
+</Step>
+<Step title="Turn Tasks on or off">On: AdsEra emails you when a task is assigned to you, comes due, or changes status. It saves the moment you flip the switch ("Task emails turned on").</Step>
+<Step title="Click Done">The **Email notifications** row now says **On** or **Off**.</Step>
+</Steps>
 
-Choose which notifications you get by email, for example **Email me about tasks** (when a task is assigned to you or is due). In-app notifications always show in the bell at the top of the page. To post alerts to your team's Slack channel, see [Slack](/help/integrations/slack).
+The bell in the top bar always shows everything, whatever you pick here. Your teammates keep their own settings.
 
-</Tab>
+## Troubleshooting
 
-<Tab title="AI Access">
+| What you see | What to do |
+| --- | --- |
+| No code in your email | Check the spam folder. Wait a minute, then click **send a new code** under the code boxes. |
+| "Enter all 6 digits." | One of the six boxes is empty. |
+| A red message after **Change password** | The code was wrong or too old. Click **send a new code** and try again with the newest code. |
+| **Edit profile** or **Change password** isn't there | An admin has turned that off for you in your permissions. Ask an admin in your company. |
+| The photo won't upload | Use a JPG or PNG smaller than 3 MB. |
 
-Connect Claude, ChatGPT, Cursor or Claude Code to your AdsEra account, and create personal access keys. See [Use AdsEra from Claude, ChatGPT or Cursor](/help/ai/connect-ai-apps).
+## FAQs
 
-</Tab>
+<AccordionGroup>
+  <Accordion title="Can I change the email I sign in with?">
+    Not from the app. Write to [contact@adsera.in](mailto:contact@adsera.in) from your current email.
+  </Accordion>
+  <Accordion title="I forgot my password and can't sign in.">
+    On the sign-in page, click **Forgot password?**. See [Forgot your password](/help/account/forgot).
+  </Accordion>
+  <Accordion title="Does changing my profile change anything for my team?">
+    No. Only your own name, photo and phone change. Business details are on [Company](/help/account/company).
+  </Accordion>
+  <Accordion title="Where did the API key and webhook tabs go?">
+    They're their own pages now: **Settings → API keys**, **AI access** and **Webhooks**.
+  </Accordion>
+</AccordionGroup>
 
-<Tab title="Webhook">
+## Related
 
-Send AdsEra events (such as incoming messages and status updates) to your own server. Add your webhook URL, and send a test event to check that your server receives it. See the [API reference](/api-reference/introduction).
-
-</Tab>
-
-</Tabs>
+<CardGroup cols={2}>
+  <Card title="Company details" icon="building" href="/help/account/company">Your business name, address, GSTIN and time zone.</Card>
+  <Card title="Team members" icon="users" href="/help/account/team">Give each teammate their own login.</Card>
+  <Card title="Sign in" icon="right-to-bracket" href="/help/account/login">Email or Google sign-in.</Card>
+  <Card title="Forgot your password" icon="key" href="/help/account/forgot">Reset it from the sign-in page.</Card>
+</CardGroup>

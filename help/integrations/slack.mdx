@@ -6,13 +6,14 @@ icon: 'slack'
 
 Connect Slack to post AdsEra alerts to one channel as they happen. Your team then sees new leads, AI handovers and account problems without opening AdsEra. You choose which alerts are posted.
 
----
+
+![Slack: the channel AdsEra posts to.](/images/app/automations/slack.png)
 
 ## Adding the integration
 
 ### Before you begin
 
-- An AdsEra account with access to **Marketplace**.
+- The **Integrations & data tables** permission in AdsEra (admins have it).
 - A Slack workspace where you're allowed to add apps, and the channel to post to.
 
 ### Connect
@@ -31,11 +32,11 @@ Connect Slack to post AdsEra alerts to one channel as they happen. Your team the
 
 AdsEra only asks Slack for permission to **post to that one channel**. It can't read your Slack messages.
 
----
-
 ## Choosing the alerts
 
 On the **Connection** tab, open the menu on the Slack card and choose **Edit**. Tick the alerts to post and click **Save**.
+
+![Slack notifications: Post notifications to Slack, the alerts in groups (Chats, Leads, Meetings, Tasks, WhatsApp account, Billing) and a note.](/images/app/automations/slack-alerts.png)
 
 | Group | Alerts | On by default |
 | --- | --- | --- |
@@ -60,11 +61,13 @@ Each Slack message shows what happened and the key details (for example, the con
 
 ### Let Addy alert your team
 
+![Used by agents on the Slack page: Addy on WhatsApp may alert your team.](/images/app/automations/slack-agents.png)
+
 On the **Used by agents** tab, choose whether [Addy](/help/ai/addy) may **Alert your team**. When it's on and Slack is connected, Addy posts an urgent alert to your channel by itself, without handing the chat over. Examples: a bulk order, a customer ready to pay right now, or a VIP. Hot leads Addy scores are posted automatically as **Addy scores a lead as hot**.
 
 ### Pause or resume
 
-Choose **Deactive** on the card's menu to stop posting, or **Active** to start again. Your choices are kept.
+Open the **⋮** menu on the card and choose **Pause alerts** to stop posting, or **Resume alerts** to start again. Your choices are kept.
 
 ### Troubleshooting
 
@@ -79,8 +82,6 @@ Choose **Deactive** on the card's menu to stop posting, or **Active** to start a
   The AdsEra app may have been removed from the workspace or the channel deleted. Click **Connect** again.
 </Accordion>
 </AccordionGroup>
-
----
 
 ## Removing the integration
 

@@ -2,9 +2,9 @@
   "openapi": "3.1.0",
   "info": {
     "title": "AdsEra REST API",
-    "description": "Welcome to the AdsEra REST API. Use our API to integrate powerful, multi-channel communication (Email and WhatsApp) directly into your applications. Automate transactional messages, trigger marketing campaigns, manage your audience, and track performance programmatically.",
+    "description": "Welcome to the AdsEra REST API. Use it to connect AdsEra to your own apps: send WhatsApp messages and templates, manage contacts, lists and deals, and track results programmatically.",
     "contact": {
-      "name": "Shubham",
+      "name": "AdsEra Support",
       "email": "contact@adsera.in"
     },
     "version": "1.0.0"

@@ -4,9 +4,14 @@ description: 'Send WhatsApp messages from AdsEra when something happens in thous
 icon: 'plug'
 ---
 
+<Warning>
+**Coming soon in AdsEra:** the Pabbly card under Apps & integrations opens a page marked *(coming soon)* with a greyed-out **Connect**: there is nothing to connect inside AdsEra yet. What this page describes works from Pabbly's side, using your AdsEra API key: no button in AdsEra is needed.
+</Warning>
+
 [Pabbly Connect](https://www.pabbly.com/connect/) links AdsEra with other apps. For example, when a form is filled, an order is placed or a lead is added to your CRM, Pabbly can send a WhatsApp template message through AdsEra.
 
----
+
+![The Pabbly page in AdsEra shows Coming soon.](/images/app/automations/pabbly.png)
 
 ## Adding the integration
 
@@ -19,20 +24,24 @@ icon: 'plug'
 
 <Steps>
 <Step title="Get your AdsEra API credentials">
-  In AdsEra, open [**Account → API Key**](https://app.adsera.in/dashboard/user/account?tab=API%20Key) and generate your **App Id** and **App Secret**. See [API Authentication](/api-reference/introduction).
+  In AdsEra, open [**Settings → API keys**](https://app.adsera.in/setting/api-keys) and create a key. You get a **Key** and a **Secret**. See [API Authentication](/api-reference/introduction).
+
+  ![Create an API key: a name and when it ends.](/images/app/settings/api-key-new.png)
+
+  The Secret shows only once. Copy both now:
+
+  ![Copy your new key: the Key and the one-time Secret.](/images/app/settings/api-key-secret.png)
 </Step>
 <Step title="Add AdsEra in Pabbly">
   In Pabbly Connect, create a workflow. Set up the trigger (the app and event that should start it), then add an action step and search for **AdsEra**.
 </Step>
 <Step title="Authorize">
-  Paste your App Id and App Secret when Pabbly asks for the connection.
+  Paste your Key and Secret when Pabbly asks for the connection.
 </Step>
 <Step title="Choose the message">
   Pick the WhatsApp number and the approved template. Map data from the trigger (name, phone and so on) to the template's variables. Save and test the workflow.
 </Step>
 </Steps>
-
----
 
 ## Using the integration
 
@@ -42,15 +51,13 @@ Each time the trigger fires, Pabbly calls AdsEra and the message is sent. You ca
 
 <AccordionGroup>
 <Accordion title="Pabbly says authentication failed">
-  Check that you copied the App Id and App Secret exactly. If you regenerated them in AdsEra, update them in Pabbly too.
+  Check that you copied the Key and Secret exactly. If you made a new key in AdsEra, update it in Pabbly too.
 </Accordion>
 <Accordion title="The message isn't delivered">
   The template must be approved, and the phone number must include the country code. Check the message status in AdsEra **Chat**.
 </Accordion>
 </AccordionGroup>
 
----
-
 ## Removing the integration
 
-Turn off or delete the Pabbly workflows that use AdsEra, and remove the AdsEra connection in Pabbly. To make sure the old credentials can't be used, regenerate your App Secret under **Account → API Key**. Anything else that uses the old secret stops working, so update it there as well.
+Turn off or delete the Pabbly workflows that use AdsEra, and remove the AdsEra connection in Pabbly. To make sure the old credentials can't be used, delete that key under **Settings → API keys** and create a new one. Anything else that uses the old secret stops working, so update it there as well.

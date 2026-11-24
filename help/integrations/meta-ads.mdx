@@ -1,96 +1,61 @@
 ---
-title: 'Meta Ads'
-description: 'Run Facebook and Instagram ads that open WhatsApp chats, collect leads and drive website traffic, and see the results in AdsEra.'
+title: 'Ads in AdsEra'
+description: 'What the Ads area does: connect Meta ads, see which ads bring leads, build WhatsApp ads, tell Meta which leads became customers, and sell on WhatsApp.'
 icon: 'bullhorn'
 ---
 
-Connect your Meta ad account to build and run **Facebook and Instagram ads** from AdsEra. Click-to-WhatsApp ads open a chat with your number, where your team or Addy takes over. Lead form and website ads are supported too.
+The **Ads** area (the megaphone in the left bar) connects your Meta (Facebook and Instagram) advertising to your WhatsApp, contacts and sales. A typical day: your ad opens a WhatsApp chat, Addy or your team answers, the lead is in Contacts and Prospects with the ad they came from, and when they book a visit or pay, AdsEra tells Meta, so the next ads find more people like them.
 
-![Ads → Meta Ads before an account is connected: one button, and what you'll need.](/images/app/metaads.png)
+![Ads → Meta Ads with a connected ad account.](/images/app/ads/accounts.png)
 
----
+## What's in the Ads menu
 
-## Adding the integration
+| Menu item | What you do there | Guide |
+| --- | --- | --- |
+| **Meta Ads** | Connect ad accounts; see spend, leads and cost per lead; open an account's campaigns, reports and leads; build a new ad. | [Connect](/help/ads/connect) · [Which ads bring leads](/help/ads/results) · [Create a WhatsApp ad](/help/ads/create) |
+| **Pixel & events** | Tell Meta which ad leads became customers. | [Pixel & events](/help/ads/pixel-events) |
+| **WhatsApp Commerce** | Your product catalog inside WhatsApp, products and orders. | [WhatsApp Commerce](/help/integrations/whatsapp-commerce) |
+| Facebook Pages (from an ad account) | Your Pages, posts and lead forms. | [Facebook Pages and lead forms](/help/ads/pages) |
+| WhatsApp Pay (Automations → Apps & integrations) | Payments inside the chat. | [WhatsApp Pay](/help/integrations/whatsapp-pay) |
 
-### Before you begin
-
-- A Facebook login with the **Admin** role in your Meta Business portfolio.
-- An **active ad account** with an **active payment method**. Suspended or unverified accounts can't run campaigns.
-- **Admin** or **Advertiser** role on that ad account.
-- A Facebook Page, and a WhatsApp number connected in AdsEra for click-to-WhatsApp ads.
-
-### Connect
+## Start here
 
 <Steps>
-<Step title="Start">
-  Open **Ads → Meta Ads** and click **Connect with Facebook** (or **Connect account** if you already have one). This opens the connection wizard.
+<Step title="Connect your ad account">
+**Ads → Meta Ads → Connect with Facebook**. Two minutes. [How →](/help/ads/connect)
 </Step>
-<Step title="Log in with Facebook">
-  Log in with a Facebook account that is an Admin of your business, and allow the permissions.
+<Step title="See which ads bring leads">
+**Leads** on the account's card: campaigns, ad sets and ads ranked by leads, with cost per lead. [How →](/help/ads/results)
 </Step>
-<Step title="Pick your assets">
-  Choose the **ad account** and the **Facebook Pages** to use. You can select several Pages and pick one for each ad.
+<Step title="Set up Pixel & events">
+Switch on your lead sources, choose your pixel, add two rules (new lead → Lead; site visit → Schedule). [How →](/help/ads/pixel-events)
 </Step>
-<Step title="Done">
-  AdsEra syncs your assets and the ad account appears on the Meta Ads dashboard.
+<Step title="Build a WhatsApp ad">
+**New ad** → 6 steps → publish (it starts paused). [How →](/help/ads/create)
 </Step>
 </Steps>
 
----
+Every one of these has a **Do it with me** lesson in the app (**Learn → Ads & selling**): it highlights each button on the real page and tells you what to pick.
 
-## Using the integration
+## Words you'll see
 
-### Build a campaign
+| Word | Plain meaning |
+| --- | --- |
+| **Ad account** | Where Meta keeps your ads and bills them (ID act_…). |
+| **Campaign → ad set → ad** | A campaign has a goal; an ad set has the audience, budget and dates; an ad is the picture and text. |
+| **WhatsApp ad** | An ad whose button opens a chat with your number (Meta calls it Click-to-WhatsApp). |
+| **Lead form / instant form** | A form people fill in inside Facebook or Instagram. |
+| **Pixel** | Where Meta keeps what you tell it about your leads. Events Manager calls it a **dataset**. |
+| **CTR, CPC, CPM** | Clicks per 100 views; cost per click; cost per 1,000 views. |
+| **Cost per lead** | Spend divided by leads. The number that matters. |
 
-Open an ad account and start a new campaign in the ad builder.
+## Who can use it
 
-1. **Choose where the ad sends people:** WhatsApp, an instant lead form, or your website.
-2. **Choose the objective:** Engagement, Traffic, Sales, Leads or Awareness. AdsEra only offers the optimization goals that work with your choice.
-3. **Set the audience, budget and schedule.**
-4. **Create the ad:** media, text, the Page, and the WhatsApp number or URL.
-5. **Review and publish.**
+Members with the **Meta business agent, ads & commerce** permission (Settings → Team members). Admins have it. Without it, the Ads menu doesn't show and its pages say you have no access.
 
-**Simple** mode builds one ad set with one ad. **Advanced** mode lets you build several ad sets with several ads each.
-
-### Watch the results
-
-- **Campaigns:** turn campaigns and ads on or off, edit them, and see what needs attention.
-- **Reports:** spend, reach, clicks, conversations and leads over time.
-- **Leads:** leads from your instant forms, saved as contacts in AdsEra.
-
-### Send conversion events back to Meta
-
-Open **Ads → Pixel & events**. Telling Meta which ad leads became customers lets Meta show your ads to more people like them, so you pay less per good lead. The page walks you through three steps:
-
-1. **Where your ad leads come from:** switch on each place your ad leads arrive (Click-to-WhatsApp ads, Meta lead forms, website forms, Cal.com or Calendly). A source marked **Needs setup** has a button that takes you to the fix.
-2. **Which dataset gets the events:** a dataset (pixel) is where Meta collects your events. Click **Datasets** at the top to choose them. Each dataset has its own funnel.
-3. **When to tell Meta:** click **New rule** (for example, *deal moves to Site visit → send Schedule*), then drag the rule onto a funnel stage to switch it on. Rules under **Switched off** don't send anything.
-
-**Recent events** at the bottom shows what was sent, and anything Meta rejected.
-
-![Ads → Pixel & events: lead sources, dataset and funnel.](/images/app/pixel-events.png)
-
-<Tip>Start with two stages: **New lead** and your first real step (a site visit, a demo or a payment). On a rule, use **Send a test event**, then check **Test events** in Meta Events Manager.</Tip>
-
-### Troubleshooting
-
-<AccordionGroup>
-<Accordion title="An ad account shows &quot;Needs attention&quot;">
-  Meta revoked access (the app was removed or the Facebook password changed), or the connection expired. Click **Reconnect** and log in again. Syncing and lead capture start again.
-</Accordion>
-<Accordion title="Publishing a campaign fails">
-  Check the ad account has an active payment method and isn't restricted, and that you have Admin or Advertiser role on it. The error from Meta is shown on the campaign.
-</Accordion>
-<Accordion title="A dataset isn't receiving events">
-  Choose it again under **Datasets** on the Pixel & events page. Its rules are kept but don't send until it receives events.
-</Accordion>
-</AccordionGroup>
-
----
-
-## Removing the integration
-
-1. On the Meta Ads dashboard, choose **Disconnect** on the ad account and confirm.
-2. To remove access completely, remove the AdsEra app in Meta Business Settings under **Integrations → Business integrations**, or in Facebook under **Settings → Business integrations**.
-
-**What happens:** AdsEra stops syncing that ad account. **Your campaigns in Meta Ads Manager are not changed**, and they keep running and spending until you pause them in Meta. Leads and contacts already in AdsEra are kept.
+<CardGroup cols={2}>
+<Card title="Connect your Meta ad account" icon="link" href="/help/ads/connect" />
+<Card title="Which ads bring leads" icon="chart-line" href="/help/ads/results" />
+<Card title="Create a WhatsApp ad" icon="wand-magic-sparkles" href="/help/ads/create" />
+<Card title="Pixel & events" icon="radar" href="/help/ads/pixel-events" />
+</CardGroup>

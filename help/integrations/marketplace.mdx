@@ -1,43 +1,97 @@
 ---
-title: 'Marketplace'
-description: 'One place to connect AdsEra with your calendars, payment gateways, CRMs, ad accounts and any app that has an MCP server, and to choose what your AI agents may do with each.'
-icon: 'store'
+title: 'Apps & integrations'
+description: 'Connect AdsEra to the apps you already use: Cal.com, Calendly, Zoom, IndiaMART, Google Sheets, Slack, ZeptoMail, WhatsApp Pay, Razorpay, Shopify and more. What each does, which work today, and what each card status means.'
+icon: 'puzzle-piece'
 ---
 
-The **Marketplace** is where you connect AdsEra to other apps. Open it from **Automations → Apps & integrations** in the menu on the left, or go to [app.adsera.in/dashboard/marketplace/list](https://app.adsera.in/dashboard/marketplace/list).
+**Apps & integrations** is where you connect AdsEra to your other apps, once, for your whole company. Bookings, leads and payments then flow in by themselves, workflows can react to them, and your AI agents can use them.
 
-![Automations → Apps & integrations in AdsEra.](/images/app/apps.png)
+**Where:** **Automations → Apps & integrations** in the left menu (the same page is also under **Settings → Apps & integrations**). [Open it →](https://app.adsera.in/dashboard/marketplace/list)
 
-Use the tabs to filter: **All**, **Connected**, or a category such as Booking & meetings, CRM & leads, Payments, Email & messaging, Commerce, Automation, Marketing, AI & agents or Developers. Search finds integrations and AI connectors by name, for example "Shopify", "Razorpay" or "n8n".
+![Apps & integrations: connected apps on top, then every app.](/images/app/automations/apps.png)
 
-Each card shows its status: **Connected**, **Needs attention**, **Needs sign-in** or **Error**.
+## Find an app
 
-## Built-in integrations
-
-| Integration | What it does |
+| Part | What it does |
 | --- | --- |
-| [Cal.com](/help/integrations/calcom) | Receive bookings, update contacts, and let agents book meetings |
-| [Calendly](/help/integrations/calendly) | Receive bookings, update contacts, and let agents book meetings |
-| [Zoom](/help/integrations/zoom) | Addy books Zoom meetings in WhatsApp chats; Ask AI schedules meetings |
-| [WhatsApp Pay](/help/integrations/whatsapp-pay) | Collect payments inside WhatsApp chats |
-| [WhatsApp Commerce](/help/integrations/whatsapp-commerce) | Sell from your Meta catalog in WhatsApp and manage orders |
-| [Meta Ads](/help/integrations/meta-ads) | Click-to-WhatsApp, lead and website ads |
-| [Meta AI Agent](/help/integrations/meta-ai-agent) | Meta's AI agent answers customers on your number |
-| [Slack](/help/integrations/slack) | Post AdsEra alerts to a Slack channel |
-| [ZeptoMail](/help/integrations/zeptomail) | Send emails from your own domain with tracking |
-| [IndiaMART](/help/integrations/indiamart) | Push IndiaMART leads into AdsEra |
-| [Google Sheets](/help/integrations/google-sheets) | Use a spreadsheet as a campaign audience |
-| [Dialogflow & Conversational Agents](/help/integrations/dialogflow) | Connect your own Google chatbot to WhatsApp |
-| [Pabbly Connect](/help/integrations/pabbly) | Send WhatsApp messages from thousands of apps |
+| **Search apps** | Type a name, like Calendly, Razorpay or Google Sheets |
+| **All**, **Connected (8)**, categories | **Connected** shows only what you use. Categories: Booking & meetings, CRM & leads, Payments, Email & messaging, Commerce, Automation, Work & docs, Support, Marketing, AI & agents, Developers, Custom |
+| **Connected** section | Your connected apps, first |
+| **All integrations** | Everything else |
+| **App not listed?** | Add any app that gives you an AI connector (MCP) address ([how](/help/integrations/ai-connectors#add-an-app-that-isnt-listed)) |
 
-You can also connect any other app as an [AI connector](/help/integrations/ai-connectors).
+![Connected: only the apps you use, with their status.](/images/app/automations/apps-connected.png)
 
-## Used by agents
+### What a card tells you
 
-Most integrations have a **Used by agents** tab. It sets what each AI agent may do with that integration:
+| On the card | Meaning |
+| --- | --- |
+| **Connected** (green) | Working |
+| **Needs attention** (orange) | Connected but something needs a look (like ZeptoMail bounces). Open it |
+| **Needs sign-in** (orange) | Sign in to the app again on its page |
+| **Error** (red) | It stopped working. Open it to see why |
+| **AI connector** | An app your AI agents (Addy, Ask AI, the Meta AI agent) can use. Clicking it opens a short connect window |
+| **Coming soon** | Can't be connected yet |
+| **Used by** | Which agents, workflows or features use it, like *Addy on WhatsApp · Flows* |
 
-- **Addy on WhatsApp**: the AI agent answering your customers.
-- **Addy in AdsEra (Ask AI)**: the assistant your team chats with in AdsEra.
-- **Meta AI Agent**: Meta's hosted agent, where available.
+## Every app, and what works today
 
-Each group of tools can be **Off**, **Look up only** or **Everything** (**On** for groups that only look things up). Use **Set Tools One By One** to choose single tools. Tools that change something, such as booking, cancelling or charging, usually start **off**, so nothing happens until you turn it on.
+| App | What it does | Status |
+| --- | --- | --- |
+| [Cal.com](/help/integrations/calcom) | Bookings come in as contacts; workflows remind people; Addy can book | Works |
+| [Calendly](/help/integrations/calendly) | The same, for Calendly | Works |
+| [Zoom](/help/integrations/zoom) | A Zoom link for every booked call | Works |
+| [IndiaMART](/help/integrations/indiamart) | Every IndiaMART enquiry becomes a contact | Works |
+| [Google Sheets](/help/integrations/google-sheets) | Import contacts from a sheet; send broadcasts to a sheet's rows | Works |
+| [WhatsApp Pay](/help/integrations/whatsapp-pay) | Collect payments inside WhatsApp (opens its own page) | Works |
+| [ZeptoMail](/help/integrations/zeptomail) | Workflow and Closer emails from your own domain | Works |
+| [Email account (SMTP)](/help/automation/email-accounts) | Workflow emails from any email address | Works |
+| [WhatsApp Commerce](/help/integrations/whatsapp-commerce) | Your product catalog on WhatsApp (opens Ads → WhatsApp Commerce) | Works |
+| [Meta Ads](/help/integrations/meta-ads) | Click-to-WhatsApp ads and ad leads (opens Ads → Meta Ads) | Works |
+| [Slack](/help/integrations/slack) | AdsEra alerts in a Slack channel | Works |
+| [Meta AI Agent](/help/integrations/meta-ai-agent) | Meta's AI agent on your number (opens its own page) | Works |
+| [Dialogflow / Conversational Agents](/help/integrations/dialogflow) | Your existing Dialogflow ES or CX bot answers on WhatsApp | Works |
+| [AI connectors](/help/integrations/ai-connectors) (Razorpay, Shopify, n8n, Zapier, HubSpot, Zoho CRM, Notion…) | Your AI agents look things up and act in these apps | Works |
+| WhatsEra | Older tool: an unofficial WhatsApp link. Use your official WhatsApp number instead | Older |
+| [Pabbly](/help/integrations/pabbly) | Connect other apps through Pabbly Connect | **Coming soon**: its page opens but **Connect** is greyed out |
+
+## Connect an app
+
+<Steps>
+<Step title="Click its card">
+Built-in apps (Cal.com, IndiaMART, Slack…) open their own page with a **Connect** button and the steps. AI connectors open a short window:
+
+![Connect an AI connector: sign in, or fill one or two fields.](/images/app/automations/apps-connect.png)
+</Step>
+<Step title="Sign in or paste what it asks">
+Most apps open their own sign-in window: sign in and click **Allow**. A few ask for a key you copy from the app (the page says where).
+</Step>
+<Step title="Check it on its page">
+The card moves to **Connected**. Its page shows what came in (bookings, activity) and, for AI connectors, which agents may use it.
+</Step>
+</Steps>
+
+## Who can use this page
+
+Team members need the **Integrations & data tables** permission (Settings → Team members). AI connectors also need the **AI** permission. Admins have both.
+
+## FAQ
+
+<AccordionGroup>
+<Accordion title="If I disconnect an app, do I lose my data?">
+No. Contacts, bookings and messages that already came into AdsEra stay. AdsEra just stops receiving new ones.
+</Accordion>
+<Accordion title="Is Apps & integrations the same as the old Marketplace?">
+Yes. It's the same page with a new name.
+</Accordion>
+<Accordion title="The app I use isn't here.">
+If it offers an AI connector (MCP) address, add it with **App not listed?**. If it can call a web address, a workflow with the trigger **Another app sends data** can receive its data. Otherwise, tell us at contact@adsera.in.
+</Accordion>
+</AccordionGroup>
+
+## Related
+
+<CardGroup cols={2}>
+<Card title="AI connectors" icon="robot" href="/help/integrations/ai-connectors">Let Addy and Ask AI use your apps.</Card>
+<Card title="Workflows" icon="diagram-project" href="/help/automation/workflows">React to bookings, leads and payments.</Card>
+</CardGroup>

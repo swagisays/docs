@@ -4,22 +4,25 @@ description: 'Push every IndiaMART lead into AdsEra in real time, so you can fol
 icon: 'store'
 ---
 
-With IndiaMART connected, every lead you get on IndiaMART is sent to AdsEra as soon as it arrives. AdsEra creates or updates the contact, so you can follow up on WhatsApp straight away with a campaign, a workflow or Addy.
+With IndiaMART connected, every lead you get on IndiaMART is sent to AdsEra as soon as it arrives. AdsEra creates or updates the contact, so you can follow up on WhatsApp straight away with a broadcast, a workflow or Addy.
 
----
+
+![The IndiaMART page: Overview, Connections and Used by agents.](/images/app/automations/indiamart.png)
 
 ## Adding the integration
 
 ### Before you begin
 
 - An IndiaMART seller account with lead access and the **Push API** (lead forwarding) option.
-- An AdsEra account with access to **Marketplace**.
+- The **Integrations & data tables** permission in AdsEra (admins have it).
 
 ### Connect
 
 <Steps>
 <Step title="Create the connection in AdsEra">
-  Open **Automations → Apps & integrations → IndiaMART** and click **Connect**. Enter a **Name** for the connection, set up the **Attribute mapping** (see below) and save.
+  Open **Automations → Apps & integrations → IndiaMART** and click **Connect**. Enter a **Name** for the connection, match IndiaMART’s details to your fields (see below) and save.
+
+  ![Connect IndiaMART: Name, Match IndiaMART details to your fields, Fixed values for every lead, and Save.](/images/app/automations/indiamart-connect.png)
 </Step>
 <Step title="Copy the webhook URL">
   The new connection card shows a URL like `https://app.adsera.in/intigration/indiaMart/webhook/<id>`. Click the copy icon.
@@ -32,19 +35,20 @@ With IndiaMART connected, every lead you get on IndiaMART is sent to AdsEra as s
 </Step>
 </Steps>
 
-### Attribute mapping
+### Matching the details
 
 - Choose which IndiaMART fields hold the buyer's **phone** and **email**. AdsEra uses them to find the existing contact or create a new one.
-- Each mapping row copies an **IndiaMART attribute** (for example, the buyer's company, city or product) to an **AdsEra attribute** on the contact.
-- You can also set fixed values that every IndiaMART lead gets, for example a "Source = IndiaMART" attribute.
-
----
+- Under **Match IndiaMART details to your fields**, each row copies an **IndiaMART detail** (for example the buyer’s company, city or product) to an **AdsEra field** on the contact.
+- You can also set fixed values that every IndiaMART lead gets, for example a field Source = IndiaMART (**Fixed values for every lead**).
 
 ## Using the integration
 
-- New leads become contacts in AdsEra. Use them in segments, WhatsApp campaigns, workflows and Addy.
+- New leads become contacts in AdsEra. Use them in segments, WhatsApp broadcasts, workflows and Addy.
 - Click the menu on a connection card to edit its name or mapping.
 - The **Used by agents** tab sets what Ask AI may do with your IndiaMART connections.
+- The **Overview** tab repeats the setup steps, for when you're in IndiaMART's panel and need them again.
+
+![Used by agents on the IndiaMART page.](/images/app/automations/indiamart-agents.png)
 
 ### Troubleshooting
 
@@ -53,11 +57,9 @@ With IndiaMART connected, every lead you get on IndiaMART is sent to AdsEra as s
   Check that the push URL in IndiaMART is exactly the one on the connection card, with nothing missing at the end. Then check that the connection in AdsEra is still there and active.
 </Accordion>
 <Accordion title="Leads arrive but some fields are empty">
-  Edit the connection and add the missing fields to the attribute mapping.
+  Edit the connection and add the missing fields to the matching rows.
 </Accordion>
 </AccordionGroup>
-
----
 
 ## Removing the integration
 
