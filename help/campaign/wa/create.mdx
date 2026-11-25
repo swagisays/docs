@@ -10,11 +10,11 @@ A **broadcast** sends one approved WhatsApp template to many people at once, lik
 
 **Before you start:** a [connected number](/help/channel/whatsapp/connect), an [approved template](/help/template/create), and your [contacts](/help/audiance/audiance).
 
-The form has **2 steps**: **Audience & Setup** (who gets it) and **Content & Sender** (what they get, and when). Clicking **Save broadcast** at the end saves it:
+The form has **2 steps**: **Who gets it** (the name and the people) and **What they get** (the template, the number it comes from, and when). Clicking **Save broadcast** at the end saves it:
 
 <Warning>**Save broadcast does not send.** It saves the broadcast. A broadcast set to **I’ll send it with Send now** waits as a **Draft** until you open its **⋮** menu in Broadcasts and click **Send now**. A broadcast set to **Schedule for later** goes out on its own at the time you picked.</Warning>
 
-## Step 1: Audience & Setup
+## Step 1: Who gets it
 
 ![Step 1: the broadcast name and who gets it.](/images/app/whatsapp/bc-step1.png)
 
@@ -23,26 +23,26 @@ The form has **2 steps**: **Audience & Setup** (who gets it) and **Content & Sen
   In **Broadcast name**, type a name only your team sees, like “Diwali offer: Pune leads” (up to 150 characters).
 </Step>
 <Step title="Choose who gets it">
-  Pick one of the three tabs under **Target Audience & Recipients**:
+  Pick one of the three tabs under **Who to send it to**:
 
-  - **Contacts Directory**: tick people in the list, or click **Select All** to pick everyone who matches (not only the people on this page). **Select Page** picks just this page. Click a saved segment chip (like **Hot leads**) to see only those people. **More filters** adds conditions like City is Pune. The **Selected Contacts** chip shows who you picked.
-  - **Saved Lists & Segments**: send to whole lists and segments. A segment updates itself as contacts change.
-  - **Google Sheets Import**: send to the rows of a Google Sheet. See [Send to a Google Sheet](/help/campaign/wa/google-sheet).
+  - **Pick people**: tick people in the list, or click **Select All** to pick everyone who matches (not only the people on this page). **Tick this page** picks just this page. Click a saved segment chip (like **Hot leads**) to see only those people. **More filters** adds conditions like City is Pune. The **Selected Contacts** chip shows who you picked.
+  - **Lists and segments**: send to whole lists and segments. A segment updates itself as contacts change.
+  - **From a Google Sheet**: send to the rows of a Google Sheet. See [Send to a Google Sheet](/help/campaign/wa/google-sheet).
 
   ![Select All picks every contact that matches.](/images/app/whatsapp/bc-select-all.png)
 
   ![More filters: add conditions.](/images/app/whatsapp/bc-filter.png)
 
-  ![Saved Lists & Segments.](/images/app/whatsapp/bc-lists.png)
+  ![Lists and segments.](/images/app/whatsapp/bc-lists.png)
 </Step>
 <Step title="Next">
-  Click **Next: Content & Sender**. It stays grey until there is a name and at least one person.
+  Click **Next: What they get**. Until there is a name and at least one person it stays grey, and the line next to it says what is missing.
 </Step>
 </Steps>
 
 <Note>Only message people who agreed to hear from you. People who sent **STOP** are skipped automatically ([opt-out](/help/channel/whatsapp/opt)).</Note>
 
-## Step 2: Content & Sender
+## Step 2: What they get
 
 ![Step 2: the number, the template and the preview.](/images/app/whatsapp/bc-step2.png)
 
@@ -120,7 +120,7 @@ Then open **Report** to see who got it, read it and replied. See [Your broadcast
 
 | What you see | Why | What to do |
 | --- | --- | --- |
-| **Next: Content & Sender** is grey | No name or nobody picked | Type a name and pick people |
+| **Next: What they get** is grey | No name or nobody picked | Type a name and pick people |
 | **Save broadcast** is grey | Template, number or a variable is missing | Fill every variable and the media |
 | A template is missing in the picker | It isn’t approved, or belongs to another number | Pick the right number; wait for approval |
 | Schedule for later is greyed out | Your plan doesn’t include scheduling | Add the **Schedule broadcasts** add-on in Settings → My plan, or send with Send now |
