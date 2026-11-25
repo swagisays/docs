@@ -94,6 +94,18 @@
             ]
           },
           {
+            "group": "Reports",
+            "pages": [
+              "help/reports/index",
+              "help/reports/create",
+              "help/reports/cards",
+              "help/reports/tables",
+              "help/reports/filters",
+              "help/reports/sharing",
+              "help/reports/faq"
+            ]
+          },
+          {
             "group": "Automations",
             "pages": [
               {
