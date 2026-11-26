@@ -26,7 +26,7 @@ Connect your own Google chatbot to your WhatsApp numbers in AdsEra. Customer mes
 
 ### Dialogflow (ES)
 
-1. Open **Automations → Apps & integrations → Dialogflow** and click **Connect**.
+1. Open **Automation → Connected tools → Dialogflow** and click **Connect**.
 2. Choose the **WhatsApp** number or numbers that should use this agent.
 3. Enter the **Project Id** (from Google Cloud Console) and a **Description**.
 4. **Upload JSON file**: the service account key.
@@ -36,7 +36,7 @@ Connect your own Google chatbot to your WhatsApp numbers in AdsEra. Customer mes
 
 ### Conversational Agents (CX)
 
-1. Open **Automations → Apps & integrations → Conversational Agents** and click **Connect**.
+1. Open **Automation → Connected tools → Conversational Agents** and click **Connect**.
 2. Choose the **WhatsApp** number or numbers.
 3. Fill in the **Agent Name**, **Project Id**, **Agent Id** and **Location** (the agent's region, for example `global` or `asia-south1`). In the CX console, open the agent's menu (three dots) and click **Copy name**. The copied name contains the project, location and agent ID.
 4. **Upload JSON file**: the service account key. If access is denied, add the service account's email under the agent's access control in the CX console.
@@ -61,6 +61,6 @@ You can edit a connection later to change the numbers, upload a new JSON key or 
 
 ## Removing the integration
 
-Open **Automations → Apps & integrations → Dialogflow** (or **Conversational Agents**), open the menu on the connection card and choose **Delete**. The WhatsApp numbers stop sending messages to the bot.
+Open **Automation → Connected tools → Dialogflow** (or **Conversational Agents**), open the menu on the connection card and choose **Delete**. The WhatsApp numbers stop sending messages to the bot.
 
 To revoke access completely, delete the service account key in Google Cloud Console under **IAM & Admin → Service Accounts → Keys**.

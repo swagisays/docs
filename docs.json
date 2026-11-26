@@ -23,30 +23,6 @@
             ]
           },
           {
-            "group": "Settings",
-            "pages": [
-              {
-                "group": "Sign in",
-                "pages": [
-                  "help/account/login",
-                  "help/account/register",
-                  "help/account/forgot"
-                ]
-              },
-              "help/account/account",
-              "help/account/company",
-              "help/account/team",
-              "help/account/plan",
-              {
-                "group": "Developers",
-                "pages": [
-                  "help/account/api-keys",
-                  "help/account/webhooks"
-                ]
-              }
-            ]
-          },
-          {
             "group": "Home",
             "pages": [
               "help/dashboard"
@@ -62,90 +38,19 @@
               "help/inbox/contact-panel",
               "help/inbox/errors",
               "help/inbox/payments",
-              "help/email/inbox"
-            ]
-          },
-          {
-            "group": "AI",
-            "pages": [
-              "help/ai/addy",
-              "help/ai/addy-knowledge",
-              "help/ai/addy-selling",
-              "help/ai/closer",
-              "help/ai/closer-goals",
-              "help/ai/ask-ai",
-              "help/ai/credits",
-              "help/ai/connect-ai-apps"
-            ]
-          },
-          {
-            "group": "Sales",
-            "pages": [
-              "help/sales/lead-to-payment",
-              "help/sales/prospects",
-              "help/sales/own-leads",
-              "help/crm/deal",
-              "help/crm/deal-payments",
-              "help/sales/meetings",
-              "help/sales/tasks",
-              "help/crm/pipeline",
-              "help/crm/product",
-              "help/crm/product-types"
-            ]
-          },
-          {
-            "group": "Reports",
-            "pages": [
-              "help/reports/index",
-              "help/reports/create",
-              "help/reports/cards",
-              "help/reports/tables",
-              "help/reports/filters",
-              "help/reports/sharing",
-              "help/reports/faq"
-            ]
-          },
-          {
-            "group": "Automations",
-            "pages": [
+              "help/inbox/calling",
               {
-                "group": "Workflows",
+                "group": "Email",
                 "pages": [
-                  "help/automation/workflows",
-                  "help/automation/triggers",
-                  "help/automation/steps",
-                  "help/automation/test-and-runs",
-                  "help/automation/data-tables"
-                ]
-              },
-              {
-                "group": "Apps & integrations",
-                "pages": [
-                  "help/integrations/marketplace",
-                  "help/integrations/calcom",
-                  "help/integrations/calendly",
-                  "help/integrations/zoom",
-                  "help/integrations/indiamart",
-                  "help/integrations/google-sheets",
-                  "help/integrations/slack",
-                  "help/integrations/zeptomail",
-                  "help/automation/email-accounts",
-                  "help/integrations/dialogflow",
-                  "help/integrations/ai-connectors",
-                  "help/integrations/pabbly"
+                  "help/email/inbox",
+                  "help/email/inbox-and-mailboxes",
+                  "help/email/mailboxes",
+                  "help/email/templates",
+                  "help/email/template-builder",
+                  "help/email/signatures",
+                  "help/email/unsubscribes"
                 ]
               }
-            ]
-          },
-          {
-            "group": "Email",
-            "pages": [
-              "help/email/inbox-and-mailboxes",
-              "help/email/mailboxes",
-              "help/email/templates",
-              "help/email/template-builder",
-              "help/email/signatures",
-              "help/email/unsubscribes"
             ]
           },
           {
@@ -161,9 +66,27 @@
               "help/audiance/file",
               "help/audiance/copy",
               "help/audiance/google-sheets",
+              "help/audiance/lead-sources",
               "help/audiance/attribute",
               "help/audiance/label",
               "help/sales/forms"
+            ]
+          },
+          {
+            "group": "Sales",
+            "pages": [
+              "help/sales/lead-to-payment",
+              "help/sales/prospects",
+              "help/sales/own-leads",
+              "help/crm/deal",
+              "help/crm/deal-payments",
+              "help/sales/meetings",
+              "help/sales/tasks",
+              "help/crm/orders",
+              "help/crm/pipeline",
+              "help/crm/lead-handover",
+              "help/crm/product",
+              "help/crm/product-types"
             ]
           },
           {
@@ -174,6 +97,7 @@
                 "pages": [
                   "help/channel/whatsapp/connect",
                   "help/channel/whatsapp/whatsapp",
+                  "help/channel/whatsapp/primary-number",
                   "help/channel/whatsapp/troubleshooting",
                   "help/channel/whatsapp/opt",
                   "help/channel/whatsapp/calling"
@@ -231,6 +155,46 @@
                   "help/automation/whatsapp-flows",
                   "help/automation/whatsapp-flows-booking"
                 ]
+              },
+              {
+                "group": "Sell on WhatsApp",
+                "pages": [
+                  "help/integrations/whatsapp-pay",
+                  "help/integrations/whatsapp-commerce"
+                ]
+              }
+            ]
+          },
+          {
+            "group": "Automation",
+            "pages": [
+              {
+                "group": "Workflows",
+                "pages": [
+                  "help/automation/workflows",
+                  "help/automation/workflow-templates",
+                  "help/automation/triggers",
+                  "help/automation/steps",
+                  "help/automation/test-and-runs",
+                  "help/automation/data-tables"
+                ]
+              },
+              {
+                "group": "Connected tools",
+                "pages": [
+                  "help/integrations/marketplace",
+                  "help/integrations/calcom",
+                  "help/integrations/calendly",
+                  "help/integrations/zoom",
+                  "help/integrations/indiamart",
+                  "help/integrations/google-sheets",
+                  "help/integrations/slack",
+                  "help/integrations/zeptomail",
+                  "help/automation/email-accounts",
+                  "help/integrations/dialogflow",
+                  "help/integrations/ai-connectors",
+                  "help/integrations/pabbly"
+                ]
               }
             ]
           },
@@ -242,9 +206,56 @@
               "help/ads/results",
               "help/ads/create",
               "help/ads/pages",
-              "help/ads/pixel-events",
-              "help/integrations/whatsapp-commerce",
-              "help/integrations/whatsapp-pay"
+              "help/ads/pixel-events"
+            ]
+          },
+          {
+            "group": "Reports",
+            "pages": [
+              "help/reports/index",
+              "help/reports/create",
+              "help/reports/cards",
+              "help/reports/tables",
+              "help/reports/filters",
+              "help/reports/sharing",
+              "help/reports/faq"
+            ]
+          },
+          {
+            "group": "AI",
+            "pages": [
+              "help/ai/addy",
+              "help/ai/addy-knowledge",
+              "help/ai/addy-selling",
+              "help/ai/closer",
+              "help/ai/closer-goals",
+              "help/ai/ask-ai",
+              "help/ai/credits",
+              "help/ai/connect-ai-apps"
+            ]
+          },
+          {
+            "group": "Settings",
+            "pages": [
+              {
+                "group": "Sign in",
+                "pages": [
+                  "help/account/login",
+                  "help/account/register",
+                  "help/account/forgot"
+                ]
+              },
+              "help/account/account",
+              "help/account/company",
+              "help/account/team",
+              "help/account/plan",
+              {
+                "group": "Developers",
+                "pages": [
+                  "help/account/api-keys",
+                  "help/account/webhooks"
+                ]
+              }
             ]
           }
         ]
