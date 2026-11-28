@@ -19,6 +19,7 @@
               "help/introduction/adsera",
               "help/introduction/getting-around",
               "help/introduction/education-hub",
+              "help/introduction/page-introductions",
               "help/introduction/price"
             ]
           },
@@ -64,6 +65,8 @@
               "help/audiance/opt-in",
               "help/audiance/list",
               "help/audiance/file",
+              "help/audiance/import-with-ai",
+              "help/audiance/merge-duplicates",
               "help/audiance/copy",
               "help/audiance/google-sheets",
               "help/audiance/lead-sources",
@@ -168,34 +171,12 @@
           {
             "group": "Automation",
             "pages": [
-              {
-                "group": "Workflows",
-                "pages": [
-                  "help/automation/workflows",
-                  "help/automation/workflow-templates",
-                  "help/automation/triggers",
-                  "help/automation/steps",
-                  "help/automation/test-and-runs",
-                  "help/automation/data-tables"
-                ]
-              },
-              {
-                "group": "Connected tools",
-                "pages": [
-                  "help/integrations/marketplace",
-                  "help/integrations/calcom",
-                  "help/integrations/calendly",
-                  "help/integrations/zoom",
-                  "help/integrations/indiamart",
-                  "help/integrations/google-sheets",
-                  "help/integrations/slack",
-                  "help/integrations/zeptomail",
-                  "help/automation/email-accounts",
-                  "help/integrations/dialogflow",
-                  "help/integrations/ai-connectors",
-                  "help/integrations/pabbly"
-                ]
-              }
+              "help/automation/workflows",
+              "help/automation/workflow-templates",
+              "help/automation/triggers",
+              "help/automation/steps",
+              "help/automation/test-and-runs",
+              "help/automation/data-tables"
             ]
           },
           {
@@ -232,6 +213,23 @@
               "help/ai/ask-ai",
               "help/ai/credits",
               "help/ai/connect-ai-apps"
+            ]
+          },
+          {
+            "group": "Marketplace",
+            "pages": [
+              "help/integrations/marketplace",
+              "help/integrations/calcom",
+              "help/integrations/calendly",
+              "help/integrations/zoom",
+              "help/integrations/indiamart",
+              "help/integrations/google-sheets",
+              "help/integrations/slack",
+              "help/integrations/zeptomail",
+              "help/automation/email-accounts",
+              "help/integrations/dialogflow",
+              "help/integrations/ai-connectors",
+              "help/integrations/pabbly"
             ]
           },
           {

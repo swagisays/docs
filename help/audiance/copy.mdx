@@ -1,59 +1,50 @@
 ---
 title: 'Paste contacts from a sheet'
-description: 'Copy rows from Excel or Google Sheets and paste them in. Then check them, match the columns and pick a list.'
+description: 'Copy rows from Excel or Google Sheets and paste them in. AdsEra checks them the same way as a file and shows you everything before it saves.'
 icon: 'paste'
 ---
 
-For a short list, pasting is the fastest way in. Copy the rows (with the heading row) from Excel or Google Sheets, paste, and follow four steps: **Paste your contacts → Check them → Match your columns → Pick a list**.
+For a short list, pasting is the fastest way in. Copy the rows from Excel or Google Sheets and paste them. AdsEra then reads them exactly like an uploaded file: it adds country codes, leaves out rows with no phone number or email, joins rows for the same person, suggests what each column is, and finds people you already have. **Nothing is saved until you click Import.**
 
 **Where:** **Contacts → Import contacts → Paste from a sheet**. [Open it →](https://app.adsera.in/dashboard/contact/import/copy-past)
 
-![Paste your contacts.](/images/app/contacts/import-paste.png)
-
-<Warning>
-  **Phone numbers need the country code**, like 919876543210. AdsEra removes +, spaces and dashes and adds 91 to a 10-digit number.
-</Warning>
+![Paste your rows.](/images/app/contacts/import-paste.png)
 
 ## Paste, step by step
 
 <Steps>
-<Step title="Paste your rows">
-Copy the rows from your sheet, including the first row with the column names, and paste them in the big box. Typed by hand? Put commas between the values, one person per line.
-
-**Show an example** shows the layout, and **Copy** copies it:
+<Step title="Paste">
+Copy the rows from your sheet, with the row of column names if you have one, and paste them in the box. Typed by hand? Put commas between the values, one person per line:
 
 ```
-PHONE,FIRSTNAME,LASTNAME,EMAIL,CITY
-919876543210,Anil,Verma,anil@example.com,Pune
-919845011223,Sneha,Rao,sneha@example.com,Mumbai
+Name, Phone, Email
+Anil Verma, 98201 44718, anil@example.com
+Sneha Rao, 98450 11223,
 ```
 
-![An example to copy.](/images/app/contacts/import-paste-example.png)
-
-Click **Next**.
+The box says how many lines you pasted. Pick the **Country for numbers without a code**, keep **Let AI read my columns** ticked if you like, and click **Read my rows**. Reading them doesn't save anything.
 </Step>
-<Step title="Check them">
-You see the rows as AdsEra read them. Something wrong? Click **Back** and fix the paste. Otherwise click **Next**.
+<Step title="Columns, Duplicates, List and labels, Review">
+The same four checks as a file: what each column is, what happens to people you already have, the list and labels, then everything that will happen. See [Import contacts from a file](/help/audiance/file#import-step-by-step).
 
-![Check them.](/images/app/contacts/import-paste-check.png)
+The bar at the bottom always says what an import would do right now, and **Nothing is saved yet**. Click **Import** on **Review**.
 </Step>
-<Step title="Match your columns">Pick the field each column **Saves into**, and what happens to people you already have, exactly as for a file. See [Matching choices](/help/audiance/file#matching-choices). Click **Next**.</Step>
-<Step title="Pick a list and import">Tick a list (or **Create a list**), click **Import**, then confirm with **Upload**.</Step>
 </Steps>
 
 ## Good to know
 
-- The first line names the columns. If it has **PHONE**, **EMAIL**, **FIRSTNAME** or **LASTNAME**, it's read as the heading row; other names (like **CITY**) are kept as they are.
-- Without a heading row, the columns are called FIELD1, FIELD2… and you match them by hand.
-- Each row needs a phone or an email.
+- No row of column names? That's fine: a first line with a phone number or an email is read as a contact, and the columns are called Column A, Column B… Pick what each one is on **Columns**.
+- The new list is called **Pasted contacts** and the date. Change the name on **List and labels**.
+- Each new contact's timeline says **Added by pasting a list**.
+- Up to 20,000 rows at a time. For more, [upload a file](/help/audiance/file).
 
 ## Troubleshooting
 
 | What you see | Why | What to do |
 | --- | --- | --- |
-| Everything is in one column | The values aren't split by commas or tabs. | Copy straight from the sheet, or put commas between values. |
-| "No valid email address or phone number detected in the data." | No row has a valid phone or email. | Check the PHONE and EMAIL columns: digits for phones, a proper email address. |
-| Names like FIELD5 | No heading row. | Add the heading row, or match the columns by hand. |
+| *We couldn't find a phone number or email column* | No column looks like one. | Check the rows have phone numbers or emails. On **Columns**, set **Saves in AdsEra as** to **Phone number** or **Email**. |
+| Everything is in one column | The values aren't split by tabs or commas. | Copy straight from the sheet, or put commas between values. |
+| Fewer contacts than lines | Rows with no phone or email are left out, and the same person twice is joined. | The **Columns** step shows each count and why. |
 
 ## Related
 

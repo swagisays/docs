@@ -4,9 +4,9 @@ description: 'Add, change, resize, reorder, remove and link the cards on a repor
 icon: 'table-cells-large'
 ---
 
-A **card** shows one thing on a report, for example *My daily tasks* or *Deal value by stage*. You change a report’s cards with **Edit layout**, and one card with the **gear** at its top.
+A **card** shows one thing on a report, for example *My daily tasks* or *Deal value by stage*. You move and resize cards right on the report, add and remove them with **Add cards**, and change one card with the **gear** at its top.
 
-**Where to find it:** open a report → **Edit layout** (blue, top right), or the gear on a card.
+**Where to find it:** open a report → drag a card by the dots beside its name, **Add cards** (blue, top right), or the gear on a card.
 
 ## Card types
 
@@ -21,19 +21,51 @@ Each kind of card offers only the types it supports.
 
 ![A report with a numbers card, a table and a chart.](/images/app/reports/report.png)
 
-## Edit layout
+## Move and resize cards
 
-![Edit layout: the Cards tab.](/images/app/reports/edit-layout.png)
+A report is a grid: put any card anywhere and make it the size you want.
 
-Click **Edit layout**. A panel opens on the right with three tabs.
+1. Point at a card. Hold the **dots** to the left of its name (**Drag to move**) and drag it.
+2. While you drag, the empty grid shows behind the cards and a dashed box shows where the card will land. Let go to drop it. Cards below move up to fill any gap.
+3. To resize, drag the card’s **bottom-right corner**: wider, narrower, taller or shorter. What’s inside grows with it: number tiles get bigger, a chart fills the space, a table shows more rows without scrolling.
+
+Each card stops at the smallest size that still shows everything it holds, so you can’t squeeze it until it breaks:
+
+| Card | Smallest size |
+| --- | --- |
+| **Numbers**, one tile | A quarter of the width, three rows tall. |
+| **Numbers**, two or more tiles | Half the width (two tiles side by side), and tall enough for every line of tiles. |
+| **Chart** | A third of the width, four rows tall. |
+| **Table** | Five twelfths of the width, five rows tall (a few rows and the page controls). |
+| **Summary** | A quarter of the width, four rows tall. |
+
+On a narrow card, a long name is cut with **…** (point at it to read it all) and buttons like **Open Deals** show just their icon.
+
+![Dragging a card: the empty grid and where it will land.](/images/app/reports/report-drag.png)
+
+![Resizing a card from its corner.](/images/app/reports/report-resize.png)
+
+It saves as you let go: the top of the report says **Saving…**, then **All changes saved**. On a phone, cards stack one under another in the same order.
+
+Team members who can only read a report don’t see the dots or the corner.
+
+## Add cards
+
+Click **Add cards**. A panel opens on the right with three tabs.
 
 | Tab | What you do there |
 | --- | --- |
-| **Cards** | Every card in order. Drag by the handle to move; the box sets the **width** (**One third**, **Half**, **Two thirds**, **Full width**); the gear opens the card’s settings; the bin (**Remove card**) takes it off after you confirm. **Reset all reports to the starting layout** is at the bottom. |
-| **Add a card** | Every card you can add (below), and **New report from a template**. |
+| **Add a card** | Every card you can add (below), and **New report from a template**. It opens on this tab. |
+| **Cards** | Every card in order. The box sets the **width**; the gear opens the card’s settings; the bin (**Remove card**) takes it off after you confirm. **Reset all reports to the starting layout** is at the bottom. |
 | **Links** | Make one card filter another (below). |
 
+![Add cards: the Cards tab.](/images/app/reports/edit-layout.png)
+
 Changes save as you make them.
+
+## Put a card on Home
+
+The **pin** at the top of a card puts it on your Home page. It turns blue while it’s there, and it stays in step with the report. Click it again to take it off. See [Your Home page](/help/dashboard#arrange-your-home).
 
 ### Add a card
 
@@ -105,7 +137,7 @@ Pick a row in one card and another card shows only its records: pick a segment, 
 
 ![Links: connect two cards.](/images/app/reports/links.png)
 
-1. **Edit layout → Links**.
+1. **Add cards → Links**.
 2. Under **When a row is picked in…**, choose the card you’ll pick from, then the card it should filter.
 3. Click **Connect**.
 
@@ -124,7 +156,7 @@ The first card then says **Drives a card**. Click a row in it to filter the othe
 
 ## Start again
 
-**Edit layout → Cards → Reset all reports to the starting layout** replaces every report with Sales, WhatsApp and Plan & billing. It asks first and can’t be undone.
+**Add cards → Cards → Reset all reports to the starting layout** replaces every report with Sales, WhatsApp and Plan & billing. It asks first and can’t be undone.
 
 ![Reset all reports?](/images/app/reports/reset.png)
 

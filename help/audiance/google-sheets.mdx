@@ -1,51 +1,56 @@
 ---
 title: 'Import contacts from Google Sheets'
-description: 'Bring in the rows of a Google Sheet you connected. Everyone lands in a list named after the sheet and tab.'
+description: 'Pick a tab of a Google Sheet you connected. AdsEra checks it the same way as a file and shows you everything before it saves.'
 icon: 'table'
 ---
 
-If your leads live in a Google Sheet (say, from an expo or a website form), you can bring them in without downloading a file. Each import reads every row of one tab; run it again later to bring in new rows.
+If your leads live in a Google Sheet (say, from an expo or a website form), bring them in without downloading a file. AdsEra reads every row of one tab and checks it exactly like an uploaded file: it adds country codes, leaves out rows with no phone number or email, joins rows for the same person, suggests what each column is, and finds people you already have. **Nothing is saved until you click Import.**
 
 **Where:** **Contacts → Import contacts → From Google Sheets**. [Open it →](https://app.adsera.in/dashboard/contact/import/google-sheets)
 
-![Import from Google Sheets.](/images/app/contacts/import-gsheet.png)
+![Pick the sheet.](/images/app/contacts/import-gsheet.png)
 
-## Before you start: connect the sheet
+## Before you start: connect Google Sheets
 
-The sheet must be connected first, with its columns picked:
+You do this once:
 
-1. Open **Automation → Connected tools → Google Sheets** and connect your Google account.
-2. Add the sheet, and for each tab pick the **Mobile Number Column (For WhatsApp)**, the **Email column (optional)** and which column goes into which field.
+1. Open **Marketplace → Google Sheets** and connect your Google account.
+2. Add the sheets you want to import from.
 
-No account connected yet? The import page says **No Google account is connected yet** with a **Connect Google Sheets** button.
+No account connected yet? The import page shows **Connect your Google account first** with a **Connect Google Sheets** button.
 
 ![No Google account connected yet.](/images/app/contacts/import-gsheet-empty.png)
 
 ## Import, step by step
 
 <Steps>
-<Step title="Pick the Google account">The account you connected.</Step>
-<Step title="Pick the Sheet and the Tab">Only sheets added in the connection show here.</Step>
-<Step title="Check Columns it reads">The **Phone** and **Email** columns. To change them, open the Google Sheets connection.</Step>
-<Step title="Click Import contacts">When it finishes you see "Imported N contacts".</Step>
+<Step title="Pick a sheet">
+Pick the **Google account**, the **Sheet** and the **Tab**. Only sheets you added show here: **Add it in Google Sheets settings** adds another. The tab's first row should be the column names.
+
+Pick the **Country for numbers without a code**, keep **Let AI read my columns** ticked if you like, and click **Read the sheet**. Reading it doesn't save anything.
+</Step>
+<Step title="Columns, Duplicates, List and labels, Review">
+The same four checks as a file: what each column is, what happens to people you already have, the list and labels, then everything that will happen. See [Import contacts from a file](/help/audiance/file#import-step-by-step).
+
+The bar at the bottom always says what an import would do right now, and **Nothing is saved yet**. Click **Import** on **Review**.
+</Step>
 </Steps>
 
-## What happens
+## Good to know
 
-- Every row with a phone number or an email becomes a contact. Rows with neither are skipped.
-- Phone numbers are cleaned (+, spaces and dashes removed). Put the country code in the sheet: unlike a file import, 91 is **not** added for you here.
-- People you already have (same phone, else same email) are **updated**: the sheet's values replace theirs, and a blank cell never wipes what they have.
-- Everyone joins a list named **"(sheet) - (tab)"**, for example "Expo leads 2026 - Day 1" in the folder **Google Sheets** (made the first time).
-- New rows added to the sheet later come in when you run the import again.
+- The new list is named after the sheet and tab, for example **Expo leads - Sheet1 import**. Change the name on **List and labels**.
+- Each new contact's timeline says **Added from Google Sheets** with the sheet and tab.
+- This brings in the rows that are in the tab now. To bring in rows added later, import the tab again: people you already have are updated, never added twice.
+- AdsEra only reads the sheet. Up to 20,000 rows at a time.
 
 ## Troubleshooting
 
 | What you see | Why | What to do |
 | --- | --- | --- |
-| "No data found in Google Sheet Tab: …" | The tab has no rows under the heading row. | Pick the right tab. |
-| "Google Account not connected" | The connection was removed or expired. | Connect it again in Automation → Connected tools → Google Sheets. |
-| Contacts without names | The name columns aren't matched to fields in the connection. | Match them in the Google Sheets connection, then import again. |
-| **Import contacts** stays grey | No tab picked. | Pick the account, sheet and tab. |
+| *That Google account isn't connected any more* | The connection was removed or expired. | Connect it again in **Marketplace → Google Sheets**. |
+| *Google Sheets didn't let AdsEra read that tab* | The sheet was deleted, or the Google account can't open it any more. | Open the sheet in Google with that account, then try again. |
+| *The sheet is empty* | The tab has no rows. | Pick the right tab. |
+| **Read the sheet** stays grey | No tab picked. | Pick the account, sheet and tab. |
 
 ## Related
 

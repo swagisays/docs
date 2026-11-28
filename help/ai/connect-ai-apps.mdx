@@ -7,7 +7,7 @@ icon: 'plug-circle-bolt'
 AdsEra has an **MCP server**. Connect it to an AI app you already use (Claude, ChatGPT, Cursor or Claude Code) and that app can read and work in your AdsEra account with your permissions. For example: *"Show me my AdsEra account overview"*, *"Which campaigns did best this month?"*, *"Build a flow that welcomes new leads"* or *"Who should I call today?"* (from your [Prospects](/help/sales/prospects) queue).
 
 <Note>
-  The MCP server needs an active **paid plan**. On a free or expired plan, AI apps get "AI connectors need a paid plan" until you [upgrade](/help/introduction/price).
+  The MCP server needs an active **paid plan**. On a free or expired plan, AI apps get "The AdsEra plugin (MCP) needs a paid plan" until you [upgrade](/help/introduction/price).
 </Note>
 
 Open **Settings → AI access** to get started. The page calls the server URL **AdsEra link for AI apps (server URL)**; copy it with the button next to it:
@@ -23,16 +23,16 @@ https://app.adsera.in/mcp
 
 <Tabs>
 <Tab title="Claude">
-1. In Claude (claude.ai or the desktop app), open **Settings → Connectors**.
-2. Choose **Add custom connector**, name it **AdsEra** and paste the server URL.
+1. In Claude (claude.ai or the desktop app), open **Customize → Plugins** (called **Connectors** in some versions).
+2. Click **Add → Custom → Web** (older versions: **Add custom connector**), name it **AdsEra** and paste the server URL.
 3. Click **Connect**, sign in to AdsEra if asked, and press **Allow**.
-4. In a chat, enable the AdsEra connector and ask, for example, *"Show me my AdsEra account overview"*.
+4. In a chat, turn on the AdsEra plugin from the **+** menu and ask, for example, *"Show me my AdsEra account overview"*.
 </Tab>
 <Tab title="ChatGPT">
-1. In ChatGPT, open **Settings → Apps & Connectors** and turn on **developer mode** under **Advanced settings**.
-2. Create a connector: name it **AdsEra**, paste the server URL and choose **OAuth** authentication.
+1. In ChatGPT on the web, open **Settings → Plugins**. (Older versions: **Apps & Connectors**, with **developer mode** turned on under **Advanced settings**.)
+2. Add a custom MCP server: name it **AdsEra**, paste the server URL and choose **OAuth** for sign-in.
 3. Sign in to AdsEra when asked and press **Allow**.
-4. Pick the AdsEra connector in a new chat.
+4. In a new chat, turn on the AdsEra plugin.
 </Tab>
 <Tab title="Cursor">
 Open **Cursor Settings → MCP → Add new MCP server**, or add this to `~/.cursor/mcp.json`:

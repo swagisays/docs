@@ -1,90 +1,108 @@
 ---
 title: 'Import contacts from a file'
-description: 'Upload an Excel or CSV file, match its columns to your fields, choose what happens to people you already have, and put everyone in a list.'
+description: 'Upload an Excel or CSV file as it is. AdsEra adds country codes, leaves out rows with no phone or email, joins rows for the same person, suggests what each column is, finds people you already have, and asks before it creates anything.'
 icon: 'file-import'
 ---
 
-Have your leads in Excel? Upload the file and AdsEra adds everyone as contacts in three steps: **Upload your file → Match your columns → Pick a list**.
+Have your leads in Excel? Upload the file as it is: you don't need to clean it first. AdsEra reads every row, fixes what it can, suggests what each column is, and shows you everything before it imports. **Nothing is created until you click Import.**
 
 **Where:** **Contacts → Import contacts → Upload a file**. [Open it →](https://app.adsera.in/dashboard/contact/import/option)
 
 ![The three ways to import.](/images/app/contacts/import-option.png)
 
+## What AdsEra does for you
+
+| Without you doing it | What happens |
+| --- | --- |
+| **Country codes** | A number without one gets the code you pick (India by default): *98201 44718* becomes *+91 98201 44718*. +, spaces and dashes are removed. |
+| **Rows with no phone or email** | Left out, and listed with the reason, so you can fix them in your file. |
+| **The same person twice in the file** | Rows with the same phone number or email become one contact; later rows fill in what the first is missing. |
+| **People already in AdsEra** | Found by phone number (with or without the country code) or email, and never added twice. You choose what happens to them. |
+| **What each column is** | Matched to a field you have, even with a different name (*Location* → **CITY**), or proposed as a new field with the right type: Text, Number, Date, One choice or Many choices. Columns of tags become labels; row numbers are left out. |
+
+Reading the columns with **AI** uses a few AI credits. Untick **Let AI read my columns** and AdsEra matches columns by their names only, for free. With no AI credits left, the option is switched off for you (with **Top up AI credits**) and everything else works the same.
+
+Prefer ChatGPT or Claude? See [Import with ChatGPT or Claude](/help/audiance/import-with-ai).
+
 <Warning>
-  **Phone numbers need the country code**, like **91 98765 43210**. AdsEra removes +, spaces and dashes for you, and adds 91 to a 10-digit number that has no code. Only import people who agreed to hear from you: messaging people who never asked can get your WhatsApp number limited.
+  Only import people who agreed to hear from you. Messaging people who never asked can get your WhatsApp number limited.
 </Warning>
-
-## Before you start
-
-- **One person per row**, with the column names in the first row (Phone, First name, City…).
-- Each row needs a **phone number** or an **email**. Rows with neither are skipped.
-- Want to filter by an amount or a date later (like Budget or Site visit date)? Create that field as **Number** or **Date** in [Fields](/help/audiance/attribute) **first**. A column you don't match to a field becomes a new **Text** field, and a field's type can't be changed later.
-- Make the list you want them in (or make it on the last step).
-
-**Download sample file** on the upload step gives you a sheet set out the right way.
 
 ## Import, step by step
 
 <Steps>
-<Step title="Pick Upload a file">On **Import contacts**, click **Upload a file**.</Step>
-<Step title="Upload your file">
-Drop the file on the box, or click it to pick one. Excel (.xlsx, .xls) or CSV. Click **Next**.
+<Step title="Upload">
+Drop your .xlsx, .xls or .csv file on the box. Pick the **Country for numbers without a code**, keep **Let AI read my columns** ticked if you want, and click **Read my file**. Reading the file doesn't save anything.
+
+From here on, the bar at the bottom of the page always says what an import would do right now (*10 new contacts · 2 updated · 1 row left out*) and **Nothing is saved yet**, until you click **Import**.
 
 ![Upload your file.](/images/app/contacts/import-upload.png)
 </Step>
-<Step title="Match your columns">
-Each row is a column of your file. Under **Saves into**, pick the field it goes into. A green tick means it's matched; a blue plus means it will become a new field with the column's name. One column must be **Phone** or **Email**.
+<Step title="Columns">
+At the top, in plain words: how many rows your file has and how many contacts they become, which rows were joined (the same person twice), which were left out (open **Which rows are left out, and why**), how many numbers got a country code, and how many people you already have.
 
-![Match your columns.](/images/app/contacts/import-map.png)
+On the right, **How row 2 will be saved** shows one row of your file as the contact it becomes: name, phone number, email, fields and labels. Use the arrows, or click a row in **Your file** below it, to see another row. It changes as soon as you change a column, so you can see what your choice does.
+
+For each column check **Saves in AdsEra as**:
+
+| Saves in AdsEra as | What happens |
+| --- | --- |
+| **Phone number** / **Email** | One of them is needed: every contact has a phone number or an email. |
+| **First name**, **Last name**, **Full name** | A full name is split into first and last name. |
+| **Labels** | Each value becomes a label on that person (*VIP, Hot lead* gives two labels). |
+| One of **Your fields** | The value goes into that field (City, Budget…). |
+| **A new field** | Give it a name and a type. A date column becomes a **Date** field, an amount a **Number** field, a few repeated values **One choice**, several per cell **Many choices**. |
+| **Don't import** | The column is left out. |
+
+A sparkle next to a suggestion means AI made it. Change anything that's wrong, then click **Next: Duplicates**.
+
+![What each column is, with your file on the right.](/images/app/contacts/import-map.png)
 </Step>
-<Step title="Choose what happens to people you already have">Under **If the contact is already in AdsEra**, pick for each column (table below). Click **Next**.</Step>
-<Step title="Put them in a list">
-Tick one or more lists. No list yet? Click **Create a list**. **Folder** narrows the lists shown. Click **Import**.
+<Step title="Duplicates">
+People in your file who are already in AdsEra (the same phone number or email). Choose for everyone, then change it for one person if you like:
 
-![Put them in a list.](/images/app/contacts/import-list.png)
+| Choice | What happens to that person |
+| --- | --- |
+| **Fill in what's missing** (recommended) | What's saved stays; details the file has and the contact doesn't are added. |
+| **Replace with the file** | The file's values replace what's saved. Chats, deals and notes stay. |
+| **Leave them as they are** | Nothing changes for them. |
+
+Whichever you pick, they join the list and get the labels you choose next, and they're never added twice. The example contact on the **Review** step says when that row is someone you already have.
+
+![People you already have.](/images/app/contacts/import-duplicates.png)
 </Step>
-<Step title="Confirm">
-Click **Upload** in **Import this file?**. You go back to All contacts while they're added.
+<Step title="List and labels">
+Add everyone to **A new list** (recommended: it's named after your file, and lets you find everyone this import added), **A list I have**, or **No list**. Labels are optional: pick labels for everyone, or type a new one and press Enter. Values from a labels column are shown too.
 
-![Confirm the import.](/images/app/contacts/import-confirm.png)
+![A list and labels.](/images/app/contacts/import-list.png)
+</Step>
+<Step title="Review and import">
+**When you click Import** lists everything that will happen: new contacts, people updated, new fields and labels, the list, rows left out. Next to it, the example contact now has its labels and list too. Nothing is sent to anyone. Click **Import**.
+
+![Review, then import.](/images/app/contacts/import-review.png)
 </Step>
 </Steps>
 
-## Matching choices
+**Your contacts are saved** then says what was done: new contacts, people updated, rows left out, new fields and labels, and the list everyone is in.
 
-| Saves into | What happens |
-| --- | --- |
-| **Phone** | The WhatsApp number. Cleaned and given 91 if it has 10 digits. |
-| **Email** | Their email (saved in small letters). |
-| One of **Your fields** | The value goes into that field (City, Budget…). |
-| **New field "COLUMN"** (nothing picked) | A new Text field is made with the column's name. |
-
-Columns named like a field match by themselves: **First name**, **FIRST_NAME** and **firstname** all match **First name**.
-
-| If the contact is already in AdsEra | What happens to that person |
-| --- | --- |
-| **Keep what they have** | Their value stays. A field they don't have yet is filled. |
-| **Replace with the file's value** | The file's value replaces theirs. |
-| **Fill it only if it's empty** | Only a blank value is filled. |
-
-A contact "already in AdsEra" has the same phone number or email. They're updated, never added twice, and join the lists you ticked. The same person twice in your file is merged into one.
+![The import is done.](/images/app/contacts/import-done.png)
 
 ## After you import
 
-- Small files are done in seconds; a file with **10,000 or more** rows takes about **5 to 10 minutes**. Refresh **All contacts** to see them.
-- Everyone joins the lists you ticked. Find them with **Contacts → Lists**, or filter **List is …** on All contacts.
+- Each new contact's **timeline** starts with *Imported from a file* and the file's name, so you always know where someone came from. People who were updated show *Updated from the import of …*.
+- Find everyone in their list: **Contacts → Lists**, or filter **List is …** on All contacts.
 - To check a column came in, show it in **Edit columns**.
 
 ## Troubleshooting
 
 | What you see | Why | What to do |
 | --- | --- | --- |
-| **Next** stays grey | No file yet, or it couldn't be read. | Use .xlsx, .xls or .csv with the column names in the first row. |
-| **Import** stays grey | No list ticked. | Tick a list, or **Create a list**. |
-| Fewer contacts than rows | Rows without a phone or email are skipped; repeated people are merged; people you already have are updated. | Check those rows in your file. |
-| WhatsApp messages fail for some | A number without the right country code (for example a 10-digit number from another country). | Put the country code in the file and import again with **Replace with the file's value** on Phone. |
-| Budget can't be filtered by "more than" | The column became a Text field. | Make a **Number** field, import again and pick it under **Saves into**. |
-| New fields named in capitals (CITY) | New fields take the column name. | That's fine; they show as "City" on contacts. |
+| *We couldn't find a phone number or email column* | No column looks like one. | Check your file has a phone or email column, then on **Columns** set **Saves as** to **Phone number** or **Email**. |
+| **Let AI read my columns** is greyed out | You have no AI credits left. | Columns are matched by name: check them. Top up in **AI → AI credits** to use AI.  |
+| Fewer contacts than rows | Rows with no phone or email are left out; the same person twice is joined; people you already have are updated, not added. | The **Columns** step shows each count and why. |
+| The import stopped with an error | The connection dropped while saving. Some contacts may be saved. | Import the same file again: people already saved are found by phone number or email and not added twice. |
+| A number came in with the wrong country code | It had no code, and the country you picked was different. | Put the code in the file (for example +971) and import again with **Replace with the file**. |
+| Budget can't be filtered by "more than" | The column became a Text field. | On **Columns**, make it a new field of type **Number**, or pick your Number field. |
 
 ## FAQ
 
@@ -92,11 +110,14 @@ A contact "already in AdsEra" has the same phone number or email. They're update
   <Accordion title="Can I undo an import?">
     No. Import into a new list so you can find everyone it added (tick them all and delete if you need to).
   </Accordion>
-  <Accordion title="Can I add a label during the import?">
-    Not during the import. Afterwards, filter **List is** (your list), click **Select all**, then **Add labels**.
+  <Accordion title="Does AdsEra create fields or labels without asking?">
+    No. It suggests them; the **Review** step lists every new field and label, and they're made only when you click **Import**.
+  </Accordion>
+  <Accordion title="How many AI credits does it use?">
+    A few for each file: AI reads the column names and a handful of values per column, not every row.
   </Accordion>
   <Accordion title="Is there a size limit?">
-    Very big files work but take longer (about 5 to 10 minutes for 10,000 rows). Split huge files into a few.
+    Up to 20,000 rows and 60 columns per file. Split bigger files.
   </Accordion>
   <Accordion title="Do imported people get a WhatsApp message?">
     No. Importing never sends anything. You choose when to send a broadcast.
@@ -106,8 +127,8 @@ A contact "already in AdsEra" has the same phone number or email. They're update
 ## Related
 
 <CardGroup cols={2}>
+  <Card title="Find duplicates and merge" icon="code-merge" href="/help/audiance/merge-duplicates" />
   <Card title="Paste contacts" icon="paste" href="/help/audiance/copy" />
   <Card title="Import from Google Sheets" icon="table" href="/help/audiance/google-sheets" />
   <Card title="Fields" icon="table-list" href="/help/audiance/attribute" />
-  <Card title="Lists and folders" icon="list" href="/help/audiance/list" />
 </CardGroup>

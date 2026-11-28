@@ -1,71 +1,57 @@
 ---
 title: 'Make a report'
-description: 'New report walks you through 4 steps: name and purpose, start from, add cards, layout and sharing. Nothing is saved until you click Create report.'
+description: 'Start a report empty or from one of 8 templates, keep the cards you want, name it and choose who sees it. Then drag and resize its cards.'
 icon: 'wand-magic-sparkles'
 ---
 
-**New report** builds a report in four short steps. Start empty and pick each card, or start from a ready-made set of cards and change what you like. Nothing is saved until you click **Create report**, so **Cancel** at any point leaves nothing behind.
+**New report** opens a page of templates. Start with an empty report and pick every card yourself, or start from a template and keep only the cards you want. Nothing is saved until you click **Create report**, so **Cancel** at any point leaves nothing behind.
 
 **Where to find it:** **Reports** on the icon rail → **New report** (in the side menu, or the blue button on **All reports**).
 
-![Step 1 of New report: name and purpose.](/images/app/reports/new-1.png)
+![New report: start from scratch or from a template.](/images/app/reports/new-gallery.png)
 
 <Steps>
-  <Step title="Name and purpose">
+  <Step title="Pick how to start">
+    - **Empty report**: you name it, then add every card yourself.
+    - **A template**: each one shows a small picture of its cards, how many cards it has and who it’s for. Click one.
+
+    | Template | Its cards | Who it’s for |
+    | --- | --- | --- |
+    | **Sales pipeline** | Pipeline at a glance (numbers), Deal value by stage, Revenue trend, Deals, Tasks on the selected deal (linked to Deals). | Business owners, sales managers |
+    | **WhatsApp operations** | Connected numbers, Chats needing attention, Template approvals, Call outcomes. | Support and chat teams, business owners |
+    | **Meta ads performance** | Ad spend & results, Spend vs conversations, Spend by campaign, Incoming leads. Needs a connected ad account. | Marketing managers, business owners |
+    | **Audience growth** | Audience (numbers), Contact growth, Lists, Contacts on the selected list (linked to Lists). | Marketing managers |
+    | **AI agent performance** | AI in chats (chats Addy answered, replies it sent), AI on calls, Calls: AI vs your team, Messages sent over time. | Business owners, support and chat teams |
+    | **Team activity** | Tasks at a glance, Tasks by team member, Tasks completed over time, Deal value by owner, Open tasks. | Sales managers, business owners |
+    | **Lead sources** | Leads at a glance, Leads by source, Leads over time, Contacts added over time, Latest leads. | Marketing managers, business owners |
+    | **WhatsApp calling** | Calls at a glance, Calls by outcome, Calls over time, Recent calls. | Sales teams, support and chat teams |
+
+    **Some cards left out** on a template means a few of its cards are about parts of AdsEra your role can’t open: they won’t be added.
+  </Step>
+  <Step title="Keep the cards you want (templates)">
+    A panel opens on the right with what the template is for, **Who it’s for** and **Cards in this report**. Every card is ticked: untick the ones you don’t want, then click **Next**.
+
+    ![A template’s cards, ready to untick.](/images/app/reports/new-template.png)
+  </Step>
+  <Step title="Name it and choose who sees it">
     | Field | What it does | Example | Required? |
     | --- | --- | --- | --- |
-    | **Report name** | The name in the side menu and at the top of the report. Up to 60 letters. Must differ from your other reports. | Monday meeting | Yes |
-    | **Description** | One line on what it’s for, shown under the name. Up to 300 letters. | Deals and follow-ups for the Monday team meeting | No |
-    | **Who can see it** | **Only me**, or **My team**: teammates can read it and add a copy to their own reports; only you can change it. | Only me | Yes (Only me is picked) |
+    | **Report name** | The name in the side menu and at the top of the report. Up to 60 letters. Must differ from your other reports. A template fills in its own name. | Monday meeting | Yes |
+    | **Who can see it?** | **Only me**, or **My team can view it**: teammates can read it and add a copy to their own reports; only you can change it. | Only me | Yes (Only me is picked) |
 
-    Click **Next: Start from**. If something is missing it says so in red, like *Give your report a name.*
+    ![Name the report and choose who can see it.](/images/app/reports/new-name.png)
 
-    ![Step 1 stops until the report has a name.](/images/app/reports/new-error.png)
-  </Step>
-  <Step title="Start from">
-    Pick **An empty report** (you add every card in the next step) or one of the ready-made sets. Each set shows its cards drawn as wide as they will be.
+    Click **Create report**. If the name is missing or taken it says so in red, like *Give your report a name.*
 
-    ![Step 2: start empty or from a ready-made set.](/images/app/reports/new-2.png)
-
-    | Ready-made set | Its cards |
-    | --- | --- |
-    | **Sales pipeline** | Pipeline at a glance (numbers), Deal value by stage, Revenue trend, Deals, Tasks on the selected deal (linked to Deals). |
-    | **WhatsApp operations** | Connected numbers, Chats needing attention, Template approvals, Call outcomes. |
-    | **Meta ads performance** | Ad spend & results, Spend vs conversations, Spend by campaign, Incoming leads. Needs a connected ad account. |
-    | **Audience growth** | Audience (numbers), Contact growth, Lists, Contacts on the selected list (linked to Lists). |
-
-    **Some cards left out** means a few of its cards are about parts of AdsEra your role can’t open: they won’t be added. Click **Next: Add cards**.
-  </Step>
-  <Step title="Add cards">
-    On the left, search or tap an area (**Contacts**, **Sales**, **WhatsApp**, **Ads**…) and click **Add** on a card. On the right, **Cards in this report** lists what you picked (a ready-made set’s cards are already there).
-
-    ![Step 3: pick cards on the left, your cards on the right.](/images/app/reports/new-3.png)
-
-    - The **gear** changes a card: its name, width, table or chart, columns, dates and filters (the same card editor as on a report, see [Cards](/help/reports/cards)).
-    - The **bin** takes a card out.
-
-    ![Changing a card while making the report.](/images/app/reports/new-3-editor.png)
-
-    A report needs at least one card, and can have up to 16. Click **Next: Layout and sharing**.
-  </Step>
-  <Step title="Layout and sharing">
-    ![Step 4: arrange the cards, pick the dates, share, and check the summary.](/images/app/reports/new-4.png)
-
-    | Setting | What it does |
-    | --- | --- |
-    | **Width** (each card) | **One third**, **Half**, **Two thirds** or **Full width** of the row. Cards sit side by side when they fit. |
-    | **Up / down arrows** | Move a card earlier or later. **How it will look** shows the layout. |
-    | **Report dates** | **Each card’s own dates**, or **Today**, **Last 7 days**, **Last 30 days**, **Last 90 days** for every card. You can change it on the report any time. |
-    | **Share with my team** | Same as **My team** in step 1. |
-    | **Make it my default report** | It opens first and is first in the side menu and on Home. |
-
-    Check the **Summary**, then click **Create report**.
+    ![Create report stops until the report has a name.](/images/app/reports/new-error.png)
   </Step>
 </Steps>
 
 ## What happens after you click Create report
 
-The report is saved, opens straight away and shows in the side menu under **My reports** (first, if you made it your default). If you shared it, your team sees it under **Shared with me**. Change anything later with **Edit layout** or the **⋮** menu.
+The report is saved, opens straight away and shows in the side menu under **My reports**. If you chose **My team can view it**, your team sees it under **Shared with me**. An empty report opens with the card picker ready, so you can add its first cards.
+
+Then arrange it: drag a card by the dots beside its name, resize it from its bottom-right corner. See [Move and resize cards](/help/reports/cards#move-and-resize-cards). Pick **Report dates** and set it as your default from the report itself.
 
 If the report was made but one setting didn’t save (for example sharing, on a bad connection), a yellow message says so: open the report and set it again.
 
@@ -73,30 +59,29 @@ If the report was made but one setting didn’t save (for example sharing, on a 
 
 - **Duplicate** one of your reports: **⋮ → Duplicate**. See [Sharing and organising](/help/reports/sharing).
 - **Add a copy** of a teammate’s report: open it under **Shared with me** and click **Add a copy to my reports**.
-- **From a template inside a report**: **Edit layout → Add a card → New report from a template** adds a whole ready-made report.
+- **From a template inside a report**: **Add cards → Add a card → New report from a template** adds a whole ready-made report.
 - **The first time**: **Use the 3 ready-made reports** adds Sales, WhatsApp and Plan & billing.
 
 ## Troubleshooting
 
 | Message | Why | What to do |
 | --- | --- | --- |
-| *Give your report a name.* | Step 1 has no name. | Type a name. |
+| *Give your report a name.* | The name is empty. | Type a name. |
 | *You already have a report with this name.* | Names must differ. | Add a word, like the month. |
-| *Pick a template, or choose An empty report.* | Step 2 has nothing picked. | Click one of the choices. |
-| *Add at least one card.* | Step 3 is empty. | Click **Add** on a card. |
-| *A report can have up to 16 cards.* | Too many cards. | Take some out, or make a second report. |
+| **Next** is greyed out | Every card of the template is unticked. | Tick at least one card, or start with **Empty report**. |
+| A template is missing | None of its cards are about parts of AdsEra your role can open. | Ask an admin for access to that area. |
 | No **New report** button | Your role can only read reports. | Ask an admin to tick **Make and change reports**. |
 
 ## FAQs
 
 <AccordionGroup>
   <Accordion title="Can I leave half way and come back?">
-    No: nothing is saved until **Create report**. Leaving (or **Cancel**) drops what you picked.
+    No: nothing is saved until **Create report**. Closing the panel (or **Cancel**) drops what you picked.
   </Accordion>
-  <Accordion title="Can I change a ready-made set’s cards?">
-    Yes, in step 3 (gear or bin) or any time later with **Edit layout**.
+  <Accordion title="Can I change a template’s cards later?">
+    Yes. Untick the ones you don’t want before you create it, and later add, change, move, resize or remove any card on the report.
   </Accordion>
-  <Accordion title="Why do I see fewer cards than the set says?">
+  <Accordion title="Why do I see fewer cards than the template says?">
     Cards about parts of AdsEra your role can’t open (or Ads cards before an ad account is connected) are left out.
   </Accordion>
 </AccordionGroup>
@@ -108,6 +93,6 @@ If the report was made but one setting didn’t save (for example sharing, on a 
     All reports and reading a report.
   </Card>
   <Card title="Cards and card types" icon="table-cells-large" href="/help/reports/cards">
-    Every card setting.
+    Every card setting, and moving and resizing cards.
   </Card>
 </CardGroup>
